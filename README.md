@@ -1,4 +1,5 @@
-# nrf24L01+ Radio Library
+# nrf24L01+ Radio Library for AVR Atmega328p Microcontrollers
+## Below are the words of the creator kehribar and will be updated as more is done to make this fork unique
 
 This library is probably not the most efficient way of using the nrf24L01+ modules but probably the most portable and the basic one.
 
