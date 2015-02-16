@@ -18,7 +18,7 @@ At the moment a board with an Atmega328p or Atmega103 is required, but this will
 
 <hr>
 ## UART
-####Uart is an easy to use library implementation for sending/recieving bytes or strings via UART pins. 
+####A library implementation for sending/recieving bytes or strings via UART pins. 
 
 
 Uart is able to take advantage of all modes given by an MCU. Just provide it during initialization.
@@ -55,7 +55,7 @@ int main(void)
 ```
 <hr>
 ## SPI (Almost Working)
-#### An easy and elegant peripheral solution.
+#### A simple and elegant peripheral communication solution.
 
 The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
 
@@ -93,7 +93,7 @@ int main(void){
 ```
 <hr>
 ## NRF24 (Not integreated fully - relies on SPI - don't compile with Cavrn)
-#### Making wireless connectivity as simple and fast as possible.
+#### Making wireless connectivity as fun and fast as possible.
 
 ##THE FOLLOWING STATEMENTS DO NOT ACCURATELY REPRESENT THE WORKING STATE OF THIS MODULE
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
