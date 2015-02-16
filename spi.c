@@ -123,7 +123,7 @@ void spi_init(const bool isMaster,const byte mode,const uint8_t clk)
     break;
   }
     
-  interruptsOn();
+
   return;
 }
 
@@ -156,10 +156,13 @@ void spi_setDataOrder(const bool dord)
 
 void spi_setInterrupts(bool const isInterrupt)
 {
-  if(isInterrupt)
+  if(isInterrupt){
     SPCR |= _BV(SPIE);
-  else
+    interruptsOn();
+  } else {
     SPCR &= ~_BV(SPIE);
+    interruptsOff();
+  }
   return;
 }
 /* send and receive multiple bytes over SPI */
@@ -167,11 +170,15 @@ void spi_multiTransfer(const uint8_t* const dataout,uint8_t* const  datain,const
 {
     uint8_t i;
 
-    for(i=0;i<len;i++)
-    {
-        datain[i] = spi_transfer(dataout[i]);
+    if(dataout){
+      for(i=0;i<len;i++)
+	{
+	  if(datain)
+	    datain[i] = spi_transfer(dataout[i]);
+	  else
+	    spi_transfer(dataout[i]);
+	}
     }
-
     return;
 }
 

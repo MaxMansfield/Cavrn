@@ -61,9 +61,6 @@ void    nrf24_powerDown();
 
 
 /* low level interface ... */
-//byte spi_transfer(const byte tx);
-void    nrf24_transmitSync(const byte* const dataout,const uint8_t len);
-void    nrf24_transferSync(const byte* const dataout,byte* const datain,const uint8_t len);
 void    nrf24_configRegister(const byte  reg, const  byte value);
 void    nrf24_readRegister(const byte reg, byte* const  value, const uint8_t len);
 void    nrf24_writeRegister(const byte reg, const byte* const value, const uint8_t len);
@@ -83,8 +80,8 @@ struct nrf24_t {
   uint8_t (*getStatus)();
   bool    (*rxWaiting)();
 
-  void (*txByte)(const byte* const);
-  void (*rxByte)(byte* const);
+  void (*txData)(const byte* const);
+  void (*rxData)(byte* const);
 
   /* Returns the payload length */
   uint8_t (*paylength)();
@@ -123,8 +120,8 @@ static struct nrf24_t Nrf24 = {
   .getStatus = &nrf24_getStatus,
   .rxWaiting = &nrf24_rxFifoEmpty,
 
-  .txByte= &nrf24_send,
-  .rxByte = &nrf24_getData,
+  .txData= &nrf24_send,
+  .rxData = &nrf24_getData,
 
   /* Returns the payload length */
   .paylength = &nrf24_payload_length,
