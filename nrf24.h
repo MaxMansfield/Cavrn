@@ -11,12 +11,13 @@
 *   http://www.tinkerer.eu/AVRLib/nRF24L01
 * -----------------------------------------------------------------------------
 */
+
 #ifndef NRF24
 #define NRF24
 
 #include "cavrn.h"
+#include "spi.h"
 #include "nRF24L01.h"
-#include <stdint.h>
 
 #define LOW 0
 #define HIGH 1
@@ -57,6 +58,16 @@ uint8_t nrf24_payload_length();
 void    nrf24_powerUpRx();
 void    nrf24_powerUpTx();
 void    nrf24_powerDown();
+
+
+/* -------------------------------------------------------------------------- */
+/* This function will do the following things:
+ *    - Set CE pin output   
+ Other outputs are handled by the SPI library where they should be defined based
+ on the mmcu.
+*/
+/* -------------------------------------------------------------------------- */
+void nrf24_setCE(const byte* const reg);
 
 /* low level interface ... */
 //byte spi_transfer(const byte tx);
@@ -126,19 +137,8 @@ static const struct nrf24_t Nrf24 = {
 
 #define DEBUG_MODE 0
 #if DEBUG_MODE
-/* -------------------------------------------------------------------------- */
-/* You should implement the platform spesific functions in your code */
-/* -------------------------------------------------------------------------- */
 
-/* -------------------------------------------------------------------------- */
-/* In this function you should do the following things:
- *    - Set MISO pin input
- *    - Set MOSI pin output
- *    - Set SCK pin output
- *    - Set CSN pin output
- *    - Set CE pin output     */
-/* -------------------------------------------------------------------------- */
-extern void nrf24_setupPins();
+
 
 /* -------------------------------------------------------------------------- */
 /* nrf24 CE pin control function
