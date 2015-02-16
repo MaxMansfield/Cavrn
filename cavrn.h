@@ -34,6 +34,9 @@ Contributors:
 #define ON  0x01
 #define OFF 0x00
 
+#define HIGH 0xFF
+#define LOW  0x00
+
 #define IN  0x00
 #define OUT 0x01
 
@@ -43,8 +46,7 @@ Contributors:
 #define interruptsOn()   sei()
 #define interruptsOff()  cli()
 
-
-#define  bit(b) (1UL << (b))
+#define  bit(b) (1<< (b))
 #define  bitSet(value, bit) ((value) |=  (bit(bit))
 #define  bitClear(value, bit) ((value) &= ~(bit(bit)))
 
@@ -52,5 +54,9 @@ Contributors:
 typedef uint16_t word;
 typedef uint8_t  byte;
 typedef uint8_t  bool;
+
+
+
+
 
 #endif 

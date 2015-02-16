@@ -13,28 +13,39 @@
 */
 #include "nrf24.h"
 
-uint8_t payload_len;
+
 
 /* init the hardware pins */
 void nrf24_init() 
 {
-    nrf24_setupPins();
-    nrf24_ce_digitalWrite(LOW);
-    nrf24_csn_digitalWrite(HIGH);    
+#if defined(CE_DDR) && defined(CE_PIN)
+
+  Spi.init(true,SPI_MODE2,F_OSC16);
+  
+  // Set CE Low (Active)
+  nrf24_ce_digitalWrite(LOW);
+  
+  // Set CS (SS) High
+  nrf24_csn_digitalWrite(HIGH);
+#else
+#error CE (Chip Enable) has not been defined. define CE_DDR and CE_PIN to compile.
+#endif
+  
 }
+
 
 /* configure the module */
 void nrf24_config(const uint8_t channel, const uint8_t pay_length)
 {
     /* Use static payload length ... */
-    payload_len = pay_length;
+    Nrf24.payload_len = pay_length;
 
     // Set RF channel
     nrf24_configRegister(RF_CH,channel);
 
     // Set length of incoming payload 
     nrf24_configRegister(RX_PW_P0, 0x00); // Auto-ACK pipe ...
-    nrf24_configRegister(RX_PW_P1, payload_len); // Data payload pipe
+    nrf24_configRegister(RX_PW_P1, Nrf24.payload_len); // Data payload pipe
     nrf24_configRegister(RX_PW_P2, 0x00); // Pipe not used 
     nrf24_configRegister(RX_PW_P3, 0x00); // Pipe not used 
     nrf24_configRegister(RX_PW_P4, 0x00); // Pipe not used 
@@ -47,10 +58,10 @@ void nrf24_config(const uint8_t channel, const uint8_t pay_length)
     nrf24_configRegister(CONFIG,nrf24_CONFIG);
 
     // Auto Acknowledgment
-    nrf24_configRegister(EN_AA,(1<<ENAA_P0)|(1<<ENAA_P1)|(0<<ENAA_P2)|(0<<ENAA_P3)|(0<<ENAA_P4)|(0<<ENAA_P5));
+    nrf24_configRegister(EN_AA,_BV(ENAA_P0)|_BV(ENAA_P1)|(0<<ENAA_P2)|(0<<ENAA_P3)|(0<<ENAA_P4)|(0<<ENAA_P5));
 
     // Enable RX addresses
-    nrf24_configRegister(EN_RXADDR,(1<<ERX_P0)|(1<<ERX_P1)|(0<<ERX_P2)|(0<<ERX_P3)|(0<<ERX_P4)|(0<<ERX_P5));
+    nrf24_configRegister(EN_RXADDR,_BV(ERX_P0)|_BV(ERX_P1)|(0<<ERX_P2)|(0<<ERX_P3)|(0<<ERX_P4)|(0<<ERX_P5));
 
     // Auto retransmit delay: 1000 us and Up to 15 retransmit trials
     nrf24_configRegister(SETUP_RETR,(0x04<<ARD)|(0x0F<<ARC));
@@ -73,7 +84,7 @@ void nrf24_rx_address(const uint8_t* const adr)
 /* Returns the payload length */
 uint8_t nrf24_payload_length()
 {
-    return payload_len;
+    return Nrf24.payload_len;
 }
 
 /* Set the TX address */
@@ -93,7 +104,7 @@ uint8_t nrf24_dataReady()
 
     // We can short circuit on RX_DR, but if it's not set, we still need
     // to check the FIFO for any pending packets
-    if ( status & (1 << RX_DR) ) 
+    if ( status & _BV(RX_DR) ) 
     {
         return 1;
     }
@@ -116,7 +127,7 @@ uint8_t nrf24_payloadLength()
 {
     static uint8_t status;
     nrf24_csn_digitalWrite(LOW);
-    spi_transfer(R_RX_PL_WID);
+    Spi.transfer(R_RX_PL_WID);
     status = spi_transfer(0x00);
     nrf24_csn_digitalWrite(HIGH);
     return status;
@@ -129,16 +140,16 @@ void nrf24_getData(uint8_t* const data)
     nrf24_csn_digitalWrite(LOW);                               
 
     /* Send cmd to read rx payload */
-    spi_transfer( R_RX_PAYLOAD );
+    Spi.transfer(R_RX_PAYLOAD);
     
     /* Read payload */
-    nrf24_transferSync(data,data,payload_len);
+    nrf24_transferSync(data,data,Nrf24.payload_len);
     
     /* Pull up chip select */
     nrf24_csn_digitalWrite(HIGH);
 
     /* Reset status register */
-    nrf24_configRegister(STATUS,(1<<RX_DR));   
+    nrf24_configRegister(STATUS,_BV(RX_DR));   
 }
 
 /* Returns the number of retransmissions occured for the last message */
@@ -152,7 +163,7 @@ uint8_t nrf24_retransmissionCount()
 
 // Sends a data package to the default address. Be sure to send the correct
 // amount of bytes as configured as payload on the receiver.
-void nrf24_send(uint8_t* value) 
+void nrf24_send(const uint8_t* const value) 
 {    
     /* Go to Standby-I first */
     nrf24_ce_digitalWrite(LOW);
@@ -179,7 +190,7 @@ void nrf24_send(uint8_t* value)
     spi_transfer(W_TX_PAYLOAD);
 
     /* Write payload */
-    nrf24_transmitSync(value,payload_len);   
+    nrf24_transmitSync(value,Nrf24.payload_len);   
 
     /* Pull up chip select */
     nrf24_csn_digitalWrite(HIGH);
@@ -244,18 +255,18 @@ void nrf24_powerUpRx()
     spi_transfer(FLUSH_RX);
     nrf24_csn_digitalWrite(HIGH);
 
-    nrf24_configRegister(STATUS,(1<<RX_DR)|(1<<TX_DS)|(1<<MAX_RT)); 
+    nrf24_configRegister(STATUS,_BV(RX_DR)|_BV(TX_DS)|_BV(MAX_RT)); 
 
     nrf24_ce_digitalWrite(LOW);    
-    nrf24_configRegister(CONFIG,nrf24_CONFIG|((1<<PWR_UP)|(1<<PRIM_RX)));    
+    nrf24_configRegister(CONFIG,nrf24_CONFIG|(_BV(PWR_UP)|_BV(PRIM_RX)));    
     nrf24_ce_digitalWrite(HIGH);
 }
 
 void nrf24_powerUpTx()
 {
-    nrf24_configRegister(STATUS,(1<<RX_DR)|(1<<TX_DS)|(1<<MAX_RT)); 
+    nrf24_configRegister(STATUS,_BV(RX_DR)|_BV(TX_DS)|_BV(MAX_RT)); 
 
-    nrf24_configRegister(CONFIG,nrf24_CONFIG|((1<<PWR_UP)|(0<<PRIM_RX)));
+    nrf24_configRegister(CONFIG,nrf24_CONFIG|(_BV(PWR_UP)|(0<<PRIM_RX)));
 }
 
 void nrf24_powerDown()
@@ -264,65 +275,6 @@ void nrf24_powerDown()
     nrf24_configRegister(CONFIG,nrf24_CONFIG);
 }
 
-/* software spi routine 
-uint8_t spi_transfer(uint8_t tx)
-{
-    uint8_t i = 0;
-    uint8_t rx = 0;    
-
-    nrf24_sck_digitalWrite(LOW);
-
-    for(i=0;i<8;i++)
-    {
-
-        if(tx & (1<<(7-i)))
-        {
-            nrf24_mosi_digitalWrite(HIGH);            
-        }
-        else
-        {
-            nrf24_mosi_digitalWrite(LOW);
-        }
-
-        nrf24_sck_digitalWrite(HIGH);        
-
-        rx = rx << 1;
-        if(nrf24_miso_digitalRead())
-        {
-            rx |= 0x01;
-        }
-
-        nrf24_sck_digitalWrite(LOW);                
-
-    }
-
-    return rx;
-}
-*/
-
-/* send and receive multiple bytes over SPI */
-void nrf24_transferSync(const uint8_t* const dataout,uint8_t* const  datain,const uint8_t len)
-{
-    uint8_t i;
-
-    for(i=0;i<len;i++)
-    {
-        datain[i] = spi_transfer(dataout[i]);
-    }
-
-}
-
-/* send multiple bytes over SPI */
-void nrf24_transmitSync(const uint8_t* const dataout ,const uint8_t len)
-{
-    uint8_t i;
-    
-    for(i=0;i<len;i++)
-    {
-        spi_transfer(dataout[i]);
-    }
-
-}
 
 /* Clocks only one byte into the given nrf24 register */
 void nrf24_configRegister(const uint8_t reg, const uint8_t value)
@@ -343,7 +295,7 @@ void nrf24_readRegister(const uint8_t reg, uint8_t* const value,const uint8_t le
 }
 
 /* Write to a single register of nrf24 */
-void nrf24_writeRegister(const uint8_t reg,const  uint8_t* const value, cosnt uint8_t len) 
+void nrf24_writeRegister(const uint8_t reg,const  uint8_t* const value, const uint8_t len) 
 {
     nrf24_csn_digitalWrite(LOW);
     spi_transfer(W_REGISTER | (REGISTER_MASK & reg));

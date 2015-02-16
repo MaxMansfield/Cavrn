@@ -59,8 +59,8 @@ Contributors:
 
 //SPE =  Enable
 //MSTR = is Master
-#define ENABLE_MASTER ((1<<SPE) | (1<<MSTR))
-#define ENABLE_SLAVE  ((1<<SPE) & ~(1<<MSTR))
+#define ENABLE_MASTER (_BV(SPE) | _BV(MSTR))
+#define ENABLE_SLAVE  (_BV(SPE) & ~_BV(MSTR))
 
 #else
 #error This MCU does not support SPI from Cavrn. Add proper defines to continue.
@@ -77,21 +77,27 @@ Contributors:
 
 
 void spi_init(const bool isMaster,const byte mode,const uint8_t clk);
+void spi_multiTransfer(const uint8_t* const dataout,uint8_t* const  datain,const uint8_t len);
 uint8_t spi_transfer(uint8_t data);
 void spi_setDataOrder(bool const dord);
+void spi_setInterrupts(bool const isInterrupt);
 void spi_disable();
 
 struct spi_t {
-  void    (*init) (const bool,const byte,const uint8_t); //Initialize SPI
-  uint8_t (*transfer) (uint8_t const);  // Transfer a byte
+  void    (*init) (const bool,const byte,const uint8_t); 
+  uint8_t (*transfer) (uint8_t const);  
+  void    (*multiTransfer)(const uint8_t* const,uint8_t* const,const uint8_t);
   void    (*setDataOrder)(bool const);
+  void    (*setInterrupts)(bool const isInterrupt);
   void    (*disable)();
 };
 
 static struct spi_t Spi = {
   .init = &spi_init,
   .transfer = &spi_transfer,
+  .multiTransfer = &spi_multiTransfer,
   .setDataOrder = &spi_setDataOrder,
+  .setInterrupts = &spi_setInterrupts,
   .disable = &spi_disable
 };
 

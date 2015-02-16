@@ -33,9 +33,9 @@ void uart_init(const byte  mode)
   UBRRL = UBRRL_VALUE;
 
 #if USE_2X 
-  UCSRA |= (1<<U2X);
+  UCSRA |= _BV(U2X);
 #else
-  UCSRA &= ~(1<<U2X);
+  UCSRA &= ~_BV(U2X);
 #endif
 
   // Enable TX and RX
@@ -57,7 +57,7 @@ void uart_init(const byte  mode)
   }
 
   //Set Frame Size to 8 bit
-  UCSRC |= (1<<UCSZ0);
+  UCSRC |= _BV(UCSZ0);
   
   return;
 }
@@ -73,24 +73,24 @@ void uart_init(){
 
 void uart_tx(const byte* const data){
   // Wait for the Data Register empty flag
-  while (!(UCSRA & (1<<UDRE)));
+  while (!(UCSRA & _BV(UDRE)));
   UDR = *data;
 }
 
 uint8_t uart_rx(){
-  while(!((UCSRA) & (1<<RXC)));
+  while(!((UCSRA) & _BV(RXC)));
   return UDR;
 }
 
 char uart_rxchr(){
-  while(!((UCSRA) & (1<<RXC)));
+  while(!((UCSRA) & _BV(RXC)));
   return UDR;
 }
 void uart_txchr (const char* const chr)
 {
   if(chr != NULL){
     // Wait for the Data Register empty flag
-    while (!(UCSRA & (1<<UDRE)));
+    while (!(UCSRA & _BV(UDRE)));
     UDR = *chr;
   }
   return;

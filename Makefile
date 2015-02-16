@@ -8,11 +8,10 @@
 PROJECT = main
 
 ### Source files and search directory
-CSRC    = uart.c spi.c 
+CSRC    = uart.c spi.c nrf24.c
 ASRC    = 
-VPATH   = ./util ..
-DEVICE  = atmega103
-F_OSC   = 6000000UL
+DEVICE  = atmega328p
+F_OSC   = 16000000UL
 BAUD    = 115200
 PORT 	= /dev/ttyACM1
 #PORT   = /dev/tty.usbserial-A900cbrd # Mac style serial port definiton
@@ -20,6 +19,10 @@ PORT 	= /dev/ttyACM1
 #PORT   = COM3 # Windows style serial port definition
 AVRDUDE = avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200 -U flash:w:$(PROJECT).hex
 RESET   = avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200
+
+### Use only with NRF24lo1 libraries
+CE_PIN_DEF = "CE_PIN=PB6"
+CE_DDR_DEF = "CE_DDR=DDRB"
 
 ###############################################################################
 #
@@ -31,7 +34,7 @@ RESET   = avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200
 LIBS	=
 LIBDIRS	=
 INCDIRS	=
-DEFS	= F_CPU=$(F_OSC)
+DEFS	= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF)
 DEFS   += BAUD=$(BAUD)
 
 ADEFS	= F_CPU=$(F_OSC)

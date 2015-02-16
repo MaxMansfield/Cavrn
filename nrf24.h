@@ -15,7 +15,7 @@
 #ifndef NRF24
 #define NRF24
 
-#include "cavrn.h"
+
 #include "spi.h"
 #include "nRF24L01.h"
 
@@ -23,7 +23,7 @@
 #define HIGH 1
 
 #define nrf24_ADDR_LEN 5
-#define nrf24_CONFIG ((1<<EN_CRC)|(0<<CRCO))
+#define nrf24_CONFIG (_BV(EN_CRC)|(0<<CRCO))
 
 #define NRF24_TRANSMISSON_OK 0
 #define NRF24_MESSAGE_LOST   1
@@ -60,18 +60,9 @@ void    nrf24_powerUpTx();
 void    nrf24_powerDown();
 
 
-/* -------------------------------------------------------------------------- */
-/* This function will do the following things:
- *    - Set CE pin output   
- Other outputs are handled by the SPI library where they should be defined based
- on the mmcu.
-*/
-/* -------------------------------------------------------------------------- */
-void nrf24_setCE(const byte* const reg);
-
 /* low level interface ... */
 //byte spi_transfer(const byte tx);
-void    nrf24_transmitSync(byte* const dataout,const uint8_t len);
+void    nrf24_transmitSync(const byte* const dataout,const uint8_t len);
 void    nrf24_transferSync(const byte* const dataout,byte* const datain,const uint8_t len);
 void    nrf24_configRegister(const byte  reg, const  byte value);
 void    nrf24_readRegister(const byte reg, byte* const  value, const uint8_t len);
@@ -84,6 +75,7 @@ struct nrf24_t {
   void (*txAddr)(const byte* const);
   void (*rxAddr)(const byte* const);
   void (*config)(const uint8_t,const uint8_t);
+  
 
   /* state check functions */
   bool    (*dataReady)();
@@ -91,20 +83,34 @@ struct nrf24_t {
   uint8_t (*getStatus)();
   bool    (*rxWaiting)();
 
-  void (*txByte)(const byte* const value);
-  void (*rxByte)(byte* const data);
+  void (*txByte)(const byte* const);
+  void (*rxByte)(byte* const);
 
   /* Returns the payload length */
   uint8_t (*paylength)();
+
+  /* post transmission analysis */
+  uint8_t (*lastTxStatus)();
+  uint8_t (*badTxCount)();
   
   /* power management */
   void    (*powerRx)();
   void    (*powerTx)();
   void    (*powerDown)();
+
+  uint8_t payload_len;
+		 
 };
 
 
-static const struct nrf24_t Nrf24 = {
+
+#define nrf24_ce_digitalWrite(LOW) CE_DDR &= ~_BV(CE_PIN)
+#define nrf24_ce_digitalWrite(HIGH) CE_DDR |= _BV(CE_PIN)
+
+#define nrf24_csn_digitalWrite(HIGH) SPI_DDR |= _BV(SPI_SS)
+#define nrf24_csn_digitalWrite(LOW) SPI_DDR &= ~_BV(SPI_SS)
+
+static struct nrf24_t Nrf24 = {
   /* adjustment functions */
   .init =   &nrf24_init,
   .txAddr = &nrf24_tx_address,
@@ -122,58 +128,17 @@ static const struct nrf24_t Nrf24 = {
 
   /* Returns the payload length */
   .paylength = &nrf24_payload_length,
+
+   /* post transmission analysis */
+  .lastTxStatus = &nrf24_lastMessageStatus,
+  .badTxCount = &nrf24_retransmissionCount,
     
   /* power management */
   .powerRx = &nrf24_powerUpRx,
   .powerTx = &nrf24_powerUpTx,
-  .powerDown = &nrf24_powerDown
+  .powerDown = &nrf24_powerDown,
+
+  .payload_len = 0
 };
-
-
-
-
-
-
-
-#define DEBUG_MODE 0
-#if DEBUG_MODE
-
-
-
-/* -------------------------------------------------------------------------- */
-/* nrf24 CE pin control function
- *    - state:1 => Pin HIGH
- *    - state:0 => Pin LOW     */
-/* -------------------------------------------------------------------------- */
-extern void nrf24_ce_digitalWrite(uint8_t state);
-
-/* -------------------------------------------------------------------------- */
-/* nrf24 CE pin control function
- *    - state:1 => Pin HIGH
- *    - state:0 => Pin LOW     */
-/* -------------------------------------------------------------------------- */
-extern void nrf24_csn_digitalWrite(uint8_t state);
-
-/* -------------------------------------------------------------------------- */
-/* nrf24 SCK pin control function
- *    - state:1 => Pin HIGH
- *    - state:0 => Pin LOW     */
-/* -------------------------------------------------------------------------- */
-extern void nrf24_sck_digitalWrite(uint8_t state);
-
-/* -------------------------------------------------------------------------- */
-/* nrf24 MOSI pin control function
- *    - state:1 => Pin HIGH
- *    - state:0 => Pin LOW     */
-/* -------------------------------------------------------------------------- */
-extern void nrf24_mosi_digitalWrite(uint8_t state);
-
-/* -------------------------------------------------------------------------- */
-/* nrf24 MISO pin read function
-/* - returns: Non-zero if the pin is high */
-/* -------------------------------------------------------------------------- */
-extern uint8_t nrf24_miso_digitalRead();
-#endif //_DEBUG
-#undef DEBUG_MODE
 
 #endif
