@@ -14,6 +14,7 @@
 #ifndef NRF24
 #define NRF24
 
+#include "cavrn.h"
 #include "nRF24L01.h"
 #include <stdint.h>
 
@@ -28,19 +29,19 @@
 
 /* adjustment functions */
 void    nrf24_init();
-void    nrf24_rx_address(uint8_t* adr);
-void    nrf24_tx_address(uint8_t* adr);
-void    nrf24_config(uint8_t channel, uint8_t pay_length);
+void    nrf24_rx_address(const byte* const adr);
+void    nrf24_tx_address(const byte* const adr);
+void    nrf24_config(const uint8_t channel, const uint8_t pay_length);
 
 /* state check functions */
-uint8_t nrf24_dataReady();
-uint8_t nrf24_isSending();
-uint8_t nrf24_getStatus();
-uint8_t nrf24_rxFifoEmpty();
+bool nrf24_dataReady();
+bool nrf24_isSending();
+bool nrf24_getStatus();
+bool nrf24_rxFifoEmpty();
 
 /* core TX / RX functions */
-void    nrf24_send(uint8_t* value);
-void    nrf24_getData(uint8_t* data);
+void    nrf24_send(const byte* const value);
+void    nrf24_getData(byte* const data);
 
 /* use in dynamic length mode */
 uint8_t nrf24_payloadLength();
@@ -58,13 +59,73 @@ void    nrf24_powerUpTx();
 void    nrf24_powerDown();
 
 /* low level interface ... */
-uint8_t spi_transfer(uint8_t tx);
-void    nrf24_transmitSync(uint8_t* dataout,uint8_t len);
-void    nrf24_transferSync(uint8_t* dataout,uint8_t* datain,uint8_t len);
-void    nrf24_configRegister(uint8_t reg, uint8_t value);
-void    nrf24_readRegister(uint8_t reg, uint8_t* value, uint8_t len);
-void    nrf24_writeRegister(uint8_t reg, uint8_t* value, uint8_t len);
+//byte spi_transfer(const byte tx);
+void    nrf24_transmitSync(byte* const dataout,const uint8_t len);
+void    nrf24_transferSync(const byte* const dataout,byte* const datain,const uint8_t len);
+void    nrf24_configRegister(const byte  reg, const  byte value);
+void    nrf24_readRegister(const byte reg, byte* const  value, const uint8_t len);
+void    nrf24_writeRegister(const byte reg, const byte* const value, const uint8_t len);
 
+
+struct nrf24_t {
+  /* adjustment functions */
+  void (*init)();
+  void (*txAddr)(const byte* const);
+  void (*rxAddr)(const byte* const);
+  void (*config)(const uint8_t,const uint8_t);
+
+  /* state check functions */
+  bool    (*dataReady)();
+  bool    (*isSending)();
+  uint8_t (*getStatus)();
+  bool    (*rxWaiting)();
+
+  void (*txByte)(const byte* const value);
+  void (*rxByte)(byte* const data);
+
+  /* Returns the payload length */
+  uint8_t (*paylength)();
+  
+  /* power management */
+  void    (*powerRx)();
+  void    (*powerTx)();
+  void    (*powerDown)();
+};
+
+
+static const struct nrf24_t Nrf24 = {
+  /* adjustment functions */
+  .init =   &nrf24_init,
+  .txAddr = &nrf24_tx_address,
+  .rxAddr = &nrf24_rx_address,
+  .config = &nrf24_config,
+
+  /* state check functions */
+  .dataReady = &nrf24_dataReady,
+  .isSending = &nrf24_isSending,
+  .getStatus = &nrf24_getStatus,
+  .rxWaiting = &nrf24_rxFifoEmpty,
+
+  .txByte= &nrf24_send,
+  .rxByte = &nrf24_getData,
+
+  /* Returns the payload length */
+  .paylength = &nrf24_payload_length,
+    
+  /* power management */
+  .powerRx = &nrf24_powerUpRx,
+  .powerTx = &nrf24_powerUpTx,
+  .powerDown = &nrf24_powerDown
+};
+
+
+
+
+
+
+
+#define DEBUG_MODE 0
+#if DEBUG_MODE
 /* -------------------------------------------------------------------------- */
 /* You should implement the platform spesific functions in your code */
 /* -------------------------------------------------------------------------- */
@@ -112,5 +173,7 @@ extern void nrf24_mosi_digitalWrite(uint8_t state);
 /* - returns: Non-zero if the pin is high */
 /* -------------------------------------------------------------------------- */
 extern uint8_t nrf24_miso_digitalRead();
+#endif //_DEBUG
+#undef DEBUG_MODE
 
 #endif

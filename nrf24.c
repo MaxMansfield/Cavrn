@@ -24,7 +24,7 @@ void nrf24_init()
 }
 
 /* configure the module */
-void nrf24_config(uint8_t channel, uint8_t pay_length)
+void nrf24_config(const uint8_t channel, const uint8_t pay_length)
 {
     /* Use static payload length ... */
     payload_len = pay_length;
@@ -63,7 +63,7 @@ void nrf24_config(uint8_t channel, uint8_t pay_length)
 }
 
 /* Set the RX address */
-void nrf24_rx_address(uint8_t * adr) 
+void nrf24_rx_address(const uint8_t* const adr) 
 {
     nrf24_ce_digitalWrite(LOW);
     nrf24_writeRegister(RX_ADDR_P1,adr,nrf24_ADDR_LEN);
@@ -77,7 +77,7 @@ uint8_t nrf24_payload_length()
 }
 
 /* Set the TX address */
-void nrf24_tx_address(uint8_t* adr)
+void nrf24_tx_address(const uint8_t* const adr)
 {
     /* RX_ADDR_P0 must be set to the sending addr for auto ack to work. */
     nrf24_writeRegister(RX_ADDR_P0,adr,nrf24_ADDR_LEN);
@@ -89,7 +89,7 @@ void nrf24_tx_address(uint8_t* adr)
 uint8_t nrf24_dataReady() 
 {
     // See note in getData() function - just checking RX_DR isn't good enough
-    uint8_t status = nrf24_getStatus();
+    const uint8_t status = nrf24_getStatus();
 
     // We can short circuit on RX_DR, but if it's not set, we still need
     // to check the FIFO for any pending packets
@@ -114,7 +114,7 @@ uint8_t nrf24_rxFifoEmpty()
 /* Returns the length of data waiting in the RX fifo */
 uint8_t nrf24_payloadLength()
 {
-    uint8_t status;
+    static uint8_t status;
     nrf24_csn_digitalWrite(LOW);
     spi_transfer(R_RX_PL_WID);
     status = spi_transfer(0x00);
@@ -123,7 +123,7 @@ uint8_t nrf24_payloadLength()
 }
 
 /* Reads payload bytes into data array */
-void nrf24_getData(uint8_t* data) 
+void nrf24_getData(uint8_t* const data) 
 {
     /* Pull down chip select */
     nrf24_csn_digitalWrite(LOW);                               
@@ -264,7 +264,7 @@ void nrf24_powerDown()
     nrf24_configRegister(CONFIG,nrf24_CONFIG);
 }
 
-/* software spi routine */
+/* software spi routine 
 uint8_t spi_transfer(uint8_t tx)
 {
     uint8_t i = 0;
@@ -298,9 +298,10 @@ uint8_t spi_transfer(uint8_t tx)
 
     return rx;
 }
+*/
 
 /* send and receive multiple bytes over SPI */
-void nrf24_transferSync(uint8_t* dataout,uint8_t* datain,uint8_t len)
+void nrf24_transferSync(const uint8_t* const dataout,uint8_t* const  datain,const uint8_t len)
 {
     uint8_t i;
 
@@ -312,7 +313,7 @@ void nrf24_transferSync(uint8_t* dataout,uint8_t* datain,uint8_t len)
 }
 
 /* send multiple bytes over SPI */
-void nrf24_transmitSync(uint8_t* dataout,uint8_t len)
+void nrf24_transmitSync(const uint8_t* const dataout ,const uint8_t len)
 {
     uint8_t i;
     
@@ -324,7 +325,7 @@ void nrf24_transmitSync(uint8_t* dataout,uint8_t len)
 }
 
 /* Clocks only one byte into the given nrf24 register */
-void nrf24_configRegister(uint8_t reg, uint8_t value)
+void nrf24_configRegister(const uint8_t reg, const uint8_t value)
 {
     nrf24_csn_digitalWrite(LOW);
     spi_transfer(W_REGISTER | (REGISTER_MASK & reg));
@@ -333,7 +334,7 @@ void nrf24_configRegister(uint8_t reg, uint8_t value)
 }
 
 /* Read single register from nrf24 */
-void nrf24_readRegister(uint8_t reg, uint8_t* value, uint8_t len)
+void nrf24_readRegister(const uint8_t reg, uint8_t* const value,const uint8_t len)
 {
     nrf24_csn_digitalWrite(LOW);
     spi_transfer(R_REGISTER | (REGISTER_MASK & reg));
@@ -342,7 +343,7 @@ void nrf24_readRegister(uint8_t reg, uint8_t* value, uint8_t len)
 }
 
 /* Write to a single register of nrf24 */
-void nrf24_writeRegister(uint8_t reg, uint8_t* value, uint8_t len) 
+void nrf24_writeRegister(const uint8_t reg,const  uint8_t* const value, cosnt uint8_t len) 
 {
     nrf24_csn_digitalWrite(LOW);
     spi_transfer(W_REGISTER | (REGISTER_MASK & reg));
