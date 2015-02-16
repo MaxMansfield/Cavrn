@@ -54,8 +54,8 @@ int main(void)
 }
 ```
 <hr>
-## SPI (Almost Working)
-#### A simple and elegant peripheral communication solution.
+## SPI (Almost Operational)
+#### A simple and elegant peripheral communication library.
 
 The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
 
@@ -78,13 +78,23 @@ int main(void){
   
   // and the data order can be changed from MSB to LSB and back by using setDataOrder from Spi...
   Spi.setDataOrder(MSB_ORDER);
+  //Spi.setDataOrder(true) try using...HIGH,OUT,ON instead of true
   
   // or for least significant bit
-  Spi.setDataOrder(LSB_ORDER); 
+  Spi.setDataOrder(LSB_ORDER);
+  //Spi.setDataOrder(false);
+  
+  Spi.setInterrupts(true);
+  //Spi.setInterrupts(ON);
   
   // To transfer via SPI
   char letter_L = 'L';
   uint8_t recieved = Spi.transfer(letter_L);
+  // To transfer large amounts
+  byte[128] text;
+  byte[128] out = "Hello World";
+  Spi.multiTransfer(out,text,128);
+  
   
   Spi.disable();
  
@@ -92,10 +102,9 @@ int main(void){
 }
 ```
 <hr>
-## NRF24 (Not integreated fully - relies on SPI - don't compile with Cavrn)
-#### Making wireless connectivity as fun and fast as possible.
+## NRF24 (Relies on SPI)
+#### Making wireless connectivity quick and painless.
 
-##THE FOLLOWING STATEMENTS DO NOT ACCURATELY REPRESENT THE WORKING STATE OF THIS MODULE
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
 
 These two features are basically the most important features of the nrf24L01+ modules. With this module, after you make a tranmission attempt, you'll know for sure wheter the slave device got your message properly or not with minimal MCU involvement. Also, nrf24L01+ chipsets automatically handle the retranmission of the same message if it they lost in transmission, up to o limited trials with adjustable delays in between attempts.
@@ -112,98 +121,98 @@ Configuration of the module is simple. Max retransmission count is set to 15 and
 
 Via the config function, you can chose the channel and the payload length. Max payload length is 32. After the config function the module automatically goes to RX mode. Payload length and the RF channel values have to be consistent among the devices.
 
+```C
 	/* initializes hardware pins */
-	nrf24_init();
+	Nrf24.init();
 	
 	/* RF channel: #2 , payload length: 4 */
-	nrf24_config(2,4)
-
+	Nrf24.config(2,4)
+```
 ### Addressing
 
 Address length is 5 bytes. You can configure the transmit and receive addresses as follows:
-	
+```C	
 	uint8_t rx_mac[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};
 	uint8_t tx_mac[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
 		
 	/* Set the module's own address */
-	nrf24_rx_address(rx_mac);
+	Nrf24.rxAddr(rx_mac);
 	
 	/* Set the transmit address */
-	nrf24_tx_address(tx_mac);
-
+	Nrf24.txAddr(tx_mac);
+```
 ### Transmit
 
 Let's say the payload length is set to 4 and you have the following payload.
-	
+```C	
 	uint8_t data_array[4];
 	
 	data_array[0] = 0x00;
 	data_array[1] = 0xAA;
 	data_array[2] = 0x55;
 	data_array[3] = 0xFF;
-	
-The basic transmit function is the `nrf24_send()` function. The module automatically switches to the TX mode and power up if required.
-
+```	
+The basic transmit function is the `Nrf24.txData()` function. The module automatically switches to the TX mode and power up if required.
+```C
 	/* Automatically goes to TX mode */
-	nrf24_send(data_array);		
-	
+	Nrf24.txData(data_array);		
+```	
 After the `nrf24_send()`, you must wait for transmission to end. MCU can sleep or do another tasks during that period.
-	
+```C	
 	/* Wait for transmission to end */
-	while(nrf24_isSending());
-	
+	while(Nrf24.isSending());
+```	
 After the transmission end, optionally you can make analysis on the last transmission attempt.
-
+```C
 	uint8_t temp;
 	
 	/* Make analysis on last tranmission attempt */
-	temp = nrf24_lastMessageStatus();
+	temp = Nrf24.lastTxStatus();
 
 	if(temp == NRF24_TRANSMISSON_OK)
 	{					
-		xprintf("Tranmission went OK\r\n");
+		Uart.txString("Tranmission went OK\r\n");
 	}
 	else if(temp == NRF24_MESSAGE_LOST)
 	{					
-		xprintf("Message is lost ...\r\n");	
+		Uart.txString("Message is lost ...\r\n");	
 	}
-      	
+     	
     /* Retranmission count indicates the tranmission quality */
-    temp = nrf24_retransmissionCount();
-    xprintf("Retranmission count: %d\r\n",temp);
+    temp = Nrf24.badTxCount();
     
+    char msg[64];
+    sprintf(msg,"Retranmission count: %d\r\n",temp);
+    Uart.txString(msg);
+  ```
 After the tranmission finishes, nrf24L01+ module stays in Standby mode. You can manually go back to RX mode:
-
-	/* Go back to RX mode ... */
-    nrf24_powerUpRx();
- 
+```C
+   /* Go back to RX mode ... */
+   Nrf24.powerRx();
+ ```
 Or you can power down the module to lower the current consumption.
-
+```C
     /* Power down the module */
-    nrf24_powerDown();	
-    
+    Nrf24.powerDown();	
+```
 ### Receive
 
-This library doesn't use the IRQ pin of the nrf24L01+ , therefore you need to poll the `nrf24_dataReady()` function periodically. Otherwise you might miss some packets. 
+This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need to poll the `nrf24_dataReady()` function periodically. Otherwise you might miss some packets. 
 
 Also, you need to be in RX mode in order to be able to receive messages.
 
 `nrf24_dataReady()` function returns non-zero only if a valid payload is awaiting in the RX fifo. `nrf24_getData(uint8_t* buf)` function copies the received message into the given buffer. 
-
+```C
 	uint8_t data_array[4];
 
-	if(nrf24_dataReady())
+	if(nNrf24.dataReady())
 	{
-		nrf24_getData(data_array);		
+		Nrf24.rxData(data_array);		
 	}
-
-## Porting the library
-
-Hardware spesific definitions of the library are in the `radioPinFunctions.c` file which is located at under example folders. This library uses software SPI module and requires only basic digital input / output functions.
-
+```
 ## References
 
-This project is proudly and heavily based on the following libraries:
+This module is proudly and heavily based on the following libraries:
 
 - https://github.com/aaronds/arduino-nrf24l01
 - http://www.tinkerer.eu/AVRLib/nRF24L01
