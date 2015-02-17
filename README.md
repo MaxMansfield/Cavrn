@@ -1,22 +1,23 @@
 #Cavrn 
 ## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
-<hr>
 ###### Supported: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
 
-Cavrn library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations.Each available function (uart,spi,nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration. 
-
+Cavrn library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations. Each available function (uart,spi,nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration. 
+######*Please Note:* 
+######*Cavrn just started and so naturally it's continually changing. What you may have been used to one day may not be there or may be buggy the next. Come back in a month or so if you really want to use Cavrn (without also developing it). Furthermore, this README will likely be incomplete. View the doc/ folder or more up to date documentation (that is also incomplete)*
 
 ##Usage 
 At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.
 For the time being you can simply download the repo and configure the `Makefile` to fit your needs. Then run `make` and if your board is plugged in `make upload`.
 
+Check below for small code examples and keep an eye on the repo because I'll be adding extensive ones soon.
+
 ##Requirements
 To compile Cavrn you will need the avr-gcc suite as well as avr-libc. To upload you will need avrdude and to view serial data you can install screen and type `make console` but for long term use I recommend minicom.
 
-At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define easch pin that will be used in the appropriate header file.
+At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define each pin that will be used in the appropriate header file.
 
-<hr>
 ## UART
 ####A library implementation for sending/recieving bytes or strings via UART pins. 
 
@@ -53,7 +54,7 @@ int main(void)
   return 0;
 }
 ```
-<hr>
+
 ## SPI (Almost Operational)
 #### A simple and elegant peripheral communication library.
 
@@ -111,10 +112,6 @@ These two features are basically the most important features of the nrf24L01+ mo
 
 ## Usage
 
-### File strutcture
-
-The module basically consists of only three files: `nrf24.c `, `nrf24.h` and `nRF24L01.h` (as well as the SPI module it relies on).
-
 ### Configuration
 
 Configuration of the module is simple. Max retransmission count is set to 15 and delays between each retranmission is set to 1000 us. Also the CRC is enabled with 1byte length. Data rate is set to 1Mbps.
@@ -157,7 +154,7 @@ The basic transmit function is the `Nrf24.txData()` function. The module automat
 	/* Automatically goes to TX mode */
 	Nrf24.txData(data_array);		
 ```	
-After the `nrf24_send()`, you must wait for transmission to end. MCU can sleep or do another tasks during that period.
+After the `Nrf24.txData()`, you must wait for transmission to end. MCU can sleep or do another tasks during that period.
 ```C	
 	/* Wait for transmission to end */
 	while(Nrf24.isSending());
@@ -197,11 +194,11 @@ Or you can power down the module to lower the current consumption.
 ```
 ### Receive
 
-This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need to poll the `nrf24_dataReady()` function periodically. Otherwise you might miss some packets. 
+This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need to poll the `Nrf24.dataReady()` function periodically. Otherwise you might miss some packets. 
 
 Also, you need to be in RX mode in order to be able to receive messages.
 
-`nrf24_dataReady()` function returns non-zero only if a valid payload is awaiting in the RX fifo. `nrf24_getData(uint8_t* buf)` function copies the received message into the given buffer. 
+`Nrf24.dataReady()` function returns non-zero only if a valid payload is awaiting in the RX fifo. `Nrf24.getData(uint8_t* buf)` function copies the received message into the given buffer. 
 ```C
 	uint8_t data_array[4];
 
