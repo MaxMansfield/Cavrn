@@ -23,6 +23,7 @@ Contributors:
 */
 
 #include "spi.h"
+
 void spi_init(const bool isMaster,const byte mode,const uint8_t clk)
 {
 

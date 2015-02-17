@@ -28,9 +28,6 @@ Contributors:
 #include <util/setbaud.h>
 
 #define RXLEN 254
-#define ASYNC_MODE ((byte) 0x02)
-#define SYNC_MODE  ((byte) 0x04)
-#define MSPI_MODE  ((byte) 0x08)
 
 #if defined(__AVR_ATmega328P__)
 
@@ -52,10 +49,15 @@ Contributors:
 #define TXEN  TXEN0
 #define RXEN  RXEN0
 
+/* Uart Data Modes */
 #define UART_ASYNC() UCSRC &= ~((1<<UMSEL01) | (1<<UMSEL00))
 #define UART_SYNC() UCSRC &= ~(1<<UMSEL01); UCSRC |= (1<<UMSEL00)
 #define UART_MSPI() UCSRC |= ((1<<UMSEL01) | (1<<UMSEL00))
 
+/* Data Mode Identifiers */
+#define ASYNC_MODE ((byte) 0x02)
+#define SYNC_MODE  ((byte) 0x04)
+#define MSPI_MODE  ((byte) 0x08)
 
 #elif defined(__AVR_ATmega103__)
 #define UCSRA USR
@@ -67,12 +69,17 @@ Contributors:
 
 #define UART_START()  UCSRB |= (1<<TXEN) | (1<<RXEN)
 
-/* Intialize UART */
+/*
+ * Intialize UART 
+ * Uart initialization can be different for various MCUs because some have available status registers
+ * to mainipulate and some don't.
+*/
 #if defined(__AVR_ATmega328P__)
 void  uart_init(const byte mode);
 #elif defined(__AVR_ATmega103__)
 void  uart_init();
 #endif
+
 /* Send Bytes of signed/unsigned information */
 void  uart_tx(const byte* const data);
 void uart_txchr (const char* const chr);
@@ -87,17 +94,24 @@ const char* uart_rxstr();
 
 
 struct uart_t  {
+
+  /* Choose init function */
 #if defined(__AVR_ATmega328P__)
-  void     (*init)    (const byte mode); //Initialize UART w/ mode choice
+  void     (*init)    (const byte mode); 
 #elif defined(__AVR_ATmega103__)
-  void     (*init)    (); //Initialize UART without mode choice
+  void     (*init)    (); 
 #endif
-  void           (*txByte)  (const byte* const); // Send a byte
-  uint8_t  (*rxByte)  (); // get a byte
-  void         (*txString)(const char* const string); // Send a string 
-  const char*  (*rxString)();  // get a string
+
+  /* Send/Recieve a byte bia UART */
+  void     (*txByte)  (const byte* const); 
+  uint8_t  (*rxByte)  ();
+
+  /*Send/Recieve a string via UART */
+  void         (*txString)(const char* const string); 
+  const char*  (*rxString)(); 
 };
 
+/* Main Uart Structure */
 static const struct uart_t Uart = {
   .init = &uart_init,
   .txByte = &uart_tx,
