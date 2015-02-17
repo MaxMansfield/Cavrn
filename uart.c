@@ -73,7 +73,7 @@ void uart_init(){
 
 void uart_tx(const byte* const data){
   // Wait for the Data Register empty flag
-  while (!(UCSRA & _BV(UDRE)));
+  loop_until_bit_is_set(UCSRA,UDRE);
   UDR = *data;
 }
 
@@ -83,14 +83,14 @@ uint8_t uart_rx(){
 }
 
 char uart_rxchr(){
-  while(!((UCSRA) & _BV(RXC)));
+  loop_until_bit_is_set(UCSRA,RXC);
   return UDR;
 }
 void uart_txchr (const char* const chr)
 {
   if(chr != NULL){
     // Wait for the Data Register empty flag
-    while (!(UCSRA & _BV(UDRE)));
+    loop_until_bit_is_set(UCSRA,UDRE);
     UDR = *chr;
   }
   return;

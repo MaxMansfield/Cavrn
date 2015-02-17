@@ -90,6 +90,8 @@ struct spi_t {
   void    (*setDataOrder)(bool const);
   void    (*setInterrupts)(bool const isInterrupt);
   void    (*disable)();
+
+  bool interruptsEnabled;
 };
 
 static struct spi_t Spi = {
@@ -98,7 +100,8 @@ static struct spi_t Spi = {
   .multiTransfer = &spi_multiTransfer,
   .setDataOrder = &spi_setDataOrder,
   .setInterrupts = &spi_setInterrupts,
-  .disable = &spi_disable
+  .disable = &spi_disable,
+  .interruptsEnabled = false
 };
 
 #endif 
