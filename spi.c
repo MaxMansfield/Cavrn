@@ -38,65 +38,48 @@ void spi_init(const bool isMaster,const byte mode,const uint8_t clk)
     
     SPI_DDR &= ~_BV(SPI_MISO);
     SPI_PORT &= ~_BV(SPI_MISO);
-    //Set as Master
-    SPCR |= (ENABLE_MASTER);
-
-    // Choose clock speed
     
-#if defined( __AVR_ATmega328P__)
-    switch(clk){
-    case (F_OSC2):
-      SPCR |= _BV(SPI2X);
-      SPCR &= ~(_BV(SPR1) | _BV(SPR0));
-      break;
-    case (F_OSC4):
-      SPCR &= ~(_BV(SPR1) | _BV(SPR0) | _BV(SPI2X));
-      break;
-    case (F_OSC8):
-      SPCR |= (_BV(SPI2X) | _BV(SPR0));
-      SPCR &= ~_BV(SPR1);
-      break;
-    case (F_OSC16):
-      SPCR |= _BV(SPR0);
-      SPCR &= ~(_BV(SPR1) |  _BV(SPI2X));
-      break;
-    case (F_OSC32):
-      SPCR |= (_BV(SPI2X) | _BV(SPR1));
-      SPCR &= ~_BV(SPR0);
-      break;
-    case (F_OSC64):
-      SPCR |= (_BV(SPR1) | _BV(SPR0) | _BV(SPI2X));
-      break;
-    case (F_OSC128):
-      SPCR |= (_BV(SPR0) | _BV(SPR1));
-      SPCR &= ~_BV(SPI2X);
-      break;
-    default:
-      SPCR |= _BV(SPR0);
-      SPCR &= ~(_BV(SPR1) |  _BV(SPI2X));
-      break;
+    ENABLE_MASTER();
+
+    /* Only show if/else when SPI2X is present */
+    
+#if defined( __AVR_ATmega328P__) || defined(SPI2X)
+    if(Spi.useSpi2x){
+        switch(clk){
+	case (F_OSC2):
+	case (F_OSC8):
+	case (F_OSC32):
+	case (F_OSC64x):
+	  SET_SPI2X();
+	  CLR_SCK_REG();
+	  SPCR |= clk;
+	  break;
+	default:
+	  SET_SPI2X();       // Use SPI2X
+	  CLR_SCK_REG();     // Clear both bits to 0
+	  SPCR |= F_OSC8;   // Set SPR0 to 1
+	  break;
+	}
     }
-#elif defined(__AVR_ATmega103__)
-    switch(clk){
-    case (F_OSC4):
-      SPCR &= ~(_BV(SPR1) | _BV(SPR0));
-      break;
-    case (F_OSC16):
-      SPCR |= _BV(SPR0);
-      SPCR &= ~(_BV(SPR1));
-      break;
-    case (F_OSC64):
-      SPCR |= (_BV(SPR1) | _BV(SPR0));
-      break;
-    case (F_OSC128):
-      SPCR |= (_BV(SPR0) | _BV(SPR1));
-      break;
-    default:
-      SPCR |= _BV(SPR0);
-      SPCR &= ~(_BV(SPR1));
-      break;
-    }
-#endif	
+    else
+#endif
+     {
+       switch(clk){
+       case (F_OSC4):
+       case (F_OSC16):
+       case (F_OSC64):
+       case (F_OSC128):
+	 CLR_SPI2X();
+	 CLR_SCK_REG();
+	 SPCR |= clk;
+	 break;
+       default:
+	 CLR_SPI2X();   // Don't use spi2x
+	 CLR_SCK_REG();
+	 SPCR |= F_OSC16;
+	 break;
+     }
+    }	
   } else {
     //Enter Slave mode
     // MOSI=in MISO=out SCK=in SS=in
@@ -105,36 +88,30 @@ void spi_init(const bool isMaster,const byte mode,const uint8_t clk)
     
     SPI_DDR &= ~(_BV(SPI_MOSI)  | _BV(SPI_SCK) | _BV(SPI_SCK) );
     SPI_PORT &= ~(_BV(SPI_MOSI)  | _BV(SPI_SCK) | _BV(SPI_SCK) );
-    SPCR |= (ENABLE_SLAVE);
+    ENABLE_SLAVE();
   }
 
   switch(mode){
   case (SPI_MODE0):
-    SPCR &= ~_BV(CPOL);
-    SPCR &= ~_BV(CPHA);
+    INIT_SPI_MODE0();
     break;
   case (SPI_MODE1):
-    SPCR &= ~_BV(CPOL);
-    SPCR |= _BV(CPHA);
+    INIT_SPI_MODE1();
     break;
   case(SPI_MODE2):
-    SPCR |= _BV(CPOL);
-    SPCR &= ~_BV(CPHA);
+    INIT_SPI_MODE2();
     break;
   case(SPI_MODE3):
-    SPCR |= _BV(CPOL) | _BV(CPHA);
+    INIT_SPI_MODE3();
     break;
   default:
-    SPCR &= ~_BV(CPOL);
-    SPCR &= ~_BV(CPHA);
+    INIT_SPI_MODE0();
     break;
   }
-    
-
   return;
 }
 
-uint8_t spi_transfer(uint8_t data)
+byte spi_transfer(const byte data)
 { 
   SPDR = data; 
   loop_until_bit_is_set(SPSR,SPIF);
@@ -149,7 +126,6 @@ void spi_disable()
 
 void spi_setDataOrder(const bool dord)
 {
-
   if(dord)
     SPCR |= _BV(DORD);
   else
@@ -158,7 +134,7 @@ void spi_setDataOrder(const bool dord)
   return;
 }
 
-void spi_setInterrupts(bool const isInterrupt)
+void spi_setInterrupts(const bool isInterrupt)
 {
   if(isInterrupt){
     SPCR |= _BV(SPIE);
