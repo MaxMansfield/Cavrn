@@ -1,0 +1,75 @@
+.TH "uart_t" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+uart_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <uart\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBtxByte\fP )(const \fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "uint8_t(* \fBrxByte\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBtxString\fP )(const char *const)"
+.br
+.ti -1c
+.RI "void(* \fBrxString\fP )(char *const, const uint8_t)"
+.br
+.ti -1c
+.RI "void(* \fBsetInterrupts\fP )(const bool)"
+.br
+.ti -1c
+.RI "void(* \fBsetTxInterrupt\fP )(const bool)"
+.br
+.ti -1c
+.RI "void(* \fBsetRxInterrupt\fP )(const bool)"
+.br
+.ti -1c
+.RI "void(* \fBsetUdreInterrupt\fP )(const bool)"
+.br
+.ti -1c
+.RI "\fBbyte\fP(* \fBtransfer\fP )(const \fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "void(* \fBmultiTransfer\fP )(const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
+.br
+.ti -1c
+.RI "bool \fBprintableCharsOnly\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "void(* uart_t::multiTransfer) (const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
+
+.SS "bool uart_t::printableCharsOnly"
+
+.SS "uint8_t(* uart_t::rxByte) ()"
+
+.SS "void(* uart_t::rxString) (char *const, const uint8_t)"
+
+.SS "void(* uart_t::setInterrupts) (const bool)"
+
+.SS "void(* uart_t::setRxInterrupt) (const bool)"
+
+.SS "void(* uart_t::setTxInterrupt) (const bool)"
+
+.SS "void(* uart_t::setUdreInterrupt) (const bool)"
+
+.SS "\fBbyte\fP(* uart_t::transfer) (const \fBbyte\fP *const)"
+
+.SS "void(* uart_t::txByte) (const \fBbyte\fP *const)"
+
+.SS "void(* uart_t::txString) (const char *const)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

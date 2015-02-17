@@ -1,0 +1,270 @@
+.TH "Uart/uart.h" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Uart/uart.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'cavrn\&.h'\fP
+.br
+\fC#include <util/setbaud\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBuart_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRXLEN\fP   254"
+.br
+.ti -1c
+.RI "#define \fBUART_START\fP()   UCSRB |= (1<<TXEN) | (1<<RXEN)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBuart_tx\fP (const \fBbyte\fP *const data)"
+.br
+.RI "\fI: \fBuart_tx()\fP This function transmits a byte of information (unsigned 8bit integer) via UART \fP"
+.ti -1c
+.RI "void \fBuart_txchr\fP (const char *const chr)"
+.br
+.RI "\fI: \fBuart_txchr()\fP This function transmits a character of information (signed 8bit integer) via UART \fP"
+.ti -1c
+.RI "\fBbyte\fP \fBuart_rx\fP ()"
+.br
+.RI "\fI: \fBuart_rx()\fP This function recieves a byte of information (unsigned 8bit integer) via UART \fP"
+.ti -1c
+.RI "char \fBuart_rxchr\fP ()"
+.br
+.RI "\fI: \fBuart_rxchr()\fP This function transmits a character of information (signed 8bit integer) via UART \fP"
+.ti -1c
+.RI "void \fBuart_txstr\fP (const char *const string)"
+.br
+.RI "\fI: \fBuart_txstr()\fP Transmit large amounts of signed 8bit integers, useful for logging to UART \fP"
+.ti -1c
+.RI "void \fBuart_rxstr\fP (char *const string, const uint8_t len)"
+.br
+.RI "\fI: \fBuart_rxstr()\fP Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
+.ti -1c
+.RI "\fBbyte\fP \fBuart_transfer\fP (const \fBbyte\fP *const data)"
+.br
+.RI "\fI: \fBuart_transfer()\fP Transmit a byte and wait for a response\&. Unessecary when interrupts are enabled \fP"
+.ti -1c
+.RI "void \fBuart_multi_transfer\fP (const \fBbyte\fP *const data, \fBbyte\fP *datain, const uint8_t *const len)"
+.br
+.RI "\fI: \fBuart_multi_transfer()\fP Transmit large amounts of data and wait for a response\&. Unessecary when interrupts are enabled\&. \fP"
+.ti -1c
+.RI "void \fBuart_set_tx_interrupt\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBuart_set_tx_interrupt()\fP Enable UART data register empty interrupts and global interrupts if need be \fP"
+.ti -1c
+.RI "void \fBuart_set_rx_interrupt\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBuart_set_rx_interrupt()\fP Enable UART byte recieved interrupts and global interrupts if need be \fP"
+.ti -1c
+.RI "void \fBuart_set_udre_interrupt\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBuart_set_udre_interrupt()\fP Enable or diable the Uart Data Register Empty flag \fP"
+.ti -1c
+.RI "void \fBuart_set_interrupts\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBuart_set_interrupts()\fP Enable or diable the all the Uart interrupts simultaneously\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static const struct \fBuart_t\fP \fBUart\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RXLEN   254"
+
+.SS "#define UART_START()   UCSRB |= (1<<TXEN) | (1<<RXEN)"
+
+.SH "Function Documentation"
+.PP 
+.SS "void uart_multi_transfer (const \fBbyte\fP *const data, \fBbyte\fP * datain, const uint8_t *const len)"
+
+.PP
+: \fBuart_multi_transfer()\fP Transmit large amounts of data and wait for a response\&. Unessecary when interrupts are enabled\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconst\fP byte* const data The data to transmit 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: The data recieved after transmission 
+.RE
+.PP
+
+.SS "\fBbyte\fP uart_rx ()"
+
+.PP
+: \fBuart_rx()\fP This function recieves a byte of information (unsigned 8bit integer) via UART 
+.PP
+\fBReturns:\fP
+.RS 4
+: The byte value recieved in the UDR register 
+.RE
+.PP
+
+.SS "char uart_rxchr ()"
+
+.PP
+: \fBuart_rxchr()\fP This function transmits a character of information (signed 8bit integer) via UART 
+.PP
+\fBReturns:\fP
+.RS 4
+: The byte data stored in the UDR register as a signed byte 
+.RE
+.PP
+
+.SS "void uart_rxstr (char *const string, const uint8_t len)"
+
+.PP
+: \fBuart_rxstr()\fP Recieve large amounts of signed 8bit integers, useful for commands via UART 
+.PP
+\fBReturns:\fP
+.RS 4
+: The bytes recieved until a \\0,
+.br
+, or NULL character is reached or the rx buffer fills 
+.RE
+.PP
+
+.SS "void uart_set_interrupts (const bool isInterrupt)"
+
+.PP
+: \fBuart_set_interrupts()\fP Enable or diable the all the Uart interrupts simultaneously\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void uart_set_rx_interrupt (const bool isInterrupt)"
+
+.PP
+: \fBuart_set_rx_interrupt()\fP Enable UART byte recieved interrupts and global interrupts if need be 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void uart_set_tx_interrupt (const bool isInterrupt)"
+
+.PP
+: \fBuart_set_tx_interrupt()\fP Enable UART data register empty interrupts and global interrupts if need be 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void uart_set_udre_interrupt (const bool isInterrupt)"
+
+.PP
+: \fBuart_set_udre_interrupt()\fP Enable or diable the Uart Data Register Empty flag 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "\fBbyte\fP uart_transfer (const \fBbyte\fP *const data)"
+
+.PP
+: \fBuart_transfer()\fP Transmit a byte and wait for a response\&. Unessecary when interrupts are enabled 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIconst\fP byte* const data The byte to transmit 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+: The bytes recieved after transmission 
+.RE
+.PP
+
+.SS "void uart_tx (const \fBbyte\fP *const data)"
+
+.PP
+: \fBuart_tx()\fP This function transmits a byte of information (unsigned 8bit integer) via UART 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void uart_txchr (const char *const chr)"
+
+.PP
+: \fBuart_txchr()\fP This function transmits a character of information (signed 8bit integer) via UART 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void uart_txstr (const char *const string)"
+
+.PP
+: \fBuart_txstr()\fP Transmit large amounts of signed 8bit integers, useful for logging to UART 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "const struct \fBuart_t\fP Uart\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+  \&.init = &uart_init,
+  
+  \&.txByte = &uart_tx,
+  \&.rxByte = &uart_rx,
+  
+  \&.txString = &uart_txstr,
+  \&.rxString = &uart_rxstr,
+
+  \&.transfer = &uart_transfer,
+  \&.multiTransfer = &uart_multi_transfer,
+  
+  \&.setInterrupts = &uart_set_interrupts,
+  \&.setUdreInterrupt = &uart_set_udre_interrupt,
+  \&.setTxInterrupt = &uart_set_tx_interrupt,
+  \&.setRxInterrupt = &uart_set_rx_interrupt,
+  
+  \&.printableCharsOnly = true
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

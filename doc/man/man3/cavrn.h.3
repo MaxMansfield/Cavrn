@@ -1,0 +1,167 @@
+.TH "cavrn.h" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+cavrn.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <avr/io\&.h>\fP
+.br
+\fC#include <avr/interrupt\&.h>\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcavrn_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBON\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBOFF\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBHIGH\fP   0xFF"
+.br
+.ti -1c
+.RI "#define \fBLOW\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBIN\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBOUT\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBinterruptsOn\fP()   sei()"
+.br
+.ti -1c
+.RI "#define \fBinterruptsOff\fP()   cli()"
+.br
+.ti -1c
+.RI "#define \fBbit\fP(b)   (1<< (b))"
+.br
+.ti -1c
+.RI "#define \fBbitSet\fP(value,  \fBbit\fP)   ((value) |=  (\fBbit\fP(\fBbit\fP))"
+.br
+.ti -1c
+.RI "#define \fBbitClear\fP(value,  \fBbit\fP)   ((value) &= ~(\fBbit\fP(\fBbit\fP)))"
+.br
+.ti -1c
+.RI "#define \fBisprint\fP(c)   (c>=0x20 && c<=0x7E)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint16_t \fBword\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBbyte\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBport\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBpin\fP"
+.br
+.ti -1c
+.RI "typedef uint8_t \fBddr\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "static void \fBcavrn_set_global_interrupts\fP (const bool isInterupts)"
+.br
+.RI "\fI: \fBcavrn_set_global_interrupts()\fP This function enables or disables interrupts on your AVR MCU \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static struct \fBcavrn_t\fP \fBCavrn\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define bit(b)   (1<< (b))"
+
+.SS "#define bitClear(value, \fBbit\fP)   ((value) &= ~(\fBbit\fP(\fBbit\fP)))"
+
+.SS "#define bitSet(value, \fBbit\fP)   ((value) |=  (\fBbit\fP(\fBbit\fP))"
+
+.SS "#define HIGH   0xFF"
+
+.SS "#define IN   0x00"
+
+.SS "#define interruptsOff()   cli()"
+
+.SS "#define interruptsOn()   sei()"
+
+.SS "#define isprint(c)   (c>=0x20 && c<=0x7E)"
+
+.SS "#define LOW   0x00"
+
+.SS "#define OFF   0x00"
+
+.SS "#define ON   0x01"
+
+.SS "#define OUT   0x01"
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef uint8_t \fBbyte\fP"
+
+.SS "typedef uint8_t \fBddr\fP"
+
+.SS "typedef uint8_t \fBpin\fP"
+
+.SS "typedef uint8_t \fBport\fP"
+
+.SS "typedef uint16_t \fBword\fP"
+
+.SH "Function Documentation"
+.PP 
+.SS "static void cavrn_set_global_interrupts (const bool isInterupts)\fC [inline]\fP, \fC [static]\fP"
+
+.PP
+: \fBcavrn_set_global_interrupts()\fP This function enables or disables interrupts on your AVR MCU 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBcavrn_t\fP Cavrn\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+  \&.setInterrupts = &cavrn_set_global_interrupts,
+  \&.interruptsEnabled = false
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

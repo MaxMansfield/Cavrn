@@ -1,0 +1,195 @@
+\hypertarget{nrf24_8c}{}\section{Nrf24/nrf24.c File Reference}
+\label{nrf24_8c}\index{Nrf24/nrf24.\+c@{Nrf24/nrf24.\+c}}
+{\ttfamily \#include \char`\"{}nrf24.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nrf24_8c_a74436d4829a431fcd9b5ef6ff76d0677}{nrf24\+\_\+init} ()
+\item 
+void \hyperlink{nrf24_8c_a97793f0c66a9d83e7180e54b6054e366}{nrf24\+\_\+config} (const uint8\+\_\+t channel, const uint8\+\_\+t pay\+\_\+length)
+\item 
+void \hyperlink{nrf24_8c_a1677d7e870aeb4a04f6816767bfe2608}{nrf24\+\_\+rx\+\_\+address} (const uint8\+\_\+t $\ast$const adr)
+\item 
+uint8\+\_\+t \hyperlink{nrf24_8c_a2cf62b6425bac2d6f51355a6cf4fe61e}{nrf24\+\_\+payload\+\_\+length} ()
+\item 
+void \hyperlink{nrf24_8c_ace01070c698770b24b2f3e0d22b415e0}{nrf24\+\_\+tx\+\_\+address} (const uint8\+\_\+t $\ast$const adr)
+\item 
+bool \hyperlink{nrf24_8c_a712c0b5e8c339da2e8f36cfbba8892ac}{nrf24\+\_\+data\+Ready} ()
+\item 
+bool \hyperlink{nrf24_8c_a9e05723f5fa753cfb2ea219e90eb3c2b}{nrf24\+\_\+rx\+Fifo\+Empty} ()
+\item 
+uint8\+\_\+t \hyperlink{nrf24_8c_a62aedbae7c08c9e560c6e95466067fce}{nrf24\+\_\+payload\+Length} ()
+\item 
+void \hyperlink{nrf24_8c_a30ee132dcb001aba61213da19bfc598f}{nrf24\+\_\+get\+Data} (uint8\+\_\+t $\ast$const data)
+\item 
+uint8\+\_\+t \hyperlink{nrf24_8c_ae0f50a459cd34957291713bb002893f8}{nrf24\+\_\+retransmission\+Count} ()
+\item 
+void \hyperlink{nrf24_8c_ada5868d8e82fb0676d2d4c913efd608e}{nrf24\+\_\+send} (const uint8\+\_\+t $\ast$const value)
+\item 
+bool \hyperlink{nrf24_8c_a126be099971800e98c2c0b0fa6910051}{nrf24\+\_\+is\+Sending} ()
+\item 
+uint8\+\_\+t \hyperlink{nrf24_8c_ab1cbb7a5d39d2d1389156e88d10ff85b}{nrf24\+\_\+get\+Status} ()
+\item 
+uint8\+\_\+t \hyperlink{nrf24_8c_a887f428c44dc2efda8a9f701dee6ec34}{nrf24\+\_\+last\+Message\+Status} ()
+\item 
+void \hyperlink{nrf24_8c_a5e2122f30566907a73d39598ba99ef08}{nrf24\+\_\+power\+Up\+Rx} ()
+\item 
+void \hyperlink{nrf24_8c_a8aa77fbedb60ef1265f451dc400d1489}{nrf24\+\_\+power\+Up\+Tx} ()
+\item 
+void \hyperlink{nrf24_8c_ac7b63ad34704615c539accfd00a12ed5}{nrf24\+\_\+power\+Down} ()
+\item 
+void \hyperlink{nrf24_8c_ace5bf3cbfb7f6c45231d9eab7dfe0373}{nrf24\+\_\+config\+Register} (const uint8\+\_\+t reg, const uint8\+\_\+t value)
+\item 
+void \hyperlink{nrf24_8c_aba4b294e59aceefdab9272e82b9ce7ce}{nrf24\+\_\+read\+Register} (const uint8\+\_\+t reg, uint8\+\_\+t $\ast$const value, const uint8\+\_\+t len)
+\item 
+void \hyperlink{nrf24_8c_a481ba63c1bd3abdabb6e3211c8b68f9f}{nrf24\+\_\+write\+Register} (const uint8\+\_\+t reg, const uint8\+\_\+t $\ast$const value, const uint8\+\_\+t len)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{nrf24_8c_a97793f0c66a9d83e7180e54b6054e366}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+config@{nrf24\+\_\+config}}
+\index{nrf24\+\_\+config@{nrf24\+\_\+config}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+config}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+config (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{channel, }
+\item[{const uint8\+\_\+t}]{pay\+\_\+length}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a97793f0c66a9d83e7180e54b6054e366}
+\hypertarget{nrf24_8c_ace5bf3cbfb7f6c45231d9eab7dfe0373}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+config\+Register@{nrf24\+\_\+config\+Register}}
+\index{nrf24\+\_\+config\+Register@{nrf24\+\_\+config\+Register}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+config\+Register}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+config\+Register (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{reg, }
+\item[{const uint8\+\_\+t}]{value}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ace5bf3cbfb7f6c45231d9eab7dfe0373}
+\hypertarget{nrf24_8c_a712c0b5e8c339da2e8f36cfbba8892ac}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+data\+Ready@{nrf24\+\_\+data\+Ready}}
+\index{nrf24\+\_\+data\+Ready@{nrf24\+\_\+data\+Ready}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+data\+Ready}]{\setlength{\rightskip}{0pt plus 5cm}bool nrf24\+\_\+data\+Ready (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a712c0b5e8c339da2e8f36cfbba8892ac}
+\hypertarget{nrf24_8c_a30ee132dcb001aba61213da19bfc598f}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+get\+Data@{nrf24\+\_\+get\+Data}}
+\index{nrf24\+\_\+get\+Data@{nrf24\+\_\+get\+Data}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+get\+Data}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+get\+Data (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t $\ast$const}]{data}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a30ee132dcb001aba61213da19bfc598f}
+\hypertarget{nrf24_8c_ab1cbb7a5d39d2d1389156e88d10ff85b}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+get\+Status@{nrf24\+\_\+get\+Status}}
+\index{nrf24\+\_\+get\+Status@{nrf24\+\_\+get\+Status}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+get\+Status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t nrf24\+\_\+get\+Status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ab1cbb7a5d39d2d1389156e88d10ff85b}
+\hypertarget{nrf24_8c_a74436d4829a431fcd9b5ef6ff76d0677}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+init@{nrf24\+\_\+init}}
+\index{nrf24\+\_\+init@{nrf24\+\_\+init}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a74436d4829a431fcd9b5ef6ff76d0677}
+\hypertarget{nrf24_8c_a126be099971800e98c2c0b0fa6910051}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+is\+Sending@{nrf24\+\_\+is\+Sending}}
+\index{nrf24\+\_\+is\+Sending@{nrf24\+\_\+is\+Sending}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+is\+Sending}]{\setlength{\rightskip}{0pt plus 5cm}bool nrf24\+\_\+is\+Sending (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a126be099971800e98c2c0b0fa6910051}
+\hypertarget{nrf24_8c_a887f428c44dc2efda8a9f701dee6ec34}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+last\+Message\+Status@{nrf24\+\_\+last\+Message\+Status}}
+\index{nrf24\+\_\+last\+Message\+Status@{nrf24\+\_\+last\+Message\+Status}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+last\+Message\+Status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t nrf24\+\_\+last\+Message\+Status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a887f428c44dc2efda8a9f701dee6ec34}
+\hypertarget{nrf24_8c_a2cf62b6425bac2d6f51355a6cf4fe61e}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+payload\+\_\+length@{nrf24\+\_\+payload\+\_\+length}}
+\index{nrf24\+\_\+payload\+\_\+length@{nrf24\+\_\+payload\+\_\+length}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+payload\+\_\+length}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t nrf24\+\_\+payload\+\_\+length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a2cf62b6425bac2d6f51355a6cf4fe61e}
+\hypertarget{nrf24_8c_a62aedbae7c08c9e560c6e95466067fce}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+payload\+Length@{nrf24\+\_\+payload\+Length}}
+\index{nrf24\+\_\+payload\+Length@{nrf24\+\_\+payload\+Length}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+payload\+Length}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t nrf24\+\_\+payload\+Length (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a62aedbae7c08c9e560c6e95466067fce}
+\hypertarget{nrf24_8c_ac7b63ad34704615c539accfd00a12ed5}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+power\+Down@{nrf24\+\_\+power\+Down}}
+\index{nrf24\+\_\+power\+Down@{nrf24\+\_\+power\+Down}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+power\+Down}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+power\+Down (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ac7b63ad34704615c539accfd00a12ed5}
+\hypertarget{nrf24_8c_a5e2122f30566907a73d39598ba99ef08}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+power\+Up\+Rx@{nrf24\+\_\+power\+Up\+Rx}}
+\index{nrf24\+\_\+power\+Up\+Rx@{nrf24\+\_\+power\+Up\+Rx}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+power\+Up\+Rx}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+power\+Up\+Rx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a5e2122f30566907a73d39598ba99ef08}
+\hypertarget{nrf24_8c_a8aa77fbedb60ef1265f451dc400d1489}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+power\+Up\+Tx@{nrf24\+\_\+power\+Up\+Tx}}
+\index{nrf24\+\_\+power\+Up\+Tx@{nrf24\+\_\+power\+Up\+Tx}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+power\+Up\+Tx}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+power\+Up\+Tx (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a8aa77fbedb60ef1265f451dc400d1489}
+\hypertarget{nrf24_8c_aba4b294e59aceefdab9272e82b9ce7ce}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+read\+Register@{nrf24\+\_\+read\+Register}}
+\index{nrf24\+\_\+read\+Register@{nrf24\+\_\+read\+Register}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+read\+Register}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+read\+Register (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{reg, }
+\item[{uint8\+\_\+t $\ast$const}]{value, }
+\item[{const uint8\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_aba4b294e59aceefdab9272e82b9ce7ce}
+\hypertarget{nrf24_8c_ae0f50a459cd34957291713bb002893f8}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+retransmission\+Count@{nrf24\+\_\+retransmission\+Count}}
+\index{nrf24\+\_\+retransmission\+Count@{nrf24\+\_\+retransmission\+Count}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+retransmission\+Count}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t nrf24\+\_\+retransmission\+Count (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ae0f50a459cd34957291713bb002893f8}
+\hypertarget{nrf24_8c_a1677d7e870aeb4a04f6816767bfe2608}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+rx\+\_\+address@{nrf24\+\_\+rx\+\_\+address}}
+\index{nrf24\+\_\+rx\+\_\+address@{nrf24\+\_\+rx\+\_\+address}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+rx\+\_\+address}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+rx\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$const}]{adr}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a1677d7e870aeb4a04f6816767bfe2608}
+\hypertarget{nrf24_8c_a9e05723f5fa753cfb2ea219e90eb3c2b}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+rx\+Fifo\+Empty@{nrf24\+\_\+rx\+Fifo\+Empty}}
+\index{nrf24\+\_\+rx\+Fifo\+Empty@{nrf24\+\_\+rx\+Fifo\+Empty}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+rx\+Fifo\+Empty}]{\setlength{\rightskip}{0pt plus 5cm}bool nrf24\+\_\+rx\+Fifo\+Empty (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a9e05723f5fa753cfb2ea219e90eb3c2b}
+\hypertarget{nrf24_8c_ada5868d8e82fb0676d2d4c913efd608e}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+send@{nrf24\+\_\+send}}
+\index{nrf24\+\_\+send@{nrf24\+\_\+send}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+send}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+send (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$const}]{value}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ada5868d8e82fb0676d2d4c913efd608e}
+\hypertarget{nrf24_8c_ace01070c698770b24b2f3e0d22b415e0}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+tx\+\_\+address@{nrf24\+\_\+tx\+\_\+address}}
+\index{nrf24\+\_\+tx\+\_\+address@{nrf24\+\_\+tx\+\_\+address}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+tx\+\_\+address}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+tx\+\_\+address (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t $\ast$const}]{adr}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_ace01070c698770b24b2f3e0d22b415e0}
+\hypertarget{nrf24_8c_a481ba63c1bd3abdabb6e3211c8b68f9f}{}\index{nrf24.\+c@{nrf24.\+c}!nrf24\+\_\+write\+Register@{nrf24\+\_\+write\+Register}}
+\index{nrf24\+\_\+write\+Register@{nrf24\+\_\+write\+Register}!nrf24.\+c@{nrf24.\+c}}
+\subsubsection[{nrf24\+\_\+write\+Register}]{\setlength{\rightskip}{0pt plus 5cm}void nrf24\+\_\+write\+Register (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t}]{reg, }
+\item[{const uint8\+\_\+t $\ast$const}]{value, }
+\item[{const uint8\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\label{nrf24_8c_a481ba63c1bd3abdabb6e3211c8b68f9f}

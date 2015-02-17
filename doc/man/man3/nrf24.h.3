@@ -1,0 +1,622 @@
+.TH "Nrf24/nrf24.h" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Nrf24/nrf24.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'spi\&.h'\fP
+.br
+
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "struct \fBnrf24_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCONFIG\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBEN_AA\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBEN_RXADDR\fP   0x02"
+.br
+.ti -1c
+.RI "#define \fBSETUP_AW\fP   0x03"
+.br
+.ti -1c
+.RI "#define \fBSETUP_RETR\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBRF_CH\fP   0x05"
+.br
+.ti -1c
+.RI "#define \fBRF_SETUP\fP   0x06"
+.br
+.ti -1c
+.RI "#define \fBSTATUS\fP   0x07"
+.br
+.ti -1c
+.RI "#define \fBOBSERVE_TX\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBCD\fP   0x09"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P0\fP   0x0A"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P1\fP   0x0B"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P2\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P3\fP   0x0D"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P4\fP   0x0E"
+.br
+.ti -1c
+.RI "#define \fBRX_ADDR_P5\fP   0x0F"
+.br
+.ti -1c
+.RI "#define \fBTX_ADDR\fP   0x10"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P0\fP   0x11"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P1\fP   0x12"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P2\fP   0x13"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P3\fP   0x14"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P4\fP   0x15"
+.br
+.ti -1c
+.RI "#define \fBRX_PW_P5\fP   0x16"
+.br
+.ti -1c
+.RI "#define \fBFIFO_STATUS\fP   0x17"
+.br
+.ti -1c
+.RI "#define \fBDYNPD\fP   0x1C"
+.br
+.ti -1c
+.RI "#define \fBMASK_RX_DR\fP   6"
+.br
+.ti -1c
+.RI "#define \fBMASK_TX_DS\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMASK_MAX_RT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBEN_CRC\fP   3"
+.br
+.ti -1c
+.RI "#define \fBCRCO\fP   2"
+.br
+.ti -1c
+.RI "#define \fBPWR_UP\fP   1"
+.br
+.ti -1c
+.RI "#define \fBPRIM_RX\fP   0"
+.br
+.ti -1c
+.RI "#define \fBENAA_P5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBENAA_P4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBENAA_P3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBENAA_P2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBENAA_P1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBENAA_P0\fP   0"
+.br
+.ti -1c
+.RI "#define \fBERX_P5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBERX_P4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBERX_P3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBERX_P2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBERX_P1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBERX_P0\fP   0"
+.br
+.ti -1c
+.RI "#define \fBAW\fP   0 /* 2 bits */"
+.br
+.ti -1c
+.RI "#define \fBARD\fP   4 /* 4 bits */"
+.br
+.ti -1c
+.RI "#define \fBARC\fP   0 /* 4 bits */"
+.br
+.ti -1c
+.RI "#define \fBPLL_LOCK\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRF_DR\fP   3"
+.br
+.ti -1c
+.RI "#define \fBRF_PWR\fP   1 /* 2 bits */"
+.br
+.ti -1c
+.RI "#define \fBRX_DR\fP   6"
+.br
+.ti -1c
+.RI "#define \fBTX_DS\fP   5"
+.br
+.ti -1c
+.RI "#define \fBMAX_RT\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRX_P_NO\fP   1 /* 3 bits */"
+.br
+.ti -1c
+.RI "#define \fBTX_FULL\fP   0"
+.br
+.ti -1c
+.RI "#define \fBPLOS_CNT\fP   4 /* 4 bits */"
+.br
+.ti -1c
+.RI "#define \fBARC_CNT\fP   0 /* 4 bits */"
+.br
+.ti -1c
+.RI "#define \fBTX_REUSE\fP   6"
+.br
+.ti -1c
+.RI "#define \fBFIFO_FULL\fP   5"
+.br
+.ti -1c
+.RI "#define \fBTX_EMPTY\fP   4"
+.br
+.ti -1c
+.RI "#define \fBRX_FULL\fP   1"
+.br
+.ti -1c
+.RI "#define \fBRX_EMPTY\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDPL_P0\fP   0"
+.br
+.ti -1c
+.RI "#define \fBDPL_P1\fP   1"
+.br
+.ti -1c
+.RI "#define \fBDPL_P2\fP   2"
+.br
+.ti -1c
+.RI "#define \fBDPL_P3\fP   3"
+.br
+.ti -1c
+.RI "#define \fBDPL_P4\fP   4"
+.br
+.ti -1c
+.RI "#define \fBDPL_P5\fP   5"
+.br
+.ti -1c
+.RI "#define \fBR_REGISTER\fP   0x00 /* last 4 bits will indicate reg\&. address */"
+.br
+.ti -1c
+.RI "#define \fBW_REGISTER\fP   0x20 /* last 4 bits will indicate reg\&. address */"
+.br
+.ti -1c
+.RI "#define \fBREGISTER_MASK\fP   0x1F"
+.br
+.ti -1c
+.RI "#define \fBR_RX_PAYLOAD\fP   0x61"
+.br
+.ti -1c
+.RI "#define \fBW_TX_PAYLOAD\fP   0xA0"
+.br
+.ti -1c
+.RI "#define \fBFLUSH_TX\fP   0xE1"
+.br
+.ti -1c
+.RI "#define \fBFLUSH_RX\fP   0xE2"
+.br
+.ti -1c
+.RI "#define \fBREUSE_TX_PL\fP   0xE3"
+.br
+.ti -1c
+.RI "#define \fBACTIVATE\fP   0x50"
+.br
+.ti -1c
+.RI "#define \fBR_RX_PL_WID\fP   0x60"
+.br
+.ti -1c
+.RI "#define \fBNOP\fP   0xFF"
+.br
+.ti -1c
+.RI "#define \fBLOW\fP   0"
+.br
+.ti -1c
+.RI "#define \fBHIGH\fP   1"
+.br
+.ti -1c
+.RI "#define \fBnrf24_ADDR_LEN\fP   5"
+.br
+.ti -1c
+.RI "#define \fBnrf24_CONFIG\fP   (_BV(\fBEN_CRC\fP)|(0<<\fBCRCO\fP))"
+.br
+.ti -1c
+.RI "#define \fBNRF24_TRANSMISSON_OK\fP   0"
+.br
+.ti -1c
+.RI "#define \fBNRF24_MESSAGE_LOST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBnrf24_ce_digitalWrite\fP(\fBLOW\fP)   CE_DDR &= ~_BV(CE_PIN)"
+.br
+.ti -1c
+.RI "#define \fBnrf24_ce_digitalWrite\fP(\fBHIGH\fP)   CE_DDR |= _BV(CE_PIN)"
+.br
+.ti -1c
+.RI "#define \fBnrf24_csn_digitalWrite\fP(\fBHIGH\fP)   SPI_DDR |= _BV(SPI_SS)"
+.br
+.ti -1c
+.RI "#define \fBnrf24_csn_digitalWrite\fP(\fBLOW\fP)   SPI_DDR &= ~_BV(SPI_SS)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBnrf24_init\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_rx_address\fP (const \fBbyte\fP *const adr)"
+.br
+.ti -1c
+.RI "void \fBnrf24_tx_address\fP (const \fBbyte\fP *const adr)"
+.br
+.ti -1c
+.RI "void \fBnrf24_config\fP (const uint8_t channel, const uint8_t pay_length)"
+.br
+.ti -1c
+.RI "bool \fBnrf24_dataReady\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnrf24_isSending\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBnrf24_getStatus\fP ()"
+.br
+.ti -1c
+.RI "bool \fBnrf24_rxFifoEmpty\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_send\fP (const \fBbyte\fP *const value)"
+.br
+.ti -1c
+.RI "void \fBnrf24_getData\fP (\fBbyte\fP *const data)"
+.br
+.ti -1c
+.RI "uint8_t \fBnrf24_payloadLength\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBnrf24_lastMessageStatus\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBnrf24_retransmissionCount\fP ()"
+.br
+.ti -1c
+.RI "uint8_t \fBnrf24_payload_length\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_powerUpRx\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_powerUpTx\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_powerDown\fP ()"
+.br
+.ti -1c
+.RI "void \fBnrf24_configRegister\fP (const \fBbyte\fP reg, const \fBbyte\fP value)"
+.br
+.ti -1c
+.RI "void \fBnrf24_readRegister\fP (const \fBbyte\fP reg, \fBbyte\fP *const value, const uint8_t len)"
+.br
+.ti -1c
+.RI "void \fBnrf24_writeRegister\fP (const \fBbyte\fP reg, const \fBbyte\fP *const value, const uint8_t len)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static struct \fBnrf24_t\fP \fBNrf24\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ACTIVATE   0x50"
+
+.SS "#define ARC   0 /* 4 bits */"
+
+.SS "#define ARC_CNT   0 /* 4 bits */"
+
+.SS "#define ARD   4 /* 4 bits */"
+
+.SS "#define AW   0 /* 2 bits */"
+
+.SS "#define CD   0x09"
+
+.SS "#define CONFIG   0x00"
+
+.SS "#define CRCO   2"
+
+.SS "#define DPL_P0   0"
+
+.SS "#define DPL_P1   1"
+
+.SS "#define DPL_P2   2"
+
+.SS "#define DPL_P3   3"
+
+.SS "#define DPL_P4   4"
+
+.SS "#define DPL_P5   5"
+
+.SS "#define DYNPD   0x1C"
+
+.SS "#define EN_AA   0x01"
+
+.SS "#define EN_CRC   3"
+
+.SS "#define EN_RXADDR   0x02"
+
+.SS "#define ENAA_P0   0"
+
+.SS "#define ENAA_P1   1"
+
+.SS "#define ENAA_P2   2"
+
+.SS "#define ENAA_P3   3"
+
+.SS "#define ENAA_P4   4"
+
+.SS "#define ENAA_P5   5"
+
+.SS "#define ERX_P0   0"
+
+.SS "#define ERX_P1   1"
+
+.SS "#define ERX_P2   2"
+
+.SS "#define ERX_P3   3"
+
+.SS "#define ERX_P4   4"
+
+.SS "#define ERX_P5   5"
+
+.SS "#define FIFO_FULL   5"
+
+.SS "#define FIFO_STATUS   0x17"
+
+.SS "#define FLUSH_RX   0xE2"
+
+.SS "#define FLUSH_TX   0xE1"
+
+.SS "#define HIGH   1"
+
+.SS "#define LOW   0"
+
+.SS "#define MASK_MAX_RT   4"
+
+.SS "#define MASK_RX_DR   6"
+
+.SS "#define MASK_TX_DS   5"
+
+.SS "#define MAX_RT   4"
+
+.SS "#define NOP   0xFF"
+
+.SS "#define nrf24_ADDR_LEN   5"
+
+.SS "#define nrf24_ce_digitalWrite(\fBLOW\fP)   CE_DDR &= ~_BV(CE_PIN)"
+
+.SS "#define nrf24_ce_digitalWrite(\fBHIGH\fP)   CE_DDR |= _BV(CE_PIN)"
+
+.SS "#define nrf24_CONFIG   (_BV(\fBEN_CRC\fP)|(0<<\fBCRCO\fP))"
+
+.SS "#define nrf24_csn_digitalWrite(\fBHIGH\fP)   SPI_DDR |= _BV(SPI_SS)"
+
+.SS "#define nrf24_csn_digitalWrite(\fBLOW\fP)   SPI_DDR &= ~_BV(SPI_SS)"
+
+.SS "#define NRF24_MESSAGE_LOST   1"
+
+.SS "#define NRF24_TRANSMISSON_OK   0"
+
+.SS "#define OBSERVE_TX   0x08"
+
+.SS "#define PLL_LOCK   4"
+
+.SS "#define PLOS_CNT   4 /* 4 bits */"
+
+.SS "#define PRIM_RX   0"
+
+.SS "#define PWR_UP   1"
+
+.SS "#define R_REGISTER   0x00 /* last 4 bits will indicate reg\&. address */"
+
+.SS "#define R_RX_PAYLOAD   0x61"
+
+.SS "#define R_RX_PL_WID   0x60"
+
+.SS "#define REGISTER_MASK   0x1F"
+
+.SS "#define REUSE_TX_PL   0xE3"
+
+.SS "#define RF_CH   0x05"
+
+.SS "#define RF_DR   3"
+
+.SS "#define RF_PWR   1 /* 2 bits */"
+
+.SS "#define RF_SETUP   0x06"
+
+.SS "#define RX_ADDR_P0   0x0A"
+
+.SS "#define RX_ADDR_P1   0x0B"
+
+.SS "#define RX_ADDR_P2   0x0C"
+
+.SS "#define RX_ADDR_P3   0x0D"
+
+.SS "#define RX_ADDR_P4   0x0E"
+
+.SS "#define RX_ADDR_P5   0x0F"
+
+.SS "#define RX_DR   6"
+
+.SS "#define RX_EMPTY   0"
+
+.SS "#define RX_FULL   1"
+
+.SS "#define RX_P_NO   1 /* 3 bits */"
+
+.SS "#define RX_PW_P0   0x11"
+
+.SS "#define RX_PW_P1   0x12"
+
+.SS "#define RX_PW_P2   0x13"
+
+.SS "#define RX_PW_P3   0x14"
+
+.SS "#define RX_PW_P4   0x15"
+
+.SS "#define RX_PW_P5   0x16"
+
+.SS "#define SETUP_AW   0x03"
+
+.SS "#define SETUP_RETR   0x04"
+
+.SS "#define STATUS   0x07"
+
+.SS "#define TX_ADDR   0x10"
+
+.SS "#define TX_DS   5"
+
+.SS "#define TX_EMPTY   4"
+
+.SS "#define TX_FULL   0"
+
+.SS "#define TX_REUSE   6"
+
+.SS "#define W_REGISTER   0x20 /* last 4 bits will indicate reg\&. address */"
+
+.SS "#define W_TX_PAYLOAD   0xA0"
+
+.SH "Function Documentation"
+.PP 
+.SS "void nrf24_config (const uint8_t channel, const uint8_t pay_length)"
+
+.SS "void nrf24_configRegister (const \fBbyte\fP reg, const \fBbyte\fP value)"
+
+.SS "bool nrf24_dataReady ()"
+
+.SS "void nrf24_getData (\fBbyte\fP *const data)"
+
+.SS "uint8_t nrf24_getStatus ()"
+
+.SS "void nrf24_init ()"
+
+.SS "bool nrf24_isSending ()"
+
+.SS "uint8_t nrf24_lastMessageStatus ()"
+
+.SS "uint8_t nrf24_payload_length ()"
+
+.SS "uint8_t nrf24_payloadLength ()"
+
+.SS "void nrf24_powerDown ()"
+
+.SS "void nrf24_powerUpRx ()"
+
+.SS "void nrf24_powerUpTx ()"
+
+.SS "void nrf24_readRegister (const \fBbyte\fP reg, \fBbyte\fP *const value, const uint8_t len)"
+
+.SS "uint8_t nrf24_retransmissionCount ()"
+
+.SS "void nrf24_rx_address (const \fBbyte\fP *const adr)"
+
+.SS "bool nrf24_rxFifoEmpty ()"
+
+.SS "void nrf24_send (const \fBbyte\fP *const value)"
+
+.SS "void nrf24_tx_address (const \fBbyte\fP *const adr)"
+
+.SS "void nrf24_writeRegister (const \fBbyte\fP reg, const \fBbyte\fP *const value, const uint8_t len)"
+
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBnrf24_t\fP Nrf24\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+  
+  \&.init =   &nrf24_init,
+  \&.txAddr = &nrf24_tx_address,
+  \&.rxAddr = &nrf24_rx_address,
+  \&.config = &nrf24_config,
+
+  
+  \&.dataReady = &nrf24_dataReady,
+  \&.isSending = &nrf24_isSending,
+  \&.getStatus = &nrf24_getStatus,
+  \&.rxWaiting = &nrf24_rxFifoEmpty,
+
+  \&.txData= &nrf24_send,
+  \&.rxData = &nrf24_getData,
+
+  
+  \&.paylength = &nrf24_payload_length,
+
+   
+  \&.lastTxStatus = &nrf24_lastMessageStatus,
+  \&.badTxCount = &nrf24_retransmissionCount,
+    
+  
+  \&.powerRx = &nrf24_powerUpRx,
+  \&.powerTx = &nrf24_powerUpTx,
+  \&.powerDown = &nrf24_powerDown,
+
+  \&.payload_len = 0
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

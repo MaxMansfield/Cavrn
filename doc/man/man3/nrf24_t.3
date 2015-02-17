@@ -1,0 +1,105 @@
+.TH "nrf24_t" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+nrf24_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <nrf24\&.h>\fP
+.SS "Public Attributes"
+
+.in +1c
+.ti -1c
+.RI "void(* \fBinit\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBtxAddr\fP )(const \fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "void(* \fBrxAddr\fP )(const \fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "void(* \fBconfig\fP )(const uint8_t, const uint8_t)"
+.br
+.ti -1c
+.RI "bool(* \fBdataReady\fP )()"
+.br
+.ti -1c
+.RI "bool(* \fBisSending\fP )()"
+.br
+.ti -1c
+.RI "uint8_t(* \fBgetStatus\fP )()"
+.br
+.ti -1c
+.RI "bool(* \fBrxWaiting\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBtxData\fP )(const \fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "void(* \fBrxData\fP )(\fBbyte\fP *const)"
+.br
+.ti -1c
+.RI "uint8_t(* \fBpaylength\fP )()"
+.br
+.ti -1c
+.RI "uint8_t(* \fBlastTxStatus\fP )()"
+.br
+.ti -1c
+.RI "uint8_t(* \fBbadTxCount\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBpowerRx\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBpowerTx\fP )()"
+.br
+.ti -1c
+.RI "void(* \fBpowerDown\fP )()"
+.br
+.ti -1c
+.RI "uint8_t \fBpayload_len\fP"
+.br
+.in -1c
+.SH "Member Data Documentation"
+.PP 
+.SS "uint8_t(* nrf24_t::badTxCount) ()"
+
+.SS "void(* nrf24_t::config) (const uint8_t, const uint8_t)"
+
+.SS "bool(* nrf24_t::dataReady) ()"
+
+.SS "uint8_t(* nrf24_t::getStatus) ()"
+
+.SS "void(* nrf24_t::init) ()"
+
+.SS "bool(* nrf24_t::isSending) ()"
+
+.SS "uint8_t(* nrf24_t::lastTxStatus) ()"
+
+.SS "uint8_t(* nrf24_t::paylength) ()"
+
+.SS "uint8_t nrf24_t::payload_len"
+
+.SS "void(* nrf24_t::powerDown) ()"
+
+.SS "void(* nrf24_t::powerRx) ()"
+
+.SS "void(* nrf24_t::powerTx) ()"
+
+.SS "void(* nrf24_t::rxAddr) (const \fBbyte\fP *const)"
+
+.SS "void(* nrf24_t::rxData) (\fBbyte\fP *const)"
+
+.SS "bool(* nrf24_t::rxWaiting) ()"
+
+.SS "void(* nrf24_t::txAddr) (const \fBbyte\fP *const)"
+
+.SS "void(* nrf24_t::txData) (const \fBbyte\fP *const)"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,123 @@
+\hyperlink{cavrn_8h_af129c0b3bc3584bd198babebfc7c3f69}{Cavrn} \subsection*{An easy to use and extremely flexible library for A\+V\+R Microcontrollers, written in pure C.}
+
+
+
+ \subparagraph*{Supported\+: A\+Tmega328p, A\+Tmega103}
+
+\subparagraph*{Coming Soon\+: A\+Ttiny85}
+
+Cavrn library is built on avr-\/libc, compiled with avr-\/gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations.\+Each available function (uart,spi,nrf24) which I\textquotesingle{}ll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8\+\_\+t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the N\+R\+F24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration.
+
+\subsection*{Usage}
+
+At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this. For the time being you can simply download the repo and configure the {\ttfamily Makefile} to fit your needs. Then run {\ttfamily make} and if your board is plugged in {\ttfamily make upload}.
+
+\subsection*{Requirements}
+
+To compile Cavrn you will need the avr-\/gcc suite as well as avr-\/libc. To upload you will need avrdude and to view serial data you can install screen and type {\ttfamily make console} but for long term use I recommend minicom.
+
+At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define easch pin that will be used in the appropriate header file.
+
+
+
+ \subsection*{U\+A\+R\+T}
+
+\paragraph*{A library implementation for sending/recieving bytes or strings via U\+A\+R\+T pins.}
+
+Uart is able to take advantage of all modes given by an M\+C\+U. Just provide it during initialization. {\itshape note\+: The A\+V\+R A\+Tmega103 does not have available status control registers to determine half/full duplex so no mode is needed at initialization.}
+
+` Uart.\+init(\+A\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E) or Uart.\+init(\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E) or Uart.\+init(\+M\+S\+P\+I\+\_\+\+M\+O\+D\+E) {\ttfamily  Uart relies on a B\+A\+U\+D definition at compile time because many preprocessor directives rely on it; one benefit of doing it this way is that no large 32bit integers have to be used (ex. Baud of 115200) another is the assurance that your baud rate is what you would expect throughout the program and finally no compute time is wasted on arithmatic to calculate baud rates or}F\+\_\+\+O\+S\+C` clock rates or even to separate high and low values for the U\+S\+A\+R\+T Baud Rate Register because the preprocessor computes it.
+
+To Define the Baud rate add -\/\+D\+B\+A\+U\+D=9600 or any other rate to the compilation. For most situations, simply fill in the provided makefile. During the extent of your program you can change the B\+A\+U\+D by undefining B\+A\+U\+D and redefining it before reincluding the $<$util/setbaud.\+h$>$ file. This sounds janky but the setbaud.\+h file is simply a collection of preprocessor directives which will only be present at compile time and infact avr-\/libc recommends this way.
+
+Take this example to see how easy to use the Uart library is (and eventually all of Cavrn). ```\+C \#include \char`\"{}\+Cavrn/uart.\+h\char`\"{}
+
+int main(void) \{ Uart.\+init(\+A\+S\+Y\+N\+C\+\_\+\+M\+O\+D\+E); Uart.\+tx\+String(\char`\"{}\+Device Initialized\textbackslash{}n\textbackslash{}r\char`\"{});
+
+while(1)\{ uint8\+\_\+t recieved = Uart.\+rx\+Byte(); char text\mbox{[}128\mbox{]}; sprintf(text,\char`\"{}\+Devices Recieved Data\+: \%d\textbackslash{}n\textbackslash{}r\+Analyzing...\char`\"{},recieved); Uart.\+tx\+String(text); \} return 0; \} ``` 
+
+ \subsection*{S\+P\+I (Almost Operational)}
+
+\paragraph*{A simple and elegant peripheral communication library.}
+
+The S\+P\+I library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
+
+You can choose from the 4 clock polarity modes provided by Atmel. 
+
+By initializing S\+P\+I with one of the four modes like so... ```\+C \#include \char`\"{}\+Cavrn/spi.\+h\char`\"{}
+
+int main(void)\{ /$\ast$ To assign as a master device $\ast$/ Spi.\+init(\+M\+A\+S\+T\+E\+R,\+S\+P\+I\+\_\+\+M\+O\+D\+E0,\+F\+\_\+\+O\+S\+C16);
+
+//or another way to assign as a master device (true is defined as part of Cavrn) Spi.\+init(true,\+S\+P\+I\+\_\+\+M\+O\+D\+E0,\+F\+\_\+\+O\+S\+C16);
+
+// or as a slave device Spi.\+init(\+S\+L\+A\+V\+E,\+S\+P\+I\+\_\+\+M\+O\+D\+E2,\+F\+\_\+\+O\+S\+C8);
+
+// and the data order can be changed from M\+S\+B to L\+S\+B and back by using set\+Data\+Order from Spi... Spi.\+set\+Data\+Order(\+M\+S\+B\+\_\+\+O\+R\+D\+E\+R); //\+Spi.set\+Data\+Order(true) try using...H\+I\+G\+H,O\+U\+T,O\+N instead of true
+
+// or for least significant bit Spi.\+set\+Data\+Order(\+L\+S\+B\+\_\+\+O\+R\+D\+E\+R); //\+Spi.set\+Data\+Order(false);
+
+Spi.\+set\+Interrupts(true); //\+Spi.set\+Interrupts(\+O\+N);
+
+// To transfer via S\+P\+I char letter\+\_\+\+L = \textquotesingle{}L\textquotesingle{}; uint8\+\_\+t recieved = Spi.\+transfer(letter\+\_\+\+L); // To transfer large amounts byte\mbox{[}128\mbox{]} text; byte\mbox{[}128\mbox{]} out = \char`\"{}\+Hello World\char`\"{}; Spi.\+multi\+Transfer(out,text,128);
+
+Spi.\+disable();
+
+return 0; \} ``` 
+
+ \subsection*{N\+R\+F24 (Relies on S\+P\+I)}
+
+\paragraph*{Making wireless connectivity quick and painless.}
+
+This module enables the auto acknowledgement and auto retransmission features of the nrf24\+L01+ in static length payload mode.
+
+These two features are basically the most important features of the nrf24\+L01+ modules. With this module, after you make a tranmission attempt, you\textquotesingle{}ll know for sure wheter the slave device got your message properly or not with minimal M\+C\+U involvement. Also, nrf24\+L01+ chipsets automatically handle the retranmission of the same message if it they lost in transmission, up to o limited trials with adjustable delays in between attempts.
+
+\subsection*{Usage}
+
+\subsubsection*{File strutcture}
+
+The module basically consists of only three files\+: {\ttfamily \hyperlink{nrf24_8c}{nrf24.\+c}}, {\ttfamily \hyperlink{nrf24_8h}{nrf24.\+h}} and {\ttfamily n\+R\+F24\+L01.\+h} (as well as the S\+P\+I module it relies on).
+
+\subsubsection*{Configuration}
+
+Configuration of the module is simple. Max retransmission count is set to 15 and delays between each retranmission is set to 1000 us. Also the C\+R\+C is enabled with 1byte length. Data rate is set to 1\+Mbps.
+
+Via the config function, you can chose the channel and the payload length. Max payload length is 32. After the config function the module automatically goes to R\+X mode. Payload length and the R\+F channel values have to be consistent among the devices.
+
+```\+C /$\ast$ initializes hardware pins $\ast$/ Nrf24.\+init();
+
+/$\ast$ R\+F channel\+: \#2 , payload length\+: 4 $\ast$/ Nrf24.\+config(2,4) ``` \subsubsection*{Addressing}
+
+Address length is 5 bytes. You can configure the transmit and receive addresses as follows\+: ```\+C uint8\+\_\+t rx\+\_\+mac\mbox{[}5\mbox{]} = \{0x\+E7,0x\+E7,0x\+E7,0x\+E7,0x\+E7\}; uint8\+\_\+t tx\+\_\+mac\mbox{[}5\mbox{]} = \{0x\+D7,0x\+D7,0x\+D7,0x\+D7,0x\+D7\};
+
+/$\ast$ Set the module\textquotesingle{}s own address $\ast$/ Nrf24.\+rx\+Addr(rx\+\_\+mac);
+
+/$\ast$ Set the transmit address $\ast$/ Nrf24.\+tx\+Addr(tx\+\_\+mac); ``` \subsubsection*{Transmit}
+
+Let\textquotesingle{}s say the payload length is set to 4 and you have the following payload. ```\+C uint8\+\_\+t data\+\_\+array\mbox{[}4\mbox{]};
+
+data\+\_\+array\mbox{[}0\mbox{]} = 0x00; data\+\_\+array\mbox{[}1\mbox{]} = 0x\+A\+A; data\+\_\+array\mbox{[}2\mbox{]} = 0x55; data\+\_\+array\mbox{[}3\mbox{]} = 0x\+F\+F; ``{\ttfamily  The basic transmit function is the}Nrf24.\+tx\+Data(){\ttfamily function. The module automatically switches to the T\+X mode and power up if required. }``\+C /$\ast$ Automatically goes to T\+X mode $\ast$/ Nrf24.\+tx\+Data(data\+\_\+array); ``{\ttfamily  After the}\hyperlink{nrf24_8c_ada5868d8e82fb0676d2d4c913efd608e}{nrf24\+\_\+send()}{\ttfamily , you must wait for transmission to end. M\+C\+U can sleep or do another tasks during that period. }``\+C /$\ast$ Wait for transmission to end $\ast$/ while(Nrf24.\+is\+Sending()); ``` After the transmission end, optionally you can make analysis on the last transmission attempt. ```\+C uint8\+\_\+t temp;
+
+/$\ast$ Make analysis on last tranmission attempt $\ast$/ temp = Nrf24.\+last\+Tx\+Status();
+
+if(temp == N\+R\+F24\+\_\+\+T\+R\+A\+N\+S\+M\+I\+S\+S\+O\+N\+\_\+\+O\+K) \{ Uart.\+tx\+String(\char`\"{}\+Tranmission went O\+K\textbackslash{}r\textbackslash{}n\char`\"{}); \} else if(temp == N\+R\+F24\+\_\+\+M\+E\+S\+S\+A\+G\+E\+\_\+\+L\+O\+S\+T) \{ Uart.\+tx\+String(\char`\"{}\+Message is lost ...\textbackslash{}r\textbackslash{}n\char`\"{}); \}
+
+/$\ast$ Retranmission count indicates the tranmission quality $\ast$/ temp = Nrf24.\+bad\+Tx\+Count();
+
+char msg\mbox{[}64\mbox{]}; sprintf(msg,\char`\"{}\+Retranmission count\+: \%d\textbackslash{}r\textbackslash{}n\char`\"{},temp); Uart.\+tx\+String(msg); ``` After the tranmission finishes, nrf24\+L01+ module stays in Standby mode. You can manually go back to R\+X mode\+: ```\+C /$\ast$ Go back to R\+X mode ... $\ast$/ Nrf24.\+power\+Rx(); ``` Or you can power down the module to lower the current consumption. ```\+C /$\ast$ Power down the module $\ast$/ Nrf24.\+power\+Down(); ``` \subsubsection*{Receive}
+
+This library doesn\textquotesingle{}t use the I\+R\+Q pin of the nrf24\+L01+ (yet) , therefore you need to poll the {\ttfamily \hyperlink{nrf24_8c_a712c0b5e8c339da2e8f36cfbba8892ac}{nrf24\+\_\+data\+Ready()}} function periodically. Otherwise you might miss some packets.
+
+Also, you need to be in R\+X mode in order to be able to receive messages.
+
+{\ttfamily \hyperlink{nrf24_8c_a712c0b5e8c339da2e8f36cfbba8892ac}{nrf24\+\_\+data\+Ready()}} function returns non-\/zero only if a valid payload is awaiting in the R\+X fifo. {\ttfamily \hyperlink{nrf24_8h_a195d164f0c500d345d23ca1dfa3fa0d1}{nrf24\+\_\+get\+Data(uint8\+\_\+t$\ast$ buf)}} function copies the received message into the given buffer. ```\+C uint8\+\_\+t data\+\_\+array\mbox{[}4\mbox{]};
+
+if(n\+Nrf24.\+data\+Ready()) \{ Nrf24.\+rx\+Data(data\+\_\+array); \} ``` \subsection*{References}
+
+This module is proudly and heavily based on the following libraries\+:
+
+
+\begin{DoxyItemize}
+\item \href{https://github.com/aaronds/arduino-nrf24l01}{\tt https\+://github.\+com/aaronds/arduino-\/nrf24l01}
+\item \href{http://www.tinkerer.eu/AVRLib/nRF24L01}{\tt http\+://www.\+tinkerer.\+eu/\+A\+V\+R\+Lib/n\+R\+F24\+L01} 
+\end{DoxyItemize}

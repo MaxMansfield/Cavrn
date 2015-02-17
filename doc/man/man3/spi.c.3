@@ -1,0 +1,103 @@
+.TH "Spi/spi.c" 3 "Tue Feb 17 2015" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Spi/spi.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'spi\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBspi_init\fP (const bool isMaster, const \fBbyte\fP mode, const uint8_t clk)"
+.br
+.RI "\fI: \fBspi_init()\fP This method initializes the registers of the MCU and determines the clock polarity and clock rate for the transfers \fP"
+.ti -1c
+.RI "\fBbyte\fP \fBspi_transfer\fP (const \fBbyte\fP data)"
+.br
+.RI "\fI: \fBspi_transfer()\fP This function will send a byte and wait for a response via spi before returning its value\&. \fP"
+.ti -1c
+.RI "void \fBspi_disable\fP ()"
+.br
+.RI "\fI: \fBspi_disable()\fP Opposite of init\&. Disable SPI\&. \fP"
+.ti -1c
+.RI "void \fBspi_set_data_order\fP (const bool dord)"
+.br
+.RI "\fI: \fBspi_set_data_order()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain \fP"
+.ti -1c
+.RI "void \fBspi_set_interrupts\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBspi_set_interrupts()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain \fP"
+.ti -1c
+.RI "void \fBspi_multi_transfer\fP (const uint8_t *const dataout, uint8_t *const datain, const uint8_t len)"
+.br
+.RI "\fI: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes \fBspi_transfer(byte)\fP until all information has been sent and recieved \fP"
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void spi_disable ()"
+
+.PP
+: \fBspi_disable()\fP Opposite of init\&. Disable SPI\&. 
+.SS "void spi_init (const bool isMaster, const \fBbyte\fP mode, const uint8_t clk)"
+
+.PP
+: \fBspi_init()\fP This method initializes the registers of the MCU and determines the clock polarity and clock rate for the transfers 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_multi_transfer (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t len)"
+
+.PP
+: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes \fBspi_transfer(byte)\fP until all information has been sent and recieved 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_set_data_order (const bool dord)"
+
+.PP
+: \fBspi_set_data_order()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_set_interrupts (const bool isInterrupt)"
+
+.PP
+: \fBspi_set_interrupts()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "\fBbyte\fP spi_transfer (const \fBbyte\fP data)"
+
+.PP
+: \fBspi_transfer()\fP This function will send a byte and wait for a response via spi before returning its value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

@@ -1,0 +1,276 @@
+\hypertarget{spi_8h}{}\section{Spi/spi.h File Reference}
+\label{spi_8h}\index{Spi/spi.\+h@{Spi/spi.\+h}}
+{\ttfamily \#include \char`\"{}cavrn.\+h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structspi__t}{spi\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spi_8h_a097c5a5487596c1cf42604e333d2ad85}{C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G}()~S\+P\+C\+R \&= $\sim$(\+\_\+\+B\+V(S\+P\+R1) $\vert$ \+\_\+\+B\+V(S\+P\+R0))
+\item 
+\#define \hyperlink{spi_8h_ac9d0bde2b42b2403d00b7a611514b006}{S\+P\+I\+\_\+\+M\+O\+D\+E0}~0xf3
+\item 
+\#define \hyperlink{spi_8h_a9481b7327b91aa52ff5f70eb2d0acc95}{S\+P\+I\+\_\+\+M\+O\+D\+E1}~0x04
+\item 
+\#define \hyperlink{spi_8h_a991dec04d2fb38979cfb0d9fc7f8b026}{S\+P\+I\+\_\+\+M\+O\+D\+E2}~0x08
+\item 
+\#define \hyperlink{spi_8h_a5f928a2445070981765ee0416c12369d}{S\+P\+I\+\_\+\+M\+O\+D\+E3}~0x0\+C
+\item 
+\#define \hyperlink{spi_8h_a84c3487449731c99a94404295ec0afd1}{F\+\_\+\+O\+S\+C4}~0x00
+\item 
+\#define \hyperlink{spi_8h_a8607d7b5f457a1262e37c1524e167307}{F\+\_\+\+O\+S\+C16}~(\+\_\+\+B\+V(S\+P\+R0))
+\item 
+\#define \hyperlink{spi_8h_af02ef796ffe33130d3eb8b5c5c179be2}{F\+\_\+\+O\+S\+C64}~(\+\_\+\+B\+V(S\+P\+R1))
+\item 
+\#define \hyperlink{spi_8h_aa5f93a54b5b4b4d84f318346f19eff90}{F\+\_\+\+O\+S\+C128}~(\+\_\+\+B\+V(S\+P\+R1) $\vert$ \+\_\+\+B\+V(S\+P\+R0))
+\item 
+\#define \hyperlink{spi_8h_adffdf11322e7b104b910a841b7de2b11}{S\+E\+T\+\_\+\+S\+P\+I2\+X}()
+\item 
+\#define \hyperlink{spi_8h_a6e8a4b0dc3d3b8c65459e751af8424a4}{C\+L\+R\+\_\+\+S\+P\+I2\+X}()
+\item 
+\#define \hyperlink{spi_8h_a9bed579a9d8b21a8d7170d27fbe3e11d}{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0}()~S\+P\+C\+R \&= \hyperlink{spi_8h_ac9d0bde2b42b2403d00b7a611514b006}{S\+P\+I\+\_\+\+M\+O\+D\+E0}
+\item 
+\#define \hyperlink{spi_8h_a75c77e8553a5178154cf62b7d8bb2fbf}{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1}()~S\+P\+C\+R $\vert$= \hyperlink{spi_8h_a9481b7327b91aa52ff5f70eb2d0acc95}{S\+P\+I\+\_\+\+M\+O\+D\+E1}
+\item 
+\#define \hyperlink{spi_8h_a0e07670f4c262a8e9cab546c8fddee41}{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2}()~S\+P\+C\+R $\vert$= \hyperlink{spi_8h_a991dec04d2fb38979cfb0d9fc7f8b026}{S\+P\+I\+\_\+\+M\+O\+D\+E2}
+\item 
+\#define \hyperlink{spi_8h_a647266dd624e52be3d0acbb69d0a2d14}{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3}()~S\+P\+C\+R $\vert$= \hyperlink{spi_8h_a5f928a2445070981765ee0416c12369d}{S\+P\+I\+\_\+\+M\+O\+D\+E3}
+\item 
+\#define \hyperlink{spi_8h_a3fa2d3bf1901157f734a584d47b25d8b}{M\+A\+S\+T\+E\+R}~0x01
+\item 
+\#define \hyperlink{spi_8h_ae342da5a4630c191c1c983958808edd8}{S\+L\+A\+V\+E}~0x00
+\item 
+\#define \hyperlink{spi_8h_a8ff732a711fc73375510b83b52b89835}{M\+S\+B\+\_\+\+O\+R\+D\+E\+R}~0x01
+\item 
+\#define \hyperlink{spi_8h_a0336046ec21c47729c579b51957b2644}{L\+S\+B\+\_\+\+O\+R\+D\+E\+R}~0x00
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init} (const bool is\+Master, const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} mode, const uint8\+\_\+t clk)
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init()} This method initializes the registers of the M\+C\+U and determines the clock polarity and clock rate for the transfers \end{DoxyCompactList}\item 
+void \hyperlink{spi_8h_a106510ceb36305d7442f75e830fb98c2}{spi\+\_\+multi\+\_\+transfer} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const dataout, \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const datain, const uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em \+: spi\+\_\+multi\+Transfer() This function stops interrupts if they are enabled during transfer and utilizes \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer(byte)} until all information has been sent and recieved \end{DoxyCompactList}\item 
+\hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} data)
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer()} This function will send a byte and wait for a response via spi before returning its value. \end{DoxyCompactList}\item 
+void \hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\+\_\+set\+\_\+data\+\_\+order} (const bool dord)
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\+\_\+set\+\_\+data\+\_\+order()} This funtion changes the data order from M\+S\+B (whichis equivelent to true) to L\+S\+B (false) and backagain \end{DoxyCompactList}\item 
+void \hyperlink{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}{spi\+\_\+set\+\_\+interrupts} (const bool is\+Interrupt)
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}{spi\+\_\+set\+\_\+interrupts()} This funtion changes the data order from M\+S\+B (whichis equivelent to true) to L\+S\+B (false) and backagain \end{DoxyCompactList}\item 
+void \hyperlink{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{spi\+\_\+disable} ()
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{spi\+\_\+disable()} Opposite of init. Disable S\+P\+I. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct \hyperlink{structspi__t}{spi\+\_\+t} \hyperlink{spi_8h_acc32e9917e484a47a14e3daccb502db2}{Spi}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{spi_8h_a097c5a5487596c1cf42604e333d2ad85}{}\index{spi.\+h@{spi.\+h}!C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G@{C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G}}
+\index{C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G@{C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G}!spi.\+h@{spi.\+h}}
+\subsubsection[{C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+R\+\_\+\+S\+C\+K\+\_\+\+R\+E\+G(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~S\+P\+C\+R \&= $\sim$(\+\_\+\+B\+V(S\+P\+R1) $\vert$ \+\_\+\+B\+V(S\+P\+R0))}\label{spi_8h_a097c5a5487596c1cf42604e333d2ad85}
+\hypertarget{spi_8h_a6e8a4b0dc3d3b8c65459e751af8424a4}{}\index{spi.\+h@{spi.\+h}!C\+L\+R\+\_\+\+S\+P\+I2\+X@{C\+L\+R\+\_\+\+S\+P\+I2\+X}}
+\index{C\+L\+R\+\_\+\+S\+P\+I2\+X@{C\+L\+R\+\_\+\+S\+P\+I2\+X}!spi.\+h@{spi.\+h}}
+\subsubsection[{C\+L\+R\+\_\+\+S\+P\+I2\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\+L\+R\+\_\+\+S\+P\+I2\+X(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a6e8a4b0dc3d3b8c65459e751af8424a4}
+\hypertarget{spi_8h_aa5f93a54b5b4b4d84f318346f19eff90}{}\index{spi.\+h@{spi.\+h}!F\+\_\+\+O\+S\+C128@{F\+\_\+\+O\+S\+C128}}
+\index{F\+\_\+\+O\+S\+C128@{F\+\_\+\+O\+S\+C128}!spi.\+h@{spi.\+h}}
+\subsubsection[{F\+\_\+\+O\+S\+C128}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+O\+S\+C128~(\+\_\+\+B\+V(S\+P\+R1) $\vert$ \+\_\+\+B\+V(S\+P\+R0))}\label{spi_8h_aa5f93a54b5b4b4d84f318346f19eff90}
+\hypertarget{spi_8h_a8607d7b5f457a1262e37c1524e167307}{}\index{spi.\+h@{spi.\+h}!F\+\_\+\+O\+S\+C16@{F\+\_\+\+O\+S\+C16}}
+\index{F\+\_\+\+O\+S\+C16@{F\+\_\+\+O\+S\+C16}!spi.\+h@{spi.\+h}}
+\subsubsection[{F\+\_\+\+O\+S\+C16}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+O\+S\+C16~(\+\_\+\+B\+V(S\+P\+R0))}\label{spi_8h_a8607d7b5f457a1262e37c1524e167307}
+\hypertarget{spi_8h_a84c3487449731c99a94404295ec0afd1}{}\index{spi.\+h@{spi.\+h}!F\+\_\+\+O\+S\+C4@{F\+\_\+\+O\+S\+C4}}
+\index{F\+\_\+\+O\+S\+C4@{F\+\_\+\+O\+S\+C4}!spi.\+h@{spi.\+h}}
+\subsubsection[{F\+\_\+\+O\+S\+C4}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+O\+S\+C4~0x00}\label{spi_8h_a84c3487449731c99a94404295ec0afd1}
+\hypertarget{spi_8h_af02ef796ffe33130d3eb8b5c5c179be2}{}\index{spi.\+h@{spi.\+h}!F\+\_\+\+O\+S\+C64@{F\+\_\+\+O\+S\+C64}}
+\index{F\+\_\+\+O\+S\+C64@{F\+\_\+\+O\+S\+C64}!spi.\+h@{spi.\+h}}
+\subsubsection[{F\+\_\+\+O\+S\+C64}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\+\_\+\+O\+S\+C64~(\+\_\+\+B\+V(S\+P\+R1))}\label{spi_8h_af02ef796ffe33130d3eb8b5c5c179be2}
+\hypertarget{spi_8h_a9bed579a9d8b21a8d7170d27fbe3e11d}{}\index{spi.\+h@{spi.\+h}!I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0}}
+\index{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0}!spi.\+h@{spi.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E0(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~S\+P\+C\+R \&= {\bf S\+P\+I\+\_\+\+M\+O\+D\+E0}}\label{spi_8h_a9bed579a9d8b21a8d7170d27fbe3e11d}
+\hypertarget{spi_8h_a75c77e8553a5178154cf62b7d8bb2fbf}{}\index{spi.\+h@{spi.\+h}!I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1}}
+\index{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1}!spi.\+h@{spi.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E1(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~S\+P\+C\+R $\vert$= {\bf S\+P\+I\+\_\+\+M\+O\+D\+E1}}\label{spi_8h_a75c77e8553a5178154cf62b7d8bb2fbf}
+\hypertarget{spi_8h_a0e07670f4c262a8e9cab546c8fddee41}{}\index{spi.\+h@{spi.\+h}!I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2}}
+\index{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2}!spi.\+h@{spi.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E2(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~S\+P\+C\+R $\vert$= {\bf S\+P\+I\+\_\+\+M\+O\+D\+E2}}\label{spi_8h_a0e07670f4c262a8e9cab546c8fddee41}
+\hypertarget{spi_8h_a647266dd624e52be3d0acbb69d0a2d14}{}\index{spi.\+h@{spi.\+h}!I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3}}
+\index{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3@{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3}!spi.\+h@{spi.\+h}}
+\subsubsection[{I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N\+I\+T\+\_\+\+S\+P\+I\+\_\+\+M\+O\+D\+E3(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~S\+P\+C\+R $\vert$= {\bf S\+P\+I\+\_\+\+M\+O\+D\+E3}}\label{spi_8h_a647266dd624e52be3d0acbb69d0a2d14}
+\hypertarget{spi_8h_a0336046ec21c47729c579b51957b2644}{}\index{spi.\+h@{spi.\+h}!L\+S\+B\+\_\+\+O\+R\+D\+E\+R@{L\+S\+B\+\_\+\+O\+R\+D\+E\+R}}
+\index{L\+S\+B\+\_\+\+O\+R\+D\+E\+R@{L\+S\+B\+\_\+\+O\+R\+D\+E\+R}!spi.\+h@{spi.\+h}}
+\subsubsection[{L\+S\+B\+\_\+\+O\+R\+D\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+S\+B\+\_\+\+O\+R\+D\+E\+R~0x00}\label{spi_8h_a0336046ec21c47729c579b51957b2644}
+\hypertarget{spi_8h_a3fa2d3bf1901157f734a584d47b25d8b}{}\index{spi.\+h@{spi.\+h}!M\+A\+S\+T\+E\+R@{M\+A\+S\+T\+E\+R}}
+\index{M\+A\+S\+T\+E\+R@{M\+A\+S\+T\+E\+R}!spi.\+h@{spi.\+h}}
+\subsubsection[{M\+A\+S\+T\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+S\+T\+E\+R~0x01}\label{spi_8h_a3fa2d3bf1901157f734a584d47b25d8b}
+\hypertarget{spi_8h_a8ff732a711fc73375510b83b52b89835}{}\index{spi.\+h@{spi.\+h}!M\+S\+B\+\_\+\+O\+R\+D\+E\+R@{M\+S\+B\+\_\+\+O\+R\+D\+E\+R}}
+\index{M\+S\+B\+\_\+\+O\+R\+D\+E\+R@{M\+S\+B\+\_\+\+O\+R\+D\+E\+R}!spi.\+h@{spi.\+h}}
+\subsubsection[{M\+S\+B\+\_\+\+O\+R\+D\+E\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+S\+B\+\_\+\+O\+R\+D\+E\+R~0x01}\label{spi_8h_a8ff732a711fc73375510b83b52b89835}
+\hypertarget{spi_8h_adffdf11322e7b104b910a841b7de2b11}{}\index{spi.\+h@{spi.\+h}!S\+E\+T\+\_\+\+S\+P\+I2\+X@{S\+E\+T\+\_\+\+S\+P\+I2\+X}}
+\index{S\+E\+T\+\_\+\+S\+P\+I2\+X@{S\+E\+T\+\_\+\+S\+P\+I2\+X}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+E\+T\+\_\+\+S\+P\+I2\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+E\+T\+\_\+\+S\+P\+I2\+X(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{spi_8h_adffdf11322e7b104b910a841b7de2b11}
+\hypertarget{spi_8h_ae342da5a4630c191c1c983958808edd8}{}\index{spi.\+h@{spi.\+h}!S\+L\+A\+V\+E@{S\+L\+A\+V\+E}}
+\index{S\+L\+A\+V\+E@{S\+L\+A\+V\+E}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+L\+A\+V\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+L\+A\+V\+E~0x00}\label{spi_8h_ae342da5a4630c191c1c983958808edd8}
+\hypertarget{spi_8h_ac9d0bde2b42b2403d00b7a611514b006}{}\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+M\+O\+D\+E0@{S\+P\+I\+\_\+\+M\+O\+D\+E0}}
+\index{S\+P\+I\+\_\+\+M\+O\+D\+E0@{S\+P\+I\+\_\+\+M\+O\+D\+E0}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+P\+I\+\_\+\+M\+O\+D\+E0}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+M\+O\+D\+E0~0xf3}\label{spi_8h_ac9d0bde2b42b2403d00b7a611514b006}
+\hypertarget{spi_8h_a9481b7327b91aa52ff5f70eb2d0acc95}{}\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+M\+O\+D\+E1@{S\+P\+I\+\_\+\+M\+O\+D\+E1}}
+\index{S\+P\+I\+\_\+\+M\+O\+D\+E1@{S\+P\+I\+\_\+\+M\+O\+D\+E1}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+P\+I\+\_\+\+M\+O\+D\+E1}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+M\+O\+D\+E1~0x04}\label{spi_8h_a9481b7327b91aa52ff5f70eb2d0acc95}
+\hypertarget{spi_8h_a991dec04d2fb38979cfb0d9fc7f8b026}{}\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+M\+O\+D\+E2@{S\+P\+I\+\_\+\+M\+O\+D\+E2}}
+\index{S\+P\+I\+\_\+\+M\+O\+D\+E2@{S\+P\+I\+\_\+\+M\+O\+D\+E2}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+P\+I\+\_\+\+M\+O\+D\+E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+M\+O\+D\+E2~0x08}\label{spi_8h_a991dec04d2fb38979cfb0d9fc7f8b026}
+\hypertarget{spi_8h_a5f928a2445070981765ee0416c12369d}{}\index{spi.\+h@{spi.\+h}!S\+P\+I\+\_\+\+M\+O\+D\+E3@{S\+P\+I\+\_\+\+M\+O\+D\+E3}}
+\index{S\+P\+I\+\_\+\+M\+O\+D\+E3@{S\+P\+I\+\_\+\+M\+O\+D\+E3}!spi.\+h@{spi.\+h}}
+\subsubsection[{S\+P\+I\+\_\+\+M\+O\+D\+E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+P\+I\+\_\+\+M\+O\+D\+E3~0x0\+C}\label{spi_8h_a5f928a2445070981765ee0416c12369d}
+
+
+\subsection{Function Documentation}
+\hypertarget{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+disable@{spi\+\_\+disable}}
+\index{spi\+\_\+disable@{spi\+\_\+disable}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+disable}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+disable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}
+
+
+\+: \hyperlink{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{spi\+\_\+disable()} Opposite of init. Disable S\+P\+I. 
+
+\hypertarget{spi_8h_a94087004a94105cf6d70f8ea90af2408}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+init@{spi\+\_\+init}}
+\index{spi\+\_\+init@{spi\+\_\+init}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+init}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+init (
+\begin{DoxyParamCaption}
+\item[{const bool}]{is\+Master, }
+\item[{const {\bf byte}}]{mode, }
+\item[{const uint8\+\_\+t}]{clk}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a94087004a94105cf6d70f8ea90af2408}
+
+
+\+: \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init()} This method initializes the registers of the M\+C\+U and determines the clock polarity and clock rate for the transfers 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{spi_8h_a106510ceb36305d7442f75e830fb98c2}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+multi\+\_\+transfer@{spi\+\_\+multi\+\_\+transfer}}
+\index{spi\+\_\+multi\+\_\+transfer@{spi\+\_\+multi\+\_\+transfer}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+multi\+\_\+transfer}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+multi\+\_\+transfer (
+\begin{DoxyParamCaption}
+\item[{const {\bf byte} $\ast$const}]{dataout, }
+\item[{{\bf byte} $\ast$const}]{datain, }
+\item[{const uint8\+\_\+t}]{len}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a106510ceb36305d7442f75e830fb98c2}
+
+
+\+: spi\+\_\+multi\+Transfer() This function stops interrupts if they are enabled during transfer and utilizes \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer(byte)} until all information has been sent and recieved 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+set\+\_\+data\+\_\+order@{spi\+\_\+set\+\_\+data\+\_\+order}}
+\index{spi\+\_\+set\+\_\+data\+\_\+order@{spi\+\_\+set\+\_\+data\+\_\+order}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+set\+\_\+data\+\_\+order}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+set\+\_\+data\+\_\+order (
+\begin{DoxyParamCaption}
+\item[{const bool}]{dord}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}
+
+
+\+: \hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\+\_\+set\+\_\+data\+\_\+order()} This funtion changes the data order from M\+S\+B (whichis equivelent to true) to L\+S\+B (false) and backagain 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+set\+\_\+interrupts@{spi\+\_\+set\+\_\+interrupts}}
+\index{spi\+\_\+set\+\_\+interrupts@{spi\+\_\+set\+\_\+interrupts}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+set\+\_\+interrupts}]{\setlength{\rightskip}{0pt plus 5cm}void spi\+\_\+set\+\_\+interrupts (
+\begin{DoxyParamCaption}
+\item[{const bool}]{is\+Interrupt}
+\end{DoxyParamCaption}
+)}\label{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}
+
+
+\+: \hyperlink{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}{spi\+\_\+set\+\_\+interrupts()} This funtion changes the data order from M\+S\+B (whichis equivelent to true) to L\+S\+B (false) and backagain 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+\hypertarget{spi_8h_aab1ad15333780e6b9f8c8be602682818}{}\index{spi.\+h@{spi.\+h}!spi\+\_\+transfer@{spi\+\_\+transfer}}
+\index{spi\+\_\+transfer@{spi\+\_\+transfer}!spi.\+h@{spi.\+h}}
+\subsubsection[{spi\+\_\+transfer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} spi\+\_\+transfer (
+\begin{DoxyParamCaption}
+\item[{const {\bf byte}}]{data}
+\end{DoxyParamCaption}
+)}\label{spi_8h_aab1ad15333780e6b9f8c8be602682818}
+
+
+\+: \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer()} This function will send a byte and wait for a response via spi before returning its value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{spi_8h_acc32e9917e484a47a14e3daccb502db2}{}\index{spi.\+h@{spi.\+h}!Spi@{Spi}}
+\index{Spi@{Spi}!spi.\+h@{spi.\+h}}
+\subsubsection[{Spi}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf spi\+\_\+t} Spi\hspace{0.3cm}{\ttfamily [static]}}\label{spi_8h_acc32e9917e484a47a14e3daccb502db2}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+  .init = &\hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\_init},
+  .transfer = &\hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\_transfer},
+  .multiTransfer = &\hyperlink{spi_8h_a106510ceb36305d7442f75e830fb98c2}{spi\_multi\_transfer},
+  .setDataOrder = &\hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\_set\_data\_order},
+  .setInterrupts = &\hyperlink{spi_8h_a61cfa0c122508d59bd38c2046b1e6ebf}{spi\_set\_interrupts},
+  .disable = &\hyperlink{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{spi\_disable},
+  .interruptsEnabled = \textcolor{keyword}{false},
+
+
+
+\}
+\end{DoxyCode}
