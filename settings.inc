@@ -17,9 +17,10 @@ PORT 	:= /dev/ttyACM0
 #PORT   = /dev/ttyACM0 # Linux style serial port definition
 #PORT   = COM3 # Windows style serial port definition
 
+### Soft-Programmer
 AVRDUDE := avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200 -U flash:w:$(PROJECT).hex
 RESET   := avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200
 
-### Use only with NRF24lo1 libraries
-#CE_PIN_DEF =  CE_PIN=PB6
-#CE_DDR_DEF =  CE_DDR=DDRB
+### Use only with NRF24 library
+CE_PIN_DEF =  CE_PIN=PB6
+CE_DDR_DEF =  CE_DDR=DDRB

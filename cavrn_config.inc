@@ -1,40 +1,50 @@
-ARCH      := $(shell uname -m)
+ARCH       := $(shell uname -m)
+BUILD_     := build
+SOURCE_    := src
+LIBNAME    := libcavrn.a
+
+# Create the folder hierarchy for the example folders
+CREATE_EXMPLS      := $(foreach mod,$(MODULES),$(shell mkdir -p examples/$(mod)/{Tx,Rx}))
+
+### TX Examples
+COPY_TEMPLATE    := $(foreach mod,$(MODULES),$(shell cp -r examples/.__template/* examples/$(mod)/Tx/))
+### RX Examples
+COPY_TEMPLATE    :=  $(foreach mod,$(MODULES),$(shell cp -r examples/.__template/* examples/$(mod)/Rx/))
 
 # Add the current folders and files into the compile base
-SRC_DIR   := $(addprefix src/,$(MODULES))
-BUILD_DIR := $(addprefix build/,$(MODULES))
+SRC_DIR   := $(addprefix $(SOURCE_)/,$(MODULES))
+BUILD_DIR := $(addprefix $(BUILD_)/,$(MODULES))
 CSRC      := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.c))
-OBJ       := $(patsubst src/%.c,build/%.o,$(CSRC))
+OBJ       := $(patsubst $(SOURCE_)%.c,$(BUILD_)%.o,$(CSRC))
 INCLUDES  := $(addprefix -I,$(SRC_DIR))
-INCLUDES  += -Isrc/
+INCLUDES  += -I$(SOURCE_)
 
 ### Include dirs, library dirs and definitions
-DEFS	= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF)
-DEFS   += BAUD=$(BAUD)
+DEFS	:= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF) BAUD=$(BAUD)
+
+### Soft-Programmer
+AVRDUDE := avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200 -U flash:w:$(MAIN).hex
+RESET   := avrdude -c arduino -p ${DEVICE} -P ${PORT} -b 115200
 
 ### Optimization level (0, 1, 2, 3, 4 or s)
-OPTIMIZE = s
+OPTIMIZE := s
 
 ### C Standard level (c89, gnu89, c99 or gnu99)
-CSTD = c99
+CSTD := c99
 
 ### Warning contorls
-WARNINGS = all extra
+WARNINGS := all extra
 
-### Output file format (ihex, bin or both) and debugger type
-OUTPUT	= ihex
-DEBUG	= # dwarf-2
+# Output file format 
+OUTPUT	:= ihex
 
-### Programs to build porject
-CC      = avr-gcc
-OBJCOPY = avr-objcopy
-OBJDUMP = avr-objdump
-SIZE    = avr-size
-NM      = avr-nm
-
-
-PROJECT   := $(BUILD_DIR)/$(PROJECT)
-
+### Programs to build project
+CC      := avr-gcc
+LD      := avr-ar
+OBJCOPY := avr-objcopy
+OBJDUMP := avr-objdump
+SIZE    := avr-size
+NM      := avr-nm
 
 # Flags for C files
 CFLAGS += -fdata-sections -ffunction-sections
@@ -51,6 +61,6 @@ CFLAGS += $(addprefix -D,$(DEFS))
 CFLAGS += -Wp,-M,-MP,-MT,-MF
 
 # Linker flags
-LDFLAGS += -Wl,-lm -Wl,--gc-sections,-Map,$(PROJECT).map
+LDFLAGS += rcs
 
-vpath %.c $(SRC_DIR)
+OCFLAGS := -R .eeprom -O $(OUTPUT)

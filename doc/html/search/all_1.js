@@ -1,8 +1,8 @@
 var searchData=
 [
   ['badtxcount',['badTxCount',['../structnrf24__t.html#a68c5c9c097c40be2e4058519386be051',1,'nrf24_t']]],
-  ['bit',['bit',['../cavrn_8h.html#af419eea95c24741f969fbe9eb534404e',1,'cavrn.h']]],
-  ['bitclear',['bitClear',['../cavrn_8h.html#abbe843c0521806a4ab2e7cffe44769e2',1,'cavrn.h']]],
-  ['bitset',['bitSet',['../cavrn_8h.html#a6a8195c0e930f86c6af03ba6af8b41dd',1,'cavrn.h']]],
-  ['byte',['byte',['../cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94',1,'cavrn.h']]]
+  ['bit',['bit',['../examples_2Nrf24_2Tx_2src_2cavrn_8h.html#af419eea95c24741f969fbe9eb534404e',1,'bit():&#160;cavrn.h'],['../examples_2Spi_2Tx_2src_2cavrn_8h.html#af419eea95c24741f969fbe9eb534404e',1,'bit():&#160;cavrn.h'],['../examples_2Uart_2Tx_2src_2cavrn_8h.html#af419eea95c24741f969fbe9eb534404e',1,'bit():&#160;cavrn.h'],['../src_2cavrn_8h.html#af419eea95c24741f969fbe9eb534404e',1,'bit():&#160;cavrn.h']]],
+  ['bitclear',['bitClear',['../examples_2Nrf24_2Tx_2src_2cavrn_8h.html#abbe843c0521806a4ab2e7cffe44769e2',1,'bitClear():&#160;cavrn.h'],['../examples_2Spi_2Tx_2src_2cavrn_8h.html#abbe843c0521806a4ab2e7cffe44769e2',1,'bitClear():&#160;cavrn.h'],['../examples_2Uart_2Tx_2src_2cavrn_8h.html#abbe843c0521806a4ab2e7cffe44769e2',1,'bitClear():&#160;cavrn.h'],['../src_2cavrn_8h.html#abbe843c0521806a4ab2e7cffe44769e2',1,'bitClear():&#160;cavrn.h']]],
+  ['bitset',['bitSet',['../examples_2Nrf24_2Tx_2src_2cavrn_8h.html#a6a8195c0e930f86c6af03ba6af8b41dd',1,'bitSet():&#160;cavrn.h'],['../examples_2Spi_2Tx_2src_2cavrn_8h.html#a6a8195c0e930f86c6af03ba6af8b41dd',1,'bitSet():&#160;cavrn.h'],['../examples_2Uart_2Tx_2src_2cavrn_8h.html#a6a8195c0e930f86c6af03ba6af8b41dd',1,'bitSet():&#160;cavrn.h'],['../src_2cavrn_8h.html#a6a8195c0e930f86c6af03ba6af8b41dd',1,'bitSet():&#160;cavrn.h']]],
+  ['byte',['byte',['../examples_2Nrf24_2Tx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94',1,'byte():&#160;cavrn.h'],['../examples_2Spi_2Tx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94',1,'byte():&#160;cavrn.h'],['../examples_2Uart_2Tx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94',1,'byte():&#160;cavrn.h'],['../src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94',1,'byte():&#160;cavrn.h']]]
 ];

@@ -3,3 +3,4 @@ doxy*
 *~
 *#
 *.DS_STORE
+.publish.sh

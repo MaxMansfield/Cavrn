@@ -2,8 +2,12 @@ var searchData=
 [
   ['set_5fspi2x',['SET_SPI2X',['../spi_8h.html#adffdf11322e7b104b910a841b7de2b11',1,'spi.h']]],
   ['setdataorder',['setDataOrder',['../structspi__t.html#a9666930bc1583041cf42e4ec184dd180',1,'spi_t']]],
-  ['setinterrupts',['setInterrupts',['../structcavrn__t.html#a5dd09c6cae4cb58946314e7c19279739',1,'cavrn_t::setInterrupts()'],['../structspi__t.html#a9011a7370d987842947f716e10f8f652',1,'spi_t::setInterrupts()'],['../structuart__t.html#a50600e28e57620e6eb51b0d5983bf41a',1,'uart_t::setInterrupts()']]],
+  ['setinterrupts',['setInterrupts',['../structcavrn__t.html#a0d00188fb0b8d59a4d7f4be38d56ff52',1,'cavrn_t::setInterrupts()'],['../structspi__t.html#a9011a7370d987842947f716e10f8f652',1,'spi_t::setInterrupts()'],['../structuart__t.html#a50600e28e57620e6eb51b0d5983bf41a',1,'uart_t::setInterrupts()']]],
   ['setrxinterrupt',['setRxInterrupt',['../structuart__t.html#a5e7a32fa318ed93e3c6e8c409c5d8cc2',1,'uart_t']]],
+  ['settings_2einc',['settings.inc',['../examples_2Nrf24_2Tx_2settings_8inc.html',1,'']]],
+  ['settings_2einc',['settings.inc',['../examples_2Uart_2Tx_2settings_8inc.html',1,'']]],
+  ['settings_2einc',['settings.inc',['../settings_8inc.html',1,'']]],
+  ['settings_2einc',['settings.inc',['../examples_2Spi_2Tx_2settings_8inc.html',1,'']]],
   ['settxinterrupt',['setTxInterrupt',['../structuart__t.html#a64d213911610f9a85a03f6d4dce6a4ae',1,'uart_t']]],
   ['setudreinterrupt',['setUdreInterrupt',['../structuart__t.html#a28c5d72c3bf85b811e871682d2f40cb1',1,'uart_t']]],
   ['setup_5faw',['SETUP_AW',['../nrf24_8h.html#af5ef355ba3eca336db1285cab353ddc2',1,'nrf24.h']]],

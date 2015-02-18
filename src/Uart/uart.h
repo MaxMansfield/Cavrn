@@ -252,7 +252,7 @@ static const struct uart_t Uart = {
   .setTxInterrupt = &uart_set_tx_interrupt,
   .setRxInterrupt = &uart_set_rx_interrupt,
   
-  .printableCharsOnly = true
+  .printableCharsOnly = false
 };
 
 #endif

@@ -1,5 +1,5 @@
-\hypertarget{uart_8h}{}\section{Uart/uart.h File Reference}
-\label{uart_8h}\index{Uart/uart.\+h@{Uart/uart.\+h}}
+\hypertarget{uart_8h}{}\section{src/\+Uart/uart.h File Reference}
+\label{uart_8h}\index{src/\+Uart/uart.\+h@{src/\+Uart/uart.\+h}}
 {\ttfamily \#include \char`\"{}cavrn.\+h\char`\"{}}\\*
 {\ttfamily \#include $<$util/setbaud.\+h$>$}\\*
 \subsection*{Classes}
@@ -17,11 +17,11 @@ struct \hyperlink{structuart__t}{uart\+\_\+t}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{uart_8h_a97edddefd8b3694560c0f0eba199221f}{uart\+\_\+tx} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
+void \hyperlink{uart_8h_a97edddefd8b3694560c0f0eba199221f}{uart\+\_\+tx} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_a97edddefd8b3694560c0f0eba199221f}{uart\+\_\+tx()} This function transmits a byte of information (unsigned 8bit integer) via U\+A\+R\+T \end{DoxyCompactList}\item 
 void \hyperlink{uart_8h_a91e04cf8ec0c8b4558984836974a01d8}{uart\+\_\+txchr} (const char $\ast$const chr)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_a91e04cf8ec0c8b4558984836974a01d8}{uart\+\_\+txchr()} This function transmits a character of information (signed 8bit integer) via U\+A\+R\+T \end{DoxyCompactList}\item 
-\hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{uart_8h_a57c4e27b40fabf008dbad61674ed2342}{uart\+\_\+rx} ()
+\hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{uart_8h_a57c4e27b40fabf008dbad61674ed2342}{uart\+\_\+rx} ()
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_a57c4e27b40fabf008dbad61674ed2342}{uart\+\_\+rx()} This function recieves a byte of information (unsigned 8bit integer) via U\+A\+R\+T \end{DoxyCompactList}\item 
 char \hyperlink{uart_8h_a0870ab61af1076e7d4d349aea9064433}{uart\+\_\+rxchr} ()
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_a0870ab61af1076e7d4d349aea9064433}{uart\+\_\+rxchr()} This function transmits a character of information (signed 8bit integer) via U\+A\+R\+T \end{DoxyCompactList}\item 
@@ -29,9 +29,9 @@ void \hyperlink{uart_8h_af9b7ef59057c5b29bcbd81870caf83f9}{uart\+\_\+txstr} (con
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_af9b7ef59057c5b29bcbd81870caf83f9}{uart\+\_\+txstr()} Transmit large amounts of signed 8bit integers, useful for logging to U\+A\+R\+T \end{DoxyCompactList}\item 
 void \hyperlink{uart_8h_ae79e84c6b79d6b228c184c38bf67ef11}{uart\+\_\+rxstr} (char $\ast$const string, const uint8\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_ae79e84c6b79d6b228c184c38bf67ef11}{uart\+\_\+rxstr()} Recieve large amounts of signed 8bit integers, useful for commands via U\+A\+R\+T \end{DoxyCompactList}\item 
-\hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{uart_8h_acb9ea97f0975036ff65293f12fa0abdc}{uart\+\_\+transfer} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
+\hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{uart_8h_acb9ea97f0975036ff65293f12fa0abdc}{uart\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_acb9ea97f0975036ff65293f12fa0abdc}{uart\+\_\+transfer()} Transmit a byte and wait for a response. Unessecary when interrupts are enabled \end{DoxyCompactList}\item 
-void \hyperlink{uart_8h_aa5b35bb44ae1afeed28b8e3e52cfbe6d}{uart\+\_\+multi\+\_\+transfer} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data, \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$datain, const uint8\+\_\+t $\ast$const len)
+void \hyperlink{uart_8h_aa5b35bb44ae1afeed28b8e3e52cfbe6d}{uart\+\_\+multi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data, \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$datain, const uint8\+\_\+t $\ast$const len)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_aa5b35bb44ae1afeed28b8e3e52cfbe6d}{uart\+\_\+multi\+\_\+transfer()} Transmit large amounts of data and wait for a response. Unessecary when interrupts are enabled. \end{DoxyCompactList}\item 
 void \hyperlink{uart_8h_ab94003761cf80efd9bc6a1c76fc718a1}{uart\+\_\+set\+\_\+tx\+\_\+interrupt} (const bool is\+Interrupt)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{uart_8h_ab94003761cf80efd9bc6a1c76fc718a1}{uart\+\_\+set\+\_\+tx\+\_\+interrupt()} Enable U\+A\+R\+T data register empty interrupts and global interrupts if need be \end{DoxyCompactList}\item 
@@ -283,6 +283,6 @@ static const struct \hyperlink{structuart__t}{uart\+\_\+t} \hyperlink{uart_8h_aa
   .setTxInterrupt = &\hyperlink{uart_8h_ab94003761cf80efd9bc6a1c76fc718a1}{uart\_set\_tx\_interrupt},
   .setRxInterrupt = &\hyperlink{uart_8h_a3ada348e281bbdafd376a6b9ee02b7a6}{uart\_set\_rx\_interrupt},
   
-  .printableCharsOnly = \textcolor{keyword}{true}
+  .printableCharsOnly = \textcolor{keyword}{false}
 \}
 \end{DoxyCode}

@@ -1,12 +1,12 @@
-\hypertarget{spi_8c}{}\section{Spi/spi.c File Reference}
-\label{spi_8c}\index{Spi/spi.\+c@{Spi/spi.\+c}}
+\hypertarget{spi_8c}{}\section{src/\+Spi/spi.c File Reference}
+\label{spi_8c}\index{src/\+Spi/spi.\+c@{src/\+Spi/spi.\+c}}
 {\ttfamily \#include \char`\"{}spi.\+h\char`\"{}}\\*
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{spi_8c_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init} (const bool is\+Master, const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} mode, const uint8\+\_\+t clk)
+void \hyperlink{spi_8c_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init} (const bool is\+Master, const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} mode, const uint8\+\_\+t clk)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init()} This method initializes the registers of the M\+C\+U and determines the clock polarity and clock rate for the transfers \end{DoxyCompactList}\item 
-\hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{spi_8c_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer} (const \hyperlink{cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} data)
+\hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{spi_8c_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} data)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer()} This function will send a byte and wait for a response via spi before returning its value. \end{DoxyCompactList}\item 
 void \hyperlink{spi_8c_a1b20de0da423e7d6da1c99eec9d63216}{spi\+\_\+disable} ()
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a1b20de0da423e7d6da1c99eec9d63216}{spi\+\_\+disable()} Opposite of init. Disable S\+P\+I. \end{DoxyCompactList}\item 
