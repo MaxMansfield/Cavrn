@@ -1,10 +1,8 @@
 var searchData=
 [
-  ['readme',['README',['../md_README.html',1,'']]],
   ['r_5fregister',['R_REGISTER',['../nrf24_8h.html#afb0b251378d3b14c508e51fd2c3157d6',1,'nrf24.h']]],
   ['r_5frx_5fpayload',['R_RX_PAYLOAD',['../nrf24_8h.html#a462d8c2314b823b724574c1ca73225a6',1,'nrf24.h']]],
   ['r_5frx_5fpl_5fwid',['R_RX_PL_WID',['../nrf24_8h.html#a14ea186f093047db160cee642e5bd901',1,'nrf24.h']]],
-  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
   ['register_5fmask',['REGISTER_MASK',['../nrf24_8h.html#a866fc0cef05f3c63ba55a555f63648a2',1,'nrf24.h']]],
   ['reuse_5ftx_5fpl',['REUSE_TX_PL',['../nrf24_8h.html#a2f1d9bb858232e8b1494b60aa9a7d25a',1,'nrf24.h']]],
   ['rf_5fch',['RF_CH',['../nrf24_8h.html#a5c4da84e4a01531aa9f5c3e617848d66',1,'nrf24.h']]],

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>My Project: src/Uart/uart.h Source File</title>
+<title>Uart/uart.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,10 +22,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
-   </div>
-  </td>
+  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_200x55.png"/></td>
  </tr>
  </tbody>
 </table>
@@ -38,8 +35,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
-      <li><a href="annotated.html"><span>Classes</span></a></li>
+      <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -62,7 +58,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
-      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
 <!-- window showing the filter options -->
@@ -81,7 +77,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_48180f9e2a0284bcf220b5e4431644c5.html">Uart</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_3d244dc3dc00faf5d6815d697cfe3c79.html">Uart</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -115,7 +111,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#ifndef _UART_H_</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#define _UART_H_</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;cavrn.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="cavrn_8h.html">cavrn.h</a>&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;util/setbaud.h&gt;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="uart_8h.html#aeff6b6e5cf8852475fab3f5b2f5baff1">   30</a></span>&#160;<span class="preprocessor">#define RXLEN 254</span></div>
@@ -172,18 +168,18 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#if defined(__AVR_ATmega328P__)</span></div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span>  uart_init(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a> mode);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keywordtype">void</span>  uart_init(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a> mode);</div>
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#elif defined(__AVR_ATmega103__)</span></div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span>  uart_init();</div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span>  <a class="code" href="uart_8h.html#a97edddefd8b3694560c0f0eba199221f">uart_tx</a>(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="keywordtype">void</span>  <a class="code" href="uart_8h.html#a97edddefd8b3694560c0f0eba199221f">uart_tx</a>(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data);</div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;</div>
 <div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keywordtype">void</span> <a class="code" href="uart_8h.html#a91e04cf8ec0c8b4558984836974a01d8">uart_txchr</a> (<span class="keyword">const</span> <span class="keywordtype">char</span>* <span class="keyword">const</span> chr);</div>
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>  <a class="code" href="uart_8h.html#a57c4e27b40fabf008dbad61674ed2342">uart_rx</a>();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>  <a class="code" href="uart_8h.html#a57c4e27b40fabf008dbad61674ed2342">uart_rx</a>();</div>
 <div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;</div>
 <div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="keywordtype">char</span> <a class="code" href="uart_8h.html#a0870ab61af1076e7d4d349aea9064433">uart_rxchr</a>();</div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;</div>
@@ -192,10 +188,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keywordtype">void</span> <a class="code" href="uart_8h.html#ae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a>(<span class="keywordtype">char</span>* <span class="keyword">const</span> <span class="keywordtype">string</span>, <span class="keyword">const</span> uint8_t len);</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>  <a class="code" href="uart_8h.html#acb9ea97f0975036ff65293f12fa0abdc">uart_transfer</a>(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>  <a class="code" href="uart_8h.html#acb9ea97f0975036ff65293f12fa0abdc">uart_transfer</a>(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data);</div>
 <div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;</div>
 <div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;</div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordtype">void</span> <a class="code" href="uart_8h.html#aa5b35bb44ae1afeed28b8e3e52cfbe6d">uart_multi_transfer</a>(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data,<a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* datain,<span class="keyword">const</span> uint8_t* <span class="keyword">const</span> len);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="keywordtype">void</span> <a class="code" href="uart_8h.html#aa5b35bb44ae1afeed28b8e3e52cfbe6d">uart_multi_transfer</a>(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span> data,<a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* datain,<span class="keyword">const</span> uint8_t* <span class="keyword">const</span> len);</div>
 <div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;</div>
 <div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;</div>
 <div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keywordtype">void</span> <a class="code" href="uart_8h.html#ab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> isInterrupt);</div>
@@ -211,13 +207,13 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;</div>
 <div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="comment">/* Choose init function */</span></div>
 <div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#if defined(__AVR_ATmega328P__)</span></div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  void     (*init)    (<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>); </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  void     (*init)    (<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>); </div>
 <div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="preprocessor">#elif defined(__AVR_ATmega103__)</span></div>
 <div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  void     (*init)    (); </div>
 <div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;</div>
 <div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <span class="comment">/* Send/Recieve a byte bia UART */</span></div>
-<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="structuart__t.html#a19ba83eb9b51411a928172e86f8e24c7">  217</a></span>&#160;  void     (*<a class="code" href="structuart__t.html#a19ba83eb9b51411a928172e86f8e24c7">txByte</a>)  (<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>); </div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="structuart__t.html#a19ba83eb9b51411a928172e86f8e24c7">  217</a></span>&#160;  void     (*<a class="code" href="structuart__t.html#a19ba83eb9b51411a928172e86f8e24c7">txByte</a>)  (<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>); </div>
 <div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="structuart__t.html#a067e9b8ef10983dc10875ae71dff8b8e">  218</a></span>&#160;  uint8_t  (*<a class="code" href="structuart__t.html#a067e9b8ef10983dc10875ae71dff8b8e">rxByte</a>)  ();</div>
 <div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;</div>
 <div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">/*Send/Recieve a string via UART */</span></div>
@@ -230,8 +226,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="structuart__t.html#a5e7a32fa318ed93e3c6e8c409c5d8cc2">  227</a></span>&#160;  void (*<a class="code" href="structuart__t.html#a5e7a32fa318ed93e3c6e8c409c5d8cc2">setRxInterrupt</a>)(<span class="keyword">const</span> bool);</div>
 <div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="structuart__t.html#a28c5d72c3bf85b811e871682d2f40cb1">  228</a></span>&#160;  void (*<a class="code" href="structuart__t.html#a28c5d72c3bf85b811e871682d2f40cb1">setUdreInterrupt</a>)(<span class="keyword">const</span> bool);</div>
 <div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;</div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="structuart__t.html#a17f86103ff5deb8da40fa960368a1025">  230</a></span>&#160;  <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a> (*<a class="code" href="structuart__t.html#a17f86103ff5deb8da40fa960368a1025">transfer</a>)(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>);</div>
-<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="structuart__t.html#a98300348c927208171e4f90006ce6819">  231</a></span>&#160;  void (*<a class="code" href="structuart__t.html#a98300348c927208171e4f90006ce6819">multiTransfer</a>)(<span class="keyword">const</span> <a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>,<a class="code" href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>,<span class="keyword">const</span> uint8_t* const );</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="structuart__t.html#a17f86103ff5deb8da40fa960368a1025">  230</a></span>&#160;  <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a> (*<a class="code" href="structuart__t.html#a17f86103ff5deb8da40fa960368a1025">transfer</a>)(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="structuart__t.html#a98300348c927208171e4f90006ce6819">  231</a></span>&#160;  void (*<a class="code" href="structuart__t.html#a98300348c927208171e4f90006ce6819">multiTransfer</a>)(<span class="keyword">const</span> <a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>,<a class="code" href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a>* <span class="keyword">const</span>,<span class="keyword">const</span> uint8_t* const );</div>
 <div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;</div>
 <div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="comment">/* When using txString, only send printable characters */</span></div>
 <div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="structuart__t.html#a715d9d9174c62b5682150875555dac96">  234</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="structuart__t.html#a715d9d9174c62b5682150875555dac96">printableCharsOnly</a>;</div>
@@ -264,16 +260,17 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="ttc" id="uart_8h_html_af9b7ef59057c5b29bcbd81870caf83f9"><div class="ttname"><a href="uart_8h.html#af9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a></div><div class="ttdeci">void uart_txstr(const char *const string)</div><div class="ttdoc">: uart_txstr() Transmit large amounts of signed 8bit integers, useful for logging to UART ...</div><div class="ttdef"><b>Definition:</b> uart.c:102</div></div>
 <div class="ttc" id="structuart__t_html_a28c5d72c3bf85b811e871682d2f40cb1"><div class="ttname"><a href="structuart__t.html#a28c5d72c3bf85b811e871682d2f40cb1">uart_t::setUdreInterrupt</a></div><div class="ttdeci">void(* setUdreInterrupt)(const bool)</div><div class="ttdef"><b>Definition:</b> uart.h:228</div></div>
 <div class="ttc" id="uart_8h_html_a0870ab61af1076e7d4d349aea9064433"><div class="ttname"><a href="uart_8h.html#a0870ab61af1076e7d4d349aea9064433">uart_rxchr</a></div><div class="ttdeci">char uart_rxchr()</div><div class="ttdoc">: uart_rxchr() This function transmits a character of information (signed 8bit integer) via UART ...</div><div class="ttdef"><b>Definition:</b> uart.c:85</div></div>
-<div class="ttc" id="examples_2Nrf24_2Rx_2src_2cavrn_8h_html_ab8ef12fab634c171394422d0ee8baf94"><div class="ttname"><a href="examples_2Nrf24_2Rx_2src_2cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a></div><div class="ttdeci">uint8_t byte</div><div class="ttdef"><b>Definition:</b> cavrn.h:69</div></div>
 <div class="ttc" id="structuart__t_html"><div class="ttname"><a href="structuart__t.html">uart_t</a></div><div class="ttdef"><b>Definition:</b> uart.h:207</div></div>
 <div class="ttc" id="uart_8h_html_a01dc068a33ec087755bd9d1e24e9c89a"><div class="ttname"><a href="uart_8h.html#a01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a></div><div class="ttdeci">void uart_set_udre_interrupt(const bool isInterrupt)</div><div class="ttdoc">: uart_set_udre_interrupt() Enable or diable the Uart Data Register Empty flag </div><div class="ttdef"><b>Definition:</b> uart.c:143</div></div>
 <div class="ttc" id="structuart__t_html_a50600e28e57620e6eb51b0d5983bf41a"><div class="ttname"><a href="structuart__t.html#a50600e28e57620e6eb51b0d5983bf41a">uart_t::setInterrupts</a></div><div class="ttdeci">void(* setInterrupts)(const bool)</div><div class="ttdef"><b>Definition:</b> uart.h:225</div></div>
 <div class="ttc" id="structuart__t_html_ad010210dd7bd23507a4db4591cf475d9"><div class="ttname"><a href="structuart__t.html#ad010210dd7bd23507a4db4591cf475d9">uart_t::rxString</a></div><div class="ttdeci">void(* rxString)(char *const, const uint8_t)</div><div class="ttdef"><b>Definition:</b> uart.h:222</div></div>
+<div class="ttc" id="cavrn_8h_html_ab8ef12fab634c171394422d0ee8baf94"><div class="ttname"><a href="cavrn_8h.html#ab8ef12fab634c171394422d0ee8baf94">byte</a></div><div class="ttdeci">uint8_t byte</div><div class="ttdef"><b>Definition:</b> cavrn.h:69</div></div>
 <div class="ttc" id="uart_8h_html_afdd5db538e0570e9508e07875f879d80"><div class="ttname"><a href="uart_8h.html#afdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a></div><div class="ttdeci">void uart_set_interrupts(const bool isInterrupt)</div><div class="ttdoc">: uart_set_interrupts() Enable or diable the all the Uart interrupts simultaneously. </div><div class="ttdef"><b>Definition:</b> uart.c:154</div></div>
 <div class="ttc" id="structuart__t_html_a64d213911610f9a85a03f6d4dce6a4ae"><div class="ttname"><a href="structuart__t.html#a64d213911610f9a85a03f6d4dce6a4ae">uart_t::setTxInterrupt</a></div><div class="ttdeci">void(* setTxInterrupt)(const bool)</div><div class="ttdef"><b>Definition:</b> uart.h:226</div></div>
 <div class="ttc" id="uart_8h_html_a91e04cf8ec0c8b4558984836974a01d8"><div class="ttname"><a href="uart_8h.html#a91e04cf8ec0c8b4558984836974a01d8">uart_txchr</a></div><div class="ttdeci">void uart_txchr(const char *const chr)</div><div class="ttdoc">: uart_txchr() This function transmits a character of information (signed 8bit integer) via UART ...</div><div class="ttdef"><b>Definition:</b> uart.c:91</div></div>
 <div class="ttc" id="uart_8h_html_a3ada348e281bbdafd376a6b9ee02b7a6"><div class="ttname"><a href="uart_8h.html#a3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a></div><div class="ttdeci">void uart_set_rx_interrupt(const bool isInterrupt)</div><div class="ttdoc">: uart_set_rx_interrupt() Enable UART byte recieved interrupts and global interrupts if need be ...</div><div class="ttdef"><b>Definition:</b> uart.c:131</div></div>
 <div class="ttc" id="structuart__t_html_a5e7a32fa318ed93e3c6e8c409c5d8cc2"><div class="ttname"><a href="structuart__t.html#a5e7a32fa318ed93e3c6e8c409c5d8cc2">uart_t::setRxInterrupt</a></div><div class="ttdeci">void(* setRxInterrupt)(const bool)</div><div class="ttdef"><b>Definition:</b> uart.h:227</div></div>
+<div class="ttc" id="cavrn_8h_html"><div class="ttname"><a href="cavrn_8h.html">cavrn.h</a></div></div>
 <div class="ttc" id="uart_8h_html_a97edddefd8b3694560c0f0eba199221f"><div class="ttname"><a href="uart_8h.html#a97edddefd8b3694560c0f0eba199221f">uart_tx</a></div><div class="ttdeci">void uart_tx(const byte *const data)</div><div class="ttdoc">: uart_tx() This function transmits a byte of information (unsigned 8bit integer) via UART ...</div><div class="ttdef"><b>Definition:</b> uart.c:74</div></div>
 <div class="ttc" id="structuart__t_html_acfb091eb7a2d998bc3750b2202aec545"><div class="ttname"><a href="structuart__t.html#acfb091eb7a2d998bc3750b2202aec545">uart_t::txString</a></div><div class="ttdeci">void(* txString)(const char *const)</div><div class="ttdef"><b>Definition:</b> uart.h:221</div></div>
 <div class="ttc" id="structuart__t_html_a17f86103ff5deb8da40fa960368a1025"><div class="ttname"><a href="structuart__t.html#a17f86103ff5deb8da40fa960368a1025">uart_t::transfer</a></div><div class="ttdeci">byte(* transfer)(const byte *const)</div><div class="ttdef"><b>Definition:</b> uart.h:230</div></div>
@@ -288,7 +285,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Feb 18 2015 01:57:25 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 06:19:50 by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
