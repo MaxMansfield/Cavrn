@@ -50,11 +50,11 @@ struct \hyperlink{structspi__t}{spi\+\_\+t}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init} (const bool is\+Master, const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} mode, const uint8\+\_\+t clk)
+void \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init} (const bool is\+Master, const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} mode, const uint8\+\_\+t clk)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a94087004a94105cf6d70f8ea90af2408}{spi\+\_\+init()} This method initializes the registers of the M\+C\+U and determines the clock polarity and clock rate for the transfers \end{DoxyCompactList}\item 
-void \hyperlink{spi_8h_a106510ceb36305d7442f75e830fb98c2}{spi\+\_\+multi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const dataout, \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const datain, const uint8\+\_\+t len)
+void \hyperlink{spi_8h_a106510ceb36305d7442f75e830fb98c2}{spi\+\_\+multi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const dataout, \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const datain, const uint8\+\_\+t len)
 \begin{DoxyCompactList}\small\item\em \+: spi\+\_\+multi\+Transfer() This function stops interrupts if they are enabled during transfer and utilizes \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer(byte)} until all information has been sent and recieved \end{DoxyCompactList}\item 
-\hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} data)
+\hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} data)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_aab1ad15333780e6b9f8c8be602682818}{spi\+\_\+transfer()} This function will send a byte and wait for a response via spi before returning its value. \end{DoxyCompactList}\item 
 void \hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\+\_\+set\+\_\+data\+\_\+order} (const bool dord)
 \begin{DoxyCompactList}\small\item\em \+: \hyperlink{spi_8h_a5d5bcfa359b4591e38b5d533d624216e}{spi\+\_\+set\+\_\+data\+\_\+order()} This funtion changes the data order from M\+S\+B (whichis equivelent to true) to L\+S\+B (false) and backagain \end{DoxyCompactList}\item 

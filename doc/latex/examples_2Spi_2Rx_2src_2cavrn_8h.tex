@@ -1,0 +1,178 @@
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h}{}\section{examples/\+Spi/\+Rx/src/cavrn.h File Reference}
+\label{examples_2Spi_2Rx_2src_2cavrn_8h}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\\*
+{\ttfamily \#include $<$stdio.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include $<$avr/io.\+h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\+h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structcavrn__t}{cavrn\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_ad76d1750a6cdeebd506bfcd6752554d2}{O\+N}~0x01
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a29e413f6725b2ba32d165ffaa35b01e5}{O\+F\+F}~0x00
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{H\+I\+G\+H}~0x\+F\+F
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_ab811d8c6ff3a505312d3276590444289}{L\+O\+W}~0x00
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_ac2bbd6d630a06a980d9a92ddb9a49928}{I\+N}~0x00
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_aec78e7a9e90a406a56f859ee456e8eae}{O\+U\+T}~0x01
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_aaf09d20270f512294e9fbb94369c11f0}{interrupts\+On}()~sei()
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_aa4619e4d163866f6c3d81c389ae7264d}{interrupts\+Off}()~cli()
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit}(b)~(1$<$$<$ (b))
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a6a8195c0e930f86c6af03ba6af8b41dd}{bit\+Set}(value,  \hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit})~((value) $\vert$=  (\hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit}(\hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit}))
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_abbe843c0521806a4ab2e7cffe44769e2}{bit\+Clear}(value,  \hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit})~((value) \&= $\sim$(\hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit}(\hyperlink{src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{bit})))
+\item 
+\#define \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a889820984b313e4f379d998ce05892ec}{isprint}(c)~(c$>$=0x20 \&\& c$<$=0x7\+E)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\+\_\+t \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_aacc262b7acb8ef2b1d38df8b855bc0f6}{word}
+\item 
+typedef uint8\+\_\+t \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte}
+\item 
+typedef uint8\+\_\+t \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_abd319faef085e9654e74db4f9dd9ae5f}{port}
+\item 
+typedef uint8\+\_\+t \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_ac9483fbe755d6d6a288f956a25410b2e}{pin}
+\item 
+typedef uint8\+\_\+t \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a5a479cd2c38afbcd68b6c8df762712bd}{ddr}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}{cavrn\+\_\+set\+\_\+global\+\_\+interrupts} (const bool is\+Interupts)
+\begin{DoxyCompactList}\small\item\em \+: \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}{cavrn\+\_\+set\+\_\+global\+\_\+interrupts()} This function enables or disables interrupts on your A\+V\+R M\+C\+U \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static struct \hyperlink{structcavrn__t}{cavrn\+\_\+t} \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_af129c0b3bc3584bd198babebfc7c3f69}{Cavrn}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!bit@{bit}}
+\index{bit@{bit}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{bit}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit(
+\begin{DoxyParamCaption}
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~(1$<$$<$ (b))}\label{examples_2Spi_2Rx_2src_2cavrn_8h_af419eea95c24741f969fbe9eb534404e}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_abbe843c0521806a4ab2e7cffe44769e2}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!bit\+Clear@{bit\+Clear}}
+\index{bit\+Clear@{bit\+Clear}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{bit\+Clear}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\+Clear(
+\begin{DoxyParamCaption}
+\item[{}]{value, }
+\item[{}]{{\bf bit}}
+\end{DoxyParamCaption}
+)~((value) \&= $\sim$({\bf bit}({\bf bit})))}\label{examples_2Spi_2Rx_2src_2cavrn_8h_abbe843c0521806a4ab2e7cffe44769e2}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a6a8195c0e930f86c6af03ba6af8b41dd}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!bit\+Set@{bit\+Set}}
+\index{bit\+Set@{bit\+Set}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{bit\+Set}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\+Set(
+\begin{DoxyParamCaption}
+\item[{}]{value, }
+\item[{}]{{\bf bit}}
+\end{DoxyParamCaption}
+)~((value) $\vert$=  ({\bf bit}({\bf bit}))}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a6a8195c0e930f86c6af03ba6af8b41dd}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!H\+I\+G\+H@{H\+I\+G\+H}}
+\index{H\+I\+G\+H@{H\+I\+G\+H}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{H\+I\+G\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\+I\+G\+H~0x\+F\+F}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_ac2bbd6d630a06a980d9a92ddb9a49928}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!I\+N@{I\+N}}
+\index{I\+N@{I\+N}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{I\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\+N~0x00}\label{examples_2Spi_2Rx_2src_2cavrn_8h_ac2bbd6d630a06a980d9a92ddb9a49928}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_aa4619e4d163866f6c3d81c389ae7264d}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!interrupts\+Off@{interrupts\+Off}}
+\index{interrupts\+Off@{interrupts\+Off}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{interrupts\+Off}]{\setlength{\rightskip}{0pt plus 5cm}\#define interrupts\+Off(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~cli()}\label{examples_2Spi_2Rx_2src_2cavrn_8h_aa4619e4d163866f6c3d81c389ae7264d}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_aaf09d20270f512294e9fbb94369c11f0}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!interrupts\+On@{interrupts\+On}}
+\index{interrupts\+On@{interrupts\+On}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{interrupts\+On}]{\setlength{\rightskip}{0pt plus 5cm}\#define interrupts\+On(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~sei()}\label{examples_2Spi_2Rx_2src_2cavrn_8h_aaf09d20270f512294e9fbb94369c11f0}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a889820984b313e4f379d998ce05892ec}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!isprint@{isprint}}
+\index{isprint@{isprint}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{isprint}]{\setlength{\rightskip}{0pt plus 5cm}\#define isprint(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(c$>$=0x20 \&\& c$<$=0x7\+E)}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a889820984b313e4f379d998ce05892ec}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_ab811d8c6ff3a505312d3276590444289}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!L\+O\+W@{L\+O\+W}}
+\index{L\+O\+W@{L\+O\+W}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{L\+O\+W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\+O\+W~0x00}\label{examples_2Spi_2Rx_2src_2cavrn_8h_ab811d8c6ff3a505312d3276590444289}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a29e413f6725b2ba32d165ffaa35b01e5}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!O\+F\+F@{O\+F\+F}}
+\index{O\+F\+F@{O\+F\+F}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{O\+F\+F}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+F\+F~0x00}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a29e413f6725b2ba32d165ffaa35b01e5}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_ad76d1750a6cdeebd506bfcd6752554d2}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!O\+N@{O\+N}}
+\index{O\+N@{O\+N}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+N~0x01}\label{examples_2Spi_2Rx_2src_2cavrn_8h_ad76d1750a6cdeebd506bfcd6752554d2}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_aec78e7a9e90a406a56f859ee456e8eae}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!O\+U\+T@{O\+U\+T}}
+\index{O\+U\+T@{O\+U\+T}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{O\+U\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\+U\+T~0x01}\label{examples_2Spi_2Rx_2src_2cavrn_8h_aec78e7a9e90a406a56f859ee456e8eae}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!byte@{byte}}
+\index{byte@{byte}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf byte}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a5a479cd2c38afbcd68b6c8df762712bd}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!ddr@{ddr}}
+\index{ddr@{ddr}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{ddr}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf ddr}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a5a479cd2c38afbcd68b6c8df762712bd}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_ac9483fbe755d6d6a288f956a25410b2e}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!pin@{pin}}
+\index{pin@{pin}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{pin}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf pin}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_ac9483fbe755d6d6a288f956a25410b2e}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_abd319faef085e9654e74db4f9dd9ae5f}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!port@{port}}
+\index{port@{port}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{port}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t {\bf port}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_abd319faef085e9654e74db4f9dd9ae5f}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_aacc262b7acb8ef2b1d38df8b855bc0f6}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!word@{word}}
+\index{word@{word}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{word}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint16\+\_\+t {\bf word}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_aacc262b7acb8ef2b1d38df8b855bc0f6}
+
+
+\subsection{Function Documentation}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!cavrn\+\_\+set\+\_\+global\+\_\+interrupts@{cavrn\+\_\+set\+\_\+global\+\_\+interrupts}}
+\index{cavrn\+\_\+set\+\_\+global\+\_\+interrupts@{cavrn\+\_\+set\+\_\+global\+\_\+interrupts}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{cavrn\+\_\+set\+\_\+global\+\_\+interrupts}]{\setlength{\rightskip}{0pt plus 5cm}static void cavrn\+\_\+set\+\_\+global\+\_\+interrupts (
+\begin{DoxyParamCaption}
+\item[{const bool}]{is\+Interupts}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}
+
+
+\+: \hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}{cavrn\+\_\+set\+\_\+global\+\_\+interrupts()} This function enables or disables interrupts on your A\+V\+R M\+C\+U 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\hypertarget{examples_2Spi_2Rx_2src_2cavrn_8h_af129c0b3bc3584bd198babebfc7c3f69}{}\index{examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}!Cavrn@{Cavrn}}
+\index{Cavrn@{Cavrn}!examples/\+Spi/\+Rx/src/cavrn.\+h@{examples/\+Spi/\+Rx/src/cavrn.\+h}}
+\subsubsection[{Cavrn}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf cavrn\+\_\+t} Cavrn\hspace{0.3cm}{\ttfamily [static]}}\label{examples_2Spi_2Rx_2src_2cavrn_8h_af129c0b3bc3584bd198babebfc7c3f69}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+  .setInterrupts = &\hyperlink{examples_2Spi_2Rx_2src_2cavrn_8h_a189b5b0df08bd6b77a39521e0e4a0892}{cavrn\_set\_global\_interrupts},
+  .interruptsEnabled = \textcolor{keyword}{false}
+\}
+\end{DoxyCode}

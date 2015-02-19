@@ -1,24 +1,22 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Makefile for the Cavrn AVR8 library                                         #
+# Example Makefile for the Cavrn AVR8 library                                         #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Version: 1.0                                                                #
 # Max Mansfield on February 17, 2015                                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 include settings.inc
-
-ARCH       := $(shell uname -m)
-BUILD_     := build
-SOURCE_    := src
-MAIN       := $(BUILD_)/$(MAIN_FILE)
+MAIN := $(MAIN_FILE:.c=)
+DEPTH := ../../../
 # Add the current folders and files into the compile base
+SOURCE_    := cavrn
+BUILD_     := $(EXMPL_DEPTH)build
 SRC_DIR   := $(addprefix $(SOURCE_)/,$(MODULES))
-SRC_DIR   += $(SOURCE_)
 BUILD_DIR := $(addprefix $(BUILD_)/,$(MODULES))
-BUILD_DIR += $(BUILD_)
 CSRC      := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.c))
+HSRC      := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.h))
+SRC       := $(CSRC) $(HSRC)
 OBJ       := $(patsubst $(SOURCE_)%.c,$(BUILD_)%.o,$(CSRC))
-INCLUDES  := $(addprefix -I,$(SRC_DIR))
-INCLUDES  += -I$(SOURCE_)
+INCLUDES  := $(addprefix -I,$(SRC_DIR)) -I$(SOURCE_)
 
 ### Include dirs, library dirs and definitions
 DEFS	:= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF) BAUD=$(BAUD)
@@ -51,13 +49,12 @@ NM      := avr-nm
 CFLAGS += -fdata-sections -ffunction-sections
 CFLAGS += -Wno-deprecated-declarations -D__PROG_TYPES_COMPAT__
 CFLAGS += -Wl,--gc-sections
-CFLAGS += -Wall
+CFLAGS += -Wall 
 CFLAGS += -std=$(CSTD)
 CFLAGS += -g$(DEBUG)
 CFLAGS += -mmcu=$(DEVICE)
 CFLAGS += -O$(OPTIMIZE) -mcall-prologues
 CFLAGS += $(addprefix -W,$(WARNINGS))
-CFLAGS += $(INCLUDES)
 CFLAGS += $(addprefix -D,$(DEFS))
 CFLAGS += -Wp,-M,-MP,-MT,-MF
 
@@ -70,33 +67,17 @@ vpath %.c $(SRC_DIR) %o $(BUILD_DIR)
 
 .PHONY: all makedirs success version upload console clean
 
-all: version makedirs makeobjs $(MAIN).out $(MAIN).hex size success
+all: version  $(MAIN).o $(MAIN).elf size
 
-$(BUILD_DIR):
-	@mkdir -p $@
+$(MAIN).o: $(MAIN).c 
+	$(CC) -c $(CFLAGS)  $< -o $@
+$(MAIN).elf: $(MAIN).o 
+	$(CC) $(CFLAGS) $(LDFLAGS) $(DEPTH)$(OBJ) $< -o $@
+$(MAIN).hex: $(MAIN).elf
+	$(OBJCOPY) -O ihex $< $@
 
-makedirs: $(BUILD_DIR)
-makeobjs: $(OBJ)
-
-$(OBJ): $(CSRC) 
-	$(CC) -c $(CFLAGS) $< -o $@
-
-$(MAIN).out: $(MAIN).o
-	$(LD) $(LDFLAGS) $^ -o $@ 
-
-$(MAIN).hex: $(MAIN).out
-	$(OBJCOPY) $(OCFLAGS) $< $@
-
-
-success: $(OBJ) $(BUILD_DIR) $(MAIN).hex
-	@echo
-	@echo
-	@echo
-	@echo Modules Built: $(MODULES)
-	@echo Cavrn Build Success!
-
-size: $(MAIN).out $(MAIN).hex
-	$(SIZE)  -C --mcu=$(DEVICE) $(MAIN).out
+size: $(MAIN).elf $(MAIN).hex
+	$(SIZE)  -C --mcu=$(DEVICE) $(MAIN).elf
 
 version :
 	@$(CC) --version

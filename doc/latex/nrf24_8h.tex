@@ -192,9 +192,9 @@ struct \hyperlink{structnrf24__t}{nrf24\+\_\+t}
 \item 
 void \hyperlink{nrf24_8h_a74436d4829a431fcd9b5ef6ff76d0677}{nrf24\+\_\+init} ()
 \item 
-void \hyperlink{nrf24_8h_a828f90ed30594cc2c29272ce3a0345db}{nrf24\+\_\+rx\+\_\+address} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const adr)
+void \hyperlink{nrf24_8h_a828f90ed30594cc2c29272ce3a0345db}{nrf24\+\_\+rx\+\_\+address} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const adr)
 \item 
-void \hyperlink{nrf24_8h_a17831f7445d7a64fc5f993cb8661ccaa}{nrf24\+\_\+tx\+\_\+address} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const adr)
+void \hyperlink{nrf24_8h_a17831f7445d7a64fc5f993cb8661ccaa}{nrf24\+\_\+tx\+\_\+address} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const adr)
 \item 
 void \hyperlink{nrf24_8h_a97793f0c66a9d83e7180e54b6054e366}{nrf24\+\_\+config} (const uint8\+\_\+t channel, const uint8\+\_\+t pay\+\_\+length)
 \item 
@@ -206,9 +206,9 @@ uint8\+\_\+t \hyperlink{nrf24_8h_ab1cbb7a5d39d2d1389156e88d10ff85b}{nrf24\+\_\+g
 \item 
 bool \hyperlink{nrf24_8h_a9e05723f5fa753cfb2ea219e90eb3c2b}{nrf24\+\_\+rx\+Fifo\+Empty} ()
 \item 
-void \hyperlink{nrf24_8h_ae806a152ba1c40a6c7a62cfbb7b23a64}{nrf24\+\_\+send} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value)
+void \hyperlink{nrf24_8h_ae806a152ba1c40a6c7a62cfbb7b23a64}{nrf24\+\_\+send} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value)
 \item 
-void \hyperlink{nrf24_8h_a195d164f0c500d345d23ca1dfa3fa0d1}{nrf24\+\_\+get\+Data} (\hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
+void \hyperlink{nrf24_8h_a195d164f0c500d345d23ca1dfa3fa0d1}{nrf24\+\_\+get\+Data} (\hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const data)
 \item 
 uint8\+\_\+t \hyperlink{nrf24_8h_a62aedbae7c08c9e560c6e95466067fce}{nrf24\+\_\+payload\+Length} ()
 \item 
@@ -224,11 +224,11 @@ void \hyperlink{nrf24_8h_a8aa77fbedb60ef1265f451dc400d1489}{nrf24\+\_\+power\+Up
 \item 
 void \hyperlink{nrf24_8h_ac7b63ad34704615c539accfd00a12ed5}{nrf24\+\_\+power\+Down} ()
 \item 
-void \hyperlink{nrf24_8h_a0e49f750814c96ce136993e1e5b17554}{nrf24\+\_\+config\+Register} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} value)
+void \hyperlink{nrf24_8h_a0e49f750814c96ce136993e1e5b17554}{nrf24\+\_\+config\+Register} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} value)
 \item 
-void \hyperlink{nrf24_8h_aeb0e11036d095aaeb49292ba3ef49cf1}{nrf24\+\_\+read\+Register} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value, const uint8\+\_\+t len)
+void \hyperlink{nrf24_8h_aeb0e11036d095aaeb49292ba3ef49cf1}{nrf24\+\_\+read\+Register} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value, const uint8\+\_\+t len)
 \item 
-void \hyperlink{nrf24_8h_a57a43ba04d8350624aae7da7c95579fe}{nrf24\+\_\+write\+Register} (const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, const \hyperlink{examples_2Nrf24_2Tx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value, const uint8\+\_\+t len)
+void \hyperlink{nrf24_8h_a57a43ba04d8350624aae7da7c95579fe}{nrf24\+\_\+write\+Register} (const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} reg, const \hyperlink{examples_2Nrf24_2Rx_2src_2cavrn_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} $\ast$const value, const uint8\+\_\+t len)
 \end{DoxyCompactItemize}
 \subsection*{Variables}
 \begin{DoxyCompactItemize}

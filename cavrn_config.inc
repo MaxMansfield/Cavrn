@@ -1,23 +1,36 @@
+SRC_NAME   := cavrn
+LIBNAME    := lib$(SRC_NAME).a
 ARCH       := $(shell uname -m)
-BUILD_     := build
-SOURCE_    := src
-LIBNAME    := libcavrn.a
 
-# Create the folder hierarchy for the example folders
-CREATE_EXMPLS      := $(foreach mod,$(MODULES),$(shell mkdir -p examples/$(mod)/{Tx,Rx}))
-
-### TX Examples
-COPY_TEMPLATE    := $(foreach mod,$(MODULES),$(shell cp -r examples/.__template/* examples/$(mod)/Tx/))
-### RX Examples
-COPY_TEMPLATE    :=  $(foreach mod,$(MODULES),$(shell cp -r examples/.__template/* examples/$(mod)/Rx/))
 
 # Add the current folders and files into the compile base
+SOURCE_    := src
+BUILD_     := build
+INFO       := for $(DEVICE) on $(ARCH)
 SRC_DIR   := $(addprefix $(SOURCE_)/,$(MODULES))
 BUILD_DIR := $(addprefix $(BUILD_)/,$(MODULES))
 CSRC      := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.c))
+HSRC      := $(foreach sdir,$(SRC_DIR),$(wildcard $(sdir)/*.h))
+SRC       := $(CSRC) $(HSRC)
 OBJ       := $(patsubst $(SOURCE_)%.c,$(BUILD_)%.o,$(CSRC))
-INCLUDES  := $(addprefix -I,$(SRC_DIR))
-INCLUDES  += -I$(SOURCE_)
+INCLUDES  := $(addprefix -I,$(SRC_DIR)) -I$(SOURCE_)
+
+
+### Location of the examples folder relative to root
+EXMPL_DIR    := examples
+
+### Location of root folder relative to an example
+EXMPL_DEPTH  := ../../../../
+
+### Different folders of examples
+EXMPL_TYPES  := Tx Rx
+
+### Location of the example template relative to root
+EXMPL_TEMPLT := $(EXMPL_DIR)/.__template
+
+### Location of the example main source file relative to the root dir
+EXMPL_SRC  := .__source
+EXMPL_SOURCE  := $(EXMPL_DIR)/$(EXMPL_SRC)
 
 ### Include dirs, library dirs and definitions
 DEFS	:= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF) BAUD=$(BAUD)
@@ -44,6 +57,7 @@ LD      := avr-ar
 OBJCOPY := avr-objcopy
 OBJDUMP := avr-objdump
 SIZE    := avr-size
+MAKE    := make
 NM      := avr-nm
 
 # Flags for C files

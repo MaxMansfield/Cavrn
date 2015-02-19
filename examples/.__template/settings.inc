@@ -1,5 +1,5 @@
-#enter the name of you executable without the file extension.
-MAIN_FILE := main
+#enter the name of your progreams point of entry (main.c)
+MAIN_FILE := main.c
 
 ### Select which modules to compile
 MODULES   := Uart 
