@@ -1,28 +1,84 @@
-#![Cavrn](http://i.imgur.com/fCJsfXK.png) 
+![Cavrn](http://i.imgur.com/fCJsfXK.png) 
 ## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
 ###### Supported: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
-###### Cavrn is currently a work in progress. This readme is terribly out of date due to that.
+###### Cavrn is currently a work in progress. This readme may be terribly out of date due to that.
 
-Cavrn library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations. Each available function (uart,spi,nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration. 
-######*Please Note:* 
-######*Cavrn just started and so naturally it's continually changing. What you may have been used to one day may not be there or may be buggy the next. Come back in a month or so if you really want to use Cavrn (without also developing it). Furthermore, this README will likely be incomplete. View the doc/ folder or more up to date documentation (that is also incomplete)*
+Cavrn library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations. Each available function (Uart,Spi,Nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration. 
 
-##Usage 
-At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.
-For the time being you can simply download the repo and configure the `Makefile` to fit your needs. Then run `make` and if your board is plugged in `make upload`.
+Cavrn uses static structs full of function pointers to represent each module an its capabilities.
+A module is then called by the module name and then the function, similar to an object.
 
-Check below for small code examples and keep an eye on the repo because I'll be adding extensive ones soon.
+Ex.
+```C
+#include "cavrn/uart.h"
+
+int main (void)
+{
+   /* initialize UART in full duplex */
+    Uart.init(ASYNC_MODE);
+    
+    /* only send/recieve  printable char when using Uart.txString and Uart.rxString() */
+    Uart.printableCharsOnly = false;
+    
+    /* global interrupts Off */
+    Cavrn.setInterrupts(OFF);
+    
+    /* enables global interrupts and enables Uart TX interrupts */
+    Uart.setTxInterrupt(ON);
+    
+    /* byte is defined as part of Cavrn check the docs for more. */
+    byte count = 0;
+    while(1){
+       char text[32];
+       sprinf(text,"Run number %d",count++);
+       Uart.txString(text);
+       Uart.txByte("A");
+    }
+    return 0;
+}
+
+```
+
+##Documentation 
+Like the repo, the documentation is a work-in-progress so some pieces MAY be inaccurate, although it's unlikely. In most cases the documenation will be much more accurate than what you're reading right now.
+
+To read the documentation go to
+
+[http://maxmansfield.github.io/Cavrn/](http://maxmansfield.github.io/Cavrn/)
+
+Going to the modules page or the files page is the most helpful at the moment of writing this.
 
 ##Requirements
 To compile Cavrn you will need the avr-gcc suite as well as avr-libc. To upload you will need avrdude and to view serial data you can install screen and type `make console` but for long term use I recommend minicom.
 
 At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define each pin that will be used in the appropriate header file.
 
+##Building Cavrn
+At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.
+
+For the time being here's the build process:
+
+1. Download the repo and change `settings.inc` to fit your needs. (note: you don't need to change any other file like `cavrn_config.inc` or the `Makefile`). 
+2. Run `make -j 2` 
+3. The built objects and a static library file will be in the newly created `build/` directory
+
+##Building Examples
+Since the examples rely on the library being built, when you make the examples it will also build the library.
+
+1. Run `make examples`
+2. cd examples/Uart/Tx/ or any example directory
+3. run `make` to build an example
+
+
+##Using Cavrn
+To use Cavrn include the source and objects/static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
+
+
 ## UART
 ####A library implementation for sending/recieving bytes or strings via UART pins. 
 
-
+### Configuration
 Uart is able to take advantage of all modes given by an MCU. Just provide it during initialization.
 *note: The AVR ATmega103 does not have available status control registers to determine half/full duplex so no mode is needed at initialization.*
 
@@ -35,7 +91,7 @@ Uart.init(MSPI_MODE)
 `
 Uart relies on a BAUD definition at compile time because many preprocessor directives rely on it; one benefit of doing it this way is that no large 32bit integers have to be used (ex. Baud of 115200) another is the assurance that your baud rate is what you would expect throughout the program and finally no compute time is wasted on arithmatic to calculate baud rates or `F_OSC` clock rates or even to separate high and low values for the USART Baud Rate Register because the preprocessor computes it.
 
-To Define the Baud rate add -DBAUD=9600 or any other rate to the compilation. For most situations, simply fill in the provided makefile. During the extent of your program you can change the BAUD by undefining BAUD and redefining it before reincluding the <util/setbaud.h> file. This sounds janky but the setbaud.h file is simply a collection of preprocessor directives which will only be present at compile time and infact avr-libc recommends this way.
+To Define the Baud rate add -DBAUD=9600 or any other rate to the compilation. For most situations, simply fill in the provided `settings.inc` file. During the extent of your program you can change the BAUD by undefining BAUD and redefining it before reincluding the `<util/setbaud.h>` file. This sounds janky but the setbaud.h file is simply a collection of preprocessor directives which will only be present at compile time and infact avr-libc recommends this way.
 
 Take this example to see how easy to use the Uart library is (and eventually all of Cavrn).
 ```C
@@ -103,15 +159,13 @@ int main(void){
    return 0;
 }
 ```
-<hr>
+
 ## NRF24 (Relies on SPI)
 #### Making wireless connectivity quick and painless.
 
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
 
 These two features are basically the most important features of the nrf24L01+ modules. With this module, after you make a tranmission attempt, you'll know for sure wheter the slave device got your message properly or not with minimal MCU involvement. Also, nrf24L01+ chipsets automatically handle the retranmission of the same message if it they lost in transmission, up to o limited trials with adjustable delays in between attempts.
-
-## Usage
 
 ### Configuration
 
