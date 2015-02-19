@@ -21,26 +21,25 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 /**
  * @file cavrn.h
- * @version 0.1.0
+ * @version 0.1.0 (Sedimentary Olm)
  * @author Max Mansfield
  * @copyright GNU Public License v2
  * @date February 19, 2015
- * @brief The main file which defines import macros and contains the Cavrn 
- *   structure which is used for enabling and disabling global interrupts 
- *   and other functions.
+ * @brief The main file which defines import macros and contains the Cavrn structure which is used for enabling and disabling
+ * global functions in order to control global facilities which have no place in the other modules as well as unify files and 
+ * apply various macros, Cavrn is provided. Use the Cavrn struct instead of calling its methods directly. Check the examples page 
+ * for more detail
  *
- * In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, Cavrn is provided.
- * Use the Cavrn struct instead of calling its methods directly.
- *
- * Ex.
+ *@example Cavrn/setInterrupts Enable or Disable interrupts globally
  *@code
- *   Cavrn.setInterrupts(true); // Set globally. Also can use ON,OFF
+ *   Cavrn.setInterrupts(true);//globally set interrupts
+ *   Cavrn.setInterrupts(OFF); //clear global interrupts 
  *@endcode
  */
 
 #ifndef _CAVRN_H_
 #define _CAVRN_H_
-//Define DEBUG_MODE as 1 to use debugging features
+
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -142,19 +141,21 @@ typedef uint8_t  pin;
  */
 typedef uint8_t  ddr;
 
-  /**
+
+/**
+ * !! SKIP THIS WHEN RUNNING DOXYGEN !!
+ * @cond 0
  * @fn static inline void cavrn_set_global_interrupts(const bool isInterupts);
  * @brief: Set interrupts on/off. To be used via a function pointer in the Cavrn struct.
  *
- * Sets cavrn_t.interruptsEnabled on/off and then calls the right function to initialize interrupts..
- * @code
- *   Cavrn.setInterrupts(OFF); //Set global interrupts off
- * @endcode
+ * Sets cavrn_t.interruptsEnabled on/off and then calls the right function to initialize interrupts.. 
  * @param: const bool isInterrupts
  *    This is the switch to detemine if interrupts will be used
  */
 static inline void cavrn_set_global_interrupts(const bool isInterupts);
-
+/**
+ * @endcond
+ */
 
 /**
  * @typedef cavrn_t
@@ -166,13 +167,13 @@ static inline void cavrn_set_global_interrupts(const bool isInterupts);
  */
 typedef struct  {
 /**
- * @brief The main Cavrn access point
+ * @brief The static cavrn_t struct to execute functions with 
  * @addtogroup Cavrn
  * @{
  */
   
  /**
- * @fn void setInterrupts(const bool)
+ * @fn void (*const setInterrupts)(const bool)
  * @brief: Enables or disables global interrupts on your AVR MCU
  *
  * Sets cavrn_t::interruptsEnabled on/off and then calls the right function to initialize interrupts..
@@ -180,7 +181,7 @@ typedef struct  {
  * @param: const bool isInterrupts
  *    This is the switch to detemine if interrupts will be used
  */
-  void (*setInterrupts)(const bool);
+  void (*const setInterrupts)(const bool);
 
 /**
  * @var interruptsEnabled
@@ -194,28 +195,28 @@ typedef struct  {
 
 /**
  * @struct Cavrn
- * @brief The main entry point for global Cavrn functionality.
- * 
- * Use Cavrn like an object when performing operations.
- * Ex.
- * @code
- *   Cavrn.setInterrupts(ON); // Set global interrupts
- * @endcode
+ * @brief The main entry point for global Cavrn functionality. Access cavrn_t Cavrn's functionality by addressing its function pointers. Check the Examples page for more.
+
  */
 static  cavrn_t Cavrn = {
   .setInterrupts = &cavrn_set_global_interrupts,
   .interruptsEnabled = false
 };
 
-
+/**
+ * !! Skip this when running doxygen
+ * @cond 0
+ */
 static inline void cavrn_set_global_interrupts(const bool isInterrupts)
 {
   if((Cavrn.interruptsEnabled = isInterrupts))
-    sei();
+    interruptsOn();
   else
-    cli();
+    interruptsOff();
   return;
 }
-
+/**
+ *@endcond
+ */
 
 #endif 

@@ -22,23 +22,22 @@ Contributors:
 
 */
 /**
- * @mainpage This is a main page test
- * Blah Blah Blah!
+ *
  * @file uart.h
- * @version 0.1.0
+ * @version 0.1.0 (Sedimentary Olm)
  * @author Max Mansfield
  * @copyright GNU Public License v2
  * @date February 19, 2015
- * @brief Enables UART functionality via an easy to use structure.
- *
- * Uart example
- *
- *@code
- *   Uart.init(true); // Set globally. Also can use ON,OFF
+ * @brief Uart uses a variety of internal functions and presents them in the form of a uart_t object called Uart.
+ * To access a function and its operations, simply address the function pointer. Check the examples for more.
+ * @example Uart/PrintableTx Quickly use Uart.txString(const char*) to only send and recieve printable strings
+ * @code
+ *   Uart.init(ASYNC_MODE); 
  *   Uart.printableCharsOnly = true;
- *   while(1) {
+ *
+ *   while(1) 
  *    Uart.txString("Hello World\n\r");
- *   }
+ *   
  *@endcode
  */
 #ifndef _UART_H_
@@ -198,7 +197,7 @@ Contributors:
 
 #else
 #error Unsupported MCU
-#endif
+#endif // Atmega328p
 
 /**
  * @def UART_START()
@@ -207,54 +206,55 @@ Contributors:
 #define UART_START()  UCSRB |= (1<<TXEN) | (1<<RXEN)
 
 
+
 /**
+ * !! Skip this When Documenting via the cond and endcond !!
+ * @cond 0 
  * @brief These functions have another point of entry and should not be called directly. In fact, there is no Cavrn function that should not be called through a struct.
  * @code
  *    Uart.init(ASYNC_MODE);
  * @endcode
- * @addtogroup Invalid
- * @{
 */
 #if defined(__AVR_ATmega328P__)
-void  uart_init(const byte mode);
+static void  uart_init(const byte mode);
 #elif defined(__AVR_ATmega103__)
-void  uart_init();
+static void  uart_init();
 #endif
 
-void  uart_tx(const byte data);
-byte  uart_rx();
+static void  uart_tx(const byte data);
+static byte  uart_rx();
 
-void  uart_txstr(const char* const string);
-void uart_rxstr(char* const string, const uint8_t len);
+static void  uart_txstr(const char* const string);
+static void uart_rxstr(char* const string, const uint8_t len);
 
-byte  uart_transfer(const byte data);
-void uart_multi_transfer(const byte* const data,byte* datain,const uint8_t* const len);
+static byte  uart_transfer(const byte data);
+static void uart_multi_transfer(const byte* const data,byte* datain,const uint8_t* const len);
 
-void uart_set_tx_interrupt(const bool isInterrupt);
-void uart_set_rx_interrupt(const bool isInterrupt);
-void uart_set_udre_interrupt(const bool isInterrupt);
-void uart_set_interrupts(const bool isInterrupt);
-
+static void uart_set_tx_interrupt(const bool isInterrupt);
+static void uart_set_rx_interrupt(const bool isInterrupt);
+static void uart_set_udre_interrupt(const bool isInterrupt);
+static void uart_set_interrupts(const bool isInterrupt);
 
 /**
- * @fn  void uart_txchr (const char  chr)
+ * 
+ * @fn  static void uart_txchr (const char  chr)
  * @brief Transmits a character of information (signed 8bit integer) via UART  
  * @param  const char* const data
  *    The data to be transmited
  * @return void
  */
-void uart_txchr (const char  chr);
+static void uart_txchr (const char  chr);
 
 /**
  * @fn uart_rxchr()
  * @brief Recieves a character of information (signed 8 bit integer) via UART  
  * @return char
  */
-char uart_rxchr();
-
+static char uart_rxchr();
 /**
-@}
+@endcond 
 */
+
 
 
 /**
@@ -285,86 +285,86 @@ typedef struct  {
  *   -# MSPI_MODE  - Emulated SPI mode - (not implemented)
  * @return void
  */
-  void     (*init)    (const byte); 
+   void     (*const init)    (const byte); 
 #elif defined(__AVR_ATmega103__)
 /**
  * @fn void init()
  * @brief Initializes the UART system which only has one mode to its default.
  */
-  void     (*init)    (); 
+  void     (*const init)    (); 
 #endif
 
 /**
- * @fn void txByte(const byte)
+ * @fn void (*const txByte)(const byte)
  * @brief Transmits a byte of information (unsigned 8 bit integer) via UART  
  * @param  const byte const data
  *    The data to be transmited
  * @return void
  */
-  void     (*txByte)  (const byte);
+  void ( *const txByte)  (const byte);
 
 /**
- * @fn byte rxByte()
+ * @fn byte (*const rxByte)()
  * @brief Recieves a byte of information (unsigned 8bit integer) via UART  
  * @return byte
  */
-  byte  (*rxByte)  ();
+  byte  (*const rxByte)  ();
 
   /**
- * @fn void txString(const char* const)
+ * @fn void (*const txString)(const char* const)
  * @brief Transmit large amounts of signed 8bit integers, useful for logging to UART  
  * @param const char* const string
  *    The string to be transmitted
  * @return void
  */
-  void         (*txString)(const char* const);
+  void         (*const txString)(const char* const);
 
   
 /**
- * @brief rxString(char* const, const uint8_t)
+ * @brief (*const rxString)(char* const, const uint8_t)
  *    Recieve large amounts of signed 8bit integers, useful for commands via UART  
  * @return void
  *
  */
-  void  (*rxString)(char* const, const uint8_t);
+  void  (*const rxString)(char* const, const uint8_t);
 
 /**
- * @fn void setInterrupts(const bool)
+ * @fn void (*const setInterrupts)(const bool)
  * @brief: Enable or diable the all the Uart interrupts simultaneously.
  * @param: const bool isInterrupts
  *    The switch to turn interrupts on and off
  */
-  void (*setInterrupts)(const bool);
+  void (*const setInterrupts)(const bool);
   
 /**
- * @fn void setTxInterrupt (const bool)
+ * @fn void (*const setTxInterrupt) (const bool)
  * @brief Enable UART data register empty interrupts and global interrupts if need be 
  * @param const bool isInterrupts
  *    The switch to turn interrupts on and off
  * @return void
  */
-  void (*setTxInterrupt)(const bool);
+  void (*const setTxInterrupt)(const bool);
 
 /**
- * @fn void setRxInterrupt (const bool)
+ * @fn void (*const setRxInterrupt)(const bool)
  * @brief Enable UART byte recieved interrupts and global interrupts if need be 
  * @param const bool isInterrupts
  *    The switch to turn interrupts on and off
  * @return void
  */
-  void (*setRxInterrupt)(const bool);
+  void (*const setRxInterrupt)(const bool);
 
 /**
- * @fn void setUdreInterrupt(const bool)
+ * @fn void (*const setUdreInterrupt)(const bool)
  * @brief Enable or diable the Uart Data Register Empty flag
  * @param const bool isInterrupts
  *    The switch to turn interrupts on and off
  */
-  void (*setUdreInterrupt)(const bool);
+  void (*const setUdreInterrupt)(const bool);
 
   
 /**
- * @fn byte transfer(const byte)
+ * @fn byte (*const transfer)(const byte)
  * @brief Transmit a byte and wait for a response. Unessecary when interrupts are enabled  
  * @see  void multiTransfer(const byte* const,byte*,const uint8_t* const)
  * @param const byte* const data
@@ -372,10 +372,10 @@ typedef struct  {
  * @return byte
  *
  */
-  byte (*transfer)(const byte);
+  byte (*const transfer)(const byte);
 
  /**
- * @fn void multiTransfer(const byte* const,byte*,const uint8_t* const)
+ * @fn void (*const multiTransfer)(const byte* const,byte*,const uint8_t* const)
  * @brief Transmit large amounts of data by repeadtedly calling Uart.transfer(const byte) and wait for a response. Unessecary when interrupts are enabled.
  * @see byte transfer(const byte)
  * @param const byte* const data
@@ -383,7 +383,7 @@ typedef struct  {
  * @return void
  *
  */
-  void (*multiTransfer)(const byte* const,byte* const,const uint8_t* const );
+  void (*const multiTransfer)(const byte* const,byte* const,const uint8_t* const );
 
   /**
    * @var bool printableCharsOnly

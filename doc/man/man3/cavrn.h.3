@@ -1,8 +1,8 @@
-.TH "cavrn.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.TH "cavrn.h" 3 "Thu Feb 19 2015" "Version 0.1.0" "Cavrn AVR8 Library" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-cavrn.h \- The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&.  
+cavrn.h \- The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&. Check the examples page for more detail\&.  
 
 .SH SYNOPSIS
 .br
@@ -91,14 +91,6 @@ cavrn.h \- The main file which defines import macros and contains the \fBCavrn\f
 .br
 .RI "\fIUse to represent a data direction register on your AVR\&. \fP"
 .in -1c
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "static void \fBcavrn_set_global_interrupts\fP (const bool isInterupts)"
-.br
-.RI "\fI: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. \fP"
-.in -1c
 .SS "Variables"
 
 .in +1c
@@ -108,13 +100,13 @@ cavrn.h \- The main file which defines import macros and contains the \fBCavrn\f
 .in -1c
 .SH "Detailed Description"
 .PP 
-The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&. 
+The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&. Check the examples page for more detail\&. 
 
 
 .PP
 \fBVersion:\fP
 .RS 4
-0\&.1\&.0 
+0\&.1\&.0 (Sedimentary Olm) 
 .RE
 .PP
 \fBAuthor:\fP
@@ -129,65 +121,86 @@ GNU Public License v2
 .PP
 \fBDate:\fP
 .RS 4
-February 19, 2015 In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&.
+February 19, 2015 
 .RE
 .PP
-Ex\&. 
-.PP
-.nf
-Cavrn\&.setInterrupts(true); // Set globally\&. Also can use ON,OFF
 
-.fi
 .PP
- 
+Definition in file \fBcavrn\&.h\fP\&.
 .SH "Macro Definition Documentation"
 .PP 
 .SS "#define HIGH   0xFF"
 
 .PP
 HIGH as 255 or true\&. 
+.PP
+Definition at line 67 of file cavrn\&.h\&.
 .SS "#define IN   0x00"
 
 .PP
 IN as 0 or false\&. 
+.PP
+Definition at line 79 of file cavrn\&.h\&.
 .SS "#define interruptsOff()   cli()"
 
 .PP
 A more readable function for clearing global interupts\&. 
+.PP
+Definition at line 97 of file cavrn\&.h\&.
 .SS "#define interruptsOn()   sei()"
 
 .PP
 A more readable function for setting global interupts\&. 
+.PP
+Definition at line 91 of file cavrn\&.h\&.
 .SS "#define isprint(c)   (c>=0x20 && c<=0x7E)"
 
 .PP
 Decides if a character is a printable or not\&. Very useful for transmitting strings\&. Taken from the C std library but I didn't want to include the entire file just for this function\&. 
+.PP
+Definition at line 103 of file cavrn\&.h\&.
 .SS "#define LOW   0x00"
 
 .PP
 LOW as 0 or false\&. 
+.PP
+Definition at line 73 of file cavrn\&.h\&.
 .SS "#define OFF   0x00"
 
 .PP
 OFF as 0 or false\&. 
+.PP
+\fBExamples: \fP
+.in +1c
+\fBCavrn/setInterrupts\fP\&.
+.PP
+Definition at line 61 of file cavrn\&.h\&.
 .SS "#define ON   0x01"
 
 .PP
 ON as 1 or true\&. 
+.PP
+Definition at line 55 of file cavrn\&.h\&.
 .SS "#define OUT   0x01"
 
 .PP
 OUT as 1 or true\&. 
+.PP
+Definition at line 85 of file cavrn\&.h\&.
 .SH "Typedef Documentation"
 .PP 
 .SS "\fBbyte\fP"
 
 .PP
 Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc\&.\&.\&. 
+.PP
+Definition at line 122 of file cavrn\&.h\&.
 .SS "\fBddr\fP"
 
 .PP
 Use to represent a data direction register on your AVR\&. 
+.PP
+Definition at line 142 of file cavrn\&.h\&.
 .SS "\fBpin\fP"
 
 .PP
@@ -199,6 +212,8 @@ Use a pin to represent an 8 bit data output location, specifically a pin on your
 .RE
 .PP
 
+.PP
+Definition at line 136 of file cavrn\&.h\&.
 .SS "\fBport\fP"
 
 .PP
@@ -210,30 +225,14 @@ Use a port to represent an 8 bit data input location, specifically a port on you
 .RE
 .PP
 
+.PP
+Definition at line 129 of file cavrn\&.h\&.
 .SS "\fBword\fP"
 
 .PP
 Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation\&. 
-.SH "Function Documentation"
-.PP 
-.SS "static void cavrn_set_global_interrupts (const bool isInterupts)\fC [inline]\fP, \fC [static]\fP"
-
 .PP
-: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. Sets \fBcavrn_t\&.interruptsEnabled\fP on/off and then calls the right function to initialize interrupts\&.\&. 
-.PP
-.nf
-1 Cavrn\&.setInterrupts(OFF); //Set global interrupts off
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fI\fP 
-.RE
-.PP
-
+Definition at line 115 of file cavrn\&.h\&.
 .SH "Variable Documentation"
 .PP 
 .SS "\fBcavrn_t\fP \fBCavrn\fP\fC [static]\fP"
@@ -245,6 +244,8 @@ Use the word typedef when you mean to refer to 16 bit of information instead of 
   \&.interruptsEnabled = false
 }
 .fi
+.PP
+Definition at line 201 of file cavrn\&.h\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
+Generated automatically by Doxygen for Cavrn AVR8 Library from the source code\&.

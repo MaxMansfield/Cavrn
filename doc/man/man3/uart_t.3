@@ -1,4 +1,4 @@
-.TH "uart_t" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.TH "uart_t" 3 "Thu Feb 19 2015" "Version 0.1.0" "Cavrn AVR8 Library" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,43 +12,43 @@ uart_t \-
 
 .in +1c
 .ti -1c
-.RI "void(* \fBtxByte\fP )(const \fBbyte\fP)"
+.RI "void(*const \fBtxByte\fP )(const \fBbyte\fP)"
 .br
 .RI "\fITransmits a byte of information (unsigned 8 bit integer) via UART\&. \fP"
 .ti -1c
-.RI "\fBbyte\fP(* \fBrxByte\fP )()"
+.RI "\fBbyte\fP(*const \fBrxByte\fP )()"
 .br
 .RI "\fIRecieves a byte of information (unsigned 8bit integer) via UART\&. \fP"
 .ti -1c
-.RI "void(* \fBtxString\fP )(const char *const)"
+.RI "void(*const \fBtxString\fP )(const char *const)"
 .br
 .RI "\fITransmit large amounts of signed 8bit integers, useful for logging to UART\&. \fP"
 .ti -1c
-.RI "void(* \fBrxString\fP )(char *const, const uint8_t)"
+.RI "void(*const \fBrxString\fP )(char *const, const uint8_t)"
 .br
-.RI "\fIrxString(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
+.RI "\fI(\fIconst rxString)(char\fP const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
 .ti -1c
-.RI "void(* \fBsetInterrupts\fP )(const bool)"
+.RI "void(*const \fBsetInterrupts\fP )(const bool)"
 .br
 .RI "\fI: Enable or diable the all the \fBUart\fP interrupts simultaneously\&. \fP"
 .ti -1c
-.RI "void(* \fBsetTxInterrupt\fP )(const bool)"
+.RI "void(*const \fBsetTxInterrupt\fP )(const bool)"
 .br
 .RI "\fIEnable UART data register empty interrupts and global interrupts if need be\&. \fP"
 .ti -1c
-.RI "void(* \fBsetRxInterrupt\fP )(const bool)"
+.RI "void(*const \fBsetRxInterrupt\fP )(const bool)"
 .br
 .RI "\fIEnable UART byte recieved interrupts and global interrupts if need be\&. \fP"
 .ti -1c
-.RI "void(* \fBsetUdreInterrupt\fP )(const bool)"
+.RI "void(*const \fBsetUdreInterrupt\fP )(const bool)"
 .br
 .RI "\fIEnable or diable the \fBUart\fP Data Register Empty flag\&. \fP"
 .ti -1c
-.RI "\fBbyte\fP(* \fBtransfer\fP )(const \fBbyte\fP)"
+.RI "\fBbyte\fP(*const \fBtransfer\fP )(const \fBbyte\fP)"
 .br
 .RI "\fITransmit a byte and wait for a response\&. Unessecary when interrupts are enabled\&. \fP"
 .ti -1c
-.RI "void(* \fBmultiTransfer\fP )(const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
+.RI "void(*const \fBmultiTransfer\fP )(const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
 .br
 .RI "\fITransmit large amounts of data by repeadtedly calling Uart\&.transfer(const byte) and wait for a response\&. Unessecary when interrupts are enabled\&. \fP"
 .ti -1c
@@ -56,7 +56,10 @@ uart_t \-
 .br
 .RI "\fIWhen set UART will only transmit and recieve characters the can be printed\&. \fP"
 .in -1c
+.SH "Detailed Description"
+.PP 
+Definition at line 265 of file uart\&.h\&.
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
+Generated automatically by Doxygen for Cavrn AVR8 Library from the source code\&.

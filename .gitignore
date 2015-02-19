@@ -1,6 +1,9 @@
-src/doxy*
-doxy*
-*~
-*#
-*.DS_STORE
+src/*doxy*
+*doxy*
+doc/
+img/
+*~*
+*#*
+*.#*
+.DS_STORE
 .publish.sh
