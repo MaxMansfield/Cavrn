@@ -75,7 +75,7 @@ Since the examples rely on the library being built, when you make the examples i
 To use Cavrn include the source and objects/static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
 
 
-## UART
+#UART
 ####A library implementation for sending/recieving bytes or strings via UART pins. 
 
 ### Configuration
@@ -112,7 +112,7 @@ int main(void)
 }
 ```
 
-## SPI (Almost Operational)
+#SPI (Almost Operational)
 #### A simple and elegant peripheral communication library.
 
 The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
@@ -160,7 +160,7 @@ int main(void){
 }
 ```
 
-## NRF24 (Relies on SPI)
+#NRF24 (Relies on SPI)
 #### Making wireless connectivity quick and painless.
 
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
