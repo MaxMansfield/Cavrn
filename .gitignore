@@ -1,0 +1,6 @@
+src/doxy*
+doxy*
+*~
+*#
+*.DS_STORE
+.publish.sh

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['set_5fspi2x',['SET_SPI2X',['../spi_8h.html#adffdf11322e7b104b910a841b7de2b11',1,'spi.h']]],
+  ['setdataorder',['setDataOrder',['../structspi__t.html#a9666930bc1583041cf42e4ec184dd180',1,'spi_t']]],
+  ['setinterrupts',['setInterrupts',['../group__Cavrn.html#ga6d24e3f4da5be381dc60dddaa75f3ff9',1,'cavrn_t::setInterrupts()'],['../structspi__t.html#a9011a7370d987842947f716e10f8f652',1,'spi_t::setInterrupts()'],['../group__Uart.html#ga4520d920236601c1873a3c4f8d614ed2',1,'uart_t::setInterrupts()']]],
+  ['setrxinterrupt',['setRxInterrupt',['../group__Uart.html#gaafb7d2e25cfd8e0f37f2d091494b862e',1,'uart_t']]],
+  ['settxinterrupt',['setTxInterrupt',['../group__Uart.html#ga6a53b7041affe1b1097cd7e68e3928ce',1,'uart_t']]],
+  ['setudreinterrupt',['setUdreInterrupt',['../group__Uart.html#ga31054311fdb58217db7a09b7f54f1dcd',1,'uart_t']]],
+  ['setup_5faw',['SETUP_AW',['../nrf24_8h.html#af5ef355ba3eca336db1285cab353ddc2',1,'nrf24.h']]],
+  ['setup_5fretr',['SETUP_RETR',['../nrf24_8h.html#a2188309b3eceeae158dd64109cd919aa',1,'nrf24.h']]],
+  ['slave',['SLAVE',['../spi_8h.html#ae342da5a4630c191c1c983958808edd8',1,'spi.h']]],
+  ['spi',['Spi',['../spi_8h.html#acc32e9917e484a47a14e3daccb502db2',1,'spi.h']]],
+  ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
+  ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
+  ['spi_5fdisable',['spi_disable',['../spi_8c.html#a1b20de0da423e7d6da1c99eec9d63216',1,'spi_disable():&#160;spi.c'],['../spi_8h.html#a1b20de0da423e7d6da1c99eec9d63216',1,'spi_disable():&#160;spi.c']]],
+  ['spi_5finit',['spi_init',['../spi_8c.html#a94087004a94105cf6d70f8ea90af2408',1,'spi_init(const bool isMaster, const byte mode, const uint8_t clk):&#160;spi.c'],['../spi_8h.html#a94087004a94105cf6d70f8ea90af2408',1,'spi_init(const bool isMaster, const byte mode, const uint8_t clk):&#160;spi.c']]],
+  ['spi_5fmode0',['SPI_MODE0',['../spi_8h.html#ac9d0bde2b42b2403d00b7a611514b006',1,'spi.h']]],
+  ['spi_5fmode1',['SPI_MODE1',['../spi_8h.html#a9481b7327b91aa52ff5f70eb2d0acc95',1,'spi.h']]],
+  ['spi_5fmode2',['SPI_MODE2',['../spi_8h.html#a991dec04d2fb38979cfb0d9fc7f8b026',1,'spi.h']]],
+  ['spi_5fmode3',['SPI_MODE3',['../spi_8h.html#a5f928a2445070981765ee0416c12369d',1,'spi.h']]],
+  ['spi_5fmulti_5ftransfer',['spi_multi_transfer',['../spi_8c.html#a2ad1d18511599c1121be42777d7053e9',1,'spi_multi_transfer(const uint8_t *const dataout, uint8_t *const datain, const uint8_t len):&#160;spi.c'],['../spi_8h.html#a106510ceb36305d7442f75e830fb98c2',1,'spi_multi_transfer(const byte *const dataout, byte *const datain, const uint8_t len):&#160;spi.c']]],
+  ['spi_5fset_5fdata_5forder',['spi_set_data_order',['../spi_8c.html#a5d5bcfa359b4591e38b5d533d624216e',1,'spi_set_data_order(const bool dord):&#160;spi.c'],['../spi_8h.html#a5d5bcfa359b4591e38b5d533d624216e',1,'spi_set_data_order(const bool dord):&#160;spi.c']]],
+  ['spi_5fset_5finterrupts',['spi_set_interrupts',['../spi_8c.html#a61cfa0c122508d59bd38c2046b1e6ebf',1,'spi_set_interrupts(const bool isInterrupt):&#160;spi.c'],['../spi_8h.html#a61cfa0c122508d59bd38c2046b1e6ebf',1,'spi_set_interrupts(const bool isInterrupt):&#160;spi.c']]],
+  ['spi_5ft',['spi_t',['../structspi__t.html',1,'']]],
+  ['spi_5ftransfer',['spi_transfer',['../spi_8c.html#aab1ad15333780e6b9f8c8be602682818',1,'spi_transfer(const byte data):&#160;spi.c'],['../spi_8h.html#aab1ad15333780e6b9f8c8be602682818',1,'spi_transfer(const byte data):&#160;spi.c']]],
+  ['status',['STATUS',['../nrf24_8h.html#a59279bee44f34d08b3cbf3a89fb0d8d9',1,'nrf24.h']]]
+];

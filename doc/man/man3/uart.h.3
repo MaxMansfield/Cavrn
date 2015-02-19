@@ -1,0 +1,154 @@
+.TH "Uart/uart.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Uart/uart.h \- Enables UART functionality via an easy to use structure\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'cavrn\&.h'\fP
+.br
+\fC#include <util/setbaud\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBuart_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBRXLEN\fP   254"
+.br
+.ti -1c
+.RI "#define \fBUART_START\fP()   UCSRB |= (1<<TXEN) | (1<<RXEN)"
+.br
+.RI "\fISet UCSRB with the TX and RX enable flags\&. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBuart_tx\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "\fBbyte\fP \fBuart_rx\fP ()"
+.br
+.ti -1c
+.RI "void \fBuart_txstr\fP (const char *const string)"
+.br
+.ti -1c
+.RI "void \fBuart_rxstr\fP (char *const string, const uint8_t len)"
+.br
+.ti -1c
+.RI "\fBbyte\fP \fBuart_transfer\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "void \fBuart_multi_transfer\fP (const \fBbyte\fP *const data, \fBbyte\fP *datain, const uint8_t *const len)"
+.br
+.ti -1c
+.RI "void \fBuart_set_tx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_rx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_udre_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_interrupts\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_txchr\fP (const char chr)"
+.br
+.RI "\fITransmits a character of information (signed 8bit integer) via UART\&. \fP"
+.ti -1c
+.RI "char \fBuart_rxchr\fP ()"
+.br
+.RI "\fIRecieves a character of information (signed 8 bit integer) via UART\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static \fBuart_t\fP \fBUart\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Enables UART functionality via an easy to use structure\&. 
+
+
+.PP
+\fBVersion:\fP
+.RS 4
+0\&.1\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Max Mansfield 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+GNU Public License v2 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+February 19, 2015 \fBUart\fP example
+.RE
+.PP
+.PP
+.nf
+Uart\&.init(true); // Set globally\&. Also can use ON,OFF
+Uart\&.printableCharsOnly = true;
+while(1) {
+ Uart\&.txString("Hello World\n\r");
+}
+.fi
+.PP
+ 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define RXLEN   254"
+
+.SS "#define UART_START()   UCSRB |= (1<<TXEN) | (1<<RXEN)"
+
+.PP
+Set UCSRB with the TX and RX enable flags\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "\fBuart_t\fP \fBUart\fP\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+  \&.init = &uart_init,
+  
+  \&.txByte = &uart_tx,
+  \&.rxByte = &uart_rx,
+  
+  \&.txString = &uart_txstr,
+  \&.rxString = &uart_rxstr,
+
+  \&.transfer = &uart_transfer,
+  \&.multiTransfer = &uart_multi_transfer,
+  
+  \&.setInterrupts = &uart_set_interrupts,
+  \&.setUdreInterrupt = &uart_set_udre_interrupt,
+  \&.setTxInterrupt = &uart_set_tx_interrupt,
+  \&.setRxInterrupt = &uart_set_rx_interrupt,
+  
+  \&.printableCharsOnly = false
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

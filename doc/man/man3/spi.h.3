@@ -1,0 +1,237 @@
+.TH "Spi/spi.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Spi/spi.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'cavrn\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBspi_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBCLR_SCK_REG\fP()   SPCR &= ~(_BV(SPR1) | _BV(SPR0))"
+.br
+.ti -1c
+.RI "#define \fBSPI_MODE0\fP   0xf3"
+.br
+.ti -1c
+.RI "#define \fBSPI_MODE1\fP   0x04"
+.br
+.ti -1c
+.RI "#define \fBSPI_MODE2\fP   0x08"
+.br
+.ti -1c
+.RI "#define \fBSPI_MODE3\fP   0x0C"
+.br
+.ti -1c
+.RI "#define \fBF_OSC4\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBF_OSC16\fP   (_BV(SPR0))"
+.br
+.ti -1c
+.RI "#define \fBF_OSC64\fP   (_BV(SPR1))"
+.br
+.ti -1c
+.RI "#define \fBF_OSC128\fP   (_BV(SPR1) | _BV(SPR0))"
+.br
+.ti -1c
+.RI "#define \fBSET_SPI2X\fP()"
+.br
+.ti -1c
+.RI "#define \fBCLR_SPI2X\fP()"
+.br
+.ti -1c
+.RI "#define \fBINIT_SPI_MODE0\fP()   SPCR &= \fBSPI_MODE0\fP"
+.br
+.ti -1c
+.RI "#define \fBINIT_SPI_MODE1\fP()   SPCR |= \fBSPI_MODE1\fP"
+.br
+.ti -1c
+.RI "#define \fBINIT_SPI_MODE2\fP()   SPCR |= \fBSPI_MODE2\fP"
+.br
+.ti -1c
+.RI "#define \fBINIT_SPI_MODE3\fP()   SPCR |= \fBSPI_MODE3\fP"
+.br
+.ti -1c
+.RI "#define \fBMASTER\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBSLAVE\fP   0x00"
+.br
+.ti -1c
+.RI "#define \fBMSB_ORDER\fP   0x01"
+.br
+.ti -1c
+.RI "#define \fBLSB_ORDER\fP   0x00"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBspi_init\fP (const bool isMaster, const \fBbyte\fP mode, const uint8_t clk)"
+.br
+.RI "\fI: \fBspi_init()\fP This method initializes the registers of the MCU and determines the clock polarity and clock rate for the transfers \fP"
+.ti -1c
+.RI "void \fBspi_multi_transfer\fP (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t len)"
+.br
+.RI "\fI: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes \fBspi_transfer(byte)\fP until all information has been sent and recieved \fP"
+.ti -1c
+.RI "\fBbyte\fP \fBspi_transfer\fP (const \fBbyte\fP data)"
+.br
+.RI "\fI: \fBspi_transfer()\fP This function will send a byte and wait for a response via spi before returning its value\&. \fP"
+.ti -1c
+.RI "void \fBspi_set_data_order\fP (const bool dord)"
+.br
+.RI "\fI: \fBspi_set_data_order()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain \fP"
+.ti -1c
+.RI "void \fBspi_set_interrupts\fP (const bool isInterrupt)"
+.br
+.RI "\fI: \fBspi_set_interrupts()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain \fP"
+.ti -1c
+.RI "void \fBspi_disable\fP ()"
+.br
+.RI "\fI: \fBspi_disable()\fP Opposite of init\&. Disable SPI\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "static struct \fBspi_t\fP \fBSpi\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define CLR_SCK_REG()   SPCR &= ~(_BV(SPR1) | _BV(SPR0))"
+
+.SS "#define CLR_SPI2X()"
+
+.SS "#define F_OSC128   (_BV(SPR1) | _BV(SPR0))"
+
+.SS "#define F_OSC16   (_BV(SPR0))"
+
+.SS "#define F_OSC4   0x00"
+
+.SS "#define F_OSC64   (_BV(SPR1))"
+
+.SS "#define INIT_SPI_MODE0()   SPCR &= \fBSPI_MODE0\fP"
+
+.SS "#define INIT_SPI_MODE1()   SPCR |= \fBSPI_MODE1\fP"
+
+.SS "#define INIT_SPI_MODE2()   SPCR |= \fBSPI_MODE2\fP"
+
+.SS "#define INIT_SPI_MODE3()   SPCR |= \fBSPI_MODE3\fP"
+
+.SS "#define LSB_ORDER   0x00"
+
+.SS "#define MASTER   0x01"
+
+.SS "#define MSB_ORDER   0x01"
+
+.SS "#define SET_SPI2X()"
+
+.SS "#define SLAVE   0x00"
+
+.SS "#define SPI_MODE0   0xf3"
+
+.SS "#define SPI_MODE1   0x04"
+
+.SS "#define SPI_MODE2   0x08"
+
+.SS "#define SPI_MODE3   0x0C"
+
+.SH "Function Documentation"
+.PP 
+.SS "void spi_disable ()"
+
+.PP
+: \fBspi_disable()\fP Opposite of init\&. Disable SPI\&. 
+.SS "void spi_init (const bool isMaster, const \fBbyte\fP mode, const uint8_t clk)"
+
+.PP
+: \fBspi_init()\fP This method initializes the registers of the MCU and determines the clock polarity and clock rate for the transfers 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_multi_transfer (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t len)"
+
+.PP
+: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes \fBspi_transfer(byte)\fP until all information has been sent and recieved 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_set_data_order (const bool dord)"
+
+.PP
+: \fBspi_set_data_order()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "void spi_set_interrupts (const bool isInterrupt)"
+
+.PP
+: \fBspi_set_interrupts()\fP This funtion changes the data order from MSB (whichis equivelent to true) to LSB (false) and backagain 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SS "\fBbyte\fP spi_transfer (const \fBbyte\fP data)"
+
+.PP
+: \fBspi_transfer()\fP This function will send a byte and wait for a response via spi before returning its value\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fI\fP 
+.RE
+.PP
+
+.SH "Variable Documentation"
+.PP 
+.SS "struct \fBspi_t\fP Spi\fC [static]\fP"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+  \&.init = &spi_init,
+  \&.transfer = &spi_transfer,
+  \&.multiTransfer = &spi_multi_transfer,
+  \&.setDataOrder = &spi_set_data_order,
+  \&.setInterrupts = &spi_set_interrupts,
+  \&.disable = &spi_disable,
+  \&.interruptsEnabled = false,
+
+
+
+}
+.fi
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

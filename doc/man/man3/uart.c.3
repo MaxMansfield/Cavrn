@@ -1,0 +1,56 @@
+.TH "Uart/uart.c" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Uart/uart.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'uart\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBuart_tx\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "uint8_t \fBuart_rx\fP ()"
+.br
+.ti -1c
+.RI "char \fBuart_rxchr\fP ()"
+.br
+.RI "\fIRecieves a character of information (signed 8 bit integer) via UART\&. \fP"
+.ti -1c
+.RI "void \fBuart_txchr\fP (const char chr)"
+.br
+.RI "\fITransmits a character of information (signed 8bit integer) via UART\&. \fP"
+.ti -1c
+.RI "void \fBuart_txstr\fP (const char *const string)"
+.br
+.ti -1c
+.RI "void \fBuart_rxstr\fP (char *const string, const uint8_t len)"
+.br
+.ti -1c
+.RI "void \fBuart_set_tx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_rx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_udre_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_interrupts\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "\fBbyte\fP \fBuart_transfer\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "void \fBuart_multi_transfer\fP (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t *const len)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
