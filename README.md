@@ -1,7 +1,8 @@
-#Cavrn 
+#![Cavrn](http://i.imgur.com/9qlK7li.png) 
 ## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
 ###### Supported: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
+###### Cavrn is currently a work in progress. This readme is terribly out of date due to that.
 
 Cavrn library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations. Each available function (uart,spi,nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. Cavrn takes techniques found in the arduino library (like how Cavrn uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration. 
 ######*Please Note:* 
