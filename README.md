@@ -1,4 +1,4 @@
-#![Cavrn](http://i.imgur.com/9qlK7li.png) 
+#![Cavrn](http://i.imgur.com/hoTxroa.png) 
 ## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
 ###### Supported: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
