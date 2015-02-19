@@ -1,8 +1,9 @@
-.TH "cavrn.h" 3 "Thu Feb 19 2015" "Version 0.1" "Doxygen" \" -*- nroff -*-
+.TH "cavrn.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-cavrn.h \- 
+cavrn.h \- The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&.  
+
 .SH SYNOPSIS
 .br
 .PP
@@ -32,39 +33,39 @@ cavrn.h \-
 .ti -1c
 .RI "#define \fBON\fP   0x01"
 .br
+.RI "\fION as 1 or true\&. \fP"
 .ti -1c
 .RI "#define \fBOFF\fP   0x00"
 .br
+.RI "\fIOFF as 0 or false\&. \fP"
 .ti -1c
 .RI "#define \fBHIGH\fP   0xFF"
 .br
+.RI "\fIHIGH as 255 or true\&. \fP"
 .ti -1c
 .RI "#define \fBLOW\fP   0x00"
 .br
+.RI "\fILOW as 0 or false\&. \fP"
 .ti -1c
 .RI "#define \fBIN\fP   0x00"
 .br
+.RI "\fIIN as 0 or false\&. \fP"
 .ti -1c
 .RI "#define \fBOUT\fP   0x01"
 .br
+.RI "\fIOUT as 1 or true\&. \fP"
 .ti -1c
 .RI "#define \fBinterruptsOn\fP()   sei()"
 .br
+.RI "\fIA more readable function for setting global interupts\&. \fP"
 .ti -1c
 .RI "#define \fBinterruptsOff\fP()   cli()"
 .br
-.ti -1c
-.RI "#define \fBbit\fP(b)   (1<< (b))"
-.br
-.ti -1c
-.RI "#define \fBbitSet\fP(value,  \fBbit\fP)   ((value) |=  (\fBbit\fP(\fBbit\fP))"
-.br
-.ti -1c
-.RI "#define \fBbitClear\fP(value,  \fBbit\fP)   ((value) &= ~(\fBbit\fP(\fBbit\fP)))"
-.br
+.RI "\fIA more readable function for clearing global interupts\&. \fP"
 .ti -1c
 .RI "#define \fBisprint\fP(c)   (c>=0x20 && c<=0x7E)"
 .br
+.RI "\fIDecides if a character is a printable or not\&. Very useful for transmitting strings\&. Taken from the C std library but I didn't want to include the entire file just for this function\&. \fP"
 .in -1c
 .SS "Typedefs"
 
@@ -72,18 +73,23 @@ cavrn.h \-
 .ti -1c
 .RI "typedef uint16_t \fBword\fP"
 .br
+.RI "\fIUse the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation\&. \fP"
 .ti -1c
 .RI "typedef uint8_t \fBbyte\fP"
 .br
+.RI "\fIUse a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc\&.\&.\&. \fP"
 .ti -1c
 .RI "typedef uint8_t \fBport\fP"
 .br
+.RI "\fIUse a port to represent an 8 bit data input location, specifically a port on your AVR\&. \fP"
 .ti -1c
 .RI "typedef uint8_t \fBpin\fP"
 .br
+.RI "\fIUse a pin to represent an 8 bit data output location, specifically a pin on your AVR\&. \fP"
 .ti -1c
 .RI "typedef uint8_t \fBddr\fP"
 .br
+.RI "\fIUse to represent a data direction register on your AVR\&. \fP"
 .in -1c
 .SS "Functions"
 
@@ -91,59 +97,136 @@ cavrn.h \-
 .ti -1c
 .RI "static void \fBcavrn_set_global_interrupts\fP (const bool isInterupts)"
 .br
-.RI "\fI: \fBcavrn_set_global_interrupts()\fP This function enables or disables interrupts on your AVR MCU \fP"
+.RI "\fI: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. \fP"
 .in -1c
 .SS "Variables"
 
 .in +1c
 .ti -1c
-.RI "static struct \fBcavrn_t\fP \fBCavrn\fP"
+.RI "static \fBcavrn_t\fP \fBCavrn\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&. 
+
+
+.PP
+\fBVersion:\fP
+.RS 4
+0\&.1\&.0 
+.RE
+.PP
+\fBAuthor:\fP
+.RS 4
+Max Mansfield 
+.RE
+.PP
+\fBCopyright:\fP
+.RS 4
+GNU Public License v2 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+February 19, 2015 In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&.
+.RE
+.PP
+Ex\&. 
+.PP
+.nf
+Cavrn\&.setInterrupts(true); // Set globally\&. Also can use ON,OFF
+
+.fi
+.PP
+ 
 .SH "Macro Definition Documentation"
 .PP 
-.SS "#define bit(b)   (1<< (b))"
-
-.SS "#define bitClear(value, \fBbit\fP)   ((value) &= ~(\fBbit\fP(\fBbit\fP)))"
-
-.SS "#define bitSet(value, \fBbit\fP)   ((value) |=  (\fBbit\fP(\fBbit\fP))"
-
 .SS "#define HIGH   0xFF"
 
+.PP
+HIGH as 255 or true\&. 
 .SS "#define IN   0x00"
 
+.PP
+IN as 0 or false\&. 
 .SS "#define interruptsOff()   cli()"
 
+.PP
+A more readable function for clearing global interupts\&. 
 .SS "#define interruptsOn()   sei()"
 
+.PP
+A more readable function for setting global interupts\&. 
 .SS "#define isprint(c)   (c>=0x20 && c<=0x7E)"
 
+.PP
+Decides if a character is a printable or not\&. Very useful for transmitting strings\&. Taken from the C std library but I didn't want to include the entire file just for this function\&. 
 .SS "#define LOW   0x00"
 
+.PP
+LOW as 0 or false\&. 
 .SS "#define OFF   0x00"
 
+.PP
+OFF as 0 or false\&. 
 .SS "#define ON   0x01"
 
+.PP
+ON as 1 or true\&. 
 .SS "#define OUT   0x01"
 
+.PP
+OUT as 1 or true\&. 
 .SH "Typedef Documentation"
 .PP 
-.SS "typedef uint8_t \fBbyte\fP"
+.SS "\fBbyte\fP"
 
-.SS "typedef uint8_t \fBddr\fP"
+.PP
+Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc\&.\&.\&. 
+.SS "\fBddr\fP"
 
-.SS "typedef uint8_t \fBpin\fP"
+.PP
+Use to represent a data direction register on your AVR\&. 
+.SS "\fBpin\fP"
 
-.SS "typedef uint8_t \fBport\fP"
+.PP
+Use a pin to represent an 8 bit data output location, specifically a pin on your AVR\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBport\fP 
+.RE
+.PP
 
-.SS "typedef uint16_t \fBword\fP"
+.SS "\fBport\fP"
 
+.PP
+Use a port to represent an 8 bit data input location, specifically a port on your AVR\&. 
+.PP
+\fBSee also:\fP
+.RS 4
+\fBpin\fP 
+.RE
+.PP
+
+.SS "\fBword\fP"
+
+.PP
+Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation\&. 
 .SH "Function Documentation"
 .PP 
 .SS "static void cavrn_set_global_interrupts (const bool isInterupts)\fC [inline]\fP, \fC [static]\fP"
 
 .PP
-: \fBcavrn_set_global_interrupts()\fP This function enables or disables interrupts on your AVR MCU 
+: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. Sets \fBcavrn_t\&.interruptsEnabled\fP on/off and then calls the right function to initialize interrupts\&.\&. 
+.PP
+.nf
+1 Cavrn\&.setInterrupts(OFF); //Set global interrupts off
+
+.fi
+.PP
+ 
 .PP
 \fBParameters:\fP
 .RS 4
@@ -153,7 +236,7 @@ cavrn.h \-
 
 .SH "Variable Documentation"
 .PP 
-.SS "struct \fBcavrn_t\fP Cavrn\fC [static]\fP"
+.SS "\fBcavrn_t\fP \fBCavrn\fP\fC [static]\fP"
 \fBInitial value:\fP
 .PP
 .nf
@@ -164,4 +247,4 @@ cavrn.h \-
 .fi
 .SH "Author"
 .PP 
-Generated automatically by Doxygen from the source code\&.
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

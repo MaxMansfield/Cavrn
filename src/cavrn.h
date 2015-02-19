@@ -17,10 +17,27 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-Author: Max Mansfield <Max.M.Mansfield@gmail.com>
-Contributors: 
-
 */
+
+/**
+ * @file cavrn.h
+ * @version 0.1.0
+ * @author Max Mansfield
+ * @copyright GNU Public License v2
+ * @date February 19, 2015
+ * @brief The main file which defines import macros and contains the Cavrn 
+ *   structure which is used for enabling and disabling global interrupts 
+ *   and other functions.
+ *
+ * In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, Cavrn is provided.
+ * Use the Cavrn struct instead of calling its methods directly.
+ *
+ * Ex.
+ *@code
+ *   Cavrn.setInterrupts(true); // Set globally. Also can use ON,OFF
+ *@endcode
+ */
+
 #ifndef _CAVRN_H_
 #define _CAVRN_H_
 //Define DEBUG_MODE as 1 to use debugging features
@@ -32,23 +49,58 @@ Contributors:
 #include <avr/io.h>
 #include <avr/interrupt.h>
 
+/**
+ * @def ON
+ * @brief  ON as 1 or true
+ */
 #define ON  0x01
+
+/**
+ * @def OFF
+ * @brief OFF as 0 or false
+ */
 #define OFF 0x00
 
+/**
+ * @def HIGH
+ * @brief HIGH as 255 or true
+ */
 #define HIGH 0xFF
+
+/**
+ * @def LOW
+ * @brief LOW as 0 or false
+ */
 #define LOW  0x00
 
+/**
+ * @def IN
+ * @brief IN as 0 or false
+ */
 #define IN  0x00
+
+/**
+ * @def OUT
+ * @brief OUT as 1 or true
+ */
 #define OUT 0x01
 
-
+/**
+ * @def interruptsOn()
+ * @brief A more readable function for setting global interupts
+ */
 #define interruptsOn()   sei()
+
+/**
+ * @def interruptsOff()
+ * @brief A more readable function for clearing global interupts
+ */
 #define interruptsOff()  cli()
 
-#define  bit(b) (1<< (b))
-#define  bitSet(value, bit) ((value) |=  (bit(bit))
-#define  bitClear(value, bit) ((value) &= ~(bit(bit)))
-
+/**
+ * @def isprint(c)
+ * @brief Decides if a character is a printable or not. Very useful for transmitting strings. Taken from the C std library but I didn't want to include the entire file just for this function.
+ */
 #define isprint(c)  (c>=0x20 && c<=0x7E)
 
 /*
@@ -57,39 +109,100 @@ Contributors:
  *  with different names for different contexts
  */
 
-/* word 
- * It just makes since...I mean theres a double word but no word? No more! 
+/**
+ * @typedef word
+ * @brief Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation. 
  */
 typedef uint16_t word;
 
-/* byte 
- * Use a byte when you are representing raw data like an SPI transfer, instead of integer operations like 
+/**
+ * @typedef byte 
+ * @brief Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like 
  * incrementing,adding,subtracting,switching on, etc...
  */
 typedef uint8_t  byte;
 
-/* Use as a port */
+/**
+ * @typedef port
+ * @brief Use a port to represent an 8 bit data input location, specifically a port on your AVR
+ * @see pin
+ */
 typedef uint8_t  port;
-/*or a pin */
-typedef uint8_t  pin;
-/* or a  */
-typedef uint8_t  ddr;
-
 
 /**
- * @brief: cavrn_set_global_interrupts()
- *    This function enables or disables interrupts on your AVR MCU
+ * @typedef pin
+ * @brief Use a pin to represent an 8 bit data output location, specifically a pin  on your AVR
+ * @see port
+ */
+typedef uint8_t  pin;
+
+/**
+ * @typedef ddr
+ * @brief Use to represent a data direction register on your AVR
+ */
+typedef uint8_t  ddr;
+
+  /**
+ * @fn static inline void cavrn_set_global_interrupts(const bool isInterupts);
+ * @brief: Set interrupts on/off. To be used via a function pointer in the Cavrn struct.
+ *
+ * Sets cavrn_t.interruptsEnabled on/off and then calls the right function to initialize interrupts..
+ * @code
+ *   Cavrn.setInterrupts(OFF); //Set global interrupts off
+ * @endcode
  * @param: const bool isInterrupts
  *    This is the switch to detemine if interrupts will be used
  */
 static inline void cavrn_set_global_interrupts(const bool isInterupts);
-  
-struct cavrn_t {
-  void (*setInterrupts)(const bool);
-  bool interruptsEnabled;
-};
 
-static struct cavrn_t Cavrn = {
+
+/**
+ * @typedef cavrn_t
+ * @brief The global control structure. Use this as you would any other module. 
+ *
+ * It is important that you consistanly use these structures (intead of maybe calling
+ * sei() yourself) so that operations are carried out successfully.
+ *
+ */
+typedef struct  {
+/**
+ * @brief The main Cavrn access point
+ * @addtogroup Cavrn
+ * @{
+ */
+  
+ /**
+ * @fn void setInterrupts(const bool)
+ * @brief: Enables or disables global interrupts on your AVR MCU
+ *
+ * Sets cavrn_t::interruptsEnabled on/off and then calls the right function to initialize interrupts..
+ *
+ * @param: const bool isInterrupts
+ *    This is the switch to detemine if interrupts will be used
+ */
+  void (*setInterrupts)(const bool);
+
+/**
+ * @var interruptsEnabled
+ * @brief: Signifies that interrupts are enabled/disabled. For use by other modules as well as users.
+ */
+  bool interruptsEnabled;
+
+/** @}*/
+
+} cavrn_t ;
+
+/**
+ * @struct Cavrn
+ * @brief The main entry point for global Cavrn functionality.
+ * 
+ * Use Cavrn like an object when performing operations.
+ * Ex.
+ * @code
+ *   Cavrn.setInterrupts(ON); // Set global interrupts
+ * @endcode
+ */
+static  cavrn_t Cavrn = {
   .setInterrupts = &cavrn_set_global_interrupts,
   .interruptsEnabled = false
 };
@@ -103,7 +216,6 @@ static inline void cavrn_set_global_interrupts(const bool isInterrupts)
     cli();
   return;
 }
-
 
 
 #endif 

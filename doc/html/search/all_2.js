@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['cavrn',['Cavrn',['../cavrn_8h.html#af129c0b3bc3584bd198babebfc7c3f69',1,'cavrn.h']]],
+  ['cavrn',['Cavrn',['../structCavrn.html',1,'Cavrn'],['../cavrn_8h.html#a1790b0cf365be58885af424fb01ecd50',1,'Cavrn():&#160;cavrn.h'],['../group__Cavrn.html',1,'(Global Namespace)']]],
   ['cavrn_2eh',['cavrn.h',['../cavrn_8h.html',1,'']]],
   ['cavrn_5fset_5fglobal_5finterrupts',['cavrn_set_global_interrupts',['../cavrn_8h.html#a189b5b0df08bd6b77a39521e0e4a0892',1,'cavrn.h']]],
   ['cavrn_5ft',['cavrn_t',['../structcavrn__t.html',1,'']]],

@@ -1,4 +1,4 @@
-.TH "uart_t" 3 "Thu Feb 19 2015" "Version 0.1" "Doxygen" \" -*- nroff -*-
+.TH "uart_t" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -12,64 +12,51 @@ uart_t \-
 
 .in +1c
 .ti -1c
-.RI "void(* \fBtxByte\fP )(const \fBbyte\fP *const)"
+.RI "void(* \fBtxByte\fP )(const \fBbyte\fP)"
 .br
+.RI "\fITransmits a byte of information (unsigned 8 bit integer) via UART\&. \fP"
 .ti -1c
-.RI "uint8_t(* \fBrxByte\fP )()"
+.RI "\fBbyte\fP(* \fBrxByte\fP )()"
 .br
+.RI "\fIRecieves a byte of information (unsigned 8bit integer) via UART\&. \fP"
 .ti -1c
 .RI "void(* \fBtxString\fP )(const char *const)"
 .br
+.RI "\fITransmit large amounts of signed 8bit integers, useful for logging to UART\&. \fP"
 .ti -1c
 .RI "void(* \fBrxString\fP )(char *const, const uint8_t)"
 .br
+.RI "\fIrxString(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
 .ti -1c
 .RI "void(* \fBsetInterrupts\fP )(const bool)"
 .br
+.RI "\fI: Enable or diable the all the \fBUart\fP interrupts simultaneously\&. \fP"
 .ti -1c
 .RI "void(* \fBsetTxInterrupt\fP )(const bool)"
 .br
+.RI "\fIEnable UART data register empty interrupts and global interrupts if need be\&. \fP"
 .ti -1c
 .RI "void(* \fBsetRxInterrupt\fP )(const bool)"
 .br
+.RI "\fIEnable UART byte recieved interrupts and global interrupts if need be\&. \fP"
 .ti -1c
 .RI "void(* \fBsetUdreInterrupt\fP )(const bool)"
 .br
+.RI "\fIEnable or diable the \fBUart\fP Data Register Empty flag\&. \fP"
 .ti -1c
-.RI "\fBbyte\fP(* \fBtransfer\fP )(const \fBbyte\fP *const)"
+.RI "\fBbyte\fP(* \fBtransfer\fP )(const \fBbyte\fP)"
 .br
+.RI "\fITransmit a byte and wait for a response\&. Unessecary when interrupts are enabled\&. \fP"
 .ti -1c
 .RI "void(* \fBmultiTransfer\fP )(const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
 .br
+.RI "\fITransmit large amounts of data by repeadtedly calling Uart\&.transfer(const byte) and wait for a response\&. Unessecary when interrupts are enabled\&. \fP"
 .ti -1c
 .RI "bool \fBprintableCharsOnly\fP"
 .br
+.RI "\fIWhen set UART will only transmit and recieve characters the can be printed\&. \fP"
 .in -1c
-.SH "Field Documentation"
-.PP 
-.SS "void(* uart_t::multiTransfer) (const \fBbyte\fP *const, \fBbyte\fP *const, const uint8_t *const )"
-
-.SS "bool uart_t::printableCharsOnly"
-
-.SS "uint8_t(* uart_t::rxByte) ()"
-
-.SS "void(* uart_t::rxString) (char *const, const uint8_t)"
-
-.SS "void(* uart_t::setInterrupts) (const bool)"
-
-.SS "void(* uart_t::setRxInterrupt) (const bool)"
-
-.SS "void(* uart_t::setTxInterrupt) (const bool)"
-
-.SS "void(* uart_t::setUdreInterrupt) (const bool)"
-
-.SS "\fBbyte\fP(* uart_t::transfer) (const \fBbyte\fP *const)"
-
-.SS "void(* uart_t::txByte) (const \fBbyte\fP *const)"
-
-.SS "void(* uart_t::txString) (const char *const)"
-
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen from the source code\&.
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

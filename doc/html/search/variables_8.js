@@ -5,5 +5,5 @@ var searchData=
   ['powerdown',['powerDown',['../structnrf24__t.html#aead930e67d5d5eb04822cb4ae990685d',1,'nrf24_t']]],
   ['powerrx',['powerRx',['../structnrf24__t.html#ab25e37a1480a77544d05e50d395388cb',1,'nrf24_t']]],
   ['powertx',['powerTx',['../structnrf24__t.html#a92ed761e9c215786b80685a915ce87d7',1,'nrf24_t']]],
-  ['printablecharsonly',['printableCharsOnly',['../structuart__t.html#a715d9d9174c62b5682150875555dac96',1,'uart_t']]]
+  ['printablecharsonly',['printableCharsOnly',['../group__Uart.html#ga715d9d9174c62b5682150875555dac96',1,'uart_t']]]
 ];

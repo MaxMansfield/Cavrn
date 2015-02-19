@@ -26,9 +26,9 @@ var searchData=
   ['rx_5fpw_5fp4',['RX_PW_P4',['../nrf24_8h.html#a5cdda00ab52df1537b6b5d61ef88ba8f',1,'nrf24.h']]],
   ['rx_5fpw_5fp5',['RX_PW_P5',['../nrf24_8h.html#a9ce52902779e18d4fed3685b0f8be582',1,'nrf24.h']]],
   ['rxaddr',['rxAddr',['../structnrf24__t.html#acf773cd1e2f2c5c0ce507320f9b7a45f',1,'nrf24_t']]],
-  ['rxbyte',['rxByte',['../structuart__t.html#a067e9b8ef10983dc10875ae71dff8b8e',1,'uart_t']]],
+  ['rxbyte',['rxByte',['../group__Uart.html#gaea7155e121c0f57aecf5e1d4c42ef88e',1,'uart_t']]],
   ['rxdata',['rxData',['../structnrf24__t.html#a8d5ef96e697b56dcf24469366ebf2e58',1,'nrf24_t']]],
   ['rxlen',['RXLEN',['../uart_8h.html#aeff6b6e5cf8852475fab3f5b2f5baff1',1,'uart.h']]],
-  ['rxstring',['rxString',['../structuart__t.html#ad010210dd7bd23507a4db4591cf475d9',1,'uart_t']]],
+  ['rxstring',['rxString',['../group__Uart.html#gad010210dd7bd23507a4db4591cf475d9',1,'uart_t']]],
   ['rxwaiting',['rxWaiting',['../structnrf24__t.html#a55d42334a0c98fdf58b7125c843d1370',1,'nrf24_t']]]
 ];

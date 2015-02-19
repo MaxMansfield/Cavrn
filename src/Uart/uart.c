@@ -71,11 +71,11 @@ void uart_init(){
 }
 #endif 
 
-void uart_tx(const byte* const data)
+void uart_tx(const byte data)
 {
   // Wait for the Data Register empty flag
   loop_until_bit_is_set(UCSRA,UDRE);
-  UDR = *data;
+  UDR = data;
 }
 
 uint8_t uart_rx(){
@@ -88,14 +88,12 @@ char uart_rxchr(){
     if(!isprint(UDR)) return 0x00;
   return UDR;
 }
-void uart_txchr (const char* const chr)
+void uart_txchr (const char chr)
 {
-  if(chr != NULL){
     if(Uart.printableCharsOnly)
-      if(!isprint(*chr)) return;
+      if(!isprint(chr)) return;
     loop_until_bit_is_set(UCSRA,UDRE);
-    UDR = *chr;
-  }
+    UDR = chr;
   return;
 }
 
@@ -103,7 +101,7 @@ void uart_txstr(const char* const string)
 {
   uint16_t i = 0;
   while(i < strlen(string) && string[i] != '\0' && string != NULL)
-    uart_txchr(&string[i++]);
+    uart_txchr(string[i++]);
   return;
 }
 
@@ -158,7 +156,7 @@ void uart_set_interrupts(const bool isInterrupt)
   Uart.setUdreInterrupt(isInterrupt);
   return;
 }
-byte uart_transfer(const byte* const data)
+byte uart_transfer(const byte data)
 {
   Uart.txByte(data);
   return Uart.rxByte();
@@ -170,9 +168,9 @@ void uart_multi_transfer(const byte* const dataout,byte* const datain,const uint
   if(dataout)
     while(i < *len){
       if(datain)
-	datain[i] = Uart.transfer(&dataout[i]);
+	datain[i] = Uart.transfer(dataout[i]);
       else
-	Uart.transfer(&dataout[i]);
+	Uart.transfer(dataout[i]);
       i++;
     }
   return;
