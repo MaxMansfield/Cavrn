@@ -1,6 +1,12 @@
-![Cavrn](http://i.imgur.com/fCJsfXK.png) 
-## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
-###### Supported: ATmega328p, ATmega103
+![Cavrn](http://i.imgur.com/jhAaUmd.png) 
+# An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
+###### Major Version: 0 (Sedimentary)
+###### Minor Version: 1.0  (Olm)
+###### Version: 0.1.0 (*Sedimentary Olm*)
+###### Working Modules: Uart
+###### Modules in Work: SPI Nrf24
+###### Future Modules: I2C W5100 SSD1306
+###### Supported MCUs: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
 ###### Cavrn is currently a work in progress. This readme may be terribly out of date due to that.
 
@@ -40,7 +46,7 @@ int main (void)
 
 ```
 
-##Documentation 
+## Documentation 
 Like the repo, the documentation is a work-in-progress so some pieces MAY be inaccurate, although it's unlikely. In most cases the documenation will be much more accurate than what you're reading right now.
 
 To read the documentation go to
@@ -49,12 +55,12 @@ To read the documentation go to
 
 Going to the modules page or the files page is the most helpful at the moment of writing this.
 
-##Requirements
+## Requirements
 To compile Cavrn you will need the avr-gcc suite as well as avr-libc. To upload you will need avrdude and to view serial data you can install screen and type `make console` but for long term use I recommend minicom.
 
 At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define each pin that will be used in the appropriate header file.
 
-##Building Cavrn
+## Building Cavrn
 At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.
 
 For the time being here's the build process:
@@ -63,7 +69,7 @@ For the time being here's the build process:
 2. Run `make -j 2` 
 3. The built objects and a static library file will be in the newly created `build/` directory
 
-##Building Examples
+## Building Examples
 Since the examples rely on the library being built, when you make the examples it will also build the library.
 
 1. Run `make examples`
@@ -71,12 +77,12 @@ Since the examples rely on the library being built, when you make the examples i
 3. run `make` to build an example
 
 
-##Using Cavrn
-To use Cavrn include the source and objects/static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
+## Using Cavrn
+To use Cavrn include the source and objects or static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
 
 
-#UART
-####A library implementation for sending/recieving bytes or strings via UART pins. 
+# UART
+#### A library implementation for sending/recieving bytes or strings via UART pins. 
 
 ### Configuration
 Uart is able to take advantage of all modes given by an MCU. Just provide it during initialization.
@@ -112,7 +118,7 @@ int main(void)
 }
 ```
 
-#SPI (Almost Operational)
+# SPI (Almost Operational)
 #### A simple and elegant peripheral communication library.
 
 The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
@@ -160,7 +166,7 @@ int main(void){
 }
 ```
 
-#NRF24 (Relies on SPI)
+# NRF24 (Relies on SPI)
 #### Making wireless connectivity quick and painless.
 
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
