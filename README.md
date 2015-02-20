@@ -1,6 +1,12 @@
-![Cavrn](http://i.imgur.com/fCJsfXK.png) 
-## An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
-###### Supported: ATmega328p, ATmega103
+![Cavrn](http://i.imgur.com/jhAaUmd.png) 
+# An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
+###### Major Version: 0 (Sedimentary)
+###### Minor Version: 1.0  (Olm)
+###### Version: 0.1.0 (*Sedimentary Olm*)
+###### Working Modules: Uart
+###### Modules in Work: SPI Nrf24
+###### Future Modules: I2C W5100 SSD1306
+###### Supported MCUs: ATmega328p, ATmega103
 ###### Coming Soon: ATtiny85
 ###### Cavrn is currently a work in progress. This readme may be terribly out of date due to that.
 
@@ -10,7 +16,7 @@ Cavrn uses static structs full of function pointers to represent each module an 
 A module is then called by the module name and then the function, similar to an object.
 
 Ex.
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 #include "cavrn/uart.h"
 
 int main (void)
@@ -37,10 +43,9 @@ int main (void)
     }
     return 0;
 }
+~~~~~~~~~~~~~~~~~~~~
 
-```
-
-##Documentation 
+## Documentation 
 Like the repo, the documentation is a work-in-progress so some pieces MAY be inaccurate, although it's unlikely. In most cases the documenation will be much more accurate than what you're reading right now.
 
 To read the documentation go to
@@ -49,12 +54,12 @@ To read the documentation go to
 
 Going to the modules page or the files page is the most helpful at the moment of writing this.
 
-##Requirements
+## Requirements
 To compile Cavrn you will need the avr-gcc suite as well as avr-libc. To upload you will need avrdude and to view serial data you can install screen and type `make console` but for long term use I recommend minicom.
 
 At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define each pin that will be used in the appropriate header file.
 
-##Building Cavrn
+## Building Cavrn
 At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.
 
 For the time being here's the build process:
@@ -63,7 +68,7 @@ For the time being here's the build process:
 2. Run `make -j 2` 
 3. The built objects and a static library file will be in the newly created `build/` directory
 
-##Building Examples
+## Building Examples
 Since the examples rely on the library being built, when you make the examples it will also build the library.
 
 1. Run `make examples`
@@ -71,30 +76,30 @@ Since the examples rely on the library being built, when you make the examples i
 3. run `make` to build an example
 
 
-##Using Cavrn
-To use Cavrn include the source and objects/static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
+## Using Cavrn
+To use Cavrn include the source and objects or static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.
 
 
-#UART
-####A library implementation for sending/recieving bytes or strings via UART pins. 
+# UART
+#### A library implementation for sending/recieving bytes or strings via UART pins. 
 
 ### Configuration
 Uart is able to take advantage of all modes given by an MCU. Just provide it during initialization.
 *note: The AVR ATmega103 does not have available status control registers to determine half/full duplex so no mode is needed at initialization.*
 
-`
+~~~~~~~~~~~~~~~~~~~~{.c}
 Uart.init(ASYNC_MODE)
 or
 Uart.init(SYNC_MODE)
 or
 Uart.init(MSPI_MODE)
-`
+~~~~~~~~~~~~~~~~~~~~
 Uart relies on a BAUD definition at compile time because many preprocessor directives rely on it; one benefit of doing it this way is that no large 32bit integers have to be used (ex. Baud of 115200) another is the assurance that your baud rate is what you would expect throughout the program and finally no compute time is wasted on arithmatic to calculate baud rates or `F_OSC` clock rates or even to separate high and low values for the USART Baud Rate Register because the preprocessor computes it.
 
 To Define the Baud rate add -DBAUD=9600 or any other rate to the compilation. For most situations, simply fill in the provided `settings.inc` file. During the extent of your program you can change the BAUD by undefining BAUD and redefining it before reincluding the `<util/setbaud.h>` file. This sounds janky but the setbaud.h file is simply a collection of preprocessor directives which will only be present at compile time and infact avr-libc recommends this way.
 
 Take this example to see how easy to use the Uart library is (and eventually all of Cavrn).
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 #include "Cavrn/uart.h"
 
 int main(void)
@@ -110,9 +115,9 @@ int main(void)
    }
   return 0;
 }
-```
+~~~~~~~~~~~~~~~~~~~~
 
-#SPI (Almost Operational)
+# SPI (Almost Operational)
 #### A simple and elegant peripheral communication library.
 
 The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.
@@ -121,7 +126,7 @@ You can choose from the 4 clock polarity modes provided by Atmel.
 ![Table of SPI MODES 0-3](http://i.imgur.com/S5VM2XL.png)
 
 By initializing SPI with one of the four modes like so...
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 #include "Cavrn/spi.h"
 
 int main(void){
@@ -158,9 +163,8 @@ int main(void){
  
    return 0;
 }
-```
-
-#NRF24 (Relies on SPI)
+~~~~~~~~~~~~~~~~~~~~
+# NRF24 (Relies on SPI)
 #### Making wireless connectivity quick and painless.
 
 This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode. 
@@ -173,49 +177,49 @@ Configuration of the module is simple. Max retransmission count is set to 15 and
 
 Via the config function, you can chose the channel and the payload length. Max payload length is 32. After the config function the module automatically goes to RX mode. Payload length and the RF channel values have to be consistent among the devices.
 
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 	/* initializes hardware pins */
 	Nrf24.init();
 	
 	/* RF channel: #2 , payload length: 4 */
 	Nrf24.config(2,4)
-```
+~~~~~~~~~~~~~~~~~~~~
 ### Addressing
 
 Address length is 5 bytes. You can configure the transmit and receive addresses as follows:
-```C	
+~~~~~~~~~~~~~~~~~~~~{.c}
 	uint8_t rx_mac[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};
 	uint8_t tx_mac[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};
-		
+    
 	/* Set the module's own address */
 	Nrf24.rxAddr(rx_mac);
 	
 	/* Set the transmit address */
 	Nrf24.txAddr(tx_mac);
-```
+~~~~~~~~~~~~~~~~~~~~
 ### Transmit
 
 Let's say the payload length is set to 4 and you have the following payload.
-```C	
+~~~~~~~~~~~~~~~~~~~~{.c}
 	uint8_t data_array[4];
 	
 	data_array[0] = 0x00;
 	data_array[1] = 0xAA;
 	data_array[2] = 0x55;
 	data_array[3] = 0xFF;
-```	
+~~~~~~~~~~~~~~~~~~~~
 The basic transmit function is the `Nrf24.txData()` function. The module automatically switches to the TX mode and power up if required.
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 	/* Automatically goes to TX mode */
 	Nrf24.txData(data_array);		
-```	
+~~~~~~~~~~~~~~~~~~~~
 After the `Nrf24.txData()`, you must wait for transmission to end. MCU can sleep or do another tasks during that period.
-```C	
+~~~~~~~~~~~~~~~~~~~~{.c}
 	/* Wait for transmission to end */
 	while(Nrf24.isSending());
-```	
+~~~~~~~~~~~~~~~~~~~~
 After the transmission end, optionally you can make analysis on the last transmission attempt.
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 	uint8_t temp;
 	
 	/* Make analysis on last tranmission attempt */
@@ -236,17 +240,17 @@ After the transmission end, optionally you can make analysis on the last transmi
     char msg[64];
     sprintf(msg,"Retranmission count: %d\r\n",temp);
     Uart.txString(msg);
-  ```
+ ~~~~~~~~~~~~~~~~~~~~
 After the tranmission finishes, nrf24L01+ module stays in Standby mode. You can manually go back to RX mode:
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
    /* Go back to RX mode ... */
    Nrf24.powerRx();
- ```
+ ~~~~~~~~~~~~~~~~~~~~
 Or you can power down the module to lower the current consumption.
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
     /* Power down the module */
     Nrf24.powerDown();	
-```
+~~~~~~~~~~~~~~~~~~~~
 ### Receive
 
 This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need to poll the `Nrf24.dataReady()` function periodically. Otherwise you might miss some packets. 
@@ -254,14 +258,14 @@ This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need
 Also, you need to be in RX mode in order to be able to receive messages.
 
 `Nrf24.dataReady()` function returns non-zero only if a valid payload is awaiting in the RX fifo. `Nrf24.getData(uint8_t* buf)` function copies the received message into the given buffer. 
-```C
+~~~~~~~~~~~~~~~~~~~~{.c}
 	uint8_t data_array[4];
 
 	if(nNrf24.dataReady())
 	{
 		Nrf24.rxData(data_array);		
 	}
-```
+~~~~~~~~~~~~~~~~~~~~
 ## References
 
 This module is proudly and heavily based on the following libraries:
