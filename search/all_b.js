@@ -1,9 +1,11 @@
 var searchData=
 [
+  ['nrf24_20_28relies_20on_20spi_29',['NRF24 (Relies on SPI)',['../md_doc_markup_Nrf24.html',1,'']]],
   ['nop',['NOP',['../nrf24_8h.html#a700f88377bf36711b711f69b06c52f5d',1,'nrf24.h']]],
   ['nrf24',['Nrf24',['../nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f',1,'nrf24.h']]],
   ['nrf24_2ec',['nrf24.c',['../nrf24_8c.html',1,'']]],
   ['nrf24_2eh',['nrf24.h',['../nrf24_8h.html',1,'']]],
+  ['nrf24_2emd',['Nrf24.md',['../Nrf24_8md.html',1,'']]],
   ['nrf24_5faddr_5flen',['nrf24_ADDR_LEN',['../nrf24_8h.html#a0fc7aaa69be3826e71c43e29799bcc16',1,'nrf24.h']]],
   ['nrf24_5fce_5fdigitalwrite',['nrf24_ce_digitalWrite',['../nrf24_8h.html#af9d653f495e45003d36d77eb47d34e8f',1,'nrf24_ce_digitalWrite():&#160;nrf24.h'],['../nrf24_8h.html#aafbec88c73d8df18b354cb0c178c85d4',1,'nrf24_ce_digitalWrite():&#160;nrf24.h']]],
   ['nrf24_5fconfig',['nrf24_CONFIG',['../nrf24_8h.html#acd40fcae97af82e5847c656c3fc0c680',1,'nrf24_CONFIG():&#160;nrf24.h'],['../nrf24_8c.html#a97793f0c66a9d83e7180e54b6054e366',1,'nrf24_config(const uint8_t channel, const uint8_t pay_length):&#160;nrf24.c'],['../nrf24_8h.html#a97793f0c66a9d83e7180e54b6054e366',1,'nrf24_config(const uint8_t channel, const uint8_t pay_length):&#160;nrf24.c']]],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['this_20is_20a_20test_21',['This is a test!',['../md_mainpage.html',1,'']]]
+  ['nrf24_20_28relies_20on_20spi_29',['NRF24 (Relies on SPI)',['../md_doc_markup_Nrf24.html',1,'']]]
 ];

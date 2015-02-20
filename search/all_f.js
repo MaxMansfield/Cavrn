@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['spi_20_28almost_20operational_29',['SPI (Almost Operational)',['../md_doc_markup_Spi.html',1,'']]],
   ['set_5fspi2x',['SET_SPI2X',['../spi_8h.html#adffdf11322e7b104b910a841b7de2b11',1,'spi.h']]],
   ['setdataorder',['setDataOrder',['../structspi__t.html#a9666930bc1583041cf42e4ec184dd180',1,'spi_t']]],
   ['setinterrupts',['setInterrupts',['../group__Cavrn.html#ga23b9b26ea99d775a6479518802601749',1,'cavrn_t::setInterrupts()'],['../structspi__t.html#a9011a7370d987842947f716e10f8f652',1,'spi_t::setInterrupts()'],['../group__Uart.html#gab54afb77d7b4da812f60da4e1e391278',1,'uart_t::setInterrupts()']]],
@@ -12,6 +13,7 @@ var searchData=
   ['spi',['Spi',['../spi_8h.html#acc32e9917e484a47a14e3daccb502db2',1,'spi.h']]],
   ['spi_2ec',['spi.c',['../spi_8c.html',1,'']]],
   ['spi_2eh',['spi.h',['../spi_8h.html',1,'']]],
+  ['spi_2emd',['Spi.md',['../Spi_8md.html',1,'']]],
   ['spi_5fdisable',['spi_disable',['../spi_8c.html#a1b20de0da423e7d6da1c99eec9d63216',1,'spi_disable():&#160;spi.c'],['../spi_8h.html#a1b20de0da423e7d6da1c99eec9d63216',1,'spi_disable():&#160;spi.c']]],
   ['spi_5finit',['spi_init',['../spi_8c.html#a94087004a94105cf6d70f8ea90af2408',1,'spi_init(const bool isMaster, const byte mode, const uint8_t clk):&#160;spi.c'],['../spi_8h.html#a94087004a94105cf6d70f8ea90af2408',1,'spi_init(const bool isMaster, const byte mode, const uint8_t clk):&#160;spi.c']]],
   ['spi_5fmode0',['SPI_MODE0',['../spi_8h.html#ac9d0bde2b42b2403d00b7a611514b006',1,'spi.h']]],

@@ -22,7 +22,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_124x46.png"/></td>
   <td style="padding-left: 0.5em;">
    <div id="projectname">Cavrn AVR8 Library
    &#160;<span id="projectnumber">0.1.0</span>
@@ -41,6 +40,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li class="current"><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
@@ -84,21 +84,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><div class="image">
-<img src="http://i.imgur.com/jhAaUmd.png"  alt="Cavrn"/>
+<img src="http://i.imgur.com/EJCUbXa.png"  alt="Cavrn"/>
 </div>
  <h1>An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.</h1>
-<h6>Major Version: 0 (Sedimentary)</h6>
-<h6>Minor Version: 1.0 (Olm)</h6>
-<h6>Version: 0.1.0 (<em>Sedimentary Olm</em>)</h6>
-<h6>Working Modules: <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a></h6>
-<h6>Modules in Work: SPI Nrf24</h6>
-<h6>Future Modules: I2C W5100 SSD1306</h6>
-<h6>Supported MCUs: ATmega328p, ATmega103</h6>
-<h6>Coming Soon: ATtiny85</h6>
-<h6><a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> is currently a work in progress. This readme may be terribly out of date due to that.</h6>
-<p><a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations. Each available function (<a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a>,Spi,Nrf24) which I'll be calling a module has a static struct that can be treated as an object when performing its operations. <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> takes techniques found in the arduino library (like how <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> uses typedefs and defines to create more verbose types such as bool and byte, both of which mean a uint8_t but when used correctly your code becomes much more explicit) as well as borrows from multiple others across the internet (including the NRF24lo1 repo this was originally forked from) to combine them with good practices and solid compiler integration.</p>
-<p><a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> uses static structs full of function pointers to represent each module an its capabilities. A module is then called by the module name and then the function, similar to an object.</p>
-<p>Ex. </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cavrn/uart.h&quot;</span></div>
+<h5>Version: 0.1.0 (<em>Sedimentary Olm</em>)</h5>
+<h5>Major Version: 0 (Sedimentary)</h5>
+<h5>Minor Version: 1.0 (Olm)</h5>
+<h5>Working Modules: <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a></h5>
+<h5>Modules in Work: SPI Nrf24</h5>
+<h5>Future Modules: I2C W5100 SSD1306</h5>
+<h5>Supported MCUs: ATmega328p, ATmega103</h5>
+<h5>Coming Soon: ATtiny85</h5>
+<p><a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> aims to be a fully featured AVR library that is optimized for ease of use while still retaining flexibility per device and fits in as a pure C Arduino-esque library.</p>
+<p>Each available function (<a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a>,Spi,Nrf24) which I'll be calling a module uses <code>static struct</code>s full of function pointers to represent each module an its capabilities. A module is then called by the module name and then the function, similar to an object.</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;cavrn/uart.h&quot;</span></div>
 <div class="line"></div>
 <div class="line"><span class="keywordtype">int</span> main (<span class="keywordtype">void</span>)</div>
 <div class="line">{</div>
@@ -124,174 +123,71 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2>Documentation</h2>
-<p>Like the repo, the documentation is a work-in-progress so some pieces MAY be inaccurate, although it's unlikely. In most cases the documenation will be much more accurate than what you're reading right now.</p>
-<p>To read the documentation go to</p>
-<p><a href="http://maxmansfield.github.io/Cavrn/">http://maxmansfield.github.io/Cavrn/</a></p>
-<p>Going to the modules page or the files page is the most helpful at the moment of writing this.</p>
-<h2>Requirements</h2>
-<p>To compile <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> you will need the avr-gcc suite as well as avr-libc. To upload you will need avrdude and to view serial data you can install screen and type <code>make console</code> but for long term use I recommend minicom.</p>
+</div><!-- fragment --><p><a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations.</p>
+<h1>Path of Knowledge</h1>
+<p>Here is a listing of the documentation you may find helpful. You can either check it out now or read the rest of this page, either way...I'll be here.</p>
+<table class="doxtable">
+<tr>
+<th>Content </th><th align="left">Link  </th></tr>
+<tr>
+<td>__I. Starting__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/modules.html">Cavrn Docs - Getting Started</a> </td></tr>
+<tr>
+<td>__II. Building__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/modules.html">Cavrn Docs - Build Cavrn</a> </td></tr>
+<tr>
+<td>__III. Installing__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/modules.html">Cavrn Docs - Install Cavrn</a> </td></tr>
+<tr>
+<td>__IV. Examples__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/examples.html">Cavrn Docs - Examples</a> </td></tr>
+<tr>
+<td>__V. Modules__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/modules.html">Cavrn Docs - Modules</a> </td></tr>
+<tr>
+<td>__VI. Versions__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/versions.html">Cavrn Docs - Versioning</a> </td></tr>
+<tr>
+<td>__VII. References__ </td><td align="left"><a href="http://maxmansfield.github.io/Cavrn/modules.html">Cavrn Docs - Inspiration</a> </td></tr>
+</table>
+<h1>Requirements</h1>
+<h6>Operating System:</h6>
+<ul>
+<li><a href="http://www.linux.com/">Linux</a>: Yes</li>
+<li><a href="https://www.apple.com/osx/">OS X</a>: Not Tested</li>
+<li><a href="http://windows.microsoft.com/en-us/windows/home">Windows</a>: Not Tested</li>
+</ul>
+<h6>Device:</h6>
+<ul>
+<li><a href="http://www.atmel.com/images/Atmel-8271-8-bit-AVR-Microcontroller-ATmega48A-48PA-88A-88PA-168A-168PA-328-328P_datasheet_Complete.pdf">Atmel AVR ATmega328p</a></li>
+<li><a href="http://www.atmel.com/Images/doc0945.pdf">Atmel AVR ATmega103</a></li>
+</ul>
+<h6>Build Tools:</h6>
+<ul>
+<li><a href="https://gcc.gnu.org/wiki/avr-gcc">avr-gcc build suite</a><ul>
+<li><a href="http://ccrma.stanford.edu/planetccrma/man/man1/avr-ld.1.html">avr-ld</a>, avr-sz, etc...</li>
+</ul>
+</li>
+<li><a href="http://www.nongnu.org/avr-libc/">AVR libc</a></li>
+<li><a href="http://www.gnu.org/software/make/">make</a></li>
+</ul>
+<p>To upload you will need a software programmer or/and ICSP of your choice but if you install <code>avrdude</code> you can then run <code>make upload</code> if you have configured you serial port in the <code>settings.inc</code> file...more on that later if you haven't already browsed the documentation.</p>
+<p>To view serial data you can install a serial monitor called screen and type <code>make console</code> but for long term use I recommend minicom and to configure your own profiles for it.</p>
 <p>At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon. If you have the interest, it would be very simple to add defines for a board that you own. Simply define each pin that will be used in the appropriate header file.</p>
-<h2>Building <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a></h2>
-<p>At the moment there is not an install script to create a shared library file and install via a package manager, but I have a handy script for that which I need to modify just a bit for it to work with this.</p>
+<p>Contact me if you ever need help.</p>
+<h1>Quick Start</h1>
+<h5>If you don't want to read docs (or even if you did) and you want to try the library really quick the best option is to build the example directory so make sure you have all the requirements and check it out...</h5>
 <p>For the time being here's the build process:</p>
 <ol type="1">
-<li>Download the repo and change <code>settings.inc</code> to fit your needs. (note: you don't need to change any other file like <code>cavrn_config.inc</code> or the <code>Makefile</code>).</li>
-<li>Run <code>make -j 2</code></li>
-<li>The built objects and a static library file will be in the newly created <code>build/</code> directory</li>
-</ol>
-<h2>Building Examples</h2>
-<p>Since the examples rely on the library being built, when you make the examples it will also build the library.</p>
-<ol type="1">
+<li>Download the repo and change <code>settings.inc</code> to fit your needs. (note: you don't need to change any other file).</li>
 <li>Run <code>make examples</code></li>
-<li>cd examples/Uart/Tx/ or any example directory</li>
-<li>run <code>make</code> to build an example</li>
+<li>That will build the library and populate the <code>examples/</code> folder.</li>
+<li>The built objects and a static library file will be in the newly created <code>build/</code> directory</li>
+<li>Change into the <code>examples/</code> directory and choose a module, then choose an example type.</li>
+<li>Run <code>make</code> in the example folder you picked</li>
 </ol>
-<h2>Using <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a></h2>
+<p>You will now have a <code>main.hex</code> file to upload to an AVR and if you have <code>avrdude</code> installed and configured then you can type <code>make upload</code>.</p>
+<h1>Using <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a></h1>
 <p>To use <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> include the source and objects or static library files in you project directory or link to them. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain.</p>
-<h1>UART</h1>
-<h4>A library implementation for sending/recieving bytes or strings via UART pins.</h4>
-<h3>Configuration</h3>
-<p><a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> is able to take advantage of all modes given by an MCU. Just provide it during initialization. <em>note: The AVR ATmega103 does not have available status control registers to determine half/full duplex so no mode is needed at initialization.</em></p>
-<div class="fragment"><div class="line"><a class="code" href="structUart.html">Uart</a>.init(ASYNC_MODE)</div>
-<div class="line">or</div>
-<div class="line"><a class="code" href="structUart.html">Uart</a>.init(SYNC_MODE)</div>
-<div class="line">or</div>
-<div class="line"><a class="code" href="structUart.html">Uart</a>.init(MSPI_MODE)</div>
-</div><!-- fragment --><p> <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> relies on a BAUD definition at compile time because many preprocessor directives rely on it; one benefit of doing it this way is that no large 32bit integers have to be used (ex. Baud of 115200) another is the assurance that your baud rate is what you would expect throughout the program and finally no compute time is wasted on arithmatic to calculate baud rates or <code>F_OSC</code> clock rates or even to separate high and low values for the USART Baud Rate Register because the preprocessor computes it.</p>
-<p>To Define the Baud rate add -DBAUD=9600 or any other rate to the compilation. For most situations, simply fill in the provided <code>settings.inc</code> file. During the extent of your program you can change the BAUD by undefining BAUD and redefining it before reincluding the <code>&lt;util/setbaud.h&gt;</code> file. This sounds janky but the setbaud.h file is simply a collection of preprocessor directives which will only be present at compile time and infact avr-libc recommends this way.</p>
-<p>Take this example to see how easy to use the <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> library is (and eventually all of <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a>). </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Cavrn/uart.h&quot;</span></div>
-<div class="line"></div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>)</div>
-<div class="line">{</div>
-<div class="line">  <a class="code" href="structUart.html">Uart</a>.init(ASYNC_MODE);</div>
-<div class="line">  <a class="code" href="structUart.html">Uart</a>.txString(<span class="stringliteral">&quot;Device Initialized\n\r&quot;</span>);</div>
-<div class="line"></div>
-<div class="line">  <span class="keywordflow">while</span>(1){</div>
-<div class="line">    uint8_t recieved = <a class="code" href="structUart.html">Uart</a>.rxByte();</div>
-<div class="line">    <span class="keywordtype">char</span> text[128];</div>
-<div class="line">    sprintf(text,<span class="stringliteral">&quot;Devices Recieved Data: %d\n\rAnalyzing...&quot;</span>,recieved);</div>
-<div class="line">    <a class="code" href="structUart.html">Uart</a>.txString(text);</div>
-<div class="line">   }</div>
-<div class="line">  <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-</div><!-- fragment --><h1>SPI (Almost Operational)</h1>
-<h4>A simple and elegant peripheral communication library.</h4>
-<p>The SPI library takes a fairly straight forward and simple process even further by encapsulating functions in a data safe manner with high pointer usage for optimization but still gives you the flexibility that you would have from coding it by hand.</p>
-<p>You can choose from the 4 clock polarity modes provided by Atmel. </p><div class="image">
-<img src="http://i.imgur.com/S5VM2XL.png"  alt="Table of SPI MODES 0-3"/>
-</div>
-<p>By initializing SPI with one of the four modes like so... </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;Cavrn/spi.h&quot;</span></div>
-<div class="line"></div>
-<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">void</span>){</div>
-<div class="line">  <span class="comment">/* To assign as a master device */</span></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#ad2af834982883f711c192bf661156942">init</a>(<a class="code" href="spi_8h.html#a3fa2d3bf1901157f734a584d47b25d8b">MASTER</a>,<a class="code" href="spi_8h.html#ac9d0bde2b42b2403d00b7a611514b006">SPI_MODE0</a>,<a class="code" href="spi_8h.html#a8607d7b5f457a1262e37c1524e167307">F_OSC16</a>);</div>
-<div class="line"></div>
-<div class="line">  <span class="comment">//or another way to assign as a master device (true is defined as part of Cavrn)</span></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#ad2af834982883f711c192bf661156942">init</a>(<span class="keyword">true</span>,<a class="code" href="spi_8h.html#ac9d0bde2b42b2403d00b7a611514b006">SPI_MODE0</a>,<a class="code" href="spi_8h.html#a8607d7b5f457a1262e37c1524e167307">F_OSC16</a>); </div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// or as a slave device</span></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#ad2af834982883f711c192bf661156942">init</a>(<a class="code" href="spi_8h.html#ae342da5a4630c191c1c983958808edd8">SLAVE</a>,<a class="code" href="spi_8h.html#a991dec04d2fb38979cfb0d9fc7f8b026">SPI_MODE2</a>,F_OSC8); </div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// and the data order can be changed from MSB to LSB and back by using setDataOrder from Spi...</span></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#a9666930bc1583041cf42e4ec184dd180">setDataOrder</a>(<a class="code" href="spi_8h.html#a8ff732a711fc73375510b83b52b89835">MSB_ORDER</a>);</div>
-<div class="line">  <span class="comment">//Spi.setDataOrder(true) try using...HIGH,OUT,ON instead of true</span></div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// or for least significant bit</span></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#a9666930bc1583041cf42e4ec184dd180">setDataOrder</a>(<a class="code" href="spi_8h.html#a0336046ec21c47729c579b51957b2644">LSB_ORDER</a>);</div>
-<div class="line">  <span class="comment">//Spi.setDataOrder(false);</span></div>
-<div class="line"></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#a9011a7370d987842947f716e10f8f652">setInterrupts</a>(<span class="keyword">true</span>);</div>
-<div class="line">  <span class="comment">//Spi.setInterrupts(ON);</span></div>
-<div class="line"></div>
-<div class="line">  <span class="comment">// To transfer via SPI</span></div>
-<div class="line">  <span class="keywordtype">char</span> letter_L = <span class="charliteral">&#39;L&#39;</span>;</div>
-<div class="line">  uint8_t recieved = <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#a55f7c22f62fbe49b04920f1902102f0c">transfer</a>(letter_L);</div>
-<div class="line">  <span class="comment">// To transfer large amounts</span></div>
-<div class="line">  <a class="code" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>[128] text;</div>
-<div class="line">  <a class="code" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>[128] out = <span class="stringliteral">&quot;Hello World&quot;</span>;</div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#af877ab42dc1f23e4b362046d67cc2f06">multiTransfer</a>(out,text,128);</div>
-<div class="line"></div>
-<div class="line"></div>
-<div class="line">  <a class="code" href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a>.<a class="code" href="structspi__t.html#a0603e41c0e6c97d1701a13ca8d31d160">disable</a>();</div>
-<div class="line"></div>
-<div class="line">   <span class="keywordflow">return</span> 0;</div>
-<div class="line">}</div>
-</div><!-- fragment --> <h1>NRF24 (Relies on SPI)</h1>
-<h4>Making wireless connectivity quick and painless.</h4>
-<p>This module enables the auto acknowledgement and auto retransmission features of the nrf24L01+ in static length payload mode.</p>
-<p>These two features are basically the most important features of the nrf24L01+ modules. With this module, after you make a tranmission attempt, you'll know for sure wheter the slave device got your message properly or not with minimal MCU involvement. Also, nrf24L01+ chipsets automatically handle the retranmission of the same message if it they lost in transmission, up to o limited trials with adjustable delays in between attempts.</p>
-<h3>Configuration</h3>
-<p>Configuration of the module is simple. Max retransmission count is set to 15 and delays between each retranmission is set to 1000 us. Also the CRC is enabled with 1byte length. Data rate is set to 1Mbps.</p>
-<p>Via the config function, you can chose the channel and the payload length. Max payload length is 32. After the config function the module automatically goes to RX mode. Payload length and the RF channel values have to be consistent among the devices.</p>
-<div class="fragment"><div class="line"><span class="comment">/* initializes hardware pins */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a1b0228efa4dec38bb902bf988e905fd4">init</a>();</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* RF channel: #2 , payload length: 4 */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a84a2a68d2e139d5d1f12b26f1883f401">config</a>(2,4)</div>
-</div><!-- fragment --> <h3>Addressing</h3>
-<p>Address length is 5 bytes. You can configure the transmit and receive addresses as follows: </p><div class="fragment"><div class="line">uint8_t rx_mac[5] = {0xE7,0xE7,0xE7,0xE7,0xE7};</div>
-<div class="line">uint8_t tx_mac[5] = {0xD7,0xD7,0xD7,0xD7,0xD7};</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Set the module&#39;s own address */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#acf773cd1e2f2c5c0ce507320f9b7a45f">rxAddr</a>(rx_mac);</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Set the transmit address */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#abfc805d8cb41f8a3bf611a76a5d830db">txAddr</a>(tx_mac);</div>
-</div><!-- fragment --> <h3>Transmit</h3>
-<p>Let's say the payload length is set to 4 and you have the following payload. </p><div class="fragment"><div class="line">uint8_t data_array[4];</div>
-<div class="line"></div>
-<div class="line">data_array[0] = 0x00;</div>
-<div class="line">data_array[1] = 0xAA;</div>
-<div class="line">data_array[2] = 0x55;</div>
-<div class="line">data_array[3] = 0xFF;</div>
-</div><!-- fragment --><p> The basic transmit function is the <code>Nrf24.txData()</code> function. The module automatically switches to the TX mode and power up if required. </p><div class="fragment"><div class="line"><span class="comment">/* Automatically goes to TX mode */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a1dbfdf83bc96820d8a24cb7a34f58ef8">txData</a>(data_array);       </div>
-</div><!-- fragment --><p> After the <code>Nrf24.txData()</code>, you must wait for transmission to end. MCU can sleep or do another tasks during that period. </p><div class="fragment"><div class="line"><span class="comment">/* Wait for transmission to end */</span></div>
-<div class="line"><span class="keywordflow">while</span>(<a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a187270f5a397a1425c860f06f1c946ba">isSending</a>());</div>
-</div><!-- fragment --><p> After the transmission end, optionally you can make analysis on the last transmission attempt. </p><div class="fragment"><div class="line">uint8_t temp;</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Make analysis on last tranmission attempt */</span></div>
-<div class="line">temp = <a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a2329173d4dd74a06cf2ee40f24a63732">lastTxStatus</a>();</div>
-<div class="line"></div>
-<div class="line"><span class="keywordflow">if</span>(temp == <a class="code" href="nrf24_8h.html#a69a54ec3530107a778c9861270919909">NRF24_TRANSMISSON_OK</a>)</div>
-<div class="line">{                   </div>
-<div class="line">    <a class="code" href="structUart.html">Uart</a>.txString(<span class="stringliteral">&quot;Tranmission went OK\r\n&quot;</span>);</div>
-<div class="line">}</div>
-<div class="line"><span class="keywordflow">else</span> <span class="keywordflow">if</span>(temp == <a class="code" href="nrf24_8h.html#a5000cc60453dababe03360120a372261">NRF24_MESSAGE_LOST</a>)</div>
-<div class="line">{                   </div>
-<div class="line">    <a class="code" href="structUart.html">Uart</a>.txString(<span class="stringliteral">&quot;Message is lost ...\r\n&quot;</span>);   </div>
-<div class="line">}</div>
-<div class="line"></div>
-<div class="line"><span class="comment">/* Retranmission count indicates the tranmission quality */</span></div>
-<div class="line">temp = <a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a68c5c9c097c40be2e4058519386be051">badTxCount</a>();</div>
-<div class="line"></div>
-<div class="line"><span class="keywordtype">char</span> msg[64];</div>
-<div class="line">sprintf(msg,<span class="stringliteral">&quot;Retranmission count: %d\r\n&quot;</span>,temp);</div>
-<div class="line"><a class="code" href="structUart.html">Uart</a>.txString(msg);</div>
-</div><!-- fragment --><p> After the tranmission finishes, nrf24L01+ module stays in Standby mode. You can manually go back to RX mode: </p><div class="fragment"><div class="line"><span class="comment">/* Go back to RX mode ... */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#ab25e37a1480a77544d05e50d395388cb">powerRx</a>();</div>
-</div><!-- fragment --><p> Or you can power down the module to lower the current consumption. </p><div class="fragment"><div class="line"><span class="comment">/* Power down the module */</span></div>
-<div class="line"><a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#aead930e67d5d5eb04822cb4ae990685d">powerDown</a>();  </div>
-</div><!-- fragment --> <h3>Receive</h3>
-<p>This library doesn't use the IRQ pin of the nrf24L01+ (yet) , therefore you need to poll the <code>Nrf24.dataReady()</code> function periodically. Otherwise you might miss some packets.</p>
-<p>Also, you need to be in RX mode in order to be able to receive messages.</p>
-<p><code>Nrf24.dataReady()</code> function returns non-zero only if a valid payload is awaiting in the RX fifo. <code>Nrf24.getData(uint8_t* buf)</code> function copies the received message into the given buffer. </p><div class="fragment"><div class="line">uint8_t data_array[4];</div>
-<div class="line"></div>
-<div class="line"><span class="keywordflow">if</span>(nNrf24.dataReady())</div>
-<div class="line">{</div>
-<div class="line">    <a class="code" href="nrf24_8h.html#a3af53c3fdae3f9bf7246b30d2d66259f">Nrf24</a>.<a class="code" href="structnrf24__t.html#a8d5ef96e697b56dcf24469366ebf2e58">rxData</a>(data_array);       </div>
-<div class="line">}</div>
-</div><!-- fragment --> <h2>References</h2>
-<p>This module is proudly and heavily based on the following libraries:</p>
-<ul>
-<li><a href="https://github.com/aaronds/arduino-nrf24l01">https://github.com/aaronds/arduino-nrf24l01</a></li>
-<li><a href="http://www.tinkerer.eu/AVRLib/nRF24L01">http://www.tinkerer.eu/AVRLib/nRF24L01</a> </li>
-</ul>
+<h4>Let Me Know if you ever have an issue: <a href="#" onclick="location.href='mai'+'lto:'+'max'+'.m'+'.ma'+'ns'+'fie'+'ld'+'@gm'+'ai'+'l.c'+'om'; return false;">max.m<span style="display: none;">.nosp@m.</span>.man<span style="display: none;">.nosp@m.</span>sfiel<span style="display: none;">.nosp@m.</span>d@gm<span style="display: none;">.nosp@m.</span>ail.c<span style="display: none;">.nosp@m.</span>om</a></h4>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 19 2015 17:02:52 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 20:00:21 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
