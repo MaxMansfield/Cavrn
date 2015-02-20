@@ -1,9 +1,15 @@
 src/*doxy*
 *doxy*
-doc/
-img/
+doc/*
+img/*
 *~*
 *#*
 *.#*
 .DS_STORE
+src/doxy*
+doxy*
+*~
+*#
+*.DS_STORE
+>>>>>>> dba9c4761716f16b3bebf698402be6af72715f36
 .publish.sh
