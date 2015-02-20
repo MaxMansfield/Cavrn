@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Cavrn Sedimentary: Uart/uart.h File Reference</title>
+<title>Cavrn AVR8 Library: uart.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,11 +22,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="cavrn_banner2_124x55.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_124x46.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Cavrn Sedimentary
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Cavrn AVR8 Library
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
+   <div id="projectbrief">Sedimentary Olm</div>
   </td>
  </tr>
  </tbody>
@@ -43,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,21 +85,20 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3d244dc3dc00faf5d6815d697cfe3c79.html">Uart</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_48180f9e2a0284bcf220b5e4431644c5.html">Uart</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">uart.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Enables UART functionality via an easy to use structure.  
+<p><a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> uses a variety of internal functions and presents them in the form of a <a class="el" href="structuart__t.html">uart_t</a> object called <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a>. To access a function and its operations, simply address the function pointer. Check the examples for more.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="cavrn_8h_source.html">cavrn.h</a>&quot;</code><br />
 <code>#include &lt;util/setbaud.h&gt;</code><br />
@@ -117,52 +118,20 @@ Macros</h2></td></tr>
 <tr class="memdesc:ab7251398c6f91aa49b6a638f2b0d0614"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set UCSRB with the TX and RX enable flags.  <a href="#ab7251398c6f91aa49b6a638f2b0d0614">More...</a><br /></td></tr>
 <tr class="separator:ab7251398c6f91aa49b6a638f2b0d0614"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga0009d264fa224c9e41ea3356dbd977f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga0009d264fa224c9e41ea3356dbd977f7">uart_tx</a> (const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> data)</td></tr>
-<tr class="separator:ga0009d264fa224c9e41ea3356dbd977f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57c4e27b40fabf008dbad61674ed2342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga57c4e27b40fabf008dbad61674ed2342">uart_rx</a> ()</td></tr>
-<tr class="separator:ga57c4e27b40fabf008dbad61674ed2342"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaf9b7ef59057c5b29bcbd81870caf83f9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gaf9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a> (const char *const string)</td></tr>
-<tr class="separator:gaf9b7ef59057c5b29bcbd81870caf83f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae79e84c6b79d6b228c184c38bf67ef11"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a> (char *const string, const uint8_t len)</td></tr>
-<tr class="separator:gae79e84c6b79d6b228c184c38bf67ef11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa7b7db875b49fcf2d26781f9e5c3ff8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gaa7b7db875b49fcf2d26781f9e5c3ff8e">uart_transfer</a> (const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> data)</td></tr>
-<tr class="separator:gaa7b7db875b49fcf2d26781f9e5c3ff8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa5b35bb44ae1afeed28b8e3e52cfbe6d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gaa5b35bb44ae1afeed28b8e3e52cfbe6d">uart_multi_transfer</a> (const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const data, <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *datain, const uint8_t *const len)</td></tr>
-<tr class="separator:gaa5b35bb44ae1afeed28b8e3e52cfbe6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab94003761cf80efd9bc6a1c76fc718a1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a> (const bool isInterrupt)</td></tr>
-<tr class="separator:gab94003761cf80efd9bc6a1c76fc718a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga3ada348e281bbdafd376a6b9ee02b7a6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a> (const bool isInterrupt)</td></tr>
-<tr class="separator:ga3ada348e281bbdafd376a6b9ee02b7a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga01dc068a33ec087755bd9d1e24e9c89a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a> (const bool isInterrupt)</td></tr>
-<tr class="separator:ga01dc068a33ec087755bd9d1e24e9c89a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafdd5db538e0570e9508e07875f879d80"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#gafdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a> (const bool isInterrupt)</td></tr>
-<tr class="separator:gafdd5db538e0570e9508e07875f879d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5e4409a1675bc0b2d5c0ad084822061f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga5e4409a1675bc0b2d5c0ad084822061f">uart_txchr</a> (const char chr)</td></tr>
-<tr class="memdesc:ga5e4409a1675bc0b2d5c0ad084822061f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a character of information (signed 8bit integer) via UART.  <a href="group__Invalid.html#ga5e4409a1675bc0b2d5c0ad084822061f">More...</a><br /></td></tr>
-<tr class="separator:ga5e4409a1675bc0b2d5c0ad084822061f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga0870ab61af1076e7d4d349aea9064433"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Invalid.html#ga0870ab61af1076e7d4d349aea9064433">uart_rxchr</a> ()</td></tr>
-<tr class="memdesc:ga0870ab61af1076e7d4d349aea9064433"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieves a character of information (signed 8 bit integer) via UART.  <a href="group__Invalid.html#ga0870ab61af1076e7d4d349aea9064433">More...</a><br /></td></tr>
-<tr class="separator:ga0870ab61af1076e7d4d349aea9064433"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:aedc3c4ab9d8b22838e2796525ae2e707"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structuart__t.html">uart_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="uart_8h.html#aedc3c4ab9d8b22838e2796525ae2e707">Uart</a></td></tr>
 <tr class="separator:aedc3c4ab9d8b22838e2796525ae2e707"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Enables UART functionality via an easy to use structure. </p>
-<dl class="section version"><dt>Version</dt><dd>0.1.0 </dd></dl>
+<div class="textblock"><p><a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> uses a variety of internal functions and presents them in the form of a <a class="el" href="structuart__t.html">uart_t</a> object called <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a>. To access a function and its operations, simply address the function pointer. Check the examples for more. </p>
+<dl class="section version"><dt>Version</dt><dd>0.1.0 (Sedimentary Olm) </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Max Mansfield </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License v2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>February 19, 2015 <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> example</dd></dl>
-<div class="fragment"><div class="line"><a class="code" href="structUart.html">Uart</a>.init(<span class="keyword">true</span>); <span class="comment">// Set globally. Also can use ON,OFF</span></div>
-<div class="line"><a class="code" href="structUart.html">Uart</a>.printableCharsOnly = <span class="keyword">true</span>;</div>
-<div class="line"><span class="keywordflow">while</span>(1) {</div>
-<div class="line"> <a class="code" href="structUart.html">Uart</a>.txString(<span class="stringliteral">&quot;Hello World\n\r&quot;</span>);</div>
-<div class="line">}</div>
-</div><!-- fragment --> </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<dl class="section date"><dt>Date</dt><dd>February 19, 2015 </dd></dl>
+
+<p>Definition in file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="aeff6b6e5cf8852475fab3f5b2f5baff1"></a>
 <div class="memitem">
 <div class="memproto">
@@ -172,6 +141,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00048">48</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
 
 </div>
 </div>
@@ -189,6 +160,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set UCSRB with the TX and RX enable flags. </p>
+
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00206">206</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
 
 </div>
 </div>
@@ -213,39 +186,41 @@ Variables</h2></td></tr>
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
 <div class="line">  .init = &amp;uart_init,</div>
 <div class="line">  </div>
-<div class="line">  .txByte = &amp;<a class="code" href="group__Invalid.html#ga0009d264fa224c9e41ea3356dbd977f7">uart_tx</a>,</div>
-<div class="line">  .rxByte = &amp;<a class="code" href="group__Invalid.html#ga57c4e27b40fabf008dbad61674ed2342">uart_rx</a>,</div>
+<div class="line">  .txByte = &amp;<a class="code" href="uart_8c.html#a0009d264fa224c9e41ea3356dbd977f7">uart_tx</a>,</div>
+<div class="line">  .rxByte = &amp;<a class="code" href="uart_8c.html#a4d8b792f0e9079856ac47aafcb580199">uart_rx</a>,</div>
 <div class="line">  </div>
-<div class="line">  .txString = &amp;<a class="code" href="group__Invalid.html#gaf9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a>,</div>
-<div class="line">  .rxString = &amp;<a class="code" href="group__Invalid.html#gae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a>,</div>
+<div class="line">  .txString = &amp;<a class="code" href="uart_8c.html#af9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a>,</div>
+<div class="line">  .rxString = &amp;<a class="code" href="uart_8c.html#ae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a>,</div>
 <div class="line"></div>
-<div class="line">  .transfer = &amp;<a class="code" href="group__Invalid.html#gaa7b7db875b49fcf2d26781f9e5c3ff8e">uart_transfer</a>,</div>
-<div class="line">  .multiTransfer = &amp;<a class="code" href="group__Invalid.html#gaa5b35bb44ae1afeed28b8e3e52cfbe6d">uart_multi_transfer</a>,</div>
+<div class="line">  .transfer = &amp;<a class="code" href="uart_8c.html#aa7b7db875b49fcf2d26781f9e5c3ff8e">uart_transfer</a>,</div>
+<div class="line">  .multiTransfer = &amp;<a class="code" href="uart_8c.html#ad0783232f9748642d18b10d89d4f7d9a">uart_multi_transfer</a>,</div>
 <div class="line">  </div>
-<div class="line">  .setInterrupts = &amp;<a class="code" href="group__Invalid.html#gafdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a>,</div>
-<div class="line">  .setUdreInterrupt = &amp;<a class="code" href="group__Invalid.html#ga01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a>,</div>
-<div class="line">  .setTxInterrupt = &amp;<a class="code" href="group__Invalid.html#gab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a>,</div>
-<div class="line">  .setRxInterrupt = &amp;<a class="code" href="group__Invalid.html#ga3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a>,</div>
+<div class="line">  .setInterrupts = &amp;<a class="code" href="uart_8c.html#afdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a>,</div>
+<div class="line">  .setUdreInterrupt = &amp;<a class="code" href="uart_8c.html#a01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a>,</div>
+<div class="line">  .setTxInterrupt = &amp;<a class="code" href="uart_8c.html#ab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a>,</div>
+<div class="line">  .setRxInterrupt = &amp;<a class="code" href="uart_8c.html#a3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a>,</div>
 <div class="line">  </div>
 <div class="line">  .printableCharsOnly = <span class="keyword">false</span></div>
 <div class="line">}</div>
-<div class="ttc" id="group__Invalid_html_gaa5b35bb44ae1afeed28b8e3e52cfbe6d"><div class="ttname"><a href="group__Invalid.html#gaa5b35bb44ae1afeed28b8e3e52cfbe6d">uart_multi_transfer</a></div><div class="ttdeci">void uart_multi_transfer(const byte *const data, byte *datain, const uint8_t *const len)</div><div class="ttdef"><b>Definition:</b> uart.c:165</div></div>
-<div class="ttc" id="group__Invalid_html_gaf9b7ef59057c5b29bcbd81870caf83f9"><div class="ttname"><a href="group__Invalid.html#gaf9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a></div><div class="ttdeci">void uart_txstr(const char *const string)</div><div class="ttdef"><b>Definition:</b> uart.c:100</div></div>
-<div class="ttc" id="group__Invalid_html_ga3ada348e281bbdafd376a6b9ee02b7a6"><div class="ttname"><a href="group__Invalid.html#ga3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a></div><div class="ttdeci">void uart_set_rx_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> uart.c:129</div></div>
-<div class="ttc" id="group__Invalid_html_gafdd5db538e0570e9508e07875f879d80"><div class="ttname"><a href="group__Invalid.html#gafdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a></div><div class="ttdeci">void uart_set_interrupts(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> uart.c:152</div></div>
-<div class="ttc" id="group__Invalid_html_ga57c4e27b40fabf008dbad61674ed2342"><div class="ttname"><a href="group__Invalid.html#ga57c4e27b40fabf008dbad61674ed2342">uart_rx</a></div><div class="ttdeci">byte uart_rx()</div><div class="ttdef"><b>Definition:</b> uart.c:81</div></div>
-<div class="ttc" id="group__Invalid_html_gaa7b7db875b49fcf2d26781f9e5c3ff8e"><div class="ttname"><a href="group__Invalid.html#gaa7b7db875b49fcf2d26781f9e5c3ff8e">uart_transfer</a></div><div class="ttdeci">byte uart_transfer(const byte data)</div><div class="ttdef"><b>Definition:</b> uart.c:159</div></div>
-<div class="ttc" id="group__Invalid_html_ga01dc068a33ec087755bd9d1e24e9c89a"><div class="ttname"><a href="group__Invalid.html#ga01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a></div><div class="ttdeci">void uart_set_udre_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> uart.c:141</div></div>
-<div class="ttc" id="group__Invalid_html_gab94003761cf80efd9bc6a1c76fc718a1"><div class="ttname"><a href="group__Invalid.html#gab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a></div><div class="ttdeci">void uart_set_tx_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> uart.c:117</div></div>
-<div class="ttc" id="group__Invalid_html_gae79e84c6b79d6b228c184c38bf67ef11"><div class="ttname"><a href="group__Invalid.html#gae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a></div><div class="ttdeci">void uart_rxstr(char *const string, const uint8_t len)</div><div class="ttdef"><b>Definition:</b> uart.c:108</div></div>
-<div class="ttc" id="group__Invalid_html_ga0009d264fa224c9e41ea3356dbd977f7"><div class="ttname"><a href="group__Invalid.html#ga0009d264fa224c9e41ea3356dbd977f7">uart_tx</a></div><div class="ttdeci">void uart_tx(const byte data)</div><div class="ttdef"><b>Definition:</b> uart.c:74</div></div>
+<div class="ttc" id="uart_8c_html_a4d8b792f0e9079856ac47aafcb580199"><div class="ttname"><a href="uart_8c.html#a4d8b792f0e9079856ac47aafcb580199">uart_rx</a></div><div class="ttdeci">uint8_t uart_rx()</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00081">uart.c:81</a></div></div>
+<div class="ttc" id="uart_8c_html_a01dc068a33ec087755bd9d1e24e9c89a"><div class="ttname"><a href="uart_8c.html#a01dc068a33ec087755bd9d1e24e9c89a">uart_set_udre_interrupt</a></div><div class="ttdeci">void uart_set_udre_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00141">uart.c:141</a></div></div>
+<div class="ttc" id="uart_8c_html_afdd5db538e0570e9508e07875f879d80"><div class="ttname"><a href="uart_8c.html#afdd5db538e0570e9508e07875f879d80">uart_set_interrupts</a></div><div class="ttdeci">void uart_set_interrupts(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00152">uart.c:152</a></div></div>
+<div class="ttc" id="uart_8c_html_ab94003761cf80efd9bc6a1c76fc718a1"><div class="ttname"><a href="uart_8c.html#ab94003761cf80efd9bc6a1c76fc718a1">uart_set_tx_interrupt</a></div><div class="ttdeci">void uart_set_tx_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00117">uart.c:117</a></div></div>
+<div class="ttc" id="uart_8c_html_a0009d264fa224c9e41ea3356dbd977f7"><div class="ttname"><a href="uart_8c.html#a0009d264fa224c9e41ea3356dbd977f7">uart_tx</a></div><div class="ttdeci">void uart_tx(const byte data)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00074">uart.c:74</a></div></div>
+<div class="ttc" id="uart_8c_html_ae79e84c6b79d6b228c184c38bf67ef11"><div class="ttname"><a href="uart_8c.html#ae79e84c6b79d6b228c184c38bf67ef11">uart_rxstr</a></div><div class="ttdeci">void uart_rxstr(char *const string, const uint8_t len)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00108">uart.c:108</a></div></div>
+<div class="ttc" id="uart_8c_html_af9b7ef59057c5b29bcbd81870caf83f9"><div class="ttname"><a href="uart_8c.html#af9b7ef59057c5b29bcbd81870caf83f9">uart_txstr</a></div><div class="ttdeci">void uart_txstr(const char *const string)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00100">uart.c:100</a></div></div>
+<div class="ttc" id="uart_8c_html_aa7b7db875b49fcf2d26781f9e5c3ff8e"><div class="ttname"><a href="uart_8c.html#aa7b7db875b49fcf2d26781f9e5c3ff8e">uart_transfer</a></div><div class="ttdeci">byte uart_transfer(const byte data)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00159">uart.c:159</a></div></div>
+<div class="ttc" id="uart_8c_html_ad0783232f9748642d18b10d89d4f7d9a"><div class="ttname"><a href="uart_8c.html#ad0783232f9748642d18b10d89d4f7d9a">uart_multi_transfer</a></div><div class="ttdeci">void uart_multi_transfer(const byte *const dataout, byte *const datain, const uint8_t *const len)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00165">uart.c:165</a></div></div>
+<div class="ttc" id="uart_8c_html_a3ada348e281bbdafd376a6b9ee02b7a6"><div class="ttname"><a href="uart_8c.html#a3ada348e281bbdafd376a6b9ee02b7a6">uart_set_rx_interrupt</a></div><div class="ttdeci">void uart_set_rx_interrupt(const bool isInterrupt)</div><div class="ttdef"><b>Definition:</b> <a href="uart_8c_source.html#l00129">uart.c:129</a></div></div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00405">405</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 19 2015 12:06:30 for Cavrn Sedimentary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 17:02:52 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

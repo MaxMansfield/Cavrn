@@ -2,13 +2,12 @@ var indexSectionsWithContent =
 {
   0: "abcdefghilmnoprstuw",
   1: "cnsu",
-  2: "cdnsu",
-  3: "cnsu",
+  2: "cdnrsu",
+  3: "nsu",
   4: "bcdgilmnprstu",
   5: "bdpw",
   6: "acdefhilmnoprstuw",
-  7: "ciu",
-  8: "w"
+  7: "cu"
 };
 
 var indexSectionNames =
@@ -20,8 +19,7 @@ var indexSectionNames =
   4: "variables",
   5: "typedefs",
   6: "defines",
-  7: "groups",
-  8: "pages"
+  7: "groups"
 };
 
 var indexSectionLabels =
@@ -33,7 +31,6 @@ var indexSectionLabels =
   4: "Variables",
   5: "Typedefs",
   6: "Macros",
-  7: "Modules",
-  8: "Pages"
+  7: "Modules"
 };
 

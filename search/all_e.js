@@ -3,6 +3,7 @@ var searchData=
   ['r_5fregister',['R_REGISTER',['../nrf24_8h.html#afb0b251378d3b14c508e51fd2c3157d6',1,'nrf24.h']]],
   ['r_5frx_5fpayload',['R_RX_PAYLOAD',['../nrf24_8h.html#a462d8c2314b823b724574c1ca73225a6',1,'nrf24.h']]],
   ['r_5frx_5fpl_5fwid',['R_RX_PL_WID',['../nrf24_8h.html#a14ea186f093047db160cee642e5bd901',1,'nrf24.h']]],
+  ['readme_2emd',['README.md',['../README_8md.html',1,'']]],
   ['register_5fmask',['REGISTER_MASK',['../nrf24_8h.html#a866fc0cef05f3c63ba55a555f63648a2',1,'nrf24.h']]],
   ['reuse_5ftx_5fpl',['REUSE_TX_PL',['../nrf24_8h.html#a2f1d9bb858232e8b1494b60aa9a7d25a',1,'nrf24.h']]],
   ['rf_5fch',['RF_CH',['../nrf24_8h.html#a5c4da84e4a01531aa9f5c3e617848d66',1,'nrf24.h']]],
@@ -26,9 +27,9 @@ var searchData=
   ['rx_5fpw_5fp4',['RX_PW_P4',['../nrf24_8h.html#a5cdda00ab52df1537b6b5d61ef88ba8f',1,'nrf24.h']]],
   ['rx_5fpw_5fp5',['RX_PW_P5',['../nrf24_8h.html#a9ce52902779e18d4fed3685b0f8be582',1,'nrf24.h']]],
   ['rxaddr',['rxAddr',['../structnrf24__t.html#acf773cd1e2f2c5c0ce507320f9b7a45f',1,'nrf24_t']]],
-  ['rxbyte',['rxByte',['../group__Uart.html#gaea7155e121c0f57aecf5e1d4c42ef88e',1,'uart_t']]],
+  ['rxbyte',['rxByte',['../group__Uart.html#gaf8d0b44e4fd58994493dac69daf5d03d',1,'uart_t']]],
   ['rxdata',['rxData',['../structnrf24__t.html#a8d5ef96e697b56dcf24469366ebf2e58',1,'nrf24_t']]],
   ['rxlen',['RXLEN',['../uart_8h.html#aeff6b6e5cf8852475fab3f5b2f5baff1',1,'uart.h']]],
-  ['rxstring',['rxString',['../group__Uart.html#gad010210dd7bd23507a4db4591cf475d9',1,'uart_t']]],
+  ['rxstring',['rxString',['../group__Uart.html#ga9191414ea5c7a61899252f5018dfe65d',1,'uart_t']]],
   ['rxwaiting',['rxWaiting',['../structnrf24__t.html#a55d42334a0c98fdf58b7125c843d1370',1,'nrf24_t']]]
 ];

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Cavrn Sedimentary: cavrn.h File Reference</title>
+<title>Cavrn AVR8 Library: cavrn.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,11 +22,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="cavrn_banner2_124x55.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_124x46.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Cavrn Sedimentary
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Cavrn AVR8 Library
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
+   <div id="projectbrief">Sedimentary Olm</div>
   </td>
  </tr>
  </tbody>
@@ -43,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -81,20 +83,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">cavrn.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>The main file which defines import macros and contains the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> structure which is used for enabling and disabling global interrupts and other functions.  
+<p>The main file which defines import macros and contains the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> is provided. Use the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> struct instead of calling its methods directly. Check the examples page for more detail.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdlib.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
@@ -158,25 +163,20 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:ae36b1ebcd4ca31bf51d6c3d39490e490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use to represent a data direction register on your AVR.  <a href="#ae36b1ebcd4ca31bf51d6c3d39490e490">More...</a><br /></td></tr>
 <tr class="separator:ae36b1ebcd4ca31bf51d6c3d39490e490"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a189b5b0df08bd6b77a39521e0e4a0892"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cavrn_8h.html#a189b5b0df08bd6b77a39521e0e4a0892">cavrn_set_global_interrupts</a> (const bool isInterupts)</td></tr>
-<tr class="memdesc:a189b5b0df08bd6b77a39521e0e4a0892"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Set interrupts on/off. To be used via a function pointer in the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> struct.  <a href="#a189b5b0df08bd6b77a39521e0e4a0892">More...</a><br /></td></tr>
-<tr class="separator:a189b5b0df08bd6b77a39521e0e4a0892"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a1790b0cf365be58885af424fb01ecd50"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structcavrn__t.html">cavrn_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cavrn_8h.html#a1790b0cf365be58885af424fb01ecd50">Cavrn</a></td></tr>
 <tr class="separator:a1790b0cf365be58885af424fb01ecd50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>The main file which defines import macros and contains the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> structure which is used for enabling and disabling global interrupts and other functions. </p>
-<dl class="section version"><dt>Version</dt><dd>0.1.0 </dd></dl>
+<div class="textblock"><p>The main file which defines import macros and contains the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> is provided. Use the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. Access cavrn_t Cavrn&#39;s functionality by addressi...">Cavrn</a> struct instead of calling its methods directly. Check the examples page for more detail. </p>
+<dl class="section version"><dt>Version</dt><dd>0.1.0 (Sedimentary Olm) </dd></dl>
 <dl class="section author"><dt>Author</dt><dd>Max Mansfield </dd></dl>
 <dl class="section copyright"><dt>Copyright</dt><dd>GNU Public License v2 </dd></dl>
-<dl class="section date"><dt>Date</dt><dd>February 19, 2015 In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> is provided. Use the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> struct instead of calling its methods directly.</dd></dl>
-<p>Ex. </p><div class="fragment"><div class="line"><a class="code" href="structCavrn.html">Cavrn</a>.setInterrupts(<span class="keyword">true</span>); <span class="comment">// Set globally. Also can use ON,OFF</span></div>
-</div><!-- fragment --> </div><h2 class="groupheader">Macro Definition Documentation</h2>
+<dl class="section date"><dt>Date</dt><dd>February 19, 2015 </dd></dl>
+
+<p>Definition in file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
 <a class="anchor" id="a5bb885982ff66a2e0a0a45a8ee9c35e2"></a>
 <div class="memitem">
 <div class="memproto">
@@ -188,6 +188,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>HIGH as 255 or true. </p>
+
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00067">67</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -202,6 +204,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>IN as 0 or false. </p>
+
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00079">79</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -220,6 +224,8 @@ Variables</h2></td></tr>
 
 <p>A more readable function for clearing global interupts. </p>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00097">97</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aaf09d20270f512294e9fbb94369c11f0"></a>
@@ -236,6 +242,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>A more readable function for setting global interupts. </p>
+
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00091">91</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -255,6 +263,8 @@ Variables</h2></td></tr>
 
 <p>Decides if a character is a printable or not. Very useful for transmitting strings. Taken from the C std library but I didn't want to include the entire file just for this function. </p>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00103">103</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ab811d8c6ff3a505312d3276590444289"></a>
@@ -269,6 +279,8 @@ Variables</h2></td></tr>
 
 <p>LOW as 0 or false. </p>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00073">73</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a29e413f6725b2ba32d165ffaa35b01e5"></a>
@@ -282,6 +294,9 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>OFF as 0 or false. </p>
+<dl><dt><b>Examples: </b></dt><dd><a class="el" href="Cavrn_2setInterrupts-example.html#a1">Cavrn/setInterrupts</a>.</dd>
+</dl>
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00061">61</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -297,6 +312,8 @@ Variables</h2></td></tr>
 
 <p>ON as 1 or true. </p>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00055">55</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="aec78e7a9e90a406a56f859ee456e8eae"></a>
@@ -310,6 +327,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>OUT as 1 or true. </p>
+
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00085">85</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -326,6 +345,8 @@ Variables</h2></td></tr>
 
 <p>Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc... </p>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00122">122</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="ae36b1ebcd4ca31bf51d6c3d39490e490"></a>
@@ -339,6 +360,8 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Use to represent a data direction register on your AVR. </p>
+
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00142">142</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -355,6 +378,8 @@ Variables</h2></td></tr>
 <p>Use a pin to represent an 8 bit data output location, specifically a pin on your AVR. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="cavrn_8h.html#af8fb0f45ee0195c7422a49e6a8d72369" title="Use a port to represent an 8 bit data input location, specifically a port on your AVR...">port</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00136">136</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="af8fb0f45ee0195c7422a49e6a8d72369"></a>
@@ -370,6 +395,8 @@ Variables</h2></td></tr>
 <p>Use a port to represent an 8 bit data input location, specifically a port on your AVR. </p>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="cavrn_8h.html#aed45ca508d997dd992682abff8790bde" title="Use a pin to represent an 8 bit data output location, specifically a pin on your AVR. ">pin</a> </dd></dl>
 
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00129">129</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 <a class="anchor" id="a69584ba90b098f23df3702374e594862"></a>
@@ -384,39 +411,7 @@ Variables</h2></td></tr>
 
 <p>Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation. </p>
 
-</div>
-</div>
-<h2 class="groupheader">Function Documentation</h2>
-<a class="anchor" id="a189b5b0df08bd6b77a39521e0e4a0892"></a>
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void cavrn_set_global_interrupts </td>
-          <td>(</td>
-          <td class="paramtype">const bool&#160;</td>
-          <td class="paramname"><em>isInterupts</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>: Set interrupts on/off. To be used via a function pointer in the <a class="el" href="structCavrn.html" title="The main entry point for global Cavrn functionality. ">Cavrn</a> struct. </p>
-<p>Sets <a class="el" href="group__Cavrn.html#gae49f03dd85f90f1079068562dd37163d" title=": Signifies that interrupts are enabled/disabled. For use by other modules as well as users...">cavrn_t.interruptsEnabled</a> on/off and then calls the right function to initialize interrupts.. </p><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;Cavrn.setInterrupts(OFF); //Set global interrupts off</div>
-</div><!-- fragment --> <dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname"></td><td></td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00115">115</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
 
 </div>
 </div>
@@ -439,17 +434,18 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">= {</div>
-<div class="line">  .setInterrupts = &amp;<a class="code" href="cavrn_8h.html#a189b5b0df08bd6b77a39521e0e4a0892">cavrn_set_global_interrupts</a>,</div>
+<div class="line">  .setInterrupts = &amp;cavrn_set_global_interrupts,</div>
 <div class="line">  .interruptsEnabled = <span class="keyword">false</span></div>
 <div class="line">}</div>
-<div class="ttc" id="cavrn_8h_html_a189b5b0df08bd6b77a39521e0e4a0892"><div class="ttname"><a href="cavrn_8h.html#a189b5b0df08bd6b77a39521e0e4a0892">cavrn_set_global_interrupts</a></div><div class="ttdeci">static void cavrn_set_global_interrupts(const bool isInterupts)</div><div class="ttdoc">: Set interrupts on/off. To be used via a function pointer in the Cavrn struct. </div><div class="ttdef"><b>Definition:</b> cavrn.h:211</div></div>
 </div><!-- fragment -->
+<p>Definition at line <a class="el" href="cavrn_8h_source.html#l00201">201</a> of file <a class="el" href="cavrn_8h_source.html">cavrn.h</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 19 2015 12:06:30 for Cavrn Sedimentary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 17:02:52 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

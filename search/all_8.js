@@ -9,7 +9,6 @@ var searchData=
   ['interruptsenabled',['interruptsEnabled',['../group__Cavrn.html#gae49f03dd85f90f1079068562dd37163d',1,'cavrn_t::interruptsEnabled()'],['../structspi__t.html#aa4467a109fa5d9e59a4b36f4a9728987',1,'spi_t::interruptsEnabled()']]],
   ['interruptsoff',['interruptsOff',['../cavrn_8h.html#aa4619e4d163866f6c3d81c389ae7264d',1,'cavrn.h']]],
   ['interruptson',['interruptsOn',['../cavrn_8h.html#aaf09d20270f512294e9fbb94369c11f0',1,'cavrn.h']]],
-  ['invalid',['Invalid',['../group__Invalid.html',1,'']]],
   ['isprint',['isprint',['../cavrn_8h.html#a889820984b313e4f379d998ce05892ec',1,'cavrn.h']]],
   ['issending',['isSending',['../structnrf24__t.html#a187270f5a397a1425c860f06f1c946ba',1,'nrf24_t']]]
 ];

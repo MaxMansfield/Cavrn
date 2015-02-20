@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Cavrn Sedimentary: Spi/spi.h Source File</title>
+<title>Cavrn AVR8 Library: spi.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,11 +22,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="cavrn_banner2_124x55.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_124x46.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Cavrn Sedimentary
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Cavrn AVR8 Library
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
+   <div id="projectbrief">Sedimentary Olm</div>
   </td>
  </tr>
  </tbody>
@@ -43,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -83,7 +85,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_3e352cf41c6896f98be24df13b664544.html">Spi</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_a61e95ec7dfe08f70c2ab43f00f7f4ea.html">Spi</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -246,27 +248,27 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif </span></div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;</div>
-<div class="ttc" id="structspi__t_html_a9011a7370d987842947f716e10f8f652"><div class="ttname"><a href="structspi__t.html#a9011a7370d987842947f716e10f8f652">spi_t::setInterrupts</a></div><div class="ttdeci">void(* setInterrupts)(const bool)</div><div class="ttdef"><b>Definition:</b> spi.h:174</div></div>
-<div class="ttc" id="cavrn_8h_html_a82b52bf2b45e214a8f2100ebfdf1aee4"><div class="ttname"><a href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a></div><div class="ttdeci">uint8_t byte</div><div class="ttdoc">Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operatio...</div><div class="ttdef"><b>Definition:</b> cavrn.h:123</div></div>
-<div class="ttc" id="spi_8h_html_a106510ceb36305d7442f75e830fb98c2"><div class="ttname"><a href="spi_8h.html#a106510ceb36305d7442f75e830fb98c2">spi_multi_transfer</a></div><div class="ttdeci">void spi_multi_transfer(const byte *const dataout, byte *const datain, const uint8_t len)</div><div class="ttdoc">: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes...</div><div class="ttdef"><b>Definition:</b> spi.c:148</div></div>
-<div class="ttc" id="structspi__t_html_aa4467a109fa5d9e59a4b36f4a9728987"><div class="ttname"><a href="structspi__t.html#aa4467a109fa5d9e59a4b36f4a9728987">spi_t::interruptsEnabled</a></div><div class="ttdeci">bool interruptsEnabled</div><div class="ttdef"><b>Definition:</b> spi.h:177</div></div>
-<div class="ttc" id="spi_8h_html_aab1ad15333780e6b9f8c8be602682818"><div class="ttname"><a href="spi_8h.html#aab1ad15333780e6b9f8c8be602682818">spi_transfer</a></div><div class="ttdeci">byte spi_transfer(const byte data)</div><div class="ttdoc">: spi_transfer() This function will send a byte and wait for a response via spi before returning its ...</div><div class="ttdef"><b>Definition:</b> spi.c:114</div></div>
-<div class="ttc" id="spi_8h_html_acc32e9917e484a47a14e3daccb502db2"><div class="ttname"><a href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a></div><div class="ttdeci">static struct spi_t Spi</div><div class="ttdef"><b>Definition:</b> spi.h:185</div></div>
-<div class="ttc" id="spi_8h_html_a1b20de0da423e7d6da1c99eec9d63216"><div class="ttname"><a href="spi_8h.html#a1b20de0da423e7d6da1c99eec9d63216">spi_disable</a></div><div class="ttdeci">void spi_disable()</div><div class="ttdoc">: spi_disable() Opposite of init. Disable SPI. </div><div class="ttdef"><b>Definition:</b> spi.c:121</div></div>
-<div class="ttc" id="structspi__t_html_a55f7c22f62fbe49b04920f1902102f0c"><div class="ttname"><a href="structspi__t.html#a55f7c22f62fbe49b04920f1902102f0c">spi_t::transfer</a></div><div class="ttdeci">byte(* transfer)(const byte)</div><div class="ttdef"><b>Definition:</b> spi.h:171</div></div>
-<div class="ttc" id="structspi__t_html_af877ab42dc1f23e4b362046d67cc2f06"><div class="ttname"><a href="structspi__t.html#af877ab42dc1f23e4b362046d67cc2f06">spi_t::multiTransfer</a></div><div class="ttdeci">void(* multiTransfer)(const uint8_t *const, uint8_t *const, const uint8_t)</div><div class="ttdef"><b>Definition:</b> spi.h:172</div></div>
-<div class="ttc" id="structspi__t_html_ad2af834982883f711c192bf661156942"><div class="ttname"><a href="structspi__t.html#ad2af834982883f711c192bf661156942">spi_t::init</a></div><div class="ttdeci">void(* init)(const bool, const byte, const uint8_t)</div><div class="ttdef"><b>Definition:</b> spi.h:170</div></div>
+<div class="ttc" id="structspi__t_html_a9011a7370d987842947f716e10f8f652"><div class="ttname"><a href="structspi__t.html#a9011a7370d987842947f716e10f8f652">spi_t::setInterrupts</a></div><div class="ttdeci">void(* setInterrupts)(const bool)</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00174">spi.h:174</a></div></div>
+<div class="ttc" id="cavrn_8h_html_a82b52bf2b45e214a8f2100ebfdf1aee4"><div class="ttname"><a href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a></div><div class="ttdeci">uint8_t byte</div><div class="ttdoc">Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operatio...</div><div class="ttdef"><b>Definition:</b> <a href="cavrn_8h_source.html#l00122">cavrn.h:122</a></div></div>
+<div class="ttc" id="spi_8h_html_a106510ceb36305d7442f75e830fb98c2"><div class="ttname"><a href="spi_8h.html#a106510ceb36305d7442f75e830fb98c2">spi_multi_transfer</a></div><div class="ttdeci">void spi_multi_transfer(const byte *const dataout, byte *const datain, const uint8_t len)</div><div class="ttdoc">: spi_multiTransfer() This function stops interrupts if they are enabled during transfer and utilizes...</div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00148">spi.c:148</a></div></div>
+<div class="ttc" id="structspi__t_html_aa4467a109fa5d9e59a4b36f4a9728987"><div class="ttname"><a href="structspi__t.html#aa4467a109fa5d9e59a4b36f4a9728987">spi_t::interruptsEnabled</a></div><div class="ttdeci">bool interruptsEnabled</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00177">spi.h:177</a></div></div>
+<div class="ttc" id="spi_8h_html_aab1ad15333780e6b9f8c8be602682818"><div class="ttname"><a href="spi_8h.html#aab1ad15333780e6b9f8c8be602682818">spi_transfer</a></div><div class="ttdeci">byte spi_transfer(const byte data)</div><div class="ttdoc">: spi_transfer() This function will send a byte and wait for a response via spi before returning its ...</div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00114">spi.c:114</a></div></div>
+<div class="ttc" id="spi_8h_html_acc32e9917e484a47a14e3daccb502db2"><div class="ttname"><a href="spi_8h.html#acc32e9917e484a47a14e3daccb502db2">Spi</a></div><div class="ttdeci">static struct spi_t Spi</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00185">spi.h:185</a></div></div>
+<div class="ttc" id="spi_8h_html_a1b20de0da423e7d6da1c99eec9d63216"><div class="ttname"><a href="spi_8h.html#a1b20de0da423e7d6da1c99eec9d63216">spi_disable</a></div><div class="ttdeci">void spi_disable()</div><div class="ttdoc">: spi_disable() Opposite of init. Disable SPI. </div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00121">spi.c:121</a></div></div>
+<div class="ttc" id="structspi__t_html_a55f7c22f62fbe49b04920f1902102f0c"><div class="ttname"><a href="structspi__t.html#a55f7c22f62fbe49b04920f1902102f0c">spi_t::transfer</a></div><div class="ttdeci">byte(* transfer)(const byte)</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00171">spi.h:171</a></div></div>
+<div class="ttc" id="structspi__t_html_af877ab42dc1f23e4b362046d67cc2f06"><div class="ttname"><a href="structspi__t.html#af877ab42dc1f23e4b362046d67cc2f06">spi_t::multiTransfer</a></div><div class="ttdeci">void(* multiTransfer)(const uint8_t *const, uint8_t *const, const uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00172">spi.h:172</a></div></div>
+<div class="ttc" id="structspi__t_html_ad2af834982883f711c192bf661156942"><div class="ttname"><a href="structspi__t.html#ad2af834982883f711c192bf661156942">spi_t::init</a></div><div class="ttdeci">void(* init)(const bool, const byte, const uint8_t)</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00170">spi.h:170</a></div></div>
 <div class="ttc" id="cavrn_8h_html"><div class="ttname"><a href="cavrn_8h.html">cavrn.h</a></div><div class="ttdoc">The main file which defines import macros and contains the Cavrn structure which is used for enabling...</div></div>
-<div class="ttc" id="spi_8h_html_a5d5bcfa359b4591e38b5d533d624216e"><div class="ttname"><a href="spi_8h.html#a5d5bcfa359b4591e38b5d533d624216e">spi_set_data_order</a></div><div class="ttdeci">void spi_set_data_order(const bool dord)</div><div class="ttdoc">: spi_set_data_order() This funtion changes the data order from MSB (whichis equivelent to true) to L...</div><div class="ttdef"><b>Definition:</b> spi.c:127</div></div>
-<div class="ttc" id="spi_8h_html_a61cfa0c122508d59bd38c2046b1e6ebf"><div class="ttname"><a href="spi_8h.html#a61cfa0c122508d59bd38c2046b1e6ebf">spi_set_interrupts</a></div><div class="ttdeci">void spi_set_interrupts(const bool isInterrupt)</div><div class="ttdoc">: spi_set_interrupts() This funtion changes the data order from MSB (whichis equivelent to true) to L...</div><div class="ttdef"><b>Definition:</b> spi.c:137</div></div>
-<div class="ttc" id="spi_8h_html_a94087004a94105cf6d70f8ea90af2408"><div class="ttname"><a href="spi_8h.html#a94087004a94105cf6d70f8ea90af2408">spi_init</a></div><div class="ttdeci">void spi_init(const bool isMaster, const byte mode, const uint8_t clk)</div><div class="ttdoc">: spi_init() This method initializes the registers of the MCU and determines the clock polarity and c...</div><div class="ttdef"><b>Definition:</b> spi.c:27</div></div>
-<div class="ttc" id="structspi__t_html_a9666930bc1583041cf42e4ec184dd180"><div class="ttname"><a href="structspi__t.html#a9666930bc1583041cf42e4ec184dd180">spi_t::setDataOrder</a></div><div class="ttdeci">void(* setDataOrder)(const bool)</div><div class="ttdef"><b>Definition:</b> spi.h:173</div></div>
-<div class="ttc" id="structspi__t_html_a0603e41c0e6c97d1701a13ca8d31d160"><div class="ttname"><a href="structspi__t.html#a0603e41c0e6c97d1701a13ca8d31d160">spi_t::disable</a></div><div class="ttdeci">void(* disable)()</div><div class="ttdef"><b>Definition:</b> spi.h:175</div></div>
-<div class="ttc" id="structspi__t_html"><div class="ttname"><a href="structspi__t.html">spi_t</a></div><div class="ttdef"><b>Definition:</b> spi.h:169</div></div>
+<div class="ttc" id="spi_8h_html_a5d5bcfa359b4591e38b5d533d624216e"><div class="ttname"><a href="spi_8h.html#a5d5bcfa359b4591e38b5d533d624216e">spi_set_data_order</a></div><div class="ttdeci">void spi_set_data_order(const bool dord)</div><div class="ttdoc">: spi_set_data_order() This funtion changes the data order from MSB (whichis equivelent to true) to L...</div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00127">spi.c:127</a></div></div>
+<div class="ttc" id="spi_8h_html_a61cfa0c122508d59bd38c2046b1e6ebf"><div class="ttname"><a href="spi_8h.html#a61cfa0c122508d59bd38c2046b1e6ebf">spi_set_interrupts</a></div><div class="ttdeci">void spi_set_interrupts(const bool isInterrupt)</div><div class="ttdoc">: spi_set_interrupts() This funtion changes the data order from MSB (whichis equivelent to true) to L...</div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00137">spi.c:137</a></div></div>
+<div class="ttc" id="spi_8h_html_a94087004a94105cf6d70f8ea90af2408"><div class="ttname"><a href="spi_8h.html#a94087004a94105cf6d70f8ea90af2408">spi_init</a></div><div class="ttdeci">void spi_init(const bool isMaster, const byte mode, const uint8_t clk)</div><div class="ttdoc">: spi_init() This method initializes the registers of the MCU and determines the clock polarity and c...</div><div class="ttdef"><b>Definition:</b> <a href="spi_8c_source.html#l00027">spi.c:27</a></div></div>
+<div class="ttc" id="structspi__t_html_a9666930bc1583041cf42e4ec184dd180"><div class="ttname"><a href="structspi__t.html#a9666930bc1583041cf42e4ec184dd180">spi_t::setDataOrder</a></div><div class="ttdeci">void(* setDataOrder)(const bool)</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00173">spi.h:173</a></div></div>
+<div class="ttc" id="structspi__t_html_a0603e41c0e6c97d1701a13ca8d31d160"><div class="ttname"><a href="structspi__t.html#a0603e41c0e6c97d1701a13ca8d31d160">spi_t::disable</a></div><div class="ttdeci">void(* disable)()</div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00175">spi.h:175</a></div></div>
+<div class="ttc" id="structspi__t_html"><div class="ttname"><a href="structspi__t.html">spi_t</a></div><div class="ttdef"><b>Definition:</b> <a href="spi_8h_source.html#l00169">spi.h:169</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 19 2015 12:06:30 for Cavrn Sedimentary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 17:02:52 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>

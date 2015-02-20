@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.9.1"/>
-<title>Cavrn Sedimentary: Uart</title>
+<title>Cavrn AVR8 Library: Uart</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,11 +22,12 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="cavrn_banner2_124x55.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="cavrn_banner_124x46.png"/></td>
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Cavrn Sedimentary
-   &#160;<span id="projectnumber">0.1</span>
+   <div id="projectname">Cavrn AVR8 Library
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
+   <div id="projectbrief">Sedimentary Olm</div>
   </td>
  </tr>
  </tbody>
@@ -43,6 +44,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="modules.html"><span>Modules</span></a></li>
       <li><a href="annotated.html"><span>Data&#160;Structures</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
+      <li><a href="examples.html"><span>Examples</span></a></li>
       <li>
         <div id="MSearchBox" class="MSearchBoxInactive">
         <span class="left">
@@ -89,36 +91,36 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga5d2c55d4e09f33caee089aa7e20d920d"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga5d2c55d4e09f33caee089aa7e20d920d">uart_t::txByte</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td></tr>
-<tr class="memdesc:ga5d2c55d4e09f33caee089aa7e20d920d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a byte of information (unsigned 8 bit integer) via UART.  <a href="#ga5d2c55d4e09f33caee089aa7e20d920d">More...</a><br /></td></tr>
-<tr class="separator:ga5d2c55d4e09f33caee089aa7e20d920d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaea7155e121c0f57aecf5e1d4c42ef88e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gaea7155e121c0f57aecf5e1d4c42ef88e">uart_t::rxByte</a> )()</td></tr>
-<tr class="memdesc:gaea7155e121c0f57aecf5e1d4c42ef88e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieves a byte of information (unsigned 8bit integer) via UART.  <a href="#gaea7155e121c0f57aecf5e1d4c42ef88e">More...</a><br /></td></tr>
-<tr class="separator:gaea7155e121c0f57aecf5e1d4c42ef88e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga246760dc816b97972ece7093f9d7f83e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga246760dc816b97972ece7093f9d7f83e">uart_t::txString</a> )(const char *const)</td></tr>
-<tr class="memdesc:ga246760dc816b97972ece7093f9d7f83e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit large amounts of signed 8bit integers, useful for logging to UART.  <a href="#ga246760dc816b97972ece7093f9d7f83e">More...</a><br /></td></tr>
-<tr class="separator:ga246760dc816b97972ece7093f9d7f83e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad010210dd7bd23507a4db4591cf475d9"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gad010210dd7bd23507a4db4591cf475d9">uart_t::rxString</a> )(char *const, const uint8_t)</td></tr>
-<tr class="memdesc:gad010210dd7bd23507a4db4591cf475d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">rxString(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART  <a href="#gad010210dd7bd23507a4db4591cf475d9">More...</a><br /></td></tr>
-<tr class="separator:gad010210dd7bd23507a4db4591cf475d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4520d920236601c1873a3c4f8d614ed2"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga4520d920236601c1873a3c4f8d614ed2">uart_t::setInterrupts</a> )(const bool)</td></tr>
-<tr class="memdesc:ga4520d920236601c1873a3c4f8d614ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Enable or diable the all the <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> interrupts simultaneously.  <a href="#ga4520d920236601c1873a3c4f8d614ed2">More...</a><br /></td></tr>
-<tr class="separator:ga4520d920236601c1873a3c4f8d614ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6a53b7041affe1b1097cd7e68e3928ce"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga6a53b7041affe1b1097cd7e68e3928ce">uart_t::setTxInterrupt</a> )(const bool)</td></tr>
-<tr class="memdesc:ga6a53b7041affe1b1097cd7e68e3928ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART data register empty interrupts and global interrupts if need be.  <a href="#ga6a53b7041affe1b1097cd7e68e3928ce">More...</a><br /></td></tr>
-<tr class="separator:ga6a53b7041affe1b1097cd7e68e3928ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaafb7d2e25cfd8e0f37f2d091494b862e"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gaafb7d2e25cfd8e0f37f2d091494b862e">uart_t::setRxInterrupt</a> )(const bool)</td></tr>
-<tr class="memdesc:gaafb7d2e25cfd8e0f37f2d091494b862e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART byte recieved interrupts and global interrupts if need be.  <a href="#gaafb7d2e25cfd8e0f37f2d091494b862e">More...</a><br /></td></tr>
-<tr class="separator:gaafb7d2e25cfd8e0f37f2d091494b862e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga31054311fdb58217db7a09b7f54f1dcd"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga31054311fdb58217db7a09b7f54f1dcd">uart_t::setUdreInterrupt</a> )(const bool)</td></tr>
-<tr class="memdesc:ga31054311fdb58217db7a09b7f54f1dcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or diable the <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> Data Register Empty flag.  <a href="#ga31054311fdb58217db7a09b7f54f1dcd">More...</a><br /></td></tr>
-<tr class="separator:ga31054311fdb58217db7a09b7f54f1dcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga703dbbfb67b5fe06fa66b74b39d431cb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga703dbbfb67b5fe06fa66b74b39d431cb">uart_t::transfer</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td></tr>
-<tr class="memdesc:ga703dbbfb67b5fe06fa66b74b39d431cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit a byte and wait for a response. Unessecary when interrupts are enabled.  <a href="#ga703dbbfb67b5fe06fa66b74b39d431cb">More...</a><br /></td></tr>
-<tr class="separator:ga703dbbfb67b5fe06fa66b74b39d431cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gacefddf2da51f3137d7fc9c6eb73d1f31"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gacefddf2da51f3137d7fc9c6eb73d1f31">uart_t::multiTransfer</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const, <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const, const uint8_t *const )</td></tr>
-<tr class="memdesc:gacefddf2da51f3137d7fc9c6eb73d1f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit large amounts of data by repeadtedly calling Uart.transfer(const byte) and wait for a response. Unessecary when interrupts are enabled.  <a href="#gacefddf2da51f3137d7fc9c6eb73d1f31">More...</a><br /></td></tr>
-<tr class="separator:gacefddf2da51f3137d7fc9c6eb73d1f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a">uart_t::txByte</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td></tr>
+<tr class="memdesc:ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmits a byte of information (unsigned 8 bit integer) via UART.  <a href="#ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a">More...</a><br /></td></tr>
+<tr class="separator:ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaf8d0b44e4fd58994493dac69daf5d03d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gaf8d0b44e4fd58994493dac69daf5d03d">uart_t::rxByte</a> )()</td></tr>
+<tr class="memdesc:gaf8d0b44e4fd58994493dac69daf5d03d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Recieves a byte of information (unsigned 8bit integer) via UART.  <a href="#gaf8d0b44e4fd58994493dac69daf5d03d">More...</a><br /></td></tr>
+<tr class="separator:gaf8d0b44e4fd58994493dac69daf5d03d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga5eec5f5817c58175d879a7b026ede8e1"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga5eec5f5817c58175d879a7b026ede8e1">uart_t::txString</a> )(const char *const)</td></tr>
+<tr class="memdesc:ga5eec5f5817c58175d879a7b026ede8e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit large amounts of signed 8bit integers, useful for logging to UART.  <a href="#ga5eec5f5817c58175d879a7b026ede8e1">More...</a><br /></td></tr>
+<tr class="separator:ga5eec5f5817c58175d879a7b026ede8e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga9191414ea5c7a61899252f5018dfe65d"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga9191414ea5c7a61899252f5018dfe65d">uart_t::rxString</a> )(char *const, const uint8_t)</td></tr>
+<tr class="memdesc:ga9191414ea5c7a61899252f5018dfe65d"><td class="mdescLeft">&#160;</td><td class="mdescRight">(<em>const rxString)(char</em> const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART  <a href="#ga9191414ea5c7a61899252f5018dfe65d">More...</a><br /></td></tr>
+<tr class="separator:ga9191414ea5c7a61899252f5018dfe65d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab54afb77d7b4da812f60da4e1e391278"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gab54afb77d7b4da812f60da4e1e391278">uart_t::setInterrupts</a> )(const bool)</td></tr>
+<tr class="memdesc:gab54afb77d7b4da812f60da4e1e391278"><td class="mdescLeft">&#160;</td><td class="mdescRight">: Enable or diable the all the <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> interrupts simultaneously.  <a href="#gab54afb77d7b4da812f60da4e1e391278">More...</a><br /></td></tr>
+<tr class="separator:gab54afb77d7b4da812f60da4e1e391278"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaecf432ca2e614ccfa726ecffd68440ba"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#gaecf432ca2e614ccfa726ecffd68440ba">uart_t::setTxInterrupt</a> )(const bool)</td></tr>
+<tr class="memdesc:gaecf432ca2e614ccfa726ecffd68440ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART data register empty interrupts and global interrupts if need be.  <a href="#gaecf432ca2e614ccfa726ecffd68440ba">More...</a><br /></td></tr>
+<tr class="separator:gaecf432ca2e614ccfa726ecffd68440ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0001899e50bf915ba2de75bc6e7a88e3"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga0001899e50bf915ba2de75bc6e7a88e3">uart_t::setRxInterrupt</a> )(const bool)</td></tr>
+<tr class="memdesc:ga0001899e50bf915ba2de75bc6e7a88e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable UART byte recieved interrupts and global interrupts if need be.  <a href="#ga0001899e50bf915ba2de75bc6e7a88e3">More...</a><br /></td></tr>
+<tr class="separator:ga0001899e50bf915ba2de75bc6e7a88e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga97447420f2786455992b7c075cee8d69"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga97447420f2786455992b7c075cee8d69">uart_t::setUdreInterrupt</a> )(const bool)</td></tr>
+<tr class="memdesc:ga97447420f2786455992b7c075cee8d69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable or diable the <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> Data Register Empty flag.  <a href="#ga97447420f2786455992b7c075cee8d69">More...</a><br /></td></tr>
+<tr class="separator:ga97447420f2786455992b7c075cee8d69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f7c0413a5bfead863450d770ed37b0b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga7f7c0413a5bfead863450d770ed37b0b">uart_t::transfer</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td></tr>
+<tr class="memdesc:ga7f7c0413a5bfead863450d770ed37b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit a byte and wait for a response. Unessecary when interrupts are enabled.  <a href="#ga7f7c0413a5bfead863450d770ed37b0b">More...</a><br /></td></tr>
+<tr class="separator:ga7f7c0413a5bfead863450d770ed37b0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0cb9c94af8a8728d36dcaa840cd57674"><td class="memItemLeft" align="right" valign="top">void(*const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga0cb9c94af8a8728d36dcaa840cd57674">uart_t::multiTransfer</a> )(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const, <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const, const uint8_t *const )</td></tr>
+<tr class="memdesc:ga0cb9c94af8a8728d36dcaa840cd57674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit large amounts of data by repeadtedly calling Uart.transfer(const byte) and wait for a response. Unessecary when interrupts are enabled.  <a href="#ga0cb9c94af8a8728d36dcaa840cd57674">More...</a><br /></td></tr>
+<tr class="separator:ga0cb9c94af8a8728d36dcaa840cd57674"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga715d9d9174c62b5682150875555dac96"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__Uart.html#ga715d9d9174c62b5682150875555dac96">uart_t::printableCharsOnly</a></td></tr>
 <tr class="memdesc:ga715d9d9174c62b5682150875555dac96"><td class="mdescLeft">&#160;</td><td class="mdescRight">When set UART will only transmit and recieve characters the can be printed.  <a href="#ga715d9d9174c62b5682150875555dac96">More...</a><br /></td></tr>
 <tr class="separator:ga715d9d9174c62b5682150875555dac96"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,12 +129,12 @@ Variables</h2></td></tr>
 <p>The access point for <a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> capabilities. </p>
 <p><a class="el" href="structUart.html" title="The way to control any Uart functions is through this struct. ">Uart</a> is a simple to use structure for serial communication </p>
 <h2 class="groupheader">Variable Documentation</h2>
-<a class="anchor" id="gacefddf2da51f3137d7fc9c6eb73d1f31"></a>
+<a class="anchor" id="ga0cb9c94af8a8728d36dcaa840cd57674"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::multiTransfer</td>
+          <td class="memname">void(*) const uart_t::multiTransfer(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *const, <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> *, const uint8_t *const)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -146,6 +148,8 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00386">386</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
 
 </div>
 </div>
@@ -161,14 +165,16 @@ Variables</h2></td></tr>
 
 <p>When set UART will only transmit and recieve characters the can be printed. </p>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00392">392</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="gaea7155e121c0f57aecf5e1d4c42ef88e"></a>
+<a class="anchor" id="gaf8d0b44e4fd58994493dac69daf5d03d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> uart_t::rxByte</td>
+          <td class="memname"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*) const uart_t::rxByte()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -176,29 +182,33 @@ Variables</h2></td></tr>
 <p>Recieves a byte of information (unsigned 8bit integer) via UART. </p>
 <dl class="section return"><dt>Returns</dt><dd>byte </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00311">311</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="gad010210dd7bd23507a4db4591cf475d9"></a>
+<a class="anchor" id="ga9191414ea5c7a61899252f5018dfe65d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* uart_t::rxString) (char *const, const uint8_t)</td>
+          <td class="memname">void(*const uart_t::rxString) (char *const, const uint8_t)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>rxString(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART </p>
+<p>(<em>const rxString)(char</em> const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART </p>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00329">329</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
 
 </div>
 </div>
-<a class="anchor" id="ga4520d920236601c1873a3c4f8d614ed2"></a>
+<a class="anchor" id="gab54afb77d7b4da812f60da4e1e391278"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::setInterrupts</td>
+          <td class="memname">void(*) const uart_t::setInterrupts(const bool)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -211,14 +221,16 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00337">337</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="gaafb7d2e25cfd8e0f37f2d091494b862e"></a>
+<a class="anchor" id="ga0001899e50bf915ba2de75bc6e7a88e3"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::setRxInterrupt</td>
+          <td class="memname">void(*) const uart_t::setRxInterrupt(const bool)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -232,14 +244,16 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00355">355</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ga6a53b7041affe1b1097cd7e68e3928ce"></a>
+<a class="anchor" id="gaecf432ca2e614ccfa726ecffd68440ba"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::setTxInterrupt</td>
+          <td class="memname">void(*) const uart_t::setTxInterrupt(const bool)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -253,14 +267,16 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00346">346</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ga31054311fdb58217db7a09b7f54f1dcd"></a>
+<a class="anchor" id="ga97447420f2786455992b7c075cee8d69"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::setUdreInterrupt</td>
+          <td class="memname">void(*) const uart_t::setUdreInterrupt(const bool)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -273,14 +289,16 @@ Variables</h2></td></tr>
   </dd>
 </dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00363">363</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ga703dbbfb67b5fe06fa66b74b39d431cb"></a>
+<a class="anchor" id="ga7f7c0413a5bfead863450d770ed37b0b"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a> uart_t::transfer</td>
+          <td class="memname"><a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>(*) const uart_t::transfer(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -295,14 +313,16 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>byte </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00375">375</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ga5d2c55d4e09f33caee089aa7e20d920d"></a>
+<a class="anchor" id="ga84cf4bfcfdf4a1e4f9f4f587ed08fa2a"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::txByte</td>
+          <td class="memname">void(*) const uart_t::txByte(const <a class="el" href="cavrn_8h.html#a82b52bf2b45e214a8f2100ebfdf1aee4">byte</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,14 +336,16 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00304">304</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
-<a class="anchor" id="ga246760dc816b97972ece7093f9d7f83e"></a>
+<a class="anchor" id="ga5eec5f5817c58175d879a7b026ede8e1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void uart_t::txString</td>
+          <td class="memname">void(*) const uart_t::txString(const char *const)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -337,12 +359,14 @@ Variables</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
+<p>Definition at line <a class="el" href="uart_8h_source.html#l00320">320</a> of file <a class="el" href="uart_8h_source.html">uart.h</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Feb 19 2015 12:06:30 for Cavrn Sedimentary by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Thu Feb 19 2015 17:02:52 for Cavrn AVR8 Library by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.9.1
 </small></address>
