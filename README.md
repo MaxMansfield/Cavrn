@@ -1,4 +1,4 @@
-![Cavrn](http://i.imgur.com/jhAaUmd.png) 
+![Cavrn](http://i.imgur.com/EJCUbXa.png) 
 # An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
 ###### Major Version: 0 (Sedimentary)
 ###### Minor Version: 1.0  (Olm)
