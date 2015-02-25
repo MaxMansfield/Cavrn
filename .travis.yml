@@ -5,12 +5,10 @@ before_install:
 install:
 - sudo apt-get install gcc-avr avr-libc
 
-compiler:
-- avr-gcc
 
 branches:
   only:
   - master
   - test
 
-script: cd $TRAVIS_BUILD_DIR && ./travis/cibuild.sh
+script: cd $TRAVIS_BUILD_DIR/travis  && ./cibuild.sh
