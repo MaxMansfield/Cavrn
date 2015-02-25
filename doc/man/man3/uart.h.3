@@ -1,8 +1,8 @@
-.TH "uart.h" 3 "Thu Feb 19 2015" "Version 0.1.0" "Cavrn AVR8 Library" \" -*- nroff -*-
+.TH "Uart/uart.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-uart.h \- \fBUart\fP uses a variety of internal functions and presents them in the form of a \fBuart_t\fP object called \fBUart\fP\&. To access a function and its operations, simply address the function pointer\&. Check the examples for more\&.  
+Uart/uart.h \- Enables UART functionality via an easy to use structure\&.  
 
 .SH SYNOPSIS
 .br
@@ -30,6 +30,48 @@ uart.h \- \fBUart\fP uses a variety of internal functions and presents them in t
 .br
 .RI "\fISet UCSRB with the TX and RX enable flags\&. \fP"
 .in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBuart_tx\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "\fBbyte\fP \fBuart_rx\fP ()"
+.br
+.ti -1c
+.RI "void \fBuart_txstr\fP (const char *const string)"
+.br
+.ti -1c
+.RI "void \fBuart_rxstr\fP (char *const string, const uint8_t len)"
+.br
+.ti -1c
+.RI "\fBbyte\fP \fBuart_transfer\fP (const \fBbyte\fP data)"
+.br
+.ti -1c
+.RI "void \fBuart_multi_transfer\fP (const \fBbyte\fP *const data, \fBbyte\fP *datain, const uint8_t *const len)"
+.br
+.ti -1c
+.RI "void \fBuart_set_tx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_rx_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_udre_interrupt\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_set_interrupts\fP (const bool isInterrupt)"
+.br
+.ti -1c
+.RI "void \fBuart_txchr\fP (const char chr)"
+.br
+.RI "\fITransmits a character of information (signed 8bit integer) via UART\&. \fP"
+.ti -1c
+.RI "char \fBuart_rxchr\fP ()"
+.br
+.RI "\fIRecieves a character of information (signed 8 bit integer) via UART\&. \fP"
+.in -1c
 .SS "Variables"
 
 .in +1c
@@ -39,13 +81,13 @@ uart.h \- \fBUart\fP uses a variety of internal functions and presents them in t
 .in -1c
 .SH "Detailed Description"
 .PP 
-\fBUart\fP uses a variety of internal functions and presents them in the form of a \fBuart_t\fP object called \fBUart\fP\&. To access a function and its operations, simply address the function pointer\&. Check the examples for more\&. 
+Enables UART functionality via an easy to use structure\&. 
 
 
 .PP
 \fBVersion:\fP
 .RS 4
-0\&.1\&.0 (Sedimentary Olm) 
+0\&.1\&.0 
 .RE
 .PP
 \fBAuthor:\fP
@@ -60,24 +102,27 @@ GNU Public License v2
 .PP
 \fBDate:\fP
 .RS 4
-February 19, 2015 
+February 19, 2015 \fBUart\fP example
 .RE
 .PP
-
 .PP
-Definition in file \fBuart\&.h\fP\&.
+.nf
+Uart\&.init(true); // Set globally\&. Also can use ON,OFF
+Uart\&.printableCharsOnly = true;
+while(1) {
+ Uart\&.txString("Hello World\n\r");
+}
+.fi
+.PP
+ 
 .SH "Macro Definition Documentation"
 .PP 
 .SS "#define RXLEN   254"
 
-.PP
-Definition at line 48 of file uart\&.h\&.
 .SS "#define UART_START()   UCSRB |= (1<<TXEN) | (1<<RXEN)"
 
 .PP
 Set UCSRB with the TX and RX enable flags\&. 
-.PP
-Definition at line 206 of file uart\&.h\&.
 .SH "Variable Documentation"
 .PP 
 .SS "\fBuart_t\fP \fBUart\fP\fC [static]\fP"
@@ -104,8 +149,6 @@ Definition at line 206 of file uart\&.h\&.
   \&.printableCharsOnly = false
 }
 .fi
-.PP
-Definition at line 405 of file uart\&.h\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn AVR8 Library from the source code\&.
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

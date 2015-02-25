@@ -1,8 +1,8 @@
-.TH "spi.h" 3 "Thu Feb 19 2015" "Version 0.1.0" "Cavrn AVR8 Library" \" -*- nroff -*-
+.TH "Spi/spi.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-spi.h \- 
+Spi/spi.h \- 
 .SH SYNOPSIS
 .br
 .PP
@@ -116,88 +116,48 @@ spi.h \-
 .PP 
 .SS "#define CLR_SCK_REG()   SPCR &= ~(_BV(SPR1) | _BV(SPR0))"
 
-.PP
-Definition at line 30 of file spi\&.h\&.
 .SS "#define CLR_SPI2X()"
 
-.PP
-Definition at line 68 of file spi\&.h\&.
 .SS "#define F_OSC128   (_BV(SPR1) | _BV(SPR0))"
 
-.PP
-Definition at line 49 of file spi\&.h\&.
 .SS "#define F_OSC16   (_BV(SPR0))"
 
-.PP
-Definition at line 47 of file spi\&.h\&.
 .SS "#define F_OSC4   0x00"
 
-.PP
-Definition at line 46 of file spi\&.h\&.
 .SS "#define F_OSC64   (_BV(SPR1))"
 
-.PP
-Definition at line 48 of file spi\&.h\&.
 .SS "#define INIT_SPI_MODE0()   SPCR &= \fBSPI_MODE0\fP"
 
-.PP
-Definition at line 71 of file spi\&.h\&.
 .SS "#define INIT_SPI_MODE1()   SPCR |= \fBSPI_MODE1\fP"
 
-.PP
-Definition at line 72 of file spi\&.h\&.
 .SS "#define INIT_SPI_MODE2()   SPCR |= \fBSPI_MODE2\fP"
 
-.PP
-Definition at line 73 of file spi\&.h\&.
 .SS "#define INIT_SPI_MODE3()   SPCR |= \fBSPI_MODE3\fP"
 
-.PP
-Definition at line 74 of file spi\&.h\&.
 .SS "#define LSB_ORDER   0x00"
 
-.PP
-Definition at line 80 of file spi\&.h\&.
 .SS "#define MASTER   0x01"
 
-.PP
-Definition at line 76 of file spi\&.h\&.
 .SS "#define MSB_ORDER   0x01"
 
-.PP
-Definition at line 79 of file spi\&.h\&.
 .SS "#define SET_SPI2X()"
 
-.PP
-Definition at line 67 of file spi\&.h\&.
 .SS "#define SLAVE   0x00"
 
-.PP
-Definition at line 77 of file spi\&.h\&.
 .SS "#define SPI_MODE0   0xf3"
 
-.PP
-Definition at line 36 of file spi\&.h\&.
 .SS "#define SPI_MODE1   0x04"
 
-.PP
-Definition at line 37 of file spi\&.h\&.
 .SS "#define SPI_MODE2   0x08"
 
-.PP
-Definition at line 38 of file spi\&.h\&.
 .SS "#define SPI_MODE3   0x0C"
 
-.PP
-Definition at line 39 of file spi\&.h\&.
 .SH "Function Documentation"
 .PP 
 .SS "void spi_disable ()"
 
 .PP
 : \fBspi_disable()\fP Opposite of init\&. Disable SPI\&. 
-.PP
-Definition at line 121 of file spi\&.c\&.
 .SS "void spi_init (const bool isMaster, const \fBbyte\fP mode, const uint8_t clk)"
 
 .PP
@@ -209,8 +169,6 @@ Definition at line 121 of file spi\&.c\&.
 .RE
 .PP
 
-.PP
-Definition at line 27 of file spi\&.c\&.
 .SS "void spi_multi_transfer (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t len)"
 
 .PP
@@ -222,8 +180,6 @@ Definition at line 27 of file spi\&.c\&.
 .RE
 .PP
 
-.PP
-Definition at line 148 of file spi\&.c\&.
 .SS "void spi_set_data_order (const bool dord)"
 
 .PP
@@ -235,8 +191,6 @@ Definition at line 148 of file spi\&.c\&.
 .RE
 .PP
 
-.PP
-Definition at line 127 of file spi\&.c\&.
 .SS "void spi_set_interrupts (const bool isInterrupt)"
 
 .PP
@@ -248,8 +202,6 @@ Definition at line 127 of file spi\&.c\&.
 .RE
 .PP
 
-.PP
-Definition at line 137 of file spi\&.c\&.
 .SS "\fBbyte\fP spi_transfer (const \fBbyte\fP data)"
 
 .PP
@@ -261,8 +213,6 @@ Definition at line 137 of file spi\&.c\&.
 .RE
 .PP
 
-.PP
-Definition at line 114 of file spi\&.c\&.
 .SH "Variable Documentation"
 .PP 
 .SS "struct \fBspi_t\fP Spi\fC [static]\fP"
@@ -282,8 +232,6 @@ Definition at line 114 of file spi\&.c\&.
 
 }
 .fi
-.PP
-Definition at line 185 of file spi\&.h\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn AVR8 Library from the source code\&.
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.

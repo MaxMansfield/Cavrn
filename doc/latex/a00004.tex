@@ -1,0 +1,16 @@
+\hypertarget{a00004}{\section{Uart/\-Printable\-Tx}
+}
+Quickly use Uart.\-tx\-String(const char$\ast$) to only send and recieve printable strings 
+\begin{DoxyCode}
+\hyperlink{a00009}{Uart}.init(ASYNC\_MODE); 
+\hyperlink{a00009}{Uart}.printableCharsOnly = \textcolor{keyword}{true};
+
+\textcolor{keywordflow}{while}(1) 
+ \hyperlink{a00009}{Uart}.txString(\textcolor{stringliteral}{"Hello World\(\backslash\)n\(\backslash\)r"});
+\end{DoxyCode}
+
+
+
+\begin{DoxyCodeInclude}
+\end{DoxyCodeInclude}
+ 

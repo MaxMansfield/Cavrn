@@ -1,0 +1,211 @@
+\hypertarget{a00011}{\section{cavrn.\-h File Reference}
+\label{a00011}\index{cavrn.\-h@{cavrn.\-h}}
+}
+
+
+The main file which defines import macros and contains the \hyperlink{a00005}{Cavrn} structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \hyperlink{a00005}{Cavrn} is provided. Use the \hyperlink{a00005}{Cavrn} struct instead of calling its methods directly. Check the examples page for more detail.  
+
+
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{a00006}{cavrn\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00011_ad76d1750a6cdeebd506bfcd6752554d2}{O\-N}~0x01
+\begin{DoxyCompactList}\small\item\em O\-N as 1 or true. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_a29e413f6725b2ba32d165ffaa35b01e5}{O\-F\-F}~0x00
+\begin{DoxyCompactList}\small\item\em O\-F\-F as 0 or false. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_a5bb885982ff66a2e0a0a45a8ee9c35e2}{H\-I\-G\-H}~0x\-F\-F
+\begin{DoxyCompactList}\small\item\em H\-I\-G\-H as 255 or true. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_ab811d8c6ff3a505312d3276590444289}{L\-O\-W}~0x00
+\begin{DoxyCompactList}\small\item\em L\-O\-W as 0 or false. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_ac2bbd6d630a06a980d9a92ddb9a49928}{I\-N}~0x00
+\begin{DoxyCompactList}\small\item\em I\-N as 0 or false. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_aec78e7a9e90a406a56f859ee456e8eae}{O\-U\-T}~0x01
+\begin{DoxyCompactList}\small\item\em O\-U\-T as 1 or true. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_aaf09d20270f512294e9fbb94369c11f0}{interrupts\-On}()~sei()
+\begin{DoxyCompactList}\small\item\em A more readable function for setting global interupts. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_aa4619e4d163866f6c3d81c389ae7264d}{interrupts\-Off}()~cli()
+\begin{DoxyCompactList}\small\item\em A more readable function for clearing global interupts. \end{DoxyCompactList}\item 
+\#define \hyperlink{a00011_a889820984b313e4f379d998ce05892ec}{isprint}(c)~(c$>$=0x20 \&\& c$<$=0x7\-E)
+\begin{DoxyCompactList}\small\item\em Decides if a character is a printable or not. Very useful for transmitting strings. Taken from the C std library but I didn't want to include the entire file just for this function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\-\_\-t \hyperlink{a00011_a69584ba90b098f23df3702374e594862}{word}
+\begin{DoxyCompactList}\small\item\em Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation. \end{DoxyCompactList}\item 
+typedef uint8\-\_\-t \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte}
+\begin{DoxyCompactList}\small\item\em Use a byte when you are representing raw 8 bit data like an S\-P\-I transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc... \end{DoxyCompactList}\item 
+typedef uint8\-\_\-t \hyperlink{a00011_af8fb0f45ee0195c7422a49e6a8d72369}{port}
+\begin{DoxyCompactList}\small\item\em Use a port to represent an 8 bit data input location, specifically a port on your A\-V\-R. \end{DoxyCompactList}\item 
+typedef uint8\-\_\-t \hyperlink{a00011_aed45ca508d997dd992682abff8790bde}{pin}
+\begin{DoxyCompactList}\small\item\em Use a pin to represent an 8 bit data output location, specifically a pin on your A\-V\-R. \end{DoxyCompactList}\item 
+typedef uint8\-\_\-t \hyperlink{a00011_ae36b1ebcd4ca31bf51d6c3d39490e490}{ddr}
+\begin{DoxyCompactList}\small\item\em Use to represent a data direction register on your A\-V\-R. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{a00006}{cavrn\-\_\-t} \hyperlink{a00011_a1790b0cf365be58885af424fb01ecd50}{Cavrn}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The main file which defines import macros and contains the \hyperlink{a00005}{Cavrn} structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \hyperlink{a00005}{Cavrn} is provided. Use the \hyperlink{a00005}{Cavrn} struct instead of calling its methods directly. Check the examples page for more detail. \begin{DoxyVersion}{Version}
+0.\-1.\-0 (Sedimentary Olm) 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Max Mansfield 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License v2 
+\end{DoxyCopyright}
+\begin{DoxyDate}{Date}
+February 19, 2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00011_a5bb885982ff66a2e0a0a45a8ee9c35e2}{\index{cavrn.\-h@{cavrn.\-h}!H\-I\-G\-H@{H\-I\-G\-H}}
+\index{H\-I\-G\-H@{H\-I\-G\-H}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{H\-I\-G\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-I\-G\-H~0x\-F\-F}}\label{a00011_a5bb885982ff66a2e0a0a45a8ee9c35e2}
+
+
+H\-I\-G\-H as 255 or true. 
+
+\hypertarget{a00011_ac2bbd6d630a06a980d9a92ddb9a49928}{\index{cavrn.\-h@{cavrn.\-h}!I\-N@{I\-N}}
+\index{I\-N@{I\-N}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N~0x00}}\label{a00011_ac2bbd6d630a06a980d9a92ddb9a49928}
+
+
+I\-N as 0 or false. 
+
+\hypertarget{a00011_aa4619e4d163866f6c3d81c389ae7264d}{\index{cavrn.\-h@{cavrn.\-h}!interrupts\-Off@{interrupts\-Off}}
+\index{interrupts\-Off@{interrupts\-Off}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{interrupts\-Off}]{\setlength{\rightskip}{0pt plus 5cm}\#define interrupts\-Off(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~cli()}}\label{a00011_aa4619e4d163866f6c3d81c389ae7264d}
+
+
+A more readable function for clearing global interupts. 
+
+\hypertarget{a00011_aaf09d20270f512294e9fbb94369c11f0}{\index{cavrn.\-h@{cavrn.\-h}!interrupts\-On@{interrupts\-On}}
+\index{interrupts\-On@{interrupts\-On}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{interrupts\-On}]{\setlength{\rightskip}{0pt plus 5cm}\#define interrupts\-On(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~sei()}}\label{a00011_aaf09d20270f512294e9fbb94369c11f0}
+
+
+A more readable function for setting global interupts. 
+
+\hypertarget{a00011_a889820984b313e4f379d998ce05892ec}{\index{cavrn.\-h@{cavrn.\-h}!isprint@{isprint}}
+\index{isprint@{isprint}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{isprint}]{\setlength{\rightskip}{0pt plus 5cm}\#define isprint(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~(c$>$=0x20 \&\& c$<$=0x7\-E)}}\label{a00011_a889820984b313e4f379d998ce05892ec}
+
+
+Decides if a character is a printable or not. Very useful for transmitting strings. Taken from the C std library but I didn't want to include the entire file just for this function. 
+
+\hypertarget{a00011_ab811d8c6ff3a505312d3276590444289}{\index{cavrn.\-h@{cavrn.\-h}!L\-O\-W@{L\-O\-W}}
+\index{L\-O\-W@{L\-O\-W}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-W~0x00}}\label{a00011_ab811d8c6ff3a505312d3276590444289}
+
+
+L\-O\-W as 0 or false. 
+
+\hypertarget{a00011_a29e413f6725b2ba32d165ffaa35b01e5}{\index{cavrn.\-h@{cavrn.\-h}!O\-F\-F@{O\-F\-F}}
+\index{O\-F\-F@{O\-F\-F}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-F\-F~0x00}}\label{a00011_a29e413f6725b2ba32d165ffaa35b01e5}
+
+
+O\-F\-F as 0 or false. 
+
+\begin{Desc}
+\item[Examples\-: ]\par
+\hyperlink{a00001}{Cavrn/set\-Interrupts}.\end{Desc}
+\hypertarget{a00011_ad76d1750a6cdeebd506bfcd6752554d2}{\index{cavrn.\-h@{cavrn.\-h}!O\-N@{O\-N}}
+\index{O\-N@{O\-N}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-N~0x01}}\label{a00011_ad76d1750a6cdeebd506bfcd6752554d2}
+
+
+O\-N as 1 or true. 
+
+\hypertarget{a00011_aec78e7a9e90a406a56f859ee456e8eae}{\index{cavrn.\-h@{cavrn.\-h}!O\-U\-T@{O\-U\-T}}
+\index{O\-U\-T@{O\-U\-T}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-U\-T~0x01}}\label{a00011_aec78e7a9e90a406a56f859ee456e8eae}
+
+
+O\-U\-T as 1 or true. 
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{\index{cavrn.\-h@{cavrn.\-h}!byte@{byte}}
+\index{byte@{byte}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte}}}\label{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}
+
+
+Use a byte when you are representing raw 8 bit data like an S\-P\-I transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc... 
+
+\hypertarget{a00011_ae36b1ebcd4ca31bf51d6c3d39490e490}{\index{cavrn.\-h@{cavrn.\-h}!ddr@{ddr}}
+\index{ddr@{ddr}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{ddr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ddr}}}\label{a00011_ae36b1ebcd4ca31bf51d6c3d39490e490}
+
+
+Use to represent a data direction register on your A\-V\-R. 
+
+\hypertarget{a00011_aed45ca508d997dd992682abff8790bde}{\index{cavrn.\-h@{cavrn.\-h}!pin@{pin}}
+\index{pin@{pin}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{pin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf pin}}}\label{a00011_aed45ca508d997dd992682abff8790bde}
+
+
+Use a pin to represent an 8 bit data output location, specifically a pin on your A\-V\-R. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{a00011_af8fb0f45ee0195c7422a49e6a8d72369}{port} 
+\end{DoxySeeAlso}
+\hypertarget{a00011_af8fb0f45ee0195c7422a49e6a8d72369}{\index{cavrn.\-h@{cavrn.\-h}!port@{port}}
+\index{port@{port}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{port}]{\setlength{\rightskip}{0pt plus 5cm}{\bf port}}}\label{a00011_af8fb0f45ee0195c7422a49e6a8d72369}
+
+
+Use a port to represent an 8 bit data input location, specifically a port on your A\-V\-R. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{a00011_aed45ca508d997dd992682abff8790bde}{pin} 
+\end{DoxySeeAlso}
+\hypertarget{a00011_a69584ba90b098f23df3702374e594862}{\index{cavrn.\-h@{cavrn.\-h}!word@{word}}
+\index{word@{word}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{word}]{\setlength{\rightskip}{0pt plus 5cm}{\bf word}}}\label{a00011_a69584ba90b098f23df3702374e594862}
+
+
+Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{a00011_a1790b0cf365be58885af424fb01ecd50}{\index{cavrn.\-h@{cavrn.\-h}!Cavrn@{Cavrn}}
+\index{Cavrn@{Cavrn}!cavrn.h@{cavrn.\-h}}
+\subsubsection[{Cavrn}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cavrn\-\_\-t} {\bf Cavrn}\hspace{0.3cm}{\ttfamily [static]}}}\label{a00011_a1790b0cf365be58885af424fb01ecd50}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  .setInterrupts = &cavrn\_set\_global\_interrupts,
+  .interruptsEnabled = \textcolor{keyword}{false}
+\}
+\end{DoxyCode}

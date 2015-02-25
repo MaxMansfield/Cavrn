@@ -1,0 +1,87 @@
+\hypertarget{a00016}{\section{uart.\-h File Reference}
+\label{a00016}\index{uart.\-h@{uart.\-h}}
+}
+
+
+\hyperlink{a00009}{Uart} uses a variety of internal functions and presents them in the form of a \hyperlink{a00010}{uart\-\_\-t} object called \hyperlink{a00009}{Uart}. To access a function and its operations, simply address the function pointer. Check the examples for more.  
+
+
+{\ttfamily \#include \char`\"{}cavrn.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$util/setbaud.\-h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{a00010}{uart\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{a00016_aeff6b6e5cf8852475fab3f5b2f5baff1}{R\-X\-L\-E\-N}~254
+\item 
+\#define \hyperlink{a00016_ab7251398c6f91aa49b6a638f2b0d0614}{U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T}()~U\-C\-S\-R\-B $\vert$= (1$<$$<$T\-X\-E\-N) $\vert$ (1$<$$<$R\-X\-E\-N)
+\begin{DoxyCompactList}\small\item\em Set U\-C\-S\-R\-B with the T\-X and R\-X enable flags. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \hyperlink{a00010}{uart\-\_\-t} \hyperlink{a00016_aedc3c4ab9d8b22838e2796525ae2e707}{Uart}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{a00009}{Uart} uses a variety of internal functions and presents them in the form of a \hyperlink{a00010}{uart\-\_\-t} object called \hyperlink{a00009}{Uart}. To access a function and its operations, simply address the function pointer. Check the examples for more. \begin{DoxyVersion}{Version}
+0.\-1.\-0 (Sedimentary Olm) 
+\end{DoxyVersion}
+\begin{DoxyAuthor}{Author}
+Max Mansfield 
+\end{DoxyAuthor}
+\begin{DoxyCopyright}{Copyright}
+G\-N\-U Public License v2 
+\end{DoxyCopyright}
+\begin{DoxyDate}{Date}
+February 19, 2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{a00016_aeff6b6e5cf8852475fab3f5b2f5baff1}{\index{uart.\-h@{uart.\-h}!R\-X\-L\-E\-N@{R\-X\-L\-E\-N}}
+\index{R\-X\-L\-E\-N@{R\-X\-L\-E\-N}!uart.h@{uart.\-h}}
+\subsubsection[{R\-X\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-X\-L\-E\-N~254}}\label{a00016_aeff6b6e5cf8852475fab3f5b2f5baff1}
+\hypertarget{a00016_ab7251398c6f91aa49b6a638f2b0d0614}{\index{uart.\-h@{uart.\-h}!U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T@{U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T}}
+\index{U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T@{U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T}!uart.h@{uart.\-h}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-S\-T\-A\-R\-T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~U\-C\-S\-R\-B $\vert$= (1$<$$<$T\-X\-E\-N) $\vert$ (1$<$$<$R\-X\-E\-N)}}\label{a00016_ab7251398c6f91aa49b6a638f2b0d0614}
+
+
+Set U\-C\-S\-R\-B with the T\-X and R\-X enable flags. 
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{a00016_aedc3c4ab9d8b22838e2796525ae2e707}{\index{uart.\-h@{uart.\-h}!Uart@{Uart}}
+\index{Uart@{Uart}!uart.h@{uart.\-h}}
+\subsubsection[{Uart}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uart\-\_\-t} {\bf Uart}\hspace{0.3cm}{\ttfamily [static]}}}\label{a00016_aedc3c4ab9d8b22838e2796525ae2e707}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  .init = &uart\_init,
+  
+  .txByte = &uart\_tx,
+  .rxByte = &uart\_rx,
+  
+  .txString = &uart\_txstr,
+  .rxString = &uart\_rxstr,
+
+  .transfer = &uart\_transfer,
+  .multiTransfer = &uart\_multi\_transfer,
+  
+  .setInterrupts = &uart\_set\_interrupts,
+  .setUdreInterrupt = &uart\_set\_udre\_interrupt,
+  .setTxInterrupt = &uart\_set\_tx\_interrupt,
+  .setRxInterrupt = &uart\_set\_rx\_interrupt,
+  
+  .printableCharsOnly = \textcolor{keyword}{false}
+\}
+\end{DoxyCode}

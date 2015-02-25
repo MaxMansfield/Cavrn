@@ -1,0 +1,37 @@
+\hypertarget{a00010}{\section{uart\-\_\-t Struct Reference}
+\label{a00010}\index{uart\-\_\-t@{uart\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$uart.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{a00018_ga2ee9c992930c7a52010c7a6abf0d316c}{tx\-Byte} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte})
+\begin{DoxyCompactList}\small\item\em Transmits a byte of information (unsigned 8 bit integer) via U\-A\-R\-T. \end{DoxyCompactList}\item 
+\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte}($\ast$ \hyperlink{a00018_ga114e9fef74ba99e9a09f89ed6d12da17}{rx\-Byte} )()
+\begin{DoxyCompactList}\small\item\em Recieves a byte of information (unsigned 8bit integer) via U\-A\-R\-T. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gaced0693da5d9c07328e6a325d6d7edee}{tx\-String} )(const char $\ast$const)
+\begin{DoxyCompactList}\small\item\em Transmit large amounts of signed 8bit integers, useful for logging to U\-A\-R\-T. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gafb6340cda56aa27bc772e4ceec334c82}{rx\-String} )(char $\ast$const, const uint8\-\_\-t)
+\begin{DoxyCompactList}\small\item\em ($\ast$ rx\-String)(char$\ast$ const, const uint8\-\_\-t) Recieve large amounts of signed 8bit integers, useful for commands via U\-A\-R\-T \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gac87718fed4c53bd319218fe925e52d14}{set\-Interrupts} )(const bool)
+\begin{DoxyCompactList}\small\item\em \-: Enable or diable the all the \hyperlink{a00009}{Uart} interrupts simultaneously. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_ga2c0c4fa765ead8abb7d84dcf6f39dbc2}{set\-Tx\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable U\-A\-R\-T data register empty interrupts and global interrupts if need be. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gadc49d7eacb5b108a10e3a940bd2db9b7}{set\-Rx\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable U\-A\-R\-T byte recieved interrupts and global interrupts if need be. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gacfecb860e1dfd5b7bd9523fccb7e9f1e}{set\-Udre\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable or diable the \hyperlink{a00009}{Uart} Data Register Empty flag. \end{DoxyCompactList}\item 
+\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte}($\ast$ \hyperlink{a00018_ga2c78990dd8babc3210665befa7ed7e4c}{transfer} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte})
+\begin{DoxyCompactList}\small\item\em Transmit a byte and wait for a response. Unessecary when interrupts are enabled. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_ga10aaaa60575c35598ae7033beafb5828}{multi\-Transfer} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const, \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const, const uint8\-\_\-t $\ast$const )
+\begin{DoxyCompactList}\small\item\em Transmit large amounts of data by repeadtedly calling Uart.\-transfer(const byte) and wait for a response. Unessecary when interrupts are enabled. \end{DoxyCompactList}\item 
+bool \hyperlink{a00018_ga715d9d9174c62b5682150875555dac96}{printable\-Chars\-Only}
+\begin{DoxyCompactList}\small\item\em When set U\-A\-R\-T will only transmit and recieve characters the can be printed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00016}{uart.\-h}\end{DoxyCompactItemize}

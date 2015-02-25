@@ -1,0 +1,42 @@
+\hypertarget{a00017}{\section{Cavrn}
+\label{a00017}\index{Cavrn@{Cavrn}}
+}
+
+
+The static \hyperlink{a00006}{cavrn\-\_\-t} struct to execute functions with.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$const \hyperlink{a00017_ga23b9b26ea99d775a6479518802601749}{cavrn\-\_\-t\-::set\-Interrupts} )(const bool)
+\begin{DoxyCompactList}\small\item\em \-: Enables or disables global interrupts on your A\-V\-R M\-C\-U \end{DoxyCompactList}\item 
+bool \hyperlink{a00017_gae49f03dd85f90f1079068562dd37163d}{cavrn\-\_\-t\-::interrupts\-Enabled}
+\begin{DoxyCompactList}\small\item\em \-: Signifies that interrupts are enabled/disabled. For use by other modules as well as users. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The static \hyperlink{a00006}{cavrn\-\_\-t} struct to execute functions with. 
+
+\subsection{Variable Documentation}
+\hypertarget{a00017_gae49f03dd85f90f1079068562dd37163d}{\index{Cavrn@{Cavrn}!interrupts\-Enabled@{interrupts\-Enabled}}
+\index{interrupts\-Enabled@{interrupts\-Enabled}!Cavrn@{Cavrn}}
+\subsubsection[{interrupts\-Enabled}]{\setlength{\rightskip}{0pt plus 5cm}cavrn\-\_\-t\-::interrupts\-Enabled}}\label{a00017_gae49f03dd85f90f1079068562dd37163d}
+
+
+\-: Signifies that interrupts are enabled/disabled. For use by other modules as well as users. 
+
+\hypertarget{a00017_ga23b9b26ea99d775a6479518802601749}{\index{Cavrn@{Cavrn}!set\-Interrupts@{set\-Interrupts}}
+\index{set\-Interrupts@{set\-Interrupts}!Cavrn@{Cavrn}}
+\subsubsection[{set\-Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$) const cavrn\-\_\-t\-::set\-Interrupts(const bool)}}\label{a00017_ga23b9b26ea99d775a6479518802601749}
+
+
+\-: Enables or disables global interrupts on your A\-V\-R M\-C\-U 
+
+Sets \hyperlink{a00017_gae49f03dd85f90f1079068562dd37163d}{cavrn\-\_\-t\-::interrupts\-Enabled} on/off and then calls the right function to initialize interrupts..
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & const bool is\-Interrupts This is the switch to detemine if interrupts will be used \\
+\hline
+\end{DoxyParams}

@@ -1,0 +1,103 @@
+\hypertarget{a00007}{\section{nrf24\-\_\-t Struct Reference}
+\label{a00007}\index{nrf24\-\_\-t@{nrf24\-\_\-t}}
+}
+
+
+{\ttfamily \#include $<$nrf24.\-h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{a00007_a79c441ca7795b1ac62a54c192d3da5c6}{init} )()
+\item 
+void($\ast$ \hyperlink{a00007_a26bad46d3c1a94c7b197f08a1d4df3bf}{tx\-Addr} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const)
+\item 
+void($\ast$ \hyperlink{a00007_a633b3f1cbb28dc44cf5cbef3a21e1a52}{rx\-Addr} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const)
+\item 
+void($\ast$ \hyperlink{a00007_a735fe10ebbd6ad77d4033e79b881aff6}{config} )(const uint8\-\_\-t, const uint8\-\_\-t)
+\item 
+bool($\ast$ \hyperlink{a00007_a2becf528ece38156c26fcd1ab20fab17}{data\-Ready} )()
+\item 
+bool($\ast$ \hyperlink{a00007_a3241c78a3f15e752b44460d325f25b83}{is\-Sending} )()
+\item 
+uint8\-\_\-t($\ast$ \hyperlink{a00007_af429572a8b030785a0419e4cadfaca08}{get\-Status} )()
+\item 
+bool($\ast$ \hyperlink{a00007_a4b6d281391ba445efcd076d653ce0af4}{rx\-Waiting} )()
+\item 
+void($\ast$ \hyperlink{a00007_a90fd0d2431d43f6afc45de6ea9524eb1}{tx\-Data} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const)
+\item 
+void($\ast$ \hyperlink{a00007_a3048d3b01b01b32cbbfb59745cab6e0a}{rx\-Data} )(\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const)
+\item 
+uint8\-\_\-t($\ast$ \hyperlink{a00007_a60f67c05f162a7f816d5032c3dfc66cb}{paylength} )()
+\item 
+uint8\-\_\-t($\ast$ \hyperlink{a00007_afe102a7f4cbc16b5a6da60b4e8a6d79d}{last\-Tx\-Status} )()
+\item 
+uint8\-\_\-t($\ast$ \hyperlink{a00007_a920b48080eaef041a9b32b3beae428b5}{bad\-Tx\-Count} )()
+\item 
+void($\ast$ \hyperlink{a00007_a300889e71dea1fb9d56c564d805604d7}{power\-Rx} )()
+\item 
+void($\ast$ \hyperlink{a00007_a917c8f18519ee2eb701cb9f5dc06ee5b}{power\-Tx} )()
+\item 
+void($\ast$ \hyperlink{a00007_a0807619a6863f26e35f2f3d8162c0bc5}{power\-Down} )()
+\item 
+uint8\-\_\-t \hyperlink{a00007_a169e5d060ccd36a6387c15bb49daf09f}{payload\-\_\-len}
+\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\hypertarget{a00007_a920b48080eaef041a9b32b3beae428b5}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!bad\-Tx\-Count@{bad\-Tx\-Count}}
+\index{bad\-Tx\-Count@{bad\-Tx\-Count}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{bad\-Tx\-Count}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t($\ast$ nrf24\-\_\-t\-::bad\-Tx\-Count)()}}\label{a00007_a920b48080eaef041a9b32b3beae428b5}
+\hypertarget{a00007_a735fe10ebbd6ad77d4033e79b881aff6}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!config@{config}}
+\index{config@{config}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{config}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::config)(const uint8\-\_\-t, const uint8\-\_\-t)}}\label{a00007_a735fe10ebbd6ad77d4033e79b881aff6}
+\hypertarget{a00007_a2becf528ece38156c26fcd1ab20fab17}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!data\-Ready@{data\-Ready}}
+\index{data\-Ready@{data\-Ready}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{data\-Ready}]{\setlength{\rightskip}{0pt plus 5cm}bool($\ast$ nrf24\-\_\-t\-::data\-Ready)()}}\label{a00007_a2becf528ece38156c26fcd1ab20fab17}
+\hypertarget{a00007_af429572a8b030785a0419e4cadfaca08}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!get\-Status@{get\-Status}}
+\index{get\-Status@{get\-Status}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{get\-Status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t($\ast$ nrf24\-\_\-t\-::get\-Status)()}}\label{a00007_af429572a8b030785a0419e4cadfaca08}
+\hypertarget{a00007_a79c441ca7795b1ac62a54c192d3da5c6}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!init@{init}}
+\index{init@{init}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::init)()}}\label{a00007_a79c441ca7795b1ac62a54c192d3da5c6}
+\hypertarget{a00007_a3241c78a3f15e752b44460d325f25b83}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!is\-Sending@{is\-Sending}}
+\index{is\-Sending@{is\-Sending}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{is\-Sending}]{\setlength{\rightskip}{0pt plus 5cm}bool($\ast$ nrf24\-\_\-t\-::is\-Sending)()}}\label{a00007_a3241c78a3f15e752b44460d325f25b83}
+\hypertarget{a00007_afe102a7f4cbc16b5a6da60b4e8a6d79d}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!last\-Tx\-Status@{last\-Tx\-Status}}
+\index{last\-Tx\-Status@{last\-Tx\-Status}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{last\-Tx\-Status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t($\ast$ nrf24\-\_\-t\-::last\-Tx\-Status)()}}\label{a00007_afe102a7f4cbc16b5a6da60b4e8a6d79d}
+\hypertarget{a00007_a60f67c05f162a7f816d5032c3dfc66cb}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!paylength@{paylength}}
+\index{paylength@{paylength}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{paylength}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t($\ast$ nrf24\-\_\-t\-::paylength)()}}\label{a00007_a60f67c05f162a7f816d5032c3dfc66cb}
+\hypertarget{a00007_a169e5d060ccd36a6387c15bb49daf09f}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!payload\-\_\-len@{payload\-\_\-len}}
+\index{payload\-\_\-len@{payload\-\_\-len}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{payload\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t nrf24\-\_\-t\-::payload\-\_\-len}}\label{a00007_a169e5d060ccd36a6387c15bb49daf09f}
+\hypertarget{a00007_a0807619a6863f26e35f2f3d8162c0bc5}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!power\-Down@{power\-Down}}
+\index{power\-Down@{power\-Down}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{power\-Down}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::power\-Down)()}}\label{a00007_a0807619a6863f26e35f2f3d8162c0bc5}
+\hypertarget{a00007_a300889e71dea1fb9d56c564d805604d7}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!power\-Rx@{power\-Rx}}
+\index{power\-Rx@{power\-Rx}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{power\-Rx}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::power\-Rx)()}}\label{a00007_a300889e71dea1fb9d56c564d805604d7}
+\hypertarget{a00007_a917c8f18519ee2eb701cb9f5dc06ee5b}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!power\-Tx@{power\-Tx}}
+\index{power\-Tx@{power\-Tx}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{power\-Tx}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::power\-Tx)()}}\label{a00007_a917c8f18519ee2eb701cb9f5dc06ee5b}
+\hypertarget{a00007_a633b3f1cbb28dc44cf5cbef3a21e1a52}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!rx\-Addr@{rx\-Addr}}
+\index{rx\-Addr@{rx\-Addr}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{rx\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::rx\-Addr)(const {\bf byte} $\ast$const)}}\label{a00007_a633b3f1cbb28dc44cf5cbef3a21e1a52}
+\hypertarget{a00007_a3048d3b01b01b32cbbfb59745cab6e0a}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!rx\-Data@{rx\-Data}}
+\index{rx\-Data@{rx\-Data}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{rx\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::rx\-Data)({\bf byte} $\ast$const)}}\label{a00007_a3048d3b01b01b32cbbfb59745cab6e0a}
+\hypertarget{a00007_a4b6d281391ba445efcd076d653ce0af4}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!rx\-Waiting@{rx\-Waiting}}
+\index{rx\-Waiting@{rx\-Waiting}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{rx\-Waiting}]{\setlength{\rightskip}{0pt plus 5cm}bool($\ast$ nrf24\-\_\-t\-::rx\-Waiting)()}}\label{a00007_a4b6d281391ba445efcd076d653ce0af4}
+\hypertarget{a00007_a26bad46d3c1a94c7b197f08a1d4df3bf}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!tx\-Addr@{tx\-Addr}}
+\index{tx\-Addr@{tx\-Addr}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{tx\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::tx\-Addr)(const {\bf byte} $\ast$const)}}\label{a00007_a26bad46d3c1a94c7b197f08a1d4df3bf}
+\hypertarget{a00007_a90fd0d2431d43f6afc45de6ea9524eb1}{\index{nrf24\-\_\-t@{nrf24\-\_\-t}!tx\-Data@{tx\-Data}}
+\index{tx\-Data@{tx\-Data}!nrf24_t@{nrf24\-\_\-t}}
+\subsubsection[{tx\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ nrf24\-\_\-t\-::tx\-Data)(const {\bf byte} $\ast$const)}}\label{a00007_a90fd0d2431d43f6afc45de6ea9524eb1}
+
+
+The documentation for this struct was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{a00013}{nrf24.\-h}\end{DoxyCompactItemize}

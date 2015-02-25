@@ -1,0 +1,186 @@
+\hypertarget{a00018}{\section{Uart}
+\label{a00018}\index{Uart@{Uart}}
+}
+
+
+The access point for \hyperlink{a00009}{Uart} capabilities.  
+
+
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{a00018_ga2ee9c992930c7a52010c7a6abf0d316c}{uart\-\_\-t\-::tx\-Byte} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte})
+\begin{DoxyCompactList}\small\item\em Transmits a byte of information (unsigned 8 bit integer) via U\-A\-R\-T. \end{DoxyCompactList}\item 
+\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte}($\ast$ \hyperlink{a00018_ga114e9fef74ba99e9a09f89ed6d12da17}{uart\-\_\-t\-::rx\-Byte} )()
+\begin{DoxyCompactList}\small\item\em Recieves a byte of information (unsigned 8bit integer) via U\-A\-R\-T. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gaced0693da5d9c07328e6a325d6d7edee}{uart\-\_\-t\-::tx\-String} )(const char $\ast$const)
+\begin{DoxyCompactList}\small\item\em Transmit large amounts of signed 8bit integers, useful for logging to U\-A\-R\-T. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gafb6340cda56aa27bc772e4ceec334c82}{uart\-\_\-t\-::rx\-String} )(char $\ast$const, const uint8\-\_\-t)
+\begin{DoxyCompactList}\small\item\em ($\ast$ rx\-String)(char$\ast$ const, const uint8\-\_\-t) Recieve large amounts of signed 8bit integers, useful for commands via U\-A\-R\-T \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gac87718fed4c53bd319218fe925e52d14}{uart\-\_\-t\-::set\-Interrupts} )(const bool)
+\begin{DoxyCompactList}\small\item\em \-: Enable or diable the all the \hyperlink{a00009}{Uart} interrupts simultaneously. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_ga2c0c4fa765ead8abb7d84dcf6f39dbc2}{uart\-\_\-t\-::set\-Tx\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable U\-A\-R\-T data register empty interrupts and global interrupts if need be. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gadc49d7eacb5b108a10e3a940bd2db9b7}{uart\-\_\-t\-::set\-Rx\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable U\-A\-R\-T byte recieved interrupts and global interrupts if need be. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_gacfecb860e1dfd5b7bd9523fccb7e9f1e}{uart\-\_\-t\-::set\-Udre\-Interrupt} )(const bool)
+\begin{DoxyCompactList}\small\item\em Enable or diable the \hyperlink{a00009}{Uart} Data Register Empty flag. \end{DoxyCompactList}\item 
+\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte}($\ast$ \hyperlink{a00018_ga2c78990dd8babc3210665befa7ed7e4c}{uart\-\_\-t\-::transfer} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte})
+\begin{DoxyCompactList}\small\item\em Transmit a byte and wait for a response. Unessecary when interrupts are enabled. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{a00018_ga10aaaa60575c35598ae7033beafb5828}{uart\-\_\-t\-::multi\-Transfer} )(const \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const, \hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} $\ast$const, const uint8\-\_\-t $\ast$const )
+\begin{DoxyCompactList}\small\item\em Transmit large amounts of data by repeadtedly calling Uart.\-transfer(const byte) and wait for a response. Unessecary when interrupts are enabled. \end{DoxyCompactList}\item 
+bool \hyperlink{a00018_ga715d9d9174c62b5682150875555dac96}{uart\-\_\-t\-::printable\-Chars\-Only}
+\begin{DoxyCompactList}\small\item\em When set U\-A\-R\-T will only transmit and recieve characters the can be printed. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The access point for \hyperlink{a00009}{Uart} capabilities. 
+
+\subsection{Variable Documentation}
+\hypertarget{a00018_ga10aaaa60575c35598ae7033beafb5828}{\index{Uart@{Uart}!multi\-Transfer@{multi\-Transfer}}
+\index{multi\-Transfer@{multi\-Transfer}!Uart@{Uart}}
+\subsubsection[{multi\-Transfer}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::multi\-Transfer)(const {\bf byte} $\ast$const, {\bf byte} $\ast$, const uint8\-\_\-t $\ast$const)}}\label{a00018_ga10aaaa60575c35598ae7033beafb5828}
+
+
+Transmit large amounts of data by repeadtedly calling Uart.\-transfer(const byte) and wait for a response. Unessecary when interrupts are enabled. 
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{a00011_a82b52bf2b45e214a8f2100ebfdf1aee4}{byte} transfer(const byte) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em const} & byte$\ast$ const data The data to transmit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{a00018_ga715d9d9174c62b5682150875555dac96}{\index{Uart@{Uart}!printable\-Chars\-Only@{printable\-Chars\-Only}}
+\index{printable\-Chars\-Only@{printable\-Chars\-Only}!Uart@{Uart}}
+\subsubsection[{printable\-Chars\-Only}]{\setlength{\rightskip}{0pt plus 5cm}bool uart\-\_\-t\-::printable\-Chars\-Only}}\label{a00018_ga715d9d9174c62b5682150875555dac96}
+
+
+When set U\-A\-R\-T will only transmit and recieve characters the can be printed. 
+
+\hypertarget{a00018_ga114e9fef74ba99e9a09f89ed6d12da17}{\index{Uart@{Uart}!rx\-Byte@{rx\-Byte}}
+\index{rx\-Byte@{rx\-Byte}!Uart@{Uart}}
+\subsubsection[{rx\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte}($\ast$ uart\-\_\-t\-::rx\-Byte)()}}\label{a00018_ga114e9fef74ba99e9a09f89ed6d12da17}
+
+
+Recieves a byte of information (unsigned 8bit integer) via U\-A\-R\-T. 
+
+\begin{DoxyReturn}{Returns}
+byte 
+\end{DoxyReturn}
+\hypertarget{a00018_gafb6340cda56aa27bc772e4ceec334c82}{\index{Uart@{Uart}!rx\-String@{rx\-String}}
+\index{rx\-String@{rx\-String}!Uart@{Uart}}
+\subsubsection[{rx\-String}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$  uart\-\_\-t\-::rx\-String)(char $\ast$const, const uint8\-\_\-t)}}\label{a00018_gafb6340cda56aa27bc772e4ceec334c82}
+
+
+($\ast$ rx\-String)(char$\ast$ const, const uint8\-\_\-t) Recieve large amounts of signed 8bit integers, useful for commands via U\-A\-R\-T 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{a00018_gac87718fed4c53bd319218fe925e52d14}{\index{Uart@{Uart}!set\-Interrupts@{set\-Interrupts}}
+\index{set\-Interrupts@{set\-Interrupts}!Uart@{Uart}}
+\subsubsection[{set\-Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::set\-Interrupts)(const bool)}}\label{a00018_gac87718fed4c53bd319218fe925e52d14}
+
+
+\-: Enable or diable the all the \hyperlink{a00009}{Uart} interrupts simultaneously. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & const bool is\-Interrupts The switch to turn interrupts on and off \\
+\hline
+\end{DoxyParams}
+\hypertarget{a00018_gadc49d7eacb5b108a10e3a940bd2db9b7}{\index{Uart@{Uart}!set\-Rx\-Interrupt@{set\-Rx\-Interrupt}}
+\index{set\-Rx\-Interrupt@{set\-Rx\-Interrupt}!Uart@{Uart}}
+\subsubsection[{set\-Rx\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::set\-Rx\-Interrupt)(const bool)}}\label{a00018_gadc49d7eacb5b108a10e3a940bd2db9b7}
+
+
+Enable U\-A\-R\-T byte recieved interrupts and global interrupts if need be. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & bool is\-Interrupts The switch to turn interrupts on and off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{a00018_ga2c0c4fa765ead8abb7d84dcf6f39dbc2}{\index{Uart@{Uart}!set\-Tx\-Interrupt@{set\-Tx\-Interrupt}}
+\index{set\-Tx\-Interrupt@{set\-Tx\-Interrupt}!Uart@{Uart}}
+\subsubsection[{set\-Tx\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::set\-Tx\-Interrupt)(const bool)}}\label{a00018_ga2c0c4fa765ead8abb7d84dcf6f39dbc2}
+
+
+Enable U\-A\-R\-T data register empty interrupts and global interrupts if need be. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & bool is\-Interrupts The switch to turn interrupts on and off \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{a00018_gacfecb860e1dfd5b7bd9523fccb7e9f1e}{\index{Uart@{Uart}!set\-Udre\-Interrupt@{set\-Udre\-Interrupt}}
+\index{set\-Udre\-Interrupt@{set\-Udre\-Interrupt}!Uart@{Uart}}
+\subsubsection[{set\-Udre\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::set\-Udre\-Interrupt)(const bool)}}\label{a00018_gacfecb860e1dfd5b7bd9523fccb7e9f1e}
+
+
+Enable or diable the \hyperlink{a00009}{Uart} Data Register Empty flag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & bool is\-Interrupts The switch to turn interrupts on and off \\
+\hline
+\end{DoxyParams}
+\hypertarget{a00018_ga2c78990dd8babc3210665befa7ed7e4c}{\index{Uart@{Uart}!transfer@{transfer}}
+\index{transfer@{transfer}!Uart@{Uart}}
+\subsubsection[{transfer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte}($\ast$ uart\-\_\-t\-::transfer)(const {\bf byte})}}\label{a00018_ga2c78990dd8babc3210665befa7ed7e4c}
+
+
+Transmit a byte and wait for a response. Unessecary when interrupts are enabled. 
+
+\begin{DoxySeeAlso}{See Also}
+void multi\-Transfer(const byte$\ast$ const,byte$\ast$,const uint8\-\_\-t$\ast$ const) 
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em const} & byte$\ast$ const data The byte to transmit \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+byte 
+\end{DoxyReturn}
+\hypertarget{a00018_ga2ee9c992930c7a52010c7a6abf0d316c}{\index{Uart@{Uart}!tx\-Byte@{tx\-Byte}}
+\index{tx\-Byte@{tx\-Byte}!Uart@{Uart}}
+\subsubsection[{tx\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::tx\-Byte)(const {\bf byte})}}\label{a00018_ga2ee9c992930c7a52010c7a6abf0d316c}
+
+
+Transmits a byte of information (unsigned 8 bit integer) via U\-A\-R\-T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & byte const data The data to be transmited \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\hypertarget{a00018_gaced0693da5d9c07328e6a325d6d7edee}{\index{Uart@{Uart}!tx\-String@{tx\-String}}
+\index{tx\-String@{tx\-String}!Uart@{Uart}}
+\subsubsection[{tx\-String}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ uart\-\_\-t\-::tx\-String)(const char $\ast$const)}}\label{a00018_gaced0693da5d9c07328e6a325d6d7edee}
+
+
+Transmit large amounts of signed 8bit integers, useful for logging to U\-A\-R\-T. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em const} & char$\ast$ const string The string to be transmitted \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}

@@ -7,8 +7,6 @@
 include settings.inc
 MAIN := $(MAIN_FILE:.c=)
 DEPTH := ../../../
-
-
 # Add the current folders and files into the compile base
 SOURCE_    := cavrn
 BUILD_     := $(EXMPL_DEPTH)build
@@ -20,7 +18,6 @@ SRC       := $(CSRC) $(HSRC)
 OBJ       := $(patsubst $(SOURCE_)%.c,$(BUILD_)%.o,$(CSRC))
 INCLUDES  := $(addprefix -I,$(SRC_DIR)) -I$(SOURCE_)
 
-LIBNAME   := $(DEPTH)$(BUILD_)/libcavrn.a
 ### Include dirs, library dirs and definitions
 DEFS	:= F_CPU=$(F_OSC) $(CE_PIN_DEF) $(CE_DDR_DEF) BAUD=$(BAUD)
 
@@ -42,7 +39,7 @@ OUTPUT	:= ihex
 
 ### Programs to build project
 CC      := avr-gcc
-LD      := avr-ld
+LD      := avr-gcc
 OBJCOPY := avr-objcopy
 OBJDUMP := avr-objdump
 SIZE    := avr-size
@@ -62,7 +59,7 @@ CFLAGS += $(addprefix -D,$(DEFS))
 CFLAGS += -Wp,-M,-MP,-MT,-MF
 
 # Linker flags
-LDFLAGS += -L$(DEPTH)$(BUILD_) 
+LDFLAGS += -Wl,-lm -Wl,--gc-sections
 
 OCFLAGS := -R .eeprom -O $(OUTPUT)
 
@@ -74,8 +71,8 @@ all: version  $(MAIN).o $(MAIN).elf size
 
 $(MAIN).o: $(MAIN).c 
 	$(CC) -c $(CFLAGS)  $< -o $@
-$(MAIN).elf: $(MAIN).o $(LIBNAME)
-	$(LD) -o $@ $<  $(LDFLAGS) -lcavrn  
+$(MAIN).elf: $(MAIN).o 
+	$(CC) $(CFLAGS) $(LDFLAGS)  $< -o $@
 $(MAIN).hex: $(MAIN).elf
 	$(OBJCOPY) -O ihex $< $@
 

@@ -1,8 +1,8 @@
-.TH "uart.c" 3 "Thu Feb 19 2015" "Version 0.1.0" "Cavrn AVR8 Library" \" -*- nroff -*-
+.TH "Uart/uart.c" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-uart.c \- 
+Uart/uart.c \- 
 .SH SYNOPSIS
 .br
 .PP
@@ -21,9 +21,11 @@ uart.c \-
 .ti -1c
 .RI "char \fBuart_rxchr\fP ()"
 .br
+.RI "\fIRecieves a character of information (signed 8 bit integer) via UART\&. \fP"
 .ti -1c
 .RI "void \fBuart_txchr\fP (const char chr)"
 .br
+.RI "\fITransmits a character of information (signed 8bit integer) via UART\&. \fP"
 .ti -1c
 .RI "void \fBuart_txstr\fP (const char *const string)"
 .br
@@ -49,56 +51,6 @@ uart.c \-
 .RI "void \fBuart_multi_transfer\fP (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t *const len)"
 .br
 .in -1c
-.SH "Function Documentation"
-.PP 
-.SS "void uart_multi_transfer (const \fBbyte\fP *const dataout, \fBbyte\fP *const datain, const uint8_t *const len)"
-
-.PP
-Definition at line 165 of file uart\&.c\&.
-.SS "uint8_t uart_rx ()"
-
-.PP
-Definition at line 81 of file uart\&.c\&.
-.SS "char uart_rxchr ()"
-
-.PP
-Definition at line 85 of file uart\&.c\&.
-.SS "void uart_rxstr (char *const string, const uint8_t len)"
-
-.PP
-Definition at line 108 of file uart\&.c\&.
-.SS "void uart_set_interrupts (const bool isInterrupt)"
-
-.PP
-Definition at line 152 of file uart\&.c\&.
-.SS "void uart_set_rx_interrupt (const bool isInterrupt)"
-
-.PP
-Definition at line 129 of file uart\&.c\&.
-.SS "void uart_set_tx_interrupt (const bool isInterrupt)"
-
-.PP
-Definition at line 117 of file uart\&.c\&.
-.SS "void uart_set_udre_interrupt (const bool isInterrupt)"
-
-.PP
-Definition at line 141 of file uart\&.c\&.
-.SS "\fBbyte\fP uart_transfer (const \fBbyte\fP data)"
-
-.PP
-Definition at line 159 of file uart\&.c\&.
-.SS "void uart_tx (const \fBbyte\fP data)"
-
-.PP
-Definition at line 74 of file uart\&.c\&.
-.SS "void uart_txchr (const char chr)"
-
-.PP
-Definition at line 91 of file uart\&.c\&.
-.SS "void uart_txstr (const char *const string)"
-
-.PP
-Definition at line 100 of file uart\&.c\&.
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn AVR8 Library from the source code\&.
+Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
