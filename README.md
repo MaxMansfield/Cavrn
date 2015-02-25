@@ -1,5 +1,8 @@
 ![Cavrn](http://i.imgur.com/EJCUbXa.png) 
 # An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C.
+[![Build Status](https://travis-ci.org/MaxMansfield/Cavrn.svg?branch=test)](https://travis-ci.org/MaxMansfield/Cavrn)
+
+
 ##### Version: 0.1.0 (*Sedimentary Olm*)
 ##### Major Version: 0 (Sedimentary)   
 ##### Minor Version: 1.0  (Olm)
