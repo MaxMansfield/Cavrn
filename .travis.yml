@@ -1,10 +1,16 @@
 language: c
 before_install: 
-- sudo apt-get update && sudo apt-get install gcc-avr avr-libc
+- sudo apt-get update 
+
+install:
+- sudo apt-get install gcc-avr avr-libc
+
+compiler:
+- avr-gcc
 
 branches:
   only:
   - master
   - test
 
-script: cd $TRAVIS_BUILD_DIR && make examples && make clean
+script: cd $TRAVIS_BUILD_DIR && ./travis/cibuild.sh

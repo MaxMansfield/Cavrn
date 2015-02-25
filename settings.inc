@@ -2,7 +2,7 @@
 MODULES   := Uart Spi Nrf24
 
 ### Choose your device
-DEVICE  := atmega328p
+DEVICE  := atmega103
 
 ### The devices speed in Hertz 
 F_OSC   := 16000000UL

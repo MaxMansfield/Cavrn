@@ -1,7 +1,7 @@
 SRC_NAME   := cavrn
 LIBNAME    := lib$(SRC_NAME).a
 ARCH       := $(shell uname -m)
-
+SUPPORTED  := atmega103 atmega328p
 
 # Add the current folders and files into the compile base
 SOURCE_    := src
