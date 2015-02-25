@@ -1,0 +1,10 @@
+language: c
+before_install: 
+- sudo apt-get update && sudo apt-get install gcc-avr avr-libc
+
+branches:
+  only:
+  - master
+  - test
+
+script: cd $TRAVIS_BUILD_DIR && make examples && make clean
