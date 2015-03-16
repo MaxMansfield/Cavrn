@@ -61,7 +61,7 @@ MAKE    := make
 NM      := avr-nm
 
 # Flags for C files
-CFLAGS += -fdata-sections -ffunction-sections
+CFLAGS += -fdata-sections -ffunction-sections -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums 
 CFLAGS += -Wno-deprecated-declarations -D__PROG_TYPES_COMPAT__
 CFLAGS += -Wl,--gc-sections
 CFLAGS += -Wall
@@ -74,7 +74,7 @@ CFLAGS += $(INCLUDES)
 CFLAGS += $(addprefix -D,$(DEFS))
 CFLAGS += -Wp,-M,-MP,-MT,-MF
 
-# Linker flags
-LDFLAGS += rcs
 
+LDFLAGS := rcs
 OCFLAGS := -R .eeprom -O $(OUTPUT)
+

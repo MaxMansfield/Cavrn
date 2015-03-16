@@ -1,30 +1,36 @@
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 # Makefile for the Cavrn AVR8 library                                         #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
-# Version: 1.2                                                                #
-# Max Mansfield on February 18, 2015                                          #
+# Version: 1.3                                                                #
+# Max Mansfield on March 16, 2015                                          #
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 include settings.inc         # settings of the build to be edited by the user
 include cavrn_config.inc     # build configuration options that the user doesnt need to touch
 
 .PHONY: all dirs obj staticlib success version upload console clean
-all: version dirs obj success 
+
+# Call the install script to integrate with the package manager
+# then call make build from the distros package
+all:
+	./.cavrn-install.sh -s "$(SRC)" 
+
+build: version dirs obj success
 
 $(BUILD_DIR):  
 	@mkdir -p $@
 dirs: $(BUILD_DIR)
 
-$(OBJ):
+$(OBJ): dirs
 	@echo
 	@echo [Creating Object File $(INFO) ] $@ [compiling]
 	@echo
-	$(CC) $(CFLAGS) -c "$(SOURCE_)$(shell echo '$(@:.o=.c)'  | sed 's/$(BUILD_)//g')" -o $@
+	$(CC) $(CFLAGS)  -c "$(SOURCE_)$(shell echo '$(@:.o=.c)'  | sed 's/$(BUILD_)//g')" -o $@
 	@echo
 	@echo [Object File Created] $@  [from] "$(SOURCE_)$(shell echo '$(@:.o=.c)'  | sed 's/$(BUILD_)//g')" [complete]
 	@echo	
 obj: $(OBJ)
 
-$(LIBNAME): $(OBJ) $(CSRC)
+$(LIBNAME): dirs obj $(OBJ) $(CSRC)
 	@echo
 	@echo
 	$(LD) $(LDFLAGS) $(BUILD_)/$(LIBNAME) $(OBJ) 
@@ -53,6 +59,7 @@ examples: exampledirs
 	@echo Example folders created. Feel free to mess with the code and run make in the directory to build your code
 
 install: all
+
 
 success: $(BUILD_DIR) $(OBJ) $(LIBNAME)
 	@echo
