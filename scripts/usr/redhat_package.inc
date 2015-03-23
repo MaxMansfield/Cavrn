@@ -1,24 +1,36 @@
 	source "scripts/inc/definitions.inc"
 
-	need=""
-		printf "${yellow}Checking build dependencies with yum...${endcolor}\n"
-		for dep in "${RED_MAKE_DEPS[@]} qt5-*"
-		do		  
-		    # quiet then check for errors
-		    yum list installed "$dep" &> /dev/null
-		    if [ "$?" != 0 ];
-		    then
-			need="$need$dep "
-		    fi    
-		done
 
-if [ -n "$need" ];
-then
-	check_err sudo yum install "$need" -y
-fi 
+	if [ "$DISTRO" == "$CENTOS" ];
+	then
+	    need=""		  
+	    # quiet then check for errors
+	    yum list installed epel-release &> /dev/null
+	    if [ "$?" != 0 ];
+	    then
+		check_err sudo yum install epel-release -y
+	    fi    
+	fi
+
+	need=""
+	printf "${yellow}Checking build dependencies with yum...${endcolor}\n"
+	for dep in "${RED_MAKE_DEPS[@]} qt5-*"
+	do		  
+	    # quiet then check for errors
+	    yum list installed "$dep" &> /dev/null
+	    if [ "$?" != 0 ];
+	    then
+		need="$need$dep "
+	    fi    
+	done
+
+	if [ -n "$need" ];
+	then
+	    check_err sudo yum install "$need" -y
+	fi 
 	# build dirs
 	mkdir -p ${TOPDIR}/rpmbuild/{BUILD,SPECS,BUILDROOT,SRPMS,RPMS}
-		
+	
 	
 	# spec file
 	echo '
