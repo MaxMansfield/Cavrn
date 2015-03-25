@@ -1,8 +1,8 @@
-.TH "cavrn.h" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.TH "src/cavrn.h" 3 "Tue Mar 24 2015" "Version 0.2.3" "Cavrn" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-cavrn.h \- The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&.  
+src/cavrn.h \- The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&. Check the examples page for more detail\&.  
 
 .SH SYNOPSIS
 .br
@@ -91,30 +91,15 @@ cavrn.h \- The main file which defines import macros and contains the \fBCavrn\f
 .br
 .RI "\fIUse to represent a data direction register on your AVR\&. \fP"
 .in -1c
-.SS "Functions"
-
-.in +1c
-.ti -1c
-.RI "static void \fBcavrn_set_global_interrupts\fP (const bool isInterupts)"
-.br
-.RI "\fI: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. \fP"
-.in -1c
-.SS "Variables"
-
-.in +1c
-.ti -1c
-.RI "static \fBcavrn_t\fP \fBCavrn\fP"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
-The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global interrupts and other functions\&. 
+The main file which defines import macros and contains the \fBCavrn\fP structure which is used for enabling and disabling global functions in order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&. Check the examples page for more detail\&. 
 
 
 .PP
 \fBVersion:\fP
 .RS 4
-0\&.1\&.0 
+0\&.1\&.0 (Sedimentary Olm) 
 .RE
 .PP
 \fBAuthor:\fP
@@ -129,65 +114,12 @@ GNU Public License v2
 .PP
 \fBDate:\fP
 .RS 4
-February 19, 2015 In order to control global facilities which have no place in the other modules as well as unify files and apply various macros, \fBCavrn\fP is provided\&. Use the \fBCavrn\fP struct instead of calling its methods directly\&.
+February 19, 2015 
 .RE
 .PP
-Ex\&. 
-.PP
-.nf
-Cavrn\&.setInterrupts(true); // Set globally\&. Also can use ON,OFF
 
-.fi
-.PP
- 
-.SH "Macro Definition Documentation"
-.PP 
-.SS "#define HIGH   0xFF"
-
-.PP
-HIGH as 255 or true\&. 
-.SS "#define IN   0x00"
-
-.PP
-IN as 0 or false\&. 
-.SS "#define interruptsOff()   cli()"
-
-.PP
-A more readable function for clearing global interupts\&. 
-.SS "#define interruptsOn()   sei()"
-
-.PP
-A more readable function for setting global interupts\&. 
-.SS "#define isprint(c)   (c>=0x20 && c<=0x7E)"
-
-.PP
-Decides if a character is a printable or not\&. Very useful for transmitting strings\&. Taken from the C std library but I didn't want to include the entire file just for this function\&. 
-.SS "#define LOW   0x00"
-
-.PP
-LOW as 0 or false\&. 
-.SS "#define OFF   0x00"
-
-.PP
-OFF as 0 or false\&. 
-.SS "#define ON   0x01"
-
-.PP
-ON as 1 or true\&. 
-.SS "#define OUT   0x01"
-
-.PP
-OUT as 1 or true\&. 
 .SH "Typedef Documentation"
 .PP 
-.SS "\fBbyte\fP"
-
-.PP
-Use a byte when you are representing raw 8 bit data like an SPI transfer, instead of integer operations like incrementing,adding,subtracting,switching on, etc\&.\&.\&. 
-.SS "\fBddr\fP"
-
-.PP
-Use to represent a data direction register on your AVR\&. 
 .SS "\fBpin\fP"
 
 .PP
@@ -210,41 +142,6 @@ Use a port to represent an 8 bit data input location, specifically a port on you
 .RE
 .PP
 
-.SS "\fBword\fP"
-
-.PP
-Use the word typedef when you mean to refer to 16 bit of information instead of something that would requitre an integer operation\&. 
-.SH "Function Documentation"
-.PP 
-.SS "static void cavrn_set_global_interrupts (const bool isInterupts)\fC [inline]\fP, \fC [static]\fP"
-
-.PP
-: Set interrupts on/off\&. To be used via a function pointer in the \fBCavrn\fP struct\&. Sets \fBcavrn_t\&.interruptsEnabled\fP on/off and then calls the right function to initialize interrupts\&.\&. 
-.PP
-.nf
-1 Cavrn\&.setInterrupts(OFF); //Set global interrupts off
-
-.fi
-.PP
- 
-.PP
-\fBParameters:\fP
-.RS 4
-\fI\fP 
-.RE
-.PP
-
-.SH "Variable Documentation"
-.PP 
-.SS "\fBcavrn_t\fP \fBCavrn\fP\fC [static]\fP"
-\fBInitial value:\fP
-.PP
-.nf
-= {
-  \&.setInterrupts = &cavrn_set_global_interrupts,
-  \&.interruptsEnabled = false
-}
-.fi
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
+Generated automatically by Doxygen for Cavrn from the source code\&.

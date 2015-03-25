@@ -1,4 +1,4 @@
-.TH "uart_t" 3 "Thu Feb 19 2015" "Version 0.1" "Cavrn Sedimentary" \" -*- nroff -*-
+.TH "uart_t" 3 "Tue Mar 24 2015" "Version 0.2.3" "Cavrn" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -6,8 +6,6 @@ uart_t \-
 .SH SYNOPSIS
 .br
 .PP
-.PP
-\fC#include <uart\&.h>\fP
 .SS "Data Fields"
 
 .in +1c
@@ -26,7 +24,7 @@ uart_t \-
 .ti -1c
 .RI "void(* \fBrxString\fP )(char *const, const uint8_t)"
 .br
-.RI "\fIrxString(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
+.RI "\fI(* rxString)(char* const, const uint8_t) Recieve large amounts of signed 8bit integers, useful for commands via UART \fP"
 .ti -1c
 .RI "void(* \fBsetInterrupts\fP )(const bool)"
 .br
@@ -59,4 +57,4 @@ uart_t \-
 
 .SH "Author"
 .PP 
-Generated automatically by Doxygen for Cavrn Sedimentary from the source code\&.
+Generated automatically by Doxygen for Cavrn from the source code\&.

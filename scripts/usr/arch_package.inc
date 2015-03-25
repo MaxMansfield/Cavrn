@@ -1,8 +1,8 @@
 echo '
 #Maintainer:'$MAINTAINER' <'$MAINTAINER_EMAIL'>
-_pkgname='$NAME'
-pkgver='$VER'
-pkgrel='$REL'
+_pkgname='${NAME}'
+pkgver='${VER}'
+pkgrel='${REL}'
 pkgname=$_pkgname
 pkgdesc="Any easy to use AVR library, written in pure C."
 arch=(any)

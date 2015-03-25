@@ -1,0 +1,144 @@
+.TH "md__r_e_a_d_m_e" 3 "Tue Mar 24 2015" "Version 0.2.3" "Cavrn" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md__r_e_a_d_m_e \- README 
+ 
+.SH "An easy to use and extremely flexible library for AVR Microcontrollers, written in pure C\&."
+.PP
+.PP
+\fC![Build Status](https://travis-ci\&.org/MaxMansfield/Cavrn\&.svg?branch=test)\fP
+.PP
+.SS "Version: 0\&.1\&.0 (\fISedimentary Olm\fP)"
+.PP
+.SS "Major Version: 0 (Sedimentary)"
+.PP
+.SS "Minor Version: 1\&.0 (Olm)"
+.PP
+.SS "Working Modules: \fBUart\fP"
+.PP
+.SS "Modules in Work: SPI Nrf24"
+.PP
+.SS "Future Modules: I2C W5100 SSD1306"
+.PP
+.SS "Supported MCUs: ATmega328p, ATmega103"
+.PP
+.SS "Coming Soon: ATtiny85"
+.PP
+\fBCavrn\fP aims to be a fully featured AVR library that is optimized for ease of use while still retaining flexibility per device and fits in as a pure C Arduino-esque library\&.
+.PP
+Each available function (\fBUart\fP,Spi,Nrf24) which I'll be calling a module uses \fCstatic struct\fPs full of function pointers to represent each module an its capabilities\&. A module is then called by the module name and then the function, similar to an object\&.
+.PP
+.PP
+.nf
+#include "cavrn/uart\&.h"
+
+int main (void)
+{
+   /* initialize UART in full duplex */
+    Uart\&.init(ASYNC_MODE);
+
+    /* only send/recieve  printable char when using Uart\&.txString and Uart\&.rxString() */
+    Uart\&.printableCharsOnly = false;
+
+    /* global interrupts Off */
+    Cavrn\&.setInterrupts(OFF);
+
+    /* enables global interrupts and enables Uart TX interrupts */
+    Uart\&.setTxInterrupt(ON);
+
+    /* byte is defined as part of Cavrn check the docs for more\&. */
+    byte count = 0;
+    while(1){
+       char text[32];
+       sprinf(text,"Run number %d",count++);
+       Uart\&.txString(text);
+       Uart\&.txByte("A");
+    }
+    return 0;
+}
+.fi
+.PP
+.PP
+\fBCavrn\fP library is built on avr-libc, compiled with avr-gcc and meant to be easy to use while still retaining flexibility per mmcu for professional situations\&.
+.PP
+.SH "Path of Knowledge"
+.PP
+.PP
+Here is a listing of the documentation you may find helpful\&. You can either check it out now or read the rest of this page, either way\&.\&.\&.I'll be here\&.
+.PP
+Content Link  __I\&. Starting__ \fCCavrn Docs - Getting Started\fP __II\&. Building__ \fCCavrn Docs - Build Cavrn\fP __III\&. Installing__ \fCCavrn Docs - Install Cavrn\fP __IV\&. Examples__ \fCCavrn Docs - Examples\fP __V\&. Modules__ \fCCavrn Docs - Modules\fP __VI\&. Versions__ \fCCavrn Docs - Versioning\fP __VII\&. References__ \fCCavrn Docs - Inspiration\fP 
+.PP
+.SH "Requirements"
+.PP
+.PP
+.SS "Operating System:"
+.PP
+.IP "\(bu" 2
+\fCLinux\fP: Yes
+.IP "\(bu" 2
+\fCOS X\fP: Not Tested
+.IP "\(bu" 2
+\fCWindows\fP: Not Tested
+.PP
+.PP
+.SS "Device:"
+.PP
+.IP "\(bu" 2
+\fCAtmel AVR ATmega328p\fP
+.IP "\(bu" 2
+\fCAtmel AVR ATmega103\fP
+.PP
+.PP
+.SS "Build Tools:"
+.PP
+.IP "\(bu" 2
+\fCavr-gcc build suite\fP
+.IP "  \(bu" 4
+\fCavr-ld\fP, avr-sz, etc\&.\&.\&.
+.PP
+
+.IP "\(bu" 2
+\fCAVR libc\fP
+.IP "\(bu" 2
+\fCmake\fP
+.PP
+.PP
+To upload you will need a software programmer or/and ICSP of your choice but if you install \fCavrdude\fP you can then run \fCmake upload\fP if you have configured you serial port in the \fCsettings\&.inc\fP file\&.\&.\&.more on that later if you haven't already browsed the documentation\&.
+.PP
+To view serial data you can install a serial monitor called screen and type \fCmake console\fP but for long term use I recommend minicom and to configure your own profiles for it\&.
+.PP
+At the moment a board with an Atmega328p or Atmega103 is required, but this will change soon\&. If you have the interest, it would be very simple to add defines for a board that you own\&. Simply define each pin that will be used in the appropriate header file\&.
+.PP
+Contact me if you ever need help\&.
+.PP
+.SH "Quick Start"
+.PP
+.PP
+.SS "If you don't want to read docs (or even if you did) and you want to try the library really quick the best option is to build the example directory so make sure you have all the requirements and check it out\&.\&.\&."
+.PP
+For the time being here's the build process:
+.PP
+.IP "1." 4
+Download the repo and change \fCsettings\&.inc\fP to fit your needs\&. (note: you don't need to change any other file)\&.
+.IP "2." 4
+Run \fCmake examples\fP
+.IP "3." 4
+That will build the library and populate the \fCexamples/\fP folder\&.
+.IP "4." 4
+The built objects and a static library file will be in the newly created \fCbuild/\fP directory
+.IP "5." 4
+Change into the \fCexamples/\fP directory and choose a module, then choose an example type\&.
+.IP "6." 4
+Run \fCmake\fP in the example folder you picked
+.PP
+.PP
+You will now have a \fCmain\&.hex\fP file to upload to an AVR and if you have \fCavrdude\fP installed and configured then you can type \fCmake upload\fP\&.
+.PP
+.SH "Using \fBCavrn\fP"
+.PP
+.PP
+To use \fBCavrn\fP include the source and objects or static library files in you project directory or link to them\&. At the moment this is not the easiest part of the process by any means but it has only been a few days, give it time and I'll have a killer install chain\&.
+.PP
+.SS "Let Me Know if you ever have an issue: max.m.mansfield@gmail.com"
+
