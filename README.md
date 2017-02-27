@@ -37,7 +37,7 @@ int main (void)
     byte count = 0;
     while(1){
        char text[32];
-       sprinf(text,"Run number %d",count++);
+       sprintf(text,"Run number %d",count++);
        Uart.txString(text);
        Uart.txByte("A");
     }
@@ -66,7 +66,7 @@ At the moment there is not an install script to create a shared library file and
 For the time being here's the build process:
 
 1. Download the repo and change `settings.inc` to fit your needs. (note: you don't need to change any other file like `cavrn_config.inc` or the `Makefile`). 
-2. Run `make -j 2` 
+2. Run `make -j $(nproc)` 
 3. The built objects and a static library file will be in the newly created `build/` directory
 
 ## Building Examples
